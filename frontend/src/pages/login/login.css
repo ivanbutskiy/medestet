@@ -1,0 +1,17 @@
+.jumbotron .display-4 {
+    color: rgba(0, 0, 0, 0.8);
+    font-family: Roboto;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.jumbotron .alert {
+    transition: all 0.4s;
+}
+
+.login p {
+    font-family: Roboto; 
+}
+
+.login form .form-group label {
+    font-family: Roboto;
+}

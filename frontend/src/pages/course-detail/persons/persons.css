@@ -1,0 +1,16 @@
+.persons {
+    margin-top: 5rem;
+    font-family: Roboto;
+}
+
+.bg-gradient-2 {
+    background: #007991;
+    background: -webkit-linear-gradient(to right, #007991, #78ffd6);
+    background: linear-gradient(to right, #007991, #78ffd6);
+}
+
+.persons .persons-header {
+    color: white;
+    font-size: 3rem;
+    text-shadow: 1px 1px 1rem #464646;
+}

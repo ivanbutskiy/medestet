@@ -1,0 +1,20 @@
+.person-item {
+    min-height: 300px;
+    /* margin-left: 1rem;
+    margin-left: 1rem; */
+}
+
+.person-item h5 {
+    font-family: Roboto;
+    color: #464646;
+}
+
+.person-item p {
+    color: #464646;
+    font-family: Roboto;
+}
+
+.person-item img {
+    border-radius: 50%;
+    box-shadow: 1px 1px 10px rgba(0,0,0,0.3);
+}

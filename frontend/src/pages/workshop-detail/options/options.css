@@ -1,0 +1,18 @@
+.options {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    border-radius: 6.4px;
+    background: #00B4DB;
+    background: -webkit-linear-gradient(to right, #0083B0, #00B4DB);
+    background: linear-gradient(to right, #0083B0, #00B4DB);
+    color: #514B64;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+}
+
+.options h2 {
+    padding-top: 3rem;
+    margin-left: 3rem;
+    color: white;
+    font-size: 3rem;
+    text-shadow: 1px 1px 1rem #464646;
+}

@@ -1,0 +1,29 @@
+.courses-list {
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.courses-list .error-message h2 {
+    color: #464646;
+}
+
+.empty-courses-list {
+    min-height: 400px;
+}
+
+.courses-list .empty-courses-list {
+    color: #464646;
+    text-align: center;
+}
+
+.courses-list .empty-courses-list p {
+    font-size: 16px;
+    font-family: Roboto;
+    margin-top: 2rem;
+}
+
+.courses-list .empty-courses-list i {
+    font-size: 56px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}

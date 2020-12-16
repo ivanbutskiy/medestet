@@ -1,0 +1,48 @@
+.program {
+    margin-top: 5rem;
+    background: linear-gradient(to left, #dce35b, #45b649);
+    border-radius: 6.4px;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+}
+
+.nav-pills-custom .nav-link {
+    color: #aaa;
+    background: #fff;
+    position: relative;
+}
+
+.nav-pills-custom .nav-link.active {
+    color: #45b649;
+    background: #fff;
+}
+
+@media (min-width: 992px) {
+    .nav-pills-custom .nav-link::before {
+        content: '';
+        display: block;
+        border-top: 8px solid transparent;
+        border-left: 10px solid #fff;
+        border-bottom: 8px solid transparent;
+        position: absolute;
+        top: 50%;
+        right: -10px;
+        transform: translateY(-50%);
+        opacity: 0;
+    }
+}
+
+.nav-pills-custom .nav-link.active::before {
+    opacity: 1;
+}
+
+.program h2 {
+    padding-top: 3rem;
+    margin-left: 3rem;
+    color: white;
+    font-size: 3rem;
+    text-shadow: 1px 1px 1rem #464646;
+}
+
+.program .row {
+    padding-bottom: 5rem;
+}

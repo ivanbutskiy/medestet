@@ -1,0 +1,17 @@
+.container .short-description {
+    margin-top: 3rem;
+}
+
+.container .short-description .col-md-6 p {
+    font-family: Roboto;
+    padding: 0 0 0 30px;
+    font-size: 16px;
+    color: #464646;
+}
+
+.container .short-description .short-description-image img {
+    max-width: 300px;
+    max-height: 300px;
+    border-radius: 6.4px;
+    box-shadow: 1px 1px 10px rgba(0,0,0,0.3)
+}
