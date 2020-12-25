@@ -48,6 +48,32 @@ class MedestetService {
         return result;
     };
 
+    getShopCategoriesList = () => {
+        const result = this.getResource(`/api/shop/categories/`);
+        return result;
+    };
+
+    getAllProducts = (page=undefined) => {
+        if (page) {
+            const result = this.getResource(`/api/shop/products/?page=${page}`);
+            return result;
+        } else {
+            const result = this.getResource(`/api/shop/products/`);
+            return result;
+        };
+    };
+
+    getProductsByCategory = (categorySlug, page=undefined) => {
+
+        if (page) {
+            const result = this.getResource(`/api/shop/categories/${categorySlug}/?page=${page}`);
+            return result;
+        } else {
+            const result = this.getResource(`/api/shop/categories/${categorySlug}/`);
+            return result;
+        };
+    };
+
 };
 
 export default MedestetService;

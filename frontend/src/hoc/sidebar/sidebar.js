@@ -46,10 +46,11 @@ class Sidebar extends Component {
                         </li>
                         
                         <li className='nav-item'>
-                        <a href='/' className='nav-link text-dark'>
-                                    <i className='fa fa-line-chart mr-3 text-primary fa-fw'></i>
-                                    Line charts
-                                </a>
+                            <Link to='/shop/' 
+                                className='nav-link text-dark'>
+                                <i className='fas fa-store mr-3 text-primary fa-fw'></i>
+                                Магазин
+                            </Link>
                         </li>
                     </ul>
                 </div>

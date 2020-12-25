@@ -1,8 +1,60 @@
 from django.urls import path
-from .views import CategoriesListView, ProductListView
+from .views import (
+    ProductsList, 
+    ProductDetailView, 
+    CategoriesListView, 
+    ProductsListByCategory
+)
 
 
 urlpatterns = [
-    path('', CategoriesListView.as_view()),
-    path('<str:category_slug>/', ProductListView.as_view()),
+    path('products/', ProductsList.as_view()),    # show all products list
+    path('products/<str:slug>/', ProductDetailView.as_view()),    # show detail product
+    path('categories/', CategoriesListView.as_view()),    # show categories list
+    path('categories/<str:category_slug>/', ProductsListByCategory.as_view()),    # show products by category
 ]
+
+
+# TODO в заглушку добавить косметолога в халате
+# TODO о сертификации, о заказах на Viber
+# TODO добавить OAuth
+# TODO добавить карту
+
+# TODO в место проведения для семинаров добавить контакты для связи
+# TODO топовые ролики на YouTube в блок Medetation (как на картинке с сайтом, что я Юле сбрасывал в Телегу)
+# TODO топовые курсы, вебинары, семинары должны
+# TODO добавить телефон при регистрации и через OAuth
+# TODO после подтверждения сертификата уведомить клиента, что его акк сертифицирован и цены доступны
+
+
+# Магазин
+
+
+# TODO при заказе товара скидка в стоимости при определенном количестве (не в процентах, а как на проме)
+# TODO если нет сертификата, то жмет кнопку "узнать цену", его перенаправляет на страницу регистрации и всплывает окошко, что вам будет возможность просматривать цены после регистрации и подтверждения сертификата
+# TODO накопительная система при покупке товаров (продукции) от 5к человек получает скидку 3%, а при 18к - 5%
+# TODO разделить цену на сертифицированных (дешевле) и для домашнего ухода
+# TODO минимальный заказ для розницы (для домашки) от 250 грн. Товары для всех, не только для косметологов
+
+# TODO выгружать участников семинаров, курсов и вебинаров
+# TODO выгрузка пользователей в excel
+
+# TODO добавить list_display и все остальное в accounts
+
+# TODO дать права доступа сотрудникам: смотреть прайсы
+
+# TODO подключить Google Analytics и Facebook pixels
+
+# TODO Добавить социальные кнопки 
+# TODO добавить Facebook messenger чат-бот
+
+# TODO не надо уведомление о регистрации, добавить через почту восстановление пароля, уведомление о сертификации
+
+# Юрисдикция
+
+# TODO страница cookies и конфиденциальности, а также компонент при заходе на сайт для неаутентифицированных
+# TODO добавить скролл с модальным окном для условий конфиденциальности и отдельную страницу
+
+
+
+# TODO добавить промокод

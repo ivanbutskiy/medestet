@@ -1,0 +1,13 @@
+.error-banner i {
+    color: #78c2ad;
+    font-size: 10rem;
+}
+
+.error-banner h2 {
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.error-banner p {
+    color: rgba(0, 0, 0, 0.8);
+    font-family: Roboto;
+}

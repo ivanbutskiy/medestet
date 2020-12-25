@@ -1,20 +1,8 @@
-.spinner-border {
-    /* margin-top: 5rem; */
-    margin: auto 0;
+.spinner .spinner-content .spinner-border {
     width: 5rem;
     height: 5rem;
 }
 
-.spinner {
-    background-color: white;
-    border-radius: 6.4px;
-    height: 100vh;
-    margin: 0 auto;
-    width: 100%;
-}
-
-.spinner h1 {
-    font-family: Roboto;
-    padding-bottom: 5rem;
-    color: #464646;
+.spinner .spinner-content h2 {
+    color: rgba(0, 0, 0, 0.7);
 }
