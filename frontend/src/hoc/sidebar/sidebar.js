@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import UserPanel from '../user-panel';
 import GuestPanel from '../guest-panel';
 import Userbar from '../userbar';
+import Guestbar from '../guestbar';
 
 import './sidebar.css';
 
@@ -18,7 +19,7 @@ class Sidebar extends Component {
                 
                     { this.props.isAuthenticated ? <UserPanel/> : <GuestPanel/> }
 
-                    { this.props.isAuthenticated ? <Userbar /> : null }
+                    { this.props.isAuthenticated ? <Userbar /> : <Guestbar /> }
 
                     <p className='text-gray text-uppercase px-3 small py-4 mb-0'>Сервисы MedEstet</p>
 

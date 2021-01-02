@@ -1,0 +1,13 @@
+.carousel-product-images a span i {
+    color: black;
+    font-size: 1.5rem;
+}
+
+.carousel-product-images .carousel-indicators li {
+    color: red
+}
+
+.carousel-product-images img {
+    height: 350px;
+    object-fit: contain;
+}

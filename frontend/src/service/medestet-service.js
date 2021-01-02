@@ -74,6 +74,11 @@ class MedestetService {
         };
     };
 
+    getProductDetail = (slug) => {
+        const result = this.getResource(`/api/shop/products/${ slug }/`);
+        return result;
+    };
+
 };
 
 export default MedestetService;

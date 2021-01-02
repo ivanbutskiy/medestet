@@ -9,10 +9,13 @@ User = get_user_model()
 class UserCreateSerializer(UserCreateSerializer):
     class Meta(UserCreateSerializer.Meta):
         model = User
-        fields = ('id', 'email', 'first_name', 'last_name', 'password')
+        fields = ('id', 'email', 'first_name', 'last_name', 'phone', 'password')
 
 
 class UserDetailSerializer(serializers.ModelSerializer):
+
+    discount_percent = serializers.IntegerField()
+
     class Meta:
         model = User
         fields = '__all__'

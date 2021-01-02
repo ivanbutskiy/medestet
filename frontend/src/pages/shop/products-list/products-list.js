@@ -138,9 +138,7 @@ class ProductsList extends Component {
         if (loading) {
             return (
                 <div className='card shadow-sm pt-3 pb-3 product-list'>
-                    <div className='container'>
-                        <Spinner />
-                    </div>
+                    <Spinner />
                 </div>
             );
         };

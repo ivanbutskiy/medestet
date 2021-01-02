@@ -6,8 +6,8 @@ class Spinner extends Component {
 
     render() {
         return (
-            <div className='spinner text-center align-items-center'>
-                <div className='spinner-content'>
+            <div className='spinner text-center'>
+                <div className='spinner-content align-items-center'>
                     <div className='spinner-border text-info' role='status'>
                         <span className='sr-only'>Loading...</span>
                     </div>

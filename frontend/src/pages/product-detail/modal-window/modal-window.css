@@ -1,0 +1,39 @@
+.popup-base {
+    position: fixed;
+    min-height: 200px;
+    z-index: 1;
+}
+
+.popup-base .toast {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+.popup-base .toast .toast-header {
+    background-color: #464646;
+}
+
+.popup-base .toast .toast-header strong {
+    font-weight: normal;
+    color: white;
+    font-size: 18px;
+}
+
+.popup-base .toast .toast-header i {
+    color:#78c2ad;
+    font-size: 18px;
+}
+
+.popup-base .toast .toast-body i {
+    margin-top: 1rem;
+    color: #78c2ad;
+    font-size: 54px;
+}
+
+.popup-base .toast .toast-body p {
+    margin-top: 1rem;
+    color: rgba(0, 0, 0, 0.9);
+    font-family: Roboto;
+    font-size: 18px;
+}

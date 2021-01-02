@@ -20,10 +20,17 @@ const initialState = {
     access: localStorage.getItem('access'),
     refresh: localStorage.getItem('refresg'),
     isAuthenticated: null,
+    id: '',
     firstName: '',
     lastName: '',
+    patronym: '',
     email: '',
-    id: ''
+    photo: '',
+    buyCount: '',
+    buySum: '',
+    phone: '',
+    certificate: '',
+    isCertified: '',
 };
 
 const authReducer = (state = initialState, action) => {
@@ -55,10 +62,18 @@ const authReducer = (state = initialState, action) => {
         case USER_LOADED_SUCCESS:
             return {
                 ...state,
+
                 firstName: action.payload.first_name,
                 lastName: action.payload.last_name,
+                patronym: action.payload.patronym,
                 email: action.payload.email,
-                id: action.payload.id
+                id: action.payload.id,
+                photo: action.payload.photo,
+                phone: action.payload.phone,
+                buyCount: action.payload.buy_count,
+                buySum: action.payload.buy_sum,
+                certificate: action.payload.certificate,
+                isCertified: action.payload.is_certified,
             };
         case USER_LOADED_FAIL:
             return {...state};
@@ -72,10 +87,17 @@ const authReducer = (state = initialState, action) => {
                 access: null,
                 refresh: null,
                 isAuthenticated: false,
+                id: '',
                 firstName: '',
                 lastName: '',
+                patronym: '',
                 email: '',
-                id: ''
+                photo: '',
+                phone: '',
+                buyCount: '',
+                buySum: '',
+                certificate: '',
+                isCertified: '',
             };
         default:
             return state;

@@ -1,0 +1,17 @@
+.basket-item ul li {
+    border: none;
+}
+
+.basket-item {
+    color: rgba(0, 0, 0, 0.9);
+    font-family: Roboto;
+    /* font-weight: 500; */
+}
+
+.basket-item i {
+    color: #78c2ad;
+}
+
+.basket-item i:hover {
+    cursor: pointer;
+}

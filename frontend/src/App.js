@@ -12,6 +12,8 @@ import WorkshopDetail from './pages/workshop-detail';
 import Webinars from './pages/webinars';
 import WebinarDetail from './pages/webinar-detail';
 import Shop from './pages/shop';
+import ProductDetail from './pages/product-detail';
+import Basket from './pages/basket';
 
 import store from './store';
 
@@ -24,6 +26,7 @@ const App = () => (
         <Switch>
           <Route path='/login/' component={ Login } exact />
           <Route path='/register/' component={ Register } exact />
+          <Route path='/basket/' component={ Basket } exact />
 
           <Route path='/courses/' component={ Courses } exact />
           <Route 
@@ -44,6 +47,12 @@ const App = () => (
               path='/webinars/:slug/' 
               render={({match}) => {
               return <WebinarDetail slug={ match.params.slug } /> }}
+              exact />
+
+          <Route 
+              path='/products/detail/:slug/' 
+              render={({match}) => {
+              return <ProductDetail slug={ match.params.slug } /> }}
               exact />
 
           <Route path='/shop/' component={ Shop } exact />

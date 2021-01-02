@@ -1,25 +1,21 @@
 .category-item img {
     width: 55px;
     height: 55px;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 5px;
-    box-shadow: 0 .125rem .25rem rgba(0,0,0,.3)!important;
 }
-  
-.category-item {
-    min-width: inherit;
-    color: rgba(0, 0, 0, 0.8);
+
+.category-item a {
+    color: rgba(0, 0, 0, 0.9);
+    font-family: Roboto;
     font-size: 16px;
     font-weight: 500;
-    font-family: Roboto;
 }
 
 .category-item a:hover {
-    background: rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-.category-item p {
-    display: inline-block;
+    margin: 0;
+    color: #78c2ad;
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 500;
 }

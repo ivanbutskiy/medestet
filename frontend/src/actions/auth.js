@@ -59,7 +59,7 @@ export const loadUser = () => async dispatch => {
         };
 
         try {
-            const result = await axios.get(`${API_BASE}/auth/users/me/`, config);
+            const result = await axios.get(`${API_BASE}/api/accounts/user-info/`, config);
             
             dispatch({type: USER_LOADED_SUCCESS, payload: result.data});
 
@@ -107,7 +107,7 @@ export const logout = () => dispatch => {
     });
 };
 
-export const signUp = (email, first_name, last_name, password, re_password) => async dispatch => {
+export const signUp = (email, first_name, last_name, phone, password, re_password) => async dispatch => {
 
     const config = {
         headers: {
@@ -115,7 +115,7 @@ export const signUp = (email, first_name, last_name, password, re_password) => a
         }
     };
 
-    const body = JSON.stringify({email, first_name, last_name, password, re_password});
+    const body = JSON.stringify({email, first_name, last_name, phone, password, re_password});
 
     try {
         const result = await axios.post(`${API_BASE}/auth/users/`, body, config);

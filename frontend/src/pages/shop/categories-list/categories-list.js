@@ -52,23 +52,23 @@ class CategoriesList extends Component {
 
         if (categoriesEmpty) {
             return (
-                <div className='category-list-card shadow-sm align-items-center justify-content-center'>
+                <ul className='list-group categories-items-list'>
                     <p className='category-items-error-text'>Пока что нет ни одной категории</p>
-                </div>
+                </ul>
             )
         }
 
         if (error) {
             return (
-                <div className='category-list-card shadow-sm align-items-center justify-content-center'>
+                <ul className='list-group categories-items-list'>
                     <p className='category-items-error-text'>Произошла ошибка загрузки категорий...</p>
-                </div>
+                </ul>
             );
         };
 
         if (!categoriesItems) {
             return (
-                <div className='category-list-card shadow-sm'>
+                <ul className='list-group categories-items-list'>
                     <div className='spinner-shop-categories text-center row align-items-center justify-content-center'>
                         <div className='spinner-content'>
                             <div className='spinner-border text-info' role='status'>
@@ -76,14 +76,15 @@ class CategoriesList extends Component {
                             </div>
                         </div>
                     </div>
-                </div>
+                </ul>
+
             );
         };
 
         return (
-            <div className='category-list-card shadow-sm'>
+            <ul className='list-group categories-items-list'>
                 { categoriesItems }
-            </div>
+            </ul>
         );
     };
 };

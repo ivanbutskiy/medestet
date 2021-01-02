@@ -9,17 +9,19 @@ class CategoryItem extends Component {
         image: this.props.image,
         title: this.props.title,
         slug: this.props.slug
-    };
+    }; 
 
     render() {
 
         const { image, title, slug } = this.state;
 
         return (
-            <Link className='category-item nav-link px-4 row' to={`/shop/category/${ slug }/`} >
-                <img src={ image } className='mr-2' alt={ title } />
-                <p className='mt-2'>{ title }</p>
-            </Link>
+
+            <li className='list-group-item d-flex align-items-center category-item'>
+                    <img src={ image } className='mr-2' alt={ title } />
+                    <Link to={`/shop/category/${ slug }/`}>{ title }</Link>
+            </li>
+
         );
     };
 };

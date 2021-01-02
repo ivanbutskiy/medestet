@@ -1,0 +1,6 @@
+.basket-list thead tr th {
+    background-color: rgb(247, 247, 249);
+    font-family: Roboto;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.9);
+}

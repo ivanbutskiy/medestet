@@ -1,0 +1,11 @@
+.user-not-certified {
+    font-family: Roboto;
+    color: #dc143c;
+    font-size: 14px;
+}
+
+.user-certified {
+    font-family: Roboto;
+    color: #00643e;
+    font-size: 14px;
+}

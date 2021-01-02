@@ -13,11 +13,11 @@ class Shop extends Component {
         return (
             <div className='shop-page shadow-lg'>
                 <HeaderShop />
-                <div className='pl-2 pr-2 row'>
-                    <div className='col-md-3 mt-3'>
+                <div className='pl-2 pr-2 row shop-page-content justify-content-center'>
+                    <div className='col-lg-3 mt-3'>
                         <CategoriesList />
                     </div>
-                    <div className='col-md-9 mt-3'>
+                    <div className='col-lg-9 mt-3'>
                         <ProductsList />
                     </div>
                 </div>

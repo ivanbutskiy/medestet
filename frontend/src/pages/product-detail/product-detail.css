@@ -1,0 +1,55 @@
+.product-page {
+    background-color: #fff;
+    border-radius: 10px;
+    padding-bottom: 3rem;
+    overflow-x: hidden;
+    min-height: 400px;
+}
+
+.product-page .product-need-certificate {
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.product-page .product-page-spinner {
+    margin: 7rem;
+}
+
+.product-detail-content {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.product-detail-content h2 {
+    color: rgba(0, 0, 0, 0.9);
+}
+
+.product-detail-content {
+    color: rgba(0, 0, 0, 0.9);
+    font-size: 16px;
+    font-family: Roboto;
+}
+
+.product-detail-content p strong {
+    font-weight: 500;
+}
+
+.product-detail-content p i {
+    color: #78c2ad;
+}
+
+.product-detail-content .brand-logo {
+    width: 80px;
+}
+
+.product-detail-description {
+    margin-top: 3rem;
+    font-family: Roboto;
+    color: rgba(0, 0, 0, 0.9);
+    font-size: 16px;
+}
+
+.product-detail-description strong {
+    font-weight: 500;
+}

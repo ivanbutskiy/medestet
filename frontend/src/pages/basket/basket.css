@@ -1,0 +1,24 @@
+.basket-page {
+    background-color: #fff;
+    border-radius: 10px;
+    padding-bottom: 3rem;
+    overflow-x: hidden;
+    min-height: 400px;
+}
+
+.empty-basket h3 {
+    color: rgba(0, 0, 0, 0.9);
+    padding-top: 2rem;
+}
+
+.empty-basket p {
+    color: rgba(0, 0, 0, 0.9);
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.empty-basket i {
+    color: #78c2ad;
+    font-size: 5rem;
+}

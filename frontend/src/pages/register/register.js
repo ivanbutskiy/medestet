@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
-import { signUp } from '../../actions/auth';
+import { signUp, login } from '../../actions/auth';
 
 import './register.css';
 
@@ -12,6 +12,7 @@ class Register extends Component {
         email: '', 
         firstName: '', 
         lastName: '', 
+        phone: '',
         password: '', 
         rePassword: '',
 
@@ -19,7 +20,9 @@ class Register extends Component {
         passwordLength: null,
         emailIncorrect: null,
         error: null,
-        success: null
+        success: null,
+
+        fromProduct: false
     };
 
     onChangeHandler(e) {
@@ -34,22 +37,45 @@ class Register extends Component {
     onSubmitHandler(e) {
         e.preventDefault();
         
-        const { email, firstName, lastName, password, rePassword } = this.state;
+        const { email, firstName, lastName, phone, password, rePassword } = this.state;
 
         if (password.length <= 6) {
             this.setState({ passwordLength: true });
         } else if (password !== rePassword) {
             this.setState({ passwordNotMatching: true});
         } else {
-            this.props.signUp(email, firstName, lastName, password, rePassword)
+            this.props.signUp(email, firstName, lastName, phone, password, rePassword)
                 .then(result => {
                     if (!result.data) {
-                        this.setState({ error: true })
+                        this.setState({ error: true });
                     } else {
-                        this.setState({ success: true })
-                    }
+                        this.setState({ success: true });
+                        this.props.login(email, password);
+                    };
                 });
         };
+    };
+
+    fromProductHandler() {
+        try {
+            if (this.props.location.state.fromProduct) {
+                this.setState({
+                    fromProduct: true
+                });
+            };
+        } catch (error) {
+            this.setState({ fromProduct: false })
+        };
+    };
+
+    componentDidUpdate(prevProps) {
+        if (this.props !== prevProps) {
+            this.fromProductHandler();
+        };
+    };
+
+    componentDidMount() {
+        this.fromProductHandler();
     };
 
     render() {
@@ -69,17 +95,24 @@ class Register extends Component {
         const { 
                 email, 
                 firstName, 
-                lastName, 
+                lastName,
+                phone,
                 password, 
                 rePassword, 
                 passwordNotMatching,
                 passwordLength,
-                error } = this.state;
+                error,
+                fromProduct } = this.state;
 
         return (
             <div className='jumbotron container shadow-lg register'>
                 <h1 className='display-4'>Регистрация</h1>
-                <p className='mt-4'>Зарегистрируйтесь на сайте, чтобы иметь возможность проходить курсы, подтвердить статус косметолога сертификатом и покупать товары в нашем интернет-магазине.</p>
+                { !fromProduct ? <p className='mt-4'>Зарегистрируйтесь на сайте, чтобы иметь возможность проходить курсы, подтвердить статус косметолога сертификатом и покупать товары в нашем интернет-магазине.</p> : null }
+
+                { fromProduct ? <div className='alert alert-danger' role='alert'>
+                Чтобы иметь возможность просматривать цены и заказывать товары для косметологов, а также пользоваться всеми возможностями сайта, вам необходимо пройти регистрацию и подтвердить сертификат косметолога.
+                </div> : null }
+
                 <hr className='my-4' />
 
                 { error ? <div className='alert alert-danger' role='alert'>
@@ -139,6 +172,17 @@ class Register extends Component {
 
                         <div className='col-md-6'>
                             <div className='form-group'>
+                                <label htmlFor='password'>Телефон</label>
+                                <input 
+                                    type='tel'
+                                    name='phone'
+                                    className='form-control' 
+                                    id='phone'
+                                    onChange={ (e) => this.onChangeHandler(e) }
+                                    value={ phone }
+                                    required />
+                            </div>
+                            <div className='form-group'>
                                 <label htmlFor='password'>Пароль</label>
                                 <input 
                                     type='password'
@@ -160,9 +204,8 @@ class Register extends Component {
                                     value={ rePassword }
                                     required />
                             </div>
-                            <button type='submit' className='btn btn-primary'>Регистрация</button>
                         </div>
-
+                        <button type='submit' className='btn btn-primary ml-3'>Регистрация</button>
                     </div>
                 </form>
             </div>
@@ -174,4 +217,4 @@ const mapStateToProps = (store) => ({
     isAuthenticated: store.authReducer.isAuthenticated
 });
 
-export default connect(mapStateToProps, { signUp })(Register);
+export default connect(mapStateToProps, { signUp, login })(Register);
