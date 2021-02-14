@@ -7,11 +7,8 @@ class HeaderCoursesList extends Component {
     render() {
 
         return (
-            <div 
-                className='jumbotron jumbotron-fluid shadow-sm header-courses-list'>
-                <div className='container'>
-                    <h1 className='display-4'>Онлайн-курсы компании MedEstet</h1>
-                </div>
+            <div className='jumbotron shadow-sm card header-courses-list'>
+                <h1>Онлайн-курсы компании MedEstet</h1>
             </div>
         );
     };

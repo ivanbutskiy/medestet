@@ -10,7 +10,7 @@ class ErrorBanner extends Component {
             <div className='error-banner text-center align-items-center'>
                 <i className='fad fa-times'></i>
                 <h2>Ой, произошла ошибка...</h2>
-                <p>Попробуйте перезагрузить страницу чуть позже.</p>
+                <p>Попробуйте перезагрузить страницу чуть позже</p>
             </div>
         );
     };

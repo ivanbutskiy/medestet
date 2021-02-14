@@ -106,7 +106,7 @@ class Register extends Component {
 
         return (
             <div className='jumbotron container shadow-lg register'>
-                <h1 className='display-4'>Регистрация</h1>
+                <h1>Регистрация</h1>
                 { !fromProduct ? <p className='mt-4'>Зарегистрируйтесь на сайте, чтобы иметь возможность проходить курсы, подтвердить статус косметолога сертификатом и покупать товары в нашем интернет-магазине.</p> : null }
 
                 { fromProduct ? <div className='alert alert-danger' role='alert'>

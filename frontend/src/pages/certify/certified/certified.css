@@ -1,0 +1,29 @@
+#upload {
+    opacity: 0;
+}
+
+#upload-label {
+    position: absolute;
+    top: 50%;
+    left: 1rem;
+    transform: translateY(-50%);
+}
+
+.certify-form {
+    border-radius: 6.4px;
+    background-color: #757f9a;
+    background-image: linear-gradient(147deg, #757f9a 0%, #d7dde8 100%);
+}
+
+.certify-form .lead {
+    margin-left: 5rem;
+    margin-right: 5rem;
+    font-family: Roboto;
+    font-style: 18px;
+
+}
+
+.certify-form .spinner-border {
+    width: 200px; 
+    height: 200px;
+}

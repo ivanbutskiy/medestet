@@ -36,19 +36,16 @@ class BasketList extends Component {
     deleteBasketItem = (slug) => {
         this.props.deleteFromBasket(slug);
         this.getBasketList();
-        // this.getTotalSum();
     };
 
     componentDidUpdate(prevProps) {
         if (this.props.basketList !== prevProps.basketList) {
             this.getBasketList();
-            // this.getTotalSum();
         };
     };
 
     componentDidMount() {
         this.getBasketList();
-        // this.getTotalSum();
     };
 
     render () {
@@ -56,10 +53,10 @@ class BasketList extends Component {
         const { basketList } = this.state;
 
         return (
-            <div className='pb-5 basket-list'>
+            <div className='basket-list'>
                 <div className='container'>
                     <div className='row'>
-                        <div className='col-lg-12 p-5 card mb-5'>
+                        <div className='col-lg-12 p-5 card'>
                             <div className='table-responsive'>
                                 <table className='table'>
                                     <thead>

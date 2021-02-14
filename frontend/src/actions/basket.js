@@ -5,7 +5,14 @@ import {
     CLEAR_BASKET
 } from './basket-types';
 
-export const addProductToBasket = (slug, title, headerImage, price, count) => dispatch => {
+export const addProductToBasket = (
+        slug, 
+        title, 
+        headerImage, 
+        price, 
+        count, 
+        priceCertifiedUAH, 
+        priceGuestUAH) => dispatch => {
     if (localStorage.getItem('basket-list')) {
         const basketList = JSON.parse(localStorage.getItem('basket-list'));
         if (basketList.findIndex(item => item.slug === slug) !== -1) {
@@ -17,6 +24,8 @@ export const addProductToBasket = (slug, title, headerImage, price, count) => di
                 headerImage: headerImage,
                 price: price,
                 count: count,
+                priceCertifiedUAH: priceCertifiedUAH, 
+                priceGuestUAH: priceGuestUAH,
                 summaryPrice: parseFloat(Number(price * count).toFixed(2))
             };
             basketList[index] = basketObject;
@@ -30,6 +39,8 @@ export const addProductToBasket = (slug, title, headerImage, price, count) => di
             headerImage: headerImage,
             price: price,
             count: count,
+            priceCertifiedUAH: priceCertifiedUAH, 
+            priceGuestUAH: priceGuestUAH,
             summaryPrice: parseFloat(Number(price * count).toFixed(2))
         };
         basketList.push(basketObject);
@@ -46,6 +57,8 @@ export const addProductToBasket = (slug, title, headerImage, price, count) => di
             headerImage: headerImage,
             price: price,
             count: count,
+            priceCertifiedUAH: priceCertifiedUAH, 
+            priceGuestUAH: priceGuestUAH,
             summaryPrice: parseFloat(Number(price * count).toFixed(2))
         };
         basketList.push(basketObject);

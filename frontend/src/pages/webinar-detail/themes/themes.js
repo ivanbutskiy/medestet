@@ -12,15 +12,19 @@ class Themes extends Component {
     };
 
     getThemeItems() {
-        this.setState({
-            themeItems: this.state.themes.map((theme) => {
-                return <ThemeItem 
-                    key={ theme.id }
-                    title={ theme.title }
-                    shortDescription={ theme.short_description }
-                />
+        try {
+            this.setState({
+                themeItems: this.state.themes.map((theme) => {
+                    return <ThemeItem 
+                        key={ theme.id }
+                        title={ theme.title }
+                        shortDescription={ theme.short_description }
+                    />
+                })
             })
-        })
+        } catch {
+            return null
+        }
     };
 
     componentDidMount() {
@@ -32,7 +36,7 @@ class Themes extends Component {
         const { themeItems } = this.state;
 
         return (
-            <div className='workshop-lessons container'>
+            <div className='webinar-themes container'>
                 <h2>Темы вебинара</h2>
 
                 <div className='row'>

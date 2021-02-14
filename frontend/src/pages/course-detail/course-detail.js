@@ -9,6 +9,8 @@ import Persons from './persons';
 import DetailDescription from './detail-description';
 import Program from './program';
 import Results from './results';
+import ErrorBanner from '../../components/error-banner';
+import Register from './register';
 
 import Spinner from '../../components/spinner';
 
@@ -17,6 +19,7 @@ class CourseDetail extends Component {
     service = new MedestetService();
 
     state = {
+        courseId: '',
         title: '',
         subtitle: '',
         startingDate: '',
@@ -38,7 +41,6 @@ class CourseDetail extends Component {
         error: false,
 
         loaded: false,
-
     };
 
     getCourse() {
@@ -46,6 +48,7 @@ class CourseDetail extends Component {
             .then((course) => {
                 if (course.statusText === 'OK') {
                     this.setState({
+                        courseId: course.data.id,
                         title: course.data.title,
                         subtitle: course.data.subtitle,
                         startingDate: course.data.starting_date,
@@ -71,6 +74,8 @@ class CourseDetail extends Component {
                 } else {
                     this.setState({ error: true })
                 }
+            }).catch(error => {
+                this.setState({ error: true });
             });
     };
 
@@ -80,14 +85,32 @@ class CourseDetail extends Component {
 
     render() {
 
-        const { loaded } = this.state;
+        const { loaded, error } = this.state;
+
+        const { price, courseId, title } = this.state;
+
+        if (error) {
+            return (
+                <div className='course-detail course-detail-error shadow-lg'>
+                    <div className='spinner text-center'>
+                        <ErrorBanner />
+                    </div>
+                </div>
+            );
+        };
 
         if (!loaded) {
-            return <Spinner />
+            return (
+                <div className='course-detail course-detail-spinner shadow-lg'>
+                    <div className='spinner text-center'>
+                        <Spinner />
+                    </div>
+                </div>
+            );
         };
 
         return (
-            <div className='course-detail shadow-lg  justify-content-center'>
+            <div className='course-detail shadow-lg justify-content-center p-2'>
                 
                 <Header 
                     title={ this.state.title }
@@ -119,7 +142,14 @@ class CourseDetail extends Component {
                 <Results 
                     results={ this.state.results }
                     certificate={ this.state.certificate }
-                    certificateImage={ this.state.certificateImage } />
+                    certificateImage={ this.state.certificateImage } 
+                />
+
+                <Register 
+                    price={ price }
+                    courseId={ courseId }
+                    courseTitle={ title }
+                />
 
             </div>
         );
@@ -127,6 +157,3 @@ class CourseDetail extends Component {
 };
 
 export default CourseDetail;
-
-// TODO реализовать систему оплаты, уведомлений и все, что с ней связано
-// TODO добавить накопительную систему и чтобы человек видел, сколько ему осталось до накопления следующих бонусов

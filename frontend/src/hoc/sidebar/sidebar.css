@@ -11,6 +11,21 @@
     overflow-x: hidden;
 }
 
+.logo-medestet {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background: #E8CBC0;
+  background: -webkit-linear-gradient(to right, #E8CBC0, #636FA4);
+  background: linear-gradient(to right, #E8CBC0, #636FA4);
+}
+
+.logo-medestet img {
+  width: 90px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .vertical-nav .nav .nav-item:hover {
   background-color: rgba(0, 0, 0, 0.1);
   border-radius: 5px;
@@ -25,6 +40,11 @@
   width: calc(100% - 17rem);
   margin-left: 17rem;
   transition: all 0.4s;
+  padding: 5px;
+}
+
+.page-content .children {
+  margin-top: 4rem;
 }
 
 #sidebar.active {
@@ -52,7 +72,6 @@
     width: calc(100% - 17rem);
   }
 }
-
   
 body {
 background: #599fd9;
@@ -74,6 +93,9 @@ letter-spacing: 0.1em;
 
 #sidebarCollapse {
     color: #5a5a5a;
+    position: fixed;
+    margin-top: 1rem;
+    z-index: 1;
 }
 
 #sidebarCollapse:active
@@ -87,9 +109,8 @@ letter-spacing: 0.1em;
 .vertical-nav .nav .nav-item .nav-link {
   font-family: Roboto;
   font-weight: 500;
-  color:rgba(0, 0, 0, 0.8);
+  color:rgba(0, 0, 0, 0.9);
 }
-
 
 .vertical-nav .text-gray {
   color: rgba(0, 0, 0, 0.7);

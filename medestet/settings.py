@@ -1,6 +1,7 @@
 from pathlib import Path
 import os
 from datetime import timedelta
+from viberbot.api.bot_configuration import BotConfiguration
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -187,3 +188,17 @@ CKEDITOR_CONFIGS = {
 }
 
 CKEDITOR_UPLOAD_PATH = 'uploads/'
+
+
+# TODO Изменить MERCHANT_DOMAIN_NAME
+MERCHANT_DOMAIN_NAME = 'www.medestet.ru'
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'djangomedestet@gmail.com'
+EMAIL_HOST_PASSWORD = 'abhuwderomgksmzb'
+
+
+MERCHANT_LOGIN = 'medestet_ru'
+MERCHANT_SECRET_KEY = '167ee133e75a505ec66de0a07fa8a9dca09195f5'

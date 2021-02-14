@@ -101,6 +101,7 @@ class Lesson(models.Model):
         verbose_name='модуль', help_text='К какому модулю относится урок.')
     description = models.TextField(blank=True, verbose_name='описание урока')
     video = models.URLField(verbose_name='ссылка на видео трансляцию', blank=True, help_text='В формате "http://..."')
+    video_record = models.URLField(verbose_name='ссылка на запись урока', blank=True, null=True, help_text='В формате "http://..."')
     materials = models.URLField(verbose_name='ссылка на материалы', blank=True)
     is_published = models.BooleanField(default=True, verbose_name='опубликован', 
         help_text='Урок показан на лендинге курса и в кабинете пользователя.')
@@ -113,5 +114,3 @@ class Lesson(models.Model):
         verbose_name = 'урок'
         verbose_name_plural = 'уроки'
         ordering = ['pk']
-
-# TODO нужные модели поменять на ManyToMany

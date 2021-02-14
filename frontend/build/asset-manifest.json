@@ -1,22 +1,24 @@
 {
   "files": {
-    "main.css": "/static/css/main.def79f09.chunk.css",
-    "main.js": "/static/js/main.170efa07.chunk.js",
-    "main.js.map": "/static/js/main.170efa07.chunk.js.map",
+    "main.css": "/static/css/main.d9a02ab9.chunk.css",
+    "main.js": "/static/js/main.ea94c726.chunk.js",
+    "main.js.map": "/static/js/main.ea94c726.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.c60b7f5c.js",
     "runtime-main.js.map": "/static/js/runtime-main.c60b7f5c.js.map",
-    "static/js/2.302d1c37.chunk.js": "/static/js/2.302d1c37.chunk.js",
-    "static/js/2.302d1c37.chunk.js.map": "/static/js/2.302d1c37.chunk.js.map",
+    "static/js/2.3f3a5b7c.chunk.js": "/static/js/2.3f3a5b7c.chunk.js",
+    "static/js/2.3f3a5b7c.chunk.js.map": "/static/js/2.3f3a5b7c.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.def79f09.chunk.css.map": "/static/css/main.def79f09.chunk.css.map",
-    "static/js/2.302d1c37.chunk.js.LICENSE.txt": "/static/js/2.302d1c37.chunk.js.LICENSE.txt",
-    "static/media/header-courses-list.css": "/static/media/courses-list-header-background-image.c6b9f826.jpg",
+    "static/css/main.d9a02ab9.chunk.css.map": "/static/css/main.d9a02ab9.chunk.css.map",
+    "static/js/2.3f3a5b7c.chunk.js.LICENSE.txt": "/static/js/2.3f3a5b7c.chunk.js.LICENSE.txt",
+    "static/media/cosmetolog.08cc5643.jpg": "/static/media/cosmetolog.08cc5643.jpg",
+    "static/media/header-product.css": "/static/media/courses-list-header-background-image.c6b9f826.jpg",
+    "static/media/logo_medestet.5f567dd9.png": "/static/media/logo_medestet.5f567dd9.png",
     "static/media/header-webinars-list.css": "/static/media/workshop-header-image.e8e0540d.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.c60b7f5c.js",
-    "static/js/2.302d1c37.chunk.js",
-    "static/css/main.def79f09.chunk.css",
-    "static/js/main.170efa07.chunk.js"
+    "static/js/2.3f3a5b7c.chunk.js",
+    "static/css/main.d9a02ab9.chunk.css",
+    "static/js/main.ea94c726.chunk.js"
   ]
 }

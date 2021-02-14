@@ -1,0 +1,23 @@
+.personal-data {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    /* margin: 0.5rem; */
+}
+
+.personal-data i {
+    color: #78c2ad;
+    font-size: 3rem;
+}
+
+.personal-data a {
+    font-size: 18px;
+    font-family: Roboto;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.9);
+    margin-top: 1rem;
+    margin-bottom: 0
+}
+
+.personal-data a:hover {
+    color: #78c2ad;
+}

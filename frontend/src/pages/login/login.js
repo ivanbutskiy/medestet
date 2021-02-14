@@ -56,7 +56,7 @@ class Login extends Component {
 
         return (
             <div className='jumbotron container shadow-lg login'>
-                <h1 className='display-4'>Вход в аккаунт</h1>
+                <h1>Вход в аккаунт</h1>
                 <p className='mt-4'>Войдите в систему, чтобы пользоваться расширенными привилегиями авторизованного пользователя.</p>
                 <hr className='my-4' />
 

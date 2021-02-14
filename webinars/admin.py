@@ -58,8 +58,8 @@ class WebinarAdminModel(admin.ModelAdmin):
         ('Превью вебинара', {
             'fields': ('title', 'subtitle', 'header_image', 'starting_date')
         }),
-        ('Описание семинара', {
-            'fields': ('description', 'description_image')
+        ('Описание вебинара', {
+            'fields': ('description', 'description_image', 'video', 'video_record')
         }),
         ('Участники', {
             'fields': ('students',)

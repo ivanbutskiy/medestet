@@ -9,3 +9,13 @@
     color: #00643e;
     font-size: 14px;
 }
+
+.user-panel img {
+    width: 65px;
+    height: 65px;
+    object-fit: cover;
+}
+
+.user-first-name {
+    color: rgba(0, 0, 0, 0.8)
+}

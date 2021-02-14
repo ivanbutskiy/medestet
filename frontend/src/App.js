@@ -14,6 +14,16 @@ import WebinarDetail from './pages/webinar-detail';
 import Shop from './pages/shop';
 import ProductDetail from './pages/product-detail';
 import Basket from './pages/basket';
+import SuccessPaymentPage from './pages/success-payment-page';
+import Account from './pages/account';
+import NonAuth from './pages/non-auth';
+import ChangeUserData from './pages/change-user-data';
+import ChangePassword from './pages/change-password';
+import Certify from './pages/certify';
+import UserCourses from './pages/user-courses';
+import WatchCourse from './pages/watch-course';
+import UserWebinars from './pages/user-webinars';
+import WatchWebinar from './pages/watch-webinar';
 
 import store from './store';
 
@@ -27,6 +37,17 @@ const App = () => (
           <Route path='/login/' component={ Login } exact />
           <Route path='/register/' component={ Register } exact />
           <Route path='/basket/' component={ Basket } exact />
+          <Route path='/non-auth/' component={ NonAuth } exact />
+          <Route path='/account/' component={ Account } exact />
+          <Route path='/account/profile/' component={ ChangeUserData } exact />
+          <Route path='/account/password/' component={ ChangePassword } exact />
+          <Route path='/account/certify/' component={ Certify } exact />
+
+          <Route path='/account/courses/' component={ UserCourses } exact />
+          <Route path='/account/courses/watch/:slagCourse?/:moduleId?/:lessonId?/' component={ WatchCourse } exact />
+
+          <Route path='/account/webinars/' component={ UserWebinars } exact />
+          <Route path='/account/webinars/watch/:slagWebinar/' component={ WatchWebinar } exact />
 
           <Route path='/courses/' component={ Courses } exact />
           <Route 
@@ -54,6 +75,8 @@ const App = () => (
               render={({match}) => {
               return <ProductDetail slug={ match.params.slug } /> }}
               exact />
+
+          <Route path='/success-payment/' component={ SuccessPaymentPage } exact />
 
           <Route path='/shop/' component={ Shop } exact />
           <Route 

@@ -1,0 +1,60 @@
+.order-sum .col-md-6 {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.order-sum {
+    margin: 0 auto;
+}
+
+.order-sum h5 {
+    color: rgba(0, 0, 0, 0.9)
+}
+
+.order-sum p {
+    color: rgba(0, 0, 0, 0.9);
+    font-family: Roboto;
+    font-size: 16px;
+}
+
+.order-sum p strong {
+    color: rgba(0, 0, 0, 0.9);
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.order-sum p a {
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.order-sum .promocode {
+    background: #00B4DB;
+    background: -webkit-linear-gradient(to right, #0083B0, #00B4DB);
+    background: linear-gradient(to right, #0083B0, #00B4DB);
+    border-radius: 6.4px;
+    padding: 1rem;
+}
+
+.order-sum .promocode h4 {
+    color: white;
+    text-shadow: 1px 1px 1rem #464646;
+}
+
+.order-sum .promocode p {
+    color: white;
+    text-shadow: 1px 1px 1rem #464646;
+    font-family: Roboto;
+    font-size: 18px;
+}
+
+.order-sum .promocode button {
+    background-color: #cc0000;
+    border: none;
+}
+
+.order-sum .promocode button:hover {
+    box-shadow: 1px 1px 5px #464646;
+}

@@ -3,7 +3,12 @@ from .views import (
     ProductsList, 
     ProductDetailView, 
     CategoriesListView, 
-    ProductsListByCategory
+    ProductsListByCategory,
+    PromoCodeDetailView,
+    PaymentListView,
+    DeliveryListView,
+    OrderRegisterView,
+    CheckServiceURL
 )
 
 
@@ -12,8 +17,18 @@ urlpatterns = [
     path('products/<str:slug>/', ProductDetailView.as_view()),    # show detail product
     path('categories/', CategoriesListView.as_view()),    # show categories list
     path('categories/<str:category_slug>/', ProductsListByCategory.as_view()),    # show products by category
+    path('check-promocode/<str:code>/', PromoCodeDetailView.as_view()),
+    path('payments/', PaymentListView.as_view()),
+    path('delivery/', DeliveryListView.as_view()),
+    path('order/new/', OrderRegisterView.as_view()),
+    path('order/check-service-url/', CheckServiceURL.as_view()),
 ]
 
+
+# Перед развертыванием!!!
+
+# TODO Перед выгрузкой на фронте обязательно вставить merchantAccount
+# TODO туда же добавить returnUrl, merchantDomainName и serviceUrl
 
 
 # Элементы дизайна
@@ -21,27 +36,17 @@ urlpatterns = [
 # TODO добавить карту
 # TODO топовые ролики на YouTube в блок Medetation (как на картинке с сайтом, что я Юле сбрасывал в Телегу)
 # TODO в место проведения для семинаров добавить контакты для связи
-# TODO топовые курсы, вебинары, семинары должны
 # TODO Добавить социальные кнопки 
 
 
 # Бизнес-логика
 
-# TODO после подтверждения сертификата уведомить клиента, что его акк сертифицирован и цены доступны
 # TODO выгружать участников семинаров, курсов и вебинаров
 # TODO выгрузка пользователей в excel
 # TODO дать права доступа сотрудникам: смотреть прайсы
-# TODO о сертификации, о заказах на Viber
 # TODO не надо уведомление о регистрации, добавить через почту восстановление пароля, уведомление о сертификации
 # TODO добавить Facebook messenger чат-бот
 # TODO подключить Google Analytics и Facebook pixels
-
-
-# Магазин
-
-# TODO добавить промокод
-# TODO минимальный заказ для розницы (для домашки) от 250 грн. Товары для всех, не только для косметологов
-# TODO накопительная система при покупке товаров (продукции) от 5к человек получает скидку 3%, а при 18к - 5%
 
 
 # Юрисдикция

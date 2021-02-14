@@ -1,0 +1,63 @@
+.register-webinar {
+    border: 1px solid #008000;
+    border-radius: 6.4px;
+    margin-bottom: 2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.register-webinar h2 {
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 40px;
+}
+
+.register-webinar p {
+    font-size: 16px;
+    font-family: Roboto;
+    color: rgba(0, 0, 0, 0.9);
+}
+
+.register-webinar p strong {
+    font-weight: 500;
+}
+
+.register-webinar .register-content a {
+    font-weight: 500;
+}
+
+.register-webinar .promocode {
+    background: #00B4DB;
+    background: -webkit-linear-gradient(to right, #0083B0, #00B4DB);
+    background: linear-gradient(to right, #0083B0, #00B4DB);
+    border-radius: 6.4px;
+    padding: 1rem;
+}
+
+.register-webinar .promocode h4 {
+    color: white;
+    text-shadow: 1px 1px 1rem #464646;
+}
+
+.register-webinar .promocode p {
+    color: white;
+    text-shadow: 1px 1px 1rem #464646;
+    font-family: Roboto;
+    font-size: 18px;
+}
+
+.register-webinar .promocode button {
+    background-color: #cc0000;
+    border: none;
+}
+
+.register-webinar .promocode button:hover {
+    box-shadow: 1px 1px 5px #464646;
+}
+
+.register-webinar .form-check {
+    font-family: Roboto;
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.9);
+}

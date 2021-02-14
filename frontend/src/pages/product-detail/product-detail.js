@@ -9,6 +9,7 @@ import Spinner from '../../components/spinner';
 import ProductImageSlider from './product-image-slider';
 import CategoryLink from './category-link';
 import ModalWindow from './modal-window';
+import ErrorBanner from '../../components/error-banner'
 
 import { addProductToBasket } from '../../actions/basket';
 
@@ -99,19 +100,19 @@ class ProductDetail extends Component {
 
     addProductToBasket(e) {
         e.preventDefault();
-        const { slug, title, headerImage } = this.state;
+        const { slug, title, headerImage, priceCertifiedUAH, priceGuestUAH } = this.state;
         let count = 1;
         if (!isNaN(this.state.count)) {
             count = parseInt(this.state.count);
         };
         let price = 1
-        if (this.props.isCertified) {
-            price = this.state.priceCertifiedUAH 
+        if (this.props.isCertified && priceCertifiedUAH) {
+            price = priceCertifiedUAH 
         } else {
-            price = this.state.priceGuestUAH
+            price = priceGuestUAH
         };
         
-        this.props.addProductToBasket(slug, title, headerImage, price, count);
+        this.props.addProductToBasket(slug, title, headerImage, price, count, priceCertifiedUAH, priceGuestUAH);
         this.makeActivePopup();
     };
 
@@ -141,13 +142,20 @@ class ProductDetail extends Component {
 
         if (error) {
             return (
-                <p>Need handle error</p>
+                <div className='product-page shadow-lg'>
+                    <div className='row justify-content-center error-banner'>
+                        <div className='col'>
+                            <ErrorBanner />
+                        </div>
+                    </div>
+                </div>
             );
         };
 
         if (!loaded) {
             return (
-                <div className='product-page shadow-lg'>
+                <div className='product-page shadow-lg p-2'>
+                    <HeaderProduct />
                     <div className='row justify-content-center product-page-spinner'>
                         <div className='col'>
                             <Spinner />
@@ -158,7 +166,7 @@ class ProductDetail extends Component {
         };
 
         return (
-            <div className='product-page shadow-lg'>
+            <div className='product-page shadow-lg p-2'>
                 { modalActive ? <ModalWindow 
                     active={ modalActive } 
                     activeHandler={ this.handlerPopupActive } /> : null }
@@ -203,13 +211,13 @@ class ProductDetail extends Component {
                             { priceGuestUAH > 0 ? <p title='Стоимость для покупателей без сертификата косметолога'><i className='fas fa-tags mr-2'></i>{ priceGuestUAH } грн.</p> : null }
                             { this.props.isCertified || priceGuestUAH ? <form onSubmit={ (e) => this.addProductToBasket(e) }>
                                 <div className='form-group'>
-                                    <label htmlFor='product-count'>Количество: </label>
+                                    <label htmlFor='product-count'><strong>Количество: </strong></label>
                                     <input 
                                         className='form-control' 
                                         id='product-count' 
                                         type='number' 
                                         min='1'
-                                        max='30' 
+                                        max='100' 
                                         value={ count }
                                         placeholder={ count }
                                         onChange={ (e) => this.changeCount(e) }

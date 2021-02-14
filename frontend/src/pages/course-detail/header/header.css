@@ -12,14 +12,14 @@
 }
 
 .course-header .col-md-8 h1 {
-    font-family: Roboto;
-    color: #464646;
-    font-size: 56px;
+    color: rgba(0, 0, 0, 0.8);
+    font-weight: 500;
+    font-size: 3rem;
 }
 
 .course-header .col-md-8 p {
     font-family: Roboto;
-    color: #464646;
+    color: rgba(0, 0, 0, 0.9);
     font-size: 16px;
 }
 
@@ -29,7 +29,7 @@
 
 .course-header .col-md-8 .course-detail-info {
     font-family: Roboto;
-    color: #575757;
+    color: rgba(0, 0, 0, 0.9);
     font-weight: 500;
     font-size: 16px;
     margin-bottom: 0;

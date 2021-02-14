@@ -60,6 +60,7 @@ class CourseAdminModel(admin.ModelAdmin):
     list_editable = ['is_published']
     list_filter = ['subject']
     sortable_by = ['-adding_date']
+    search_fields = ['title', 'subtitle', 'short_description', 'detail_description']
 
 
 admin.site.register(Course, CourseAdminModel)
@@ -67,5 +68,3 @@ admin.site.register(Module, ModuleAdminModel)
 admin.site.register(Lesson)
 admin.site.register(Person)
 admin.site.register(Subject)
-
-# TODO добавить последовательность модулей и уроков

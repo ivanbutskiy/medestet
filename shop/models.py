@@ -1,6 +1,10 @@
 from django.db import models
 from django.utils import timezone
 from decimal import Decimal
+from django.contrib.auth import get_user_model
+
+
+User = get_user_model()
 
 
 class Currency(models.Model):
@@ -65,19 +69,13 @@ class Product(models.Model):
     
     description = models.TextField(verbose_name='Полное описание товара')
 
-    price_certified = models.DecimalField(max_digits=6, decimal_places=0, null=True, 
+    price_certified = models.DecimalField(max_digits=6, decimal_places=2, null=True, 
         verbose_name='Стоимость в валюте для сертифицированных', 
         help_text='Показывается только для сертифицированных пользователей')
-    price_guest = models.DecimalField(max_digits=6, decimal_places=0, default=0,             
+    price_guest = models.DecimalField(max_digits=6, decimal_places=2, default=0.00,             
         verbose_name='Стоимость в валюте для несертифицированных (для домашнего ухода)', 
         help_text='Если товар не предназначен для несертифицированных пользователей, оставьте  значение нулевым. Но, если оно заполнено, то в карточке товара будет показана стоимость для несертифицированных и незарегистрированных пользователей, а также будет возможность заказа этого товара')
     currency = models.ForeignKey(Currency, on_delete=models.SET_NULL, null=True, verbose_name='В какой валюте стоимость', help_text='При выводе для пользователя будет автоматически пересчитано в гривну')
-    
-    # new_product = models.BooleanField(default=False, blank=True, verbose_name='Новинка', 
-    #     help_text='Если стоит галочка, на карточке товара будет показан лейбл, что это новинка')
-    # old_price = models.PositiveIntegerField(blank=True, help_text='Больше, чем нынешняя', 
-    #     verbose_name='Старая цена', 
-    #     help_text='Указывайте старую цену, если товар акционный. Старая цена должна быть выше текущей. На карточке товара будет показана в перечеркнутом виде')
 
     header_image = models.ImageField(upload_to='images/shop/%Y-%m-%d/', verbose_name='Главная картинка')
     image_1 = models.ImageField(blank=True, upload_to='images/shop/%Y-%m-%d/', verbose_name='Картинка 1')
@@ -105,3 +103,122 @@ class Product(models.Model):
         verbose_name = 'Товар'
         verbose_name_plural = 'Товары'
         ordering = ['-pk']
+
+
+class PromoCode(models.Model):
+    code = models.CharField(max_length=20, verbose_name='Промокод', help_text='Набор символов длиной до 20 знаков')
+    discount = models.PositiveSmallIntegerField(verbose_name='Процент скидки', help_text='Процент скидки, которую предоставляет промокод. Нужно ввести целое число (без символа процента). Минимальное значение - 0, максимальное - 100')
+    is_active = models.BooleanField(default=True, verbose_name='Промокод активен и действует')
+
+    def __str__(self):
+        return self.code
+
+    class Meta:
+        verbose_name = 'Промокод'
+        verbose_name_plural = 'Промокоды'
+        ordering = ['-pk']
+
+
+class Delivery(models.Model):
+    title = models.CharField(max_length=50, verbose_name='Название службы доставки',
+        help_text='Например: Новая почта')
+    image = models.ImageField(upload_to='images/shop/%Y-%m-%d/', verbose_name='Логотип службы доставки')
+    is_published = models.BooleanField(default=True, verbose_name='Опубликовано',
+        help_text='Если опубликовано, способ доставки будет доступен пользователям при оформлении заказа')
+    
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'Служба доставки'
+        verbose_name_plural = 'Службы доставки'
+        ordering = ['-pk']
+
+
+class Payment(models.Model):
+
+    PAYMENT_CHOICES = (
+        ('WFP', 'WayForPay'),
+        ('ANY', 'Другой способ')
+    )
+
+    title = models.CharField(max_length=50, verbose_name='Название способа оплаты', 
+        help_text='Например: "WayForPay"')
+    payment_type = models.CharField(max_length=30, choices=PAYMENT_CHOICES, verbose_name='Тип способа оплаты',
+        help_text='Обратите внимание, что только для WayForPay будет доступна автоматическая онлайн-оплата заказа. Другие типы оплаты будут только выводиться на странице оформления заказа как альтернативные, и оплатить заказ человек сможет только после того, как менеджер с ним свяжется по телефону')
+    
+    MERCHANT_LOGIN = models.CharField(max_length=100, blank=True, verbose_name='MERCHANT LOGIN', 
+        help_text='Только для WayForPay. Это значение вы можете получить в ЛК WayForPay в настройках магазина во вкладке "Реквизиты мерчанта"')
+    MERCHANT_SECRET_KEY = models.CharField(max_length=200, blank=True, verbose_name='MERCHANT SECRET KEY', 
+        help_text='Только для WayForPay. Это значение вы можете получить в ЛК WayForPay в настройках магазина во вкладке "Реквизиты мерчанта"')
+
+    logo = models.ImageField(upload_to='images/shop/%Y-%m-%d/', verbose_name='Логотип способа оплаты')
+    short_description = models.CharField(max_length=300, verbose_name='Краткое описание', 
+        help_text='Краткое описание системы оплаты. На странице сайта будет показано пользователю, если данный способ оплаты опубликован. Например: "WayForPay - автоматическая оплата с полной оплатой товара с помощью карты Visa/MasterCard". Максимальная длина 300 символов')
+    # prepayment = models.PositiveSmallIntegerField(verbose_name='Процент предоплаты', help_text='Это значение нужно указывать только для WayForPay. Значение должно быть числом от 0 до 100. Какой процент укажете, такой человек размер предоплаты и внесет во время автоматической оплаты после оформления заказа')
+    is_published = models.BooleanField(default=True, verbose_name='Опубликовано', 
+        help_text='Если стоит галочка, то данный способ оплаты будет опубликован на сайте в момент оформления заказа')
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'Способ оплаты'
+        verbose_name_plural = 'Способы оплаты'
+
+
+class OrderItem(models.Model):
+    order = models.ForeignKey('Order', on_delete=models.CASCADE, verbose_name='К какому заказу относится')
+    product = models.ForeignKey(Product, verbose_name='Товар', on_delete=models.SET_NULL, null=True)
+    price = models.DecimalField(max_digits=6, decimal_places=2, null=True, 
+        verbose_name='По какой стоимости в гривне был куплен товар', 
+        help_text='Стоимость высчитывается исходя из того, заказывал сертифицированный пользователь или нет')
+    count = models.PositiveSmallIntegerField(verbose_name='Количество')
+
+    def __str__(self):
+        return self.product.title
+
+    class Meta:
+        verbose_name = 'Позиция в заказе'
+        verbose_name_plural = 'Позиции в заказе'
+
+
+class Order(models.Model):
+
+    STATUS = (
+        ('cancelled', 'Отменен'),
+        ('wait_paid', 'Ожидается оплата'),
+        ('paid', 'Оплачен'),
+        ('sent', 'Отправлен'),
+        ('done', 'Выполнен')
+    )
+    order_reference = models.CharField(max_length=30, null=True, verbose_name='Уникальный номер заказа')
+    consumer = models.ForeignKey(User, blank=True, null=True, on_delete=models.SET_NULL, verbose_name='Покупатель', help_text='Если человек зарегистрирован на сайте, будет указано его имя и фамилия')
+    merchant_order_date = models.CharField(max_length=30, null=True, verbose_name='Дата для WFP')
+
+    status = models.CharField(max_length=30, verbose_name='Статус заказа', choices=STATUS)
+    order_sum = models.DecimalField(max_digits=8, decimal_places=2, verbose_name='Сумма заказа')
+    promocode = models.ForeignKey(PromoCode, blank=True, null=True, verbose_name='Промокод', on_delete=models.SET_NULL)
+    
+    last_name = models.CharField(max_length=30, verbose_name='Фамилия')
+    first_name = models.CharField(max_length=30, verbose_name='Имя')
+    phone = models.CharField(max_length=30, verbose_name='Телефон')
+    email = models.EmailField(verbose_name='E-mail')
+    region = models.CharField(max_length=50, verbose_name='Область')
+    district = models.CharField(max_length=50, verbose_name='Район')
+    city = models.CharField(max_length=50, verbose_name='Город')
+
+    delivery = models.ForeignKey(Delivery, null=True, on_delete=models.SET_NULL, verbose_name='Способ доставки')
+    delivery_office = models.CharField(max_length=200, verbose_name='Адрес и номер отделения выбранной службы доставки')
+
+
+    adding_date = models.DateTimeField(auto_now_add=True, verbose_name='Дата оформления заказа')
+    is_done = models.BooleanField(default=False, verbose_name='Выполнен')
+
+    def __str__(self):
+        return f'{self.id}'
+
+    class Meta:
+        verbose_name = 'заказ'
+        verbose_name_plural = 'заказы'
+        ordering = ['-adding_date']

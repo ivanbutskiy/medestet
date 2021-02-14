@@ -1,5 +1,6 @@
 .module-pill span {
-    font-size: 16;
+    font-size: 16px;
     font-family: Roboto;
-    color: #464646;
+    color: rgba(0, 0, 0, 0.9);
+    font-weight: 500;
 }

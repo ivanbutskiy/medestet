@@ -1,0 +1,16 @@
+.course-content {
+    font-family: Roboto;
+    color: rgba(0, 0, 0, 0.9);
+    font-size: 16px;
+    padding: 20px;
+}
+
+.course-content img {
+    width: inherit;
+    border-radius: 6.4px;
+    box-shadow: 1px 1px 10px rgba(0,0,0,0.3)
+}
+
+.course-content .text-muted {
+    font-style: italic;
+}

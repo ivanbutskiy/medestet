@@ -24,7 +24,7 @@ class ModulePill extends Component {
                         aria-selected='false'
                         onClick={ () => this.props.moduleActiveHandler(module.id) }>
                         
-                        <span className='font-weight-bold small text-uppercase'>{ module.title }</span>
+                        <span>{ module.title }</span>
                     </a>
                 )
             })

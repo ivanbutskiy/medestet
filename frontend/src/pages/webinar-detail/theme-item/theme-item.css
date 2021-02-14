@@ -1,13 +1,12 @@
 .timeline-item h4 {
-    color: rgb(70, 70, 70);
-    font-family: Roboto;
+    color: rgba(0, 0, 0, 0.8);
     font-weight: 500;
     font-size: 22px;
 }
 
 .timeline-item p {
     font-family: Roboto;
-    color: #575757;
+    color: rgba(0, 0, 0, 0.9);
     font-weight: 500;
     font-size: 16px;
     margin-bottom: 0;
@@ -18,7 +17,7 @@
 }
 
 .timeline-item .lesson-description {
-    color: #464646;
+    color: rgba(0, 0, 0, 0.9);
     font-family: Roboto;
     font-size: 16px;
 }

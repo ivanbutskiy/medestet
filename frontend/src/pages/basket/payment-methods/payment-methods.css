@@ -1,0 +1,41 @@
+.shop-payment-method {
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    border: 1px solid #008000;
+    /* border: 1px solid rgba(0,0,0,.1); */
+    border-radius: 6.4px;
+    margin: 0 auto;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.shop-payment-method label {
+    color: rgba(0, 0, 0, 0.9);
+    font-family: Roboto;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.shop-payment-method small {
+    font-family: Roboto;
+    color: rgba(0, 0, 0, 0.9);
+}
+
+.shop-payment-method-image {
+    max-width: 300px;
+    text-align: center;
+}
+
+@media (max-width: 410px) {
+    .shop-payment-method-image {
+        max-width: 200px;
+    }
+}
+
+@media (max-width: 300px) {
+    .shop-payment-method-image {
+        max-width: 150px;
+    }
+}

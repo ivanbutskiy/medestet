@@ -4,26 +4,30 @@
 }
 
 .courses-list .error-message h2 {
-    color: #464646;
+    color: rgba(0, 0, 0, 0.8);
 }
 
 .empty-courses-list {
     min-height: 400px;
 }
 
-.courses-list .empty-courses-list {
-    color: #464646;
+.courses-list .empty-courses-list h4 {
+    color: rgba(0, 0, 0, 0.8);
     text-align: center;
 }
 
 .courses-list .empty-courses-list p {
     font-size: 16px;
     font-family: Roboto;
-    margin-top: 2rem;
+    color: rgba(0, 0, 0, 0.9)
 }
 
 .courses-list .empty-courses-list i {
-    font-size: 56px;
+    font-size: 10rem;
     margin-top: 2rem;
     margin-bottom: 2rem;
+}
+
+.courses-list .loading {
+    min-height: 300px;
 }

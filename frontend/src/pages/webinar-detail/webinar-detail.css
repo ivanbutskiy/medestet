@@ -1,7 +1,11 @@
-.workshop-detail {
+.webinar-detail {
     background-color: white;
-    min-height: 600px;
+    min-height: 100;
     border-radius: 6.4px;
-    margin-bottom: 5rem;
+    /* margin-bottom: 5rem; */
     width: 100%;
+}
+
+.webinar-detail .webinar-detail-spinner {
+    padding: 10rem;
 }

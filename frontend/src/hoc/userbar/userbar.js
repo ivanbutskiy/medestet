@@ -24,15 +24,24 @@ class Userbar extends Component {
 
         return (
             <Fragment>
-                <p className='text-gray text-uppercase px-3 small pb-4 mb-0'>Аккаунт</p>
+                {/* <p className='text-gray text-uppercase px-3 small pb-4 mb-0'>Аккаунт</p> */}
 
                 <ul className='nav flex-column bg-white mb-0'>
 
                     <li className='nav-item align-items-center'>
                         <Link 
+                            to='/account/' 
+                            className='nav-link text-dark'>
+                            <i className='fas fa-user-circle mr-3 text-primary fa-fw'></i>
+                            Аккаунт
+                        </Link>
+                    </li>
+
+                    <li className='nav-item align-items-center'>
+                        <Link 
                             to='/basket/' 
                             className='nav-link text-dark'>
-                            <i className='far fa-shopping-basket mr-3 text-primary fa-fw'></i>
+                            <i className='fas fa-shopping-basket mr-3 text-primary fa-fw'></i>
                             Корзина{ countProductsInBasket ? <span className='badge badge-secondary ml-1 basket-count-badge'>{ countProductsInBasket }</span> : null }
                         </Link>
                     </li>

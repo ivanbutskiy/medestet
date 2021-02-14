@@ -1,10 +1,11 @@
 .options {
     margin-top: 5rem;
-    margin-bottom: 5rem;
+    margin-bottom: 0;
     border-radius: 6.4px;
     background: #00B4DB;
-    background: -webkit-linear-gradient(to right, #0083B0, #00B4DB);
-    background: linear-gradient(to right, #0083B0, #00B4DB);
+    /* background: -webkit-linear-gradient(to right, #0083B0, #00B4DB);
+    background: linear-gradient(to right, #0083B0, #00B4DB); */
+    background: linear-gradient(to left, #dce35b, #45b649);
     color: #514B64;
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
 }
@@ -13,6 +14,6 @@
     padding-top: 3rem;
     margin-left: 3rem;
     color: white;
-    font-size: 3rem;
+    font-size: 2.5rem;
     text-shadow: 1px 1px 1rem #464646;
 }

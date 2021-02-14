@@ -1,0 +1,15 @@
+.header-account-pages {
+    border-radius: 6.4px;
+    background: #00B4DB;
+    background: -webkit-linear-gradient(to right, #0083B0, #00B4DB);
+    background: linear-gradient(to right, #0083B0, #00B4DB);
+    color: #514B64;
+    padding: 1.5rem 2rem;
+}
+
+.header-account-pages h1 {
+    color: white;
+    text-shadow: 1px 1px 1rem #464646;
+    font-size: 56px;
+    font-weight: 500;
+}

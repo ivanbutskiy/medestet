@@ -1,0 +1,45 @@
+.change-user-data {
+    background-color: white;
+    min-height: 500px;
+    border-radius: 6.4px;
+    margin-bottom: 5rem;
+    width: 100%;
+}
+
+.change-user-data .alert {
+    font-family: Roboto;
+    font-size: 16px;
+}
+
+.change-user-data label {
+    margin-top: 1rem;
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.9)
+}
+
+.change-user-data button {
+    margin-top: 3rem;
+    background-color: #cc0000;
+    border: none;
+    width: 100%;
+}
+
+.change-user-data button:hover {
+    box-shadow: 1px 1px 5px #464646;
+    background-color: #cc0000;
+    width: 100%;
+}
+
+.change-user-data button:focus {
+    box-shadow: 1px 1px 5px #464646;
+    background-color: #cc0000;
+    outline: none;
+}
+
+.change-user-data button:active {
+    box-shadow: 1px 1px 5px #464646;
+    background-color: #cc0000;
+    outline: none;
+}

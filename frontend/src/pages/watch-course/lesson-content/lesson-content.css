@@ -1,0 +1,25 @@
+.lesson-content {
+    height: 100%;
+    font-family: Roboto;
+    color: rgba(0, 0, 0, 0.9);
+    font-size: 16px;
+    padding: 20px;
+}
+
+.lesson-content h1 {
+    margin-top: 1rem;
+}
+
+.lesson-content img {
+    width: inherit;
+    border-radius: 6.4px;
+    box-shadow: 1px 1px 10px rgba(0,0,0,0.3)
+}
+
+.lesson-content .text-muted {
+    font-style: italic;
+}
+
+.lesson-content h5 {
+    color: rgba(0, 0, 0, 0.8)
+}

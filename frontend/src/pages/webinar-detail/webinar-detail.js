@@ -7,6 +7,8 @@ import Header from './header';
 import Description from './description';
 import Themes from './themes';
 import Options from './options';
+import ErrorBanner from '../../components/error-banner';
+import Register from './register';
 
 import './webinar-detail.css';
 
@@ -15,6 +17,7 @@ class WebinarDetail extends Component {
     service = new MedestetService();
 
     state = {
+        webinarId: '',
         slug: this.props.slug,
         title: '',
         subtitle: '',
@@ -37,6 +40,7 @@ class WebinarDetail extends Component {
         this.service.getWebinarDetail(slug)
             .then((webinar) => {
                     this.setState({
+                        webinarId: webinar.data.id,
                         title: webinar.data.title,
                         subtitle: webinar.data.subtitle,
                         headerImage: webinar.data.header_image,
@@ -62,17 +66,27 @@ class WebinarDetail extends Component {
     render() {
 
         if (this.state.loaded === false) {
-            return <Spinner />
+            return (
+                <div className='webinar-detail shadow-lg justify-content-center p-2'>
+                    <div className='webinar-detail-spinner'>
+                        <Spinner />
+                    </div>
+                </div>
+            );
         };
 
         if (this.state.error) {
-            return <h1>Произошла ошибочка!</h1>
+            return (
+                <div className='webinar-detail shadow-lg justify-content-center p-2'>
+                    <div className='webinar-detail-spinner'>
+                        <ErrorBanner />
+                    </div>
+                </div>
+            );
         };
 
-        
-
         return (
-            <div className='workshop-detail shadow-lg  justify-content-center'>
+            <div className='webinar-detail shadow-lg justify-content-center p-2'>
 
                 <Header 
                     headerImage={ this.state.headerImage }
@@ -90,12 +104,14 @@ class WebinarDetail extends Component {
 
                 <Options options={ this.state.options } />
 
+                <Register 
+                    options={ this.state.options } 
+                    webinarId={ this.state.webinarId }
+                    webinarTitle={ this.state.title } />
+
             </div>
         );
     };
 };
 
 export default WebinarDetail;
-
-// TODO обработать ошибки: создать компонент ошибки и выдать его, а в CourseDetail изменить поведение промиса
-// TODO добавить форму оплаты и записи

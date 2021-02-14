@@ -1,5 +1,39 @@
 from rest_framework import serializers
-from .models import Product, Category, Brand, Currency
+from .models import (
+    Product, 
+    Category, 
+    Brand, 
+    Currency, 
+    PromoCode, 
+    Payment,
+    Delivery,
+    Order,
+    OrderItem
+)
+
+
+class OrderSerializer(serializers.ModelSerializer):
+    class Meta:
+        fields = '__all__'
+        model = Order
+
+
+class DeliverySerializer(serializers.ModelSerializer):
+    class Meta:
+        fields = '__all__'
+        model = Delivery
+
+
+class PaymentSerializer(serializers.ModelSerializer):
+    class Meta:
+        fields = '__all__'
+        model = Payment
+
+
+class PromoCodeSerializer(serializers.ModelSerializer):
+    class Meta:
+        fields = '__all__'
+        model = PromoCode
 
 
 class CurrencySerializer(serializers.ModelSerializer):

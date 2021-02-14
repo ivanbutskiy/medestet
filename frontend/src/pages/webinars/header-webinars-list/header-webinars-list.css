@@ -8,8 +8,7 @@
 }
 
 .header-workshops-list .container h1 {
-    font-family: Roboto;
-    color: #464646;
+    color: rgba(0, 0, 0, 0.8);
     font-size: 56px;
     font-weight: 500;
 }

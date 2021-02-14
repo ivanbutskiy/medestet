@@ -1,0 +1,19 @@
+.success-payment-page {
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+}
+
+.success-payment-page i {
+    color: #78c2ad;
+    font-size: 10rem;
+}
+
+.success-payment-page h2 {
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.success-payment-page p {
+    color: rgba(0, 0, 0, 0.9);
+    font-family: Roboto;
+    font-size: 16px;
+}

@@ -13,17 +13,21 @@ class Options extends Component {
 
     getOptionItems() {
         const { options } = this.state;
-        this.setState({
-            optionItems: options.map((option) => {
-                return <OptionItem 
-                    key={ option.id }
-                    title={ option.title }
-                    description={ option.description }
-                    price={ option.price }
-                    isPaid={ option.is_paid }
-                />
-            })
-        });
+        try {
+            this.setState({
+                optionItems: options.map((option) => {
+                    return <OptionItem 
+                        key={ option.id }
+                        title={ option.title }
+                        description={ option.description }
+                        price={ option.price }
+                        isPaid={ option.is_paid }
+                    />
+                })
+            });
+        } catch {
+            return null;
+        };
     };
 
     componentDidMount() {
@@ -38,7 +42,7 @@ class Options extends Component {
 
             <div className='container options'>
 
-                <h2>Выберите вариант участия</h2>
+                <h2>Варианты участия</h2>
 
                 <div className='row text-center align-items-center justify-content-center option-items pb-5 mt-5'>
                     { optionItems }

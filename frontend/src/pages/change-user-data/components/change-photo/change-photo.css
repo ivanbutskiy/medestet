@@ -1,0 +1,25 @@
+.change-user-photo {
+    border-radius: 6.4px;
+    background-color: #757f9a;
+    background-image: linear-gradient(147deg, #757f9a 0%, #d7dde8 100%);
+}
+
+.change-user-photo .spinner-border {
+    width: 150px; 
+    height: 150px;
+}
+
+.change-user-photo input {
+    border: none;
+    background-color: inherit;
+    margin: 0 auto;
+}
+
+.change-user-photo img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}

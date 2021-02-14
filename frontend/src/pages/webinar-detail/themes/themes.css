@@ -1,4 +1,4 @@
-.workshop-lessons {
+.webinar-themes {
     background: #E8CBC0;
     background: -webkit-linear-gradient(to right, #E8CBC0, #636FA4);
     background: linear-gradient(to right, #E8CBC0, #636FA4);
@@ -7,11 +7,11 @@
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
 }
 
-.workshop-lessons h2 {
+.webinar-themes h2 {
     padding-top: 3rem;
     margin-left: 3rem;
     color: white;
-    font-size: 3rem;
+    font-size: 2.5rem;
     text-shadow: 1px 1px 1rem #464646;
 }
 
@@ -21,7 +21,6 @@ ul.timeline {
     padding-left: 1.5rem;
 }
 
- /* Timeline vertical line */
 ul.timeline:before {
     content: ' ';
     background: #fff;
@@ -47,7 +46,6 @@ li.timeline-item {
     left: 2rem;
 }
 
-/* Timeline item circle marker */
 li.timeline-item::before {
     content: ' ';
     background: #ddd;

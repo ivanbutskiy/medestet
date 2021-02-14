@@ -10,15 +10,15 @@
 
 .results h2 {
     margin-top: 5rem;
-    color: #464646;
-    font-size: 3rem;
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 40px;
 }
 
 .results .results-content {
     max-width: 700px;
     margin-top: 3rem;
     font-family: Roboto;
-    color: #464646
+    color: rgba(0, 0, 0, 0.9)
 }
 
 .results .results-certify .certificate-image img {
@@ -39,6 +39,15 @@
 
 @media (max-width: 994px) {
     .results .results-certify .certificate-image img {
+        max-width: 350px;
+        max-height: 350px;
+        border-radius: 6.4px;
+        box-shadow: 1px 1px 10px rgba(0,0,0,0.3)
+    }
+}
+
+@media (max-width: 900px) {
+    .results .results-certify .certificate-image img {
         max-width: 300px;
         max-height: 300px;
         border-radius: 6.4px;
@@ -48,8 +57,26 @@
 
 @media (max-width: 770px) {
     .results .results-certify .certificate-image img {
-        max-width: 400px;
-        max-height: 400px;
+        max-width: 300px;
+        max-height: 300px;
+        border-radius: 6.4px;
+        box-shadow: 1px 1px 10px rgba(0,0,0,0.3)
+    }
+}
+
+@media (max-width: 420px) {
+    .results .results-certify .certificate-image img {
+        max-width: 300px;
+        max-height: 300px;
+        border-radius: 6.4px;
+        box-shadow: 1px 1px 10px rgba(0,0,0,0.3)
+    }
+}
+
+@media (max-width: 360px) {
+    .results .results-certify .certificate-image img {
+        max-width: 250px;
+        max-height: 250px;
         border-radius: 6.4px;
         box-shadow: 1px 1px 10px rgba(0,0,0,0.3)
     }

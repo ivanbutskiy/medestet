@@ -10,14 +10,12 @@
 }
 
 .workshop-item .card-body h4 {
-    color: rgb(70, 70, 70);
-    font-family: Roboto;
+    color: rgba(0, 0, 0, 0.8);
     font-weight: 500;
-    font-size: 22px;
 }
 
 .workshop-item .card-body .card-text {
-    color: #464646;
+    color: rgba(0, 0, 0, 0.9);
     font-family: Roboto;
     font-size: 16px;
 }
@@ -27,11 +25,11 @@
 }
 
 .workshop-item .card-body .workshop-date {
+    position: absolute;
+    bottom: 15px;
     font-family: Roboto;
-    color: #575757;
+    color: rgba(0, 0, 0, 0.9);
     font-weight: 500;
     font-size: 16px;
     margin-bottom: 0;
-    position: absolute;
-    bottom: 15px;
 }

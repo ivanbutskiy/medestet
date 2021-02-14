@@ -19,6 +19,9 @@ class Webinar(models.Model):
     description = models.TextField(verbose_name='описание вебинара')
     description_image = models.ImageField(upload_to='workshops/%Y-%m-%d/', verbose_name='картинка к описанию')
 
+    video = models.URLField(verbose_name='ссылка на видео трансляцию вебинара', blank=True, help_text='В формате "http://..."')
+    video_record = models.URLField(verbose_name='ссылка на запись вебинара', blank=True, null=True, help_text='В формате "http://..."')
+
     students = models.ManyToManyField(User, blank=True, verbose_name='участники вебинара')
 
     is_published = models.BooleanField(default=True, verbose_name='опубликован на сайте')

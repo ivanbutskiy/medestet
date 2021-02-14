@@ -1,0 +1,37 @@
+.order {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.order h2 {
+    color: rgba(0, 0, 0, 0.9)
+}
+
+.form-shop-order h4 {
+    color: rgba(0, 0, 0, 0.9)
+}
+
+.card .order p {
+    color:rgba(0, 0, 0, 0.9);
+    font-family: Roboto;
+    font-size: 16px;
+}
+
+.shop-user-label {
+    color: rgba(0, 0, 0, 0.9);
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 1rem;
+}
+
+.submit-shop-order {
+    background-color: #cc0000;
+    border: none;
+}
+
+.submit-shop-order:hover {
+    background-color: #cc0000;
+    border: none;
+    box-shadow: 1px 1px 5px #464646;
+}

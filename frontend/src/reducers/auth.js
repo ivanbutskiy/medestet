@@ -27,7 +27,7 @@ const initialState = {
     email: '',
     photo: '',
     buyCount: '',
-    buySum: '',
+    buySum: 0,
     phone: '',
     certificate: '',
     isCertified: '',
@@ -71,7 +71,7 @@ const authReducer = (state = initialState, action) => {
                 photo: action.payload.photo,
                 phone: action.payload.phone,
                 buyCount: action.payload.buy_count,
-                buySum: action.payload.buy_sum,
+                buySum: parseFloat(action.payload.buy_sum),
                 certificate: action.payload.certificate,
                 isCertified: action.payload.is_certified,
             };

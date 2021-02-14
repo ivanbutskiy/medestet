@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 
 import CourseItem from './course-item';
 import HeaderCoursesList from './header-courses-list';
-
 import Spinner from '../../components/spinner';
-
+import ErrorBanner from '../../components/error-banner'
 import MedestetService from '../../service/medestet-service';
 
 import './courses.css';
@@ -46,6 +45,9 @@ class Courses extends Component {
                 } else {
                     this.setState({ error: true });
                 };
+            })
+            .catch(error => {
+                this.setState({ error: true })
             });
     };
 
@@ -59,11 +61,11 @@ class Courses extends Component {
 
         if (count === 0) {
             return (
-                <div className='courses-list shadow-lg'>
+                <div className='courses-list shadow-lg p-2'>
                     <HeaderCoursesList />
-                    <div className='empty-courses-list'>
+                    <div className='empty-courses-list text-center'>
                         <i className='fas fa-chalkboard-teacher text-primary fa-fw'></i>
-                        <h3>На данный момент доступных для прохождения курсов нет</h3>
+                        <h4>На данный момент доступных для прохождения курсов нет</h4>
                         <p>Но скоро мы приготовим для вас кое-что интересное...</p>
                     </div>
                 </div>
@@ -72,21 +74,28 @@ class Courses extends Component {
 
         if (error) {
             return (
-                <div className='courses-list shadow-lg'>
+                <div className='courses-list shadow-lg p-2'>
                     <HeaderCoursesList />
                     <div className='container p-5 text-center error-message'>
-                        <h2>Ой, что-то пошло не так...</h2>
+                        <ErrorBanner />
                     </div>
                 </div>
             );
         };
 
         if (!loaded) {
-            return <Spinner />
+            return (
+                <div className='courses-list shadow-lg p-2'>
+                    <HeaderCoursesList />
+                    <div className='container p-2 loading mt-5'>
+                        <Spinner />
+                    </div>
+                </div>
+            )
         };
 
         return (
-            <div className='courses-list shadow-lg'>
+            <div className='courses-list shadow-lg p-2'>
                 <HeaderCoursesList />
                 <div className='container p-2'>
                     { courses }

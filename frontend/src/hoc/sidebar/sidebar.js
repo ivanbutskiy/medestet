@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import logo_medestet from '../../assets/logo_medestet.png';
 
 import UserPanel from '../user-panel';
 import GuestPanel from '../guest-panel';
@@ -16,6 +17,9 @@ class Sidebar extends Component {
         return (
             <Fragment>
                 <div className='vertical-nav bg-white' id='sidebar'>
+                    <div className='logo-medestet'>
+                        <img src={ logo_medestet } alt='medestet logo' />
+                    </div>
                 
                     { this.props.isAuthenticated ? <UserPanel/> : <GuestPanel/> }
 
@@ -64,8 +68,9 @@ class Sidebar extends Component {
                         <i className='fa fa-bars mr-2'></i>
                         <small className='text-uppercase font-weight-bold'>Меню</small>
                     </button>
-
+                    <div className='children'>
                         { this.props.sidebarChildren }
+                    </div>
 
                 </div>
             </Fragment>

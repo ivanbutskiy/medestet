@@ -3,6 +3,7 @@ from django.urls import path, include, re_path
 from django.views.generic import TemplateView
 from django.conf.urls.static import static
 from django.conf import settings
+from .service import MerchantView
 
 
 urlpatterns = [
@@ -17,6 +18,8 @@ urlpatterns = [
     path('api/workshops/', include('workshops.urls')),
     path('api/webinars/', include('webinars.urls')),
     path('api/shop/', include('shop.urls')),
+    path('api/merchant/', MerchantView.as_view())
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
 
 urlpatterns += [re_path(r'^.*', TemplateView.as_view(template_name='index.html'))]

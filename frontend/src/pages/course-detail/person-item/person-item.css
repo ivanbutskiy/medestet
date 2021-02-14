@@ -5,16 +5,16 @@
 }
 
 .person-item h5 {
-    font-family: Roboto;
-    color: #464646;
+    /* font-family: Roboto; */
+    color: rgba(0, 0, 0, 0.8);
 }
 
 .person-item p {
-    color: #464646;
+    color: rgba(0, 0, 0, 0.9);
     font-family: Roboto;
 }
 
 .person-item img {
     border-radius: 50%;
-    box-shadow: 1px 1px 10px rgba(0,0,0,0.3);
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
 }

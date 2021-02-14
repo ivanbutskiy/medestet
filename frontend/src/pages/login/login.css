@@ -1,7 +1,7 @@
-.jumbotron .display-4 {
+.jumbotron h1 {
     color: rgba(0, 0, 0, 0.8);
-    font-family: Roboto;
-    color: rgba(0, 0, 0, 0.8);
+    font-size: 56px;
+    font-weight: 500;
 }
 
 .jumbotron .alert {
@@ -9,9 +9,13 @@
 }
 
 .login p {
-    font-family: Roboto; 
+    font-family: Roboto;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.9);
 }
 
 .login form .form-group label {
     font-family: Roboto;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.9);
 }

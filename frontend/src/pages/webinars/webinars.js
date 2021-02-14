@@ -55,7 +55,7 @@ class Webinars extends Component {
 
         if (count === 0) {
             return (
-                <div className='courses-list shadow-lg'>
+                <div className='courses-list shadow-lg p-2'>
                     <HeaderWebinarsList />
                     <div className='empty-courses-list'>
                         <i className='fas fa-globe text-primary fa-fw'></i>
@@ -68,7 +68,7 @@ class Webinars extends Component {
 
         if (error === true) {
             return (
-                <div className='courses-list shadow-lg'>
+                <div className='courses-list shadow-lg p-2'>
                     <HeaderWebinarsList />
                     <div className='container p-5 text-center error-message'>
                         <h2>Ой, что-то пошло не так...</h2>
@@ -78,13 +78,20 @@ class Webinars extends Component {
         };
 
         if (!loaded) {
-            return <Spinner />
+            return (
+                <div className='courses-list shadow-lg p-2'>
+                    <HeaderWebinarsList />
+                    <div className='container p-2 loading mt-5'>
+                        <Spinner />
+                    </div>
+                </div>
+            );
         };
 
         return (
 
 
-            <div className='workshops-list shadow-lg'>
+            <div className='courses-list shadow-lg p-2'>
                 <HeaderWebinarsList />
                 <div className='container workshops-list-items p-2'>
                     <div className='row justify-content-center mb-2'>

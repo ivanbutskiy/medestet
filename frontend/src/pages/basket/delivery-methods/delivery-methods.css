@@ -1,0 +1,37 @@
+.delivery-shop-method {
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    border: 1px solid #008000;
+    /* border: 1px solid rgba(0,0,0,.1); */
+    border-radius: 6.4px;
+    margin: 0 auto;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.delivery-shop-method label {
+    color: rgba(0, 0, 0, 0.9);
+    font-family: Roboto;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+
+.delivery-shop-method-image {
+    max-width: 150px;
+    text-align: center;
+}
+
+@media (max-width: 410px) {
+    .delivery-shop-method-image {
+        max-width: 200px;
+    }
+}
+
+@media (max-width: 300px) {
+    .delivery-shop-method-image {
+        max-width: 150px;
+    }
+}
