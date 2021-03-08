@@ -1,7 +1,13 @@
 from django.contrib import admin
 from django import forms
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
-from .models import Webinar, Theme, Option
+from .models import (
+    Webinar, 
+    Theme, 
+    Option,
+    WebinarOrder,
+    WebinarPromocode
+    )
 
 
 class ThemeAdminModel(admin.ModelAdmin):
@@ -32,11 +38,11 @@ class OptionAdminModel(admin.ModelAdmin):
         'webinar',
         'title',
         'description',
-        'is_paid',
+        'option_type',
         'price',
     ]
-    list_display =  ['title', 'webinar', 'price', 'is_paid']
-    list_editable = ['is_paid']
+    list_display =  ['title', 'webinar', 'price', 'option_type']
+    list_editable = ['option_type']
     list_filter = ['webinar']
     sortable_by = ['-pk']
 
@@ -61,9 +67,6 @@ class WebinarAdminModel(admin.ModelAdmin):
         ('Описание вебинара', {
             'fields': ('description', 'description_image', 'video', 'video_record')
         }),
-        ('Участники', {
-            'fields': ('students',)
-        }),
         ('Конфигурация', {
             'fields': ('is_published', 'is_started')
         })
@@ -75,6 +78,37 @@ class WebinarAdminModel(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',), }
 
 
+class WebinarPromocodeAdminModel(admin.ModelAdmin):
+    fields = ['code', 'discount', 'webinars', 'is_active']
+    list_display = ['code', 'discount', 'is_active']
+    list_editable = ['is_active']
+    list_display_links = ['code']
+    list_filter = ['webinars']
+
+
+class WebinarOrderAdminModel(admin.ModelAdmin):
+    def check_payment(modeladmin, request, queryset):
+        for order in queryset:
+            order.status = 'paid'
+            order.save()
+
+            order.student.buy_count += 1
+            order.student.buy_sum += order.order_sum
+            order.student.save()
+    check_payment.short_description = 'Подтвердить оплату'
+
+    fields = ['order_reference', 'student', 'webinar', 'option', 'status',
+        'order_sum', 'payment_date', 'promocode']
+    list_display = ['order_reference', 'student', 'webinar', 'status']
+    list_editable = ['status']
+    list_filter = ['webinar', 'status']
+    readonly_fields = ['payment_date']
+    sortable_by = ['payment_date']
+    actions = [check_payment]
+
+
+admin.site.register(WebinarOrder, WebinarOrderAdminModel)
+admin.site.register(WebinarPromocode, WebinarPromocodeAdminModel)
 admin.site.register(Webinar, WebinarAdminModel)
 admin.site.register(Theme, ThemeAdminModel)
 admin.site.register(Option, OptionAdminModel)

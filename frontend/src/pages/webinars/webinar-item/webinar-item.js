@@ -18,7 +18,6 @@ class WebinarItem extends Component {
         const { slug, image, title, subtitle, startingDate } = this.state;
 
         return (
-
             <div className='workshop-item card mb-3 shadow-sm'>
                 <img src={ image } className='card-img-top' alt={ title } />
                 <div className='card-body'>
@@ -29,7 +28,6 @@ class WebinarItem extends Component {
                     <p className='workshop-date'><i className='fas fa-calendar-week mr-2'></i> Дата начала: { startingDate }</p>
                 </div>
             </div>
-
         );
     };
 };

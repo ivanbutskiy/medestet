@@ -1,0 +1,19 @@
+.blog-content {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding: 2rem;
+}
+
+.blog-content p {
+    color: rgba(0, 0, 0, 0.9);
+    font-family: Roboto;
+    font-size: 16px;
+}
+
+.blog-content img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}

@@ -71,7 +71,7 @@ class WatchWebinar extends Component {
         };
 
         return (
-            <div className='course-detail watch-course shadow-lg justify-content-center p-2'>
+            <div className='course-detail watch-webinar watch-course shadow-lg justify-content-center p-2'>
                 <HeaderWatchWebinar 
                     title={ title }
                     headerImage={ headerImage } />

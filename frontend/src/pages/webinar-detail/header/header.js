@@ -7,14 +7,14 @@ class Header extends Component {
     render() {
         return (
             <div 
-                className='row align-items-center webinar-header shadow-sm'
+                className='row align-items-center webinar-header shadow-sm card'
                 style={{
                     backgroundImage: `url(${ this.props.headerImage })`,
                     backgroundRepeat: 'no-repeat',
                     backgroundSize: 'cover',
                     backgroundColor: 'rgba(255, 255, 255, 0.7)',
                     backgroundBlendMode: 'color-dodge'}}>
-                <div className='col-md-8'>
+                <div className='col-md-10'>
                     <h1>{ this.props.title }</h1>
                     <p className='mt-4'>{ this.props.subtitle }</p>
                     <div className='course-detail-info'>

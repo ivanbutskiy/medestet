@@ -8,11 +8,15 @@ from .views import (
     PaymentListView,
     DeliveryListView,
     OrderRegisterView,
-    CheckServiceURL
+    CheckServiceURL,
+    UserShoppingList,
+    LastProductsView
 )
 
 
 urlpatterns = [
+    path('last/', LastProductsView.as_view()),    # show all products list
+    path('user-shopping-list/', UserShoppingList.as_view()),    # show all products list
     path('products/', ProductsList.as_view()),    # show all products list
     path('products/<str:slug>/', ProductDetailView.as_view()),    # show detail product
     path('categories/', CategoriesListView.as_view()),    # show categories list

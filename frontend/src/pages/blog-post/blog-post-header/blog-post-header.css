@@ -1,0 +1,33 @@
+.blog-post-header {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    background-color: white;
+    border-radius: 6.4px;
+    width: inherit;
+    margin: 0 auto;
+}
+
+.blog-post-header .col-md-10 h1 {
+    font-family: Roboto;
+    color: rgba(0, 0, 0, 0.8);
+    font-weight: 500;
+    font-size: 46px;
+}
+
+.blog-post-header .col-md-10 p {
+    font-family: Roboto;
+    color: rgba(0, 0, 0, 0.9);
+    font-size: 16px;
+}
+
+.blog-post-header .col-md-10 .course-detail-info i {
+    color: #78c2ad;
+}
+
+.blog-post-header .col-md-10 .course-detail-info {
+    font-family: Roboto;
+    color: rgba(0, 0, 0, 0.9);
+    font-weight: 500;
+    font-size: 16px;
+    margin-bottom: 0;
+}

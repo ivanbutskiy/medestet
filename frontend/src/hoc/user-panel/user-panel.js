@@ -9,7 +9,7 @@ class UserPanel extends Component {
     render() {
 
         return (
-            <div className='py-4 px-3 mb-4 row align-items-center user-panel'>
+            <div className='py-4 px-3 row align-items-center user-panel'>
                 <div className='media d-flex col'><img src={ this.props.photo ? this.props.photo : cosmetolog } alt='Medestet' className='rounded-circle shadow-sm' />
                 <div className='media-body col'>
                     <h4 className='m-0 user-first-name'>{ this.props.firstName }</h4>

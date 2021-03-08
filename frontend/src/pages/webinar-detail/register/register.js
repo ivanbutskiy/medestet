@@ -18,6 +18,7 @@ class Register extends Component {
         discountPercent: 0,
         selectedOptionPrice: 0,
         selectedOptionId: '',
+        webinarId: this.props.webinarId,
 
         merchantLogin: '',
         merchantSecretKey: '',
@@ -26,8 +27,12 @@ class Register extends Component {
         successPromocodeVerify: '',
         promoCodeActive: '',
         promoCodePercent: '',
+        forThisWebinar: '',
 
-        merchantDomainName: '',
+        makeDisable: '',
+
+        amount: 0,
+        merchantDomainName: this.service.DOMAIN_NAME,
         merchantTransactionSecureType: 'AUTO',
         currency: 'UAH',
         orderDate: '',
@@ -48,17 +53,8 @@ class Register extends Component {
         this.setState({ options: this.props.options });
         this.getDiscountPercent();
         this.getPaymentCore();
-        this.getServiceData();
         this.getOrderReference();
         this.getOrderDate();
-    };
-
-    getServiceData() {
-        this.setState({
-            merchantDomainName: this.service.DOMAIN_NAME,
-            merchantTransactionSecureType: 'AUTO',
-            currency: 'UAH',
-        });
     };
 
     handleSelectOption(e) {
@@ -70,6 +66,8 @@ class Register extends Component {
         } else {
             this.setState({ selectedOptionPrice: 0 });
         };
+
+        this.getAmountPrice(selectedOptionPrice);
     };
 
     getDiscountPercent() {
@@ -85,25 +83,39 @@ class Register extends Component {
 
     checkPromoCode(e) {
         e.preventDefault();
-        const { promocode } = this.state;
+        const { promocode, selectedOptionPrice, webinarId } = this.state;
         
-        this.service.checkPromoCode(promocode)
+        this.service.checkWebinarPromocode(promocode)
             .then(result => {
                 if (result.data.is_active) {
-                    this.setState({
-                        promoCodePercent: result.data.discount,
-                        successPromocodeVerify: true,
-                        promoCodeActive: true
-                    })
+                    for (let webinars of result.data.webinars) {
+                        if (parseInt(webinars) === parseInt(webinarId)) {
+                            this.setState({
+                                amount: (selectedOptionPrice - (selectedOptionPrice / 100 * result.data.discount)).toFixed(2),
+                                promoCodePercent: result.data.discount,
+                                successPromocodeVerify: true,
+                                promoCodeActive: true,
+                                forThisWebinar: true
+                            });
+                            break;
+                        };
+                        this.setState({
+                            successPromocodeVerify: true,
+                            promoCodeActive: true,
+                            forThisWebinar: false,
+                            promocode: ''
+                        });
+                    };
                 } else {
                     this.setState({ 
                         promoCodeActive: false,
-                        successPromocodeVerify: true 
+                        successPromocodeVerify: true,
+                        promocode: ''
                     })
                 };
             })
             .catch(error => {
-                this.setState({ successPromocodeVerify: false })
+                this.setState({ successPromocodeVerify: false, promocode: '' })
             });
     };
 
@@ -142,23 +154,48 @@ class Register extends Component {
 
     orderRegister(e) {
         e.preventDefault();
-        const { selectedOptionPrice } = this.state;
+        this.setState({ makeDisable: true });
+
+        const { selectedOptionPrice, orderReference, 
+            selectedOptionId, webinarId, promocode } = this.state;
         const f = document.getElementById('webinar-shop-order');
 
-        if (!selectedOptionPrice) {
-            this.service.checkFreeWebinar(this.props.webinarId)
-                .then(result => {
-                    if (result.status === 200) {
-                        this.setState({ successRedirect: true })
-                    } else {
-                        this.setState({ error: true });
-                    }
-                }).catch(error => {
-                    this.setState({ error: true });
+        this.service.webinarOrderRegister(orderReference, webinarId, selectedOptionId, promocode)
+            .then(result => {
+                if (selectedOptionPrice > 0) {
+                    f.submit();
+                } else {
+                    this.setState({ successRedirect: true })
+                }
+            }).catch(error => {
+                this.setState({ error: true })
+            });
+    };
+
+    getAmountPrice(selectedOptionPrice) {
+        const { 
+            discountPercent,
+            promoCodePercent,
+            promoCodeActive 
+        } = this.state;
+
+        if (selectedOptionPrice) {
+            if (promoCodeActive) {
+                this.setState({ 
+                    amount: selectedOptionPrice - parseFloat(selectedOptionPrice / 100 * promoCodePercent).toFixed(2)
                 });
+                return null;
+            } else if (discountPercent) {
+                this.setState({ 
+                    amount: selectedOptionPrice - parseFloat(selectedOptionPrice / 100 * discountPercent).toFixed(2)
+                });
+                return null;
+            } else {
+                this.setState({ amount: selectedOptionPrice })
+            };
         } else {
-            f.submit();
-        };
+            this.setState({ amount: 0 })
+        }
     };
 
     render() {
@@ -170,15 +207,19 @@ class Register extends Component {
         
         const {
             discountPercent,
-            selectedOptionPrice } = this.state;
+            selectedOptionPrice,
+        } = this.state;
 
         const {
             promocode,
             successPromocodeVerify,
             promoCodeActive,
-            promoCodePercent } = this.state;
+            promoCodePercent,
+            forThisWebinar 
+        } = this.state;
 
         const {
+            amount,
             merchantLogin,
             error,
             merchantDomainName,
@@ -187,7 +228,8 @@ class Register extends Component {
             orderDate,
             returnURL,
             serviceURL,
-            successRedirect
+            successRedirect,
+            makeDisable
         } = this.state;
 
         if (!isAuthenticated) {
@@ -235,11 +277,18 @@ class Register extends Component {
         };
 
         const promoCodeBlock = () => {
-            if (successPromocodeVerify === true && promoCodeActive === true) {
+            if (successPromocodeVerify === true && promoCodeActive === true && forThisWebinar) {
                 return (
                     <div className='promocode col-md-6 card text-center mt-4'>
                         <h4>Промокод успешно активирован!</h4>
                         <p className='mt-3'>По нему доступна скидка { `${promoCodePercent}%` }. Итоговая сумма пересчитана</p>
+                    </div>
+                )
+            } else if (successPromocodeVerify === true && promoCodeActive === true && !forThisWebinar) {
+                return (
+                    <div className='promocode col-md-6 card text-center mt-4'>
+                        <h4>Промокод успешно проверен</h4>
+                        <p className='mt-3'>Но для этого вебинара он не доступен</p>
                     </div>
                 )
             } else if (successPromocodeVerify && !promoCodeActive) {
@@ -261,6 +310,7 @@ class Register extends Component {
                     <div className='promocode col-md-6 card text-center mt-4'>
                         <h4>У вас есть промокод?</h4>
                         <h4>Вы можете его активировать!</h4>
+                        { isAuthenticated && discountPercent ? <small className='promocode-small-text mt-2'>Обратите внимание, что при активации промокода будет учтена только скидка, которую предоставляет промокод. А ваша клиентская скидка {discountPercent}% учтена не будет.</small> : null }
                         <form className='form-group mt-3' onSubmit={ (e) => this.checkPromoCode(e) }>
                             <input 
                                 type='text'
@@ -270,7 +320,8 @@ class Register extends Component {
                                 onChange={ (e) => this.promocodeHandler(e) }>
                             </input>
                             <button 
-                                type='submit' 
+                                type='submit'
+                                disabled={ selectedOptionPrice > 0 ? false : true } 
                                 className='btn btn-block btn-primary mt-3'>Активировать</button>
                         </form>
                     </div>
@@ -278,27 +329,9 @@ class Register extends Component {
             };
         };
 
-        const getAmountPrice = () => {
-            const { 
-                discountPercent,
-                promoCodePercent,
-                selectedOptionPrice } = this.state;
-            let price = selectedOptionPrice;
-            
-            if (discountPercent) {
-                price = price - parseFloat(price / 100 * discountPercent).toFixed(2);
-            };
-
-            if (promoCodePercent) {
-                price = price - parseFloat(price / 100 * promoCodePercent).toFixed(2);
-            };
-
-            return price;
-        };
-
         const getMerchantSignature = () => {
-            const amount = getAmountPrice();
             const { 
+                amount,
                 merchantLogin,
                 merchantDomainName,
                 orderReference,
@@ -332,7 +365,7 @@ class Register extends Component {
                         <br></br>
                         <p><strong>Стоимость выбранного варианта: </strong>{ selectedOptionPrice } грн.</p>
                         <p><strong>Процент вашей скидки: </strong>{ discountPercent }%.</p>
-                        <p><strong>Итоговая сумма: </strong>{ getAmountPrice() } грн.</p>
+                        <p><strong>Итоговая сумма: </strong>{ amount } грн.</p>
                     </div>
 
                     { promoCodeBlock() }
@@ -352,17 +385,20 @@ class Register extends Component {
                     <input readOnly className='form-control' hidden name='merchantTransactionSecureType' value={ merchantTransactionSecureType } />
                     <input readOnly className='form-control' hidden name='orderReference' value={ orderReference } />
                     <input readOnly className='form-control' hidden name='orderDate' value={ orderDate } />
-                    <input readOnly className='form-control' hidden name='amount' value={ getAmountPrice().toString() } />
+                    <input readOnly className='form-control' hidden name='amount' value={ amount.toString() } />
                     <input readOnly className='form-control' hidden name='currency' value='UAH' />
                     <input readOnly className='form-control' hidden name='productName[]' value={ this.props.webinarTitle } />
-                    <input readOnly className='form-control' hidden name='productPrice[]' value={ getAmountPrice().toString() } />
+                    <input readOnly className='form-control' hidden name='productPrice[]' value={ amount.toString() } />
                     <input readOnly className='form-control' hidden name='productCount[]' value='1' />
 
                     <input readOnly className='form-control' hidden name='returnUrl' value={ returnURL } />
                     <input readOnly className='form-control' hidden name='serviceUrl' value={ serviceURL } />
                     <input readOnly className='form-control' hidden name='merchantSignature' value={ getMerchantSignature() } />
 
-                    <button type='submit' className='btn btn-block btn-primary mt-5 mb-3 submit-shop-order' >
+                    <button 
+                        type='submit' 
+                        className='btn btn-block btn-primary mt-5 mb-3 submit-shop-order'
+                        disabled={ makeDisable ? true : false } >
                         Записаться на вебинар
                     </button>
                 </form>

@@ -7,13 +7,12 @@ class OptionItem extends Component {
     state = {
         title: this.props.title,
         description: this.props.description,
-        price: this.props.price,
-        isPaid: this.props.isPaid
+        price: this.props.price
     }
 
     render() {
 
-        const { title, description, price, isPaid } = this.state;
+        const { title, description, price } = this.state;
 
         return (
 
@@ -21,13 +20,10 @@ class OptionItem extends Component {
                 <div className='bg-white p-5 rounded-lg shadow option-item-detail'>
                     <h4 className='h5 mb-4'>{ title }</h4>
 
-                    { isPaid ? <p><i className='fas fa-tags mr-2'></i>Стоимость: { price } грн.</p> : null }
+                    { price && price > 0 ? <p><i className='fas fa-tags mr-2'></i>Стоимость: { price } грн.</p> : <p><i className='fas fa-tags mr-2'></i>Бесплатно</p> }
 
                     <div className='custom-separator my-4 mx-auto bg-primary description'></div>
-                        
-                            { description }
-                        
-                    {/* <button className='btn btn-primary btn-block p-2 shadow mt-5'>Записаться</button> */}
+                        { description }
                 </div>
             </div>
 

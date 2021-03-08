@@ -9,8 +9,9 @@
 
 .header-account .container h1 {
     color: white;
+    font-family: Roboto;
     text-shadow: 1px 1px 1rem #464646;
-    font-size: 56px;
+    font-size: 46px;
     font-weight: 500;
 }
 

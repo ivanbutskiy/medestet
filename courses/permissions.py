@@ -1,17 +1,18 @@
 from rest_framework.permissions import BasePermission
-from .models import Course
+from .models import Course, CourseOrder
 
 
 class IsCourseOwner(BasePermission):
 
-
     def has_permission(self, request, view):
         slug_course = view.kwargs['slug']
-        user_id = int(request.user.id)
+        user_id = request.user.id
 
         course = Course.objects.get(slug=slug_course)
         try:
-            assert course.students.get(pk=user_id)
-            return True
+            if course.courseorder_set.filter(student=user_id):
+                return True
+            else:
+                return False
         except:
             return False

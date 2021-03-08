@@ -51,7 +51,6 @@ class OrderAdminModel(admin.ModelAdmin):
                 'delivery', 
                 'delivery_office',
                 'region',
-                'district',
                 'city'
             )
         }),
@@ -94,7 +93,7 @@ class PaymentAdminModel(admin.ModelAdmin):
 
 
 class PromoCodeAdminModel(admin.ModelAdmin):
-    fields = ['code', 'discount', 'is_active']
+    fields = ['code', 'discount', 'products', 'is_active']
     list_display = ['code', 'discount', 'is_active']
     list_display_links = ['code']
     list_editable = ['is_active']
@@ -151,14 +150,14 @@ class ProductAdminModel(admin.ModelAdmin):
             'fields': ('slug','title', 'short_description', 'brand', 'category')
         }),
         ('Описание товара', {
-            'fields': ('description',)
+            'fields': ('description', 'volume')
         }),
         ('Стоимостные характеристики товара', {
             'fields': ('currency', 'price_certified', 'price_guest')
         }),
-        # ('Спецпредложения', {
-        #     'fields': ('new_product', 'old_price')
-        # }),
+        ('Спецпредложения', {
+            'fields': ('new_price_certified', 'new_price_guest')
+        }),
         ('Картинки товара', {
             'fields': ('header_image', 'image_1', 'image_2', 'image_3', 'image_4', 'image_5', 'image_6')
         }),
@@ -169,7 +168,7 @@ class ProductAdminModel(admin.ModelAdmin):
 
     list_filter = ['category']
     ordering = ['-pk', 'price_certified', 'price_guest', 'title', 'category']
-    list_display = ['title', 'category', 'brand', 'price_certified', 'is_published']
+    list_display = ['title', 'category', 'brand', 'is_published']
     list_editable = ['is_published']
     prepopulated_fields = {'slug': ('title',), }
 

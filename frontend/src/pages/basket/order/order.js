@@ -5,7 +5,8 @@ import { Redirect } from 'react-router-dom';
 import MedestetService from '../../../service/medestet-service';
 import PaymentMethods from '../payment-methods';
 import DeliveryMethods from '../delivery-methods';
-import { clearBasket } from '../../../actions/basket';
+import ErrorBanner from '../../../components/error-banner';
+import Spinner from '../../../components/spinner';
 
 import './order.css';
 
@@ -25,7 +26,7 @@ class Order extends Component {
         currency: 'UAH',
         merchantAccount: '',
 
-        serviceUrl: this.service.SERVICE_URL,
+        serviceUrl: `${this.service.SERVICE_URL}/api/shop/order/check-service-url/`,
 
         promocode: this.props.promocode,
         
@@ -34,7 +35,6 @@ class Order extends Component {
         clientPhone: this.props.phone,
         clientEmail: this.props.email,
         clientRegion: '',
-        clientDistrict: '',
         clientCity: '',
         deliveryAddress: '',
         
@@ -49,7 +49,8 @@ class Order extends Component {
         paymentMethods: '',
 
         orderRegisterError: false,
-        successfullyRegisterForAnyPayment: ''
+        successfullyRegisterForAnyPayment: '',
+        disabledButton: ''
     };
 
     getOrderDate() {
@@ -270,6 +271,7 @@ class Order extends Component {
 
     orderRegister = (e) => {
         e.preventDefault();
+        this.setState({ disabledButton: true });
         const { 
             orderReference,
             amount,
@@ -278,7 +280,6 @@ class Order extends Component {
             clientPhone,
             clientEmail,
             clientRegion,
-            clientDistrict,
             clientCity,
             selectedDeliveryId,
             deliveryAddress,
@@ -295,7 +296,6 @@ class Order extends Component {
             clientPhone,
             clientEmail,
             clientRegion,
-            clientDistrict,
             clientCity,
             selectedDeliveryId,
             deliveryAddress,
@@ -305,21 +305,20 @@ class Order extends Component {
             )
             .then(result => {
                 if (result.status === 200) {
-
                     if (paymentType === 'WFP') {
                         const f = document.getElementById('form-shop-order');
                         f.submit();
-                        // TODO добавить clearBasket на странице под редирект после оплаты и редирект сделать на список покупок в ЛК
                     } else {
                         this.setState({ successfullyRegisterForAnyPayment: true })
-                        this.props.clearBasket();
                     };
 
                 } else {
                     this.setState({ orderRegisterError: true });
+                    this.setState({ disabledButton: false });
                 }
             }).catch(error => {
                 this.setState({ orderRegisterError: true });
+                this.setState({ disabledButton: false });
         });
     };
 
@@ -356,26 +355,33 @@ class Order extends Component {
             clientPhone,
             clientEmail,
             clientRegion,
-            clientDistrict,
             clientCity,
-            deliveryAddress
+            deliveryAddress,
+            disabledButton
         } = this.state;
-
+        
         if (getPaymentMethodsError || getDeliveryMethodsError) {
             return (
                 <div className='container card mb-4'>
-                    <div className='order'>
-                        <h2>Данные для заполнения формы недоступны</h2>
-                        <p>Это ошибка сервера. Пожалуйста, попробуйте оформить заказ чуть позже или свяжитесь с нами.</p>
-                    </div>    
+                    <ErrorBanner />
                 </div>
             );
         };
 
+        if (!paymentMethods || !deliveryMethods) {
+            return (
+                <div className='container card mb-4 shop-order-spinner'>
+                    <div>
+                        <Spinner />
+                    </div>
+                </div>
+            );
+        };
+        
         if (orderRegisterError) {
             return (
                 <div className='container card mb-4'>
-                    <div className='order'>
+                    <div className='order text-center'>
                         <h2>Упс... Не получилось оформить заказ</h2>
                         <p>Это ошибка сервера. Пожалуйста, попробуйте оформить заказ чуть позже или свяжитесь с нами.</p>
                     </div>    
@@ -384,8 +390,10 @@ class Order extends Component {
         };
 
         if (successfullyRegisterForAnyPayment) {
-            return <Redirect to='/success-payment/' />
-        }
+            return (
+                <Redirect to='/success-payment/' />
+            );
+        };
 
         const merchantSignature = this.getMerchantSignature();
 
@@ -420,7 +428,7 @@ class Order extends Component {
                     { productNames }
                     { productPrices }
                     { productCounts }
-                    <input readOnly className='form-control' hidden name='returnUrl' value={ serviceUrl } />
+                    <input readOnly className='form-control' hidden name='returnUrl' value={ `${this.service.DOMAIN_NAME}/success-payment/` } />
                     <input readOnly className='form-control' hidden name='serviceUrl' value={ serviceUrl } />
 
                     <h4 className='mt-5 mb-4'>Куда и кому будем отправлять</h4>
@@ -504,20 +512,6 @@ class Order extends Component {
                             />
                             <label 
                                 className='shop-user-label'
-                                htmlFor='user-disctrict'>
-                                Район:
-                            </label>
-                            <input 
-                                id='user-disctrict'
-                                className='form-control'
-                                type='text'
-                                name='clientDistrict' 
-                                value={ clientDistrict }
-                                required
-                                onChange={ (e) => this.onChangeHandler(e) }
-                            />
-                            <label 
-                                className='shop-user-label'
                                 htmlFor='user-city'>
                                 Город:
                             </label>
@@ -544,14 +538,14 @@ class Order extends Component {
                                 required
                                 onChange={ (e) => this.onChangeHandler(e) }
                             />
+                            <button 
+                                type='submit'
+                                disabled={ disabledButton ? true : false }
+                                className='btn btn-block btn-primary mt-5 mb-3 submit-shop-order' >
+                                { paymentType === 'WFP' ? 'Оформить и оплатить заказ' : 'Оформить заказ' } 
+                            </button>
                         </div>
                     </div>
-                    
-                    <button 
-                        type='submit'
-                        className='btn btn-block btn-primary mt-3 mb-3 submit-shop-order' >
-                        { paymentType === 'WFP' ? 'Оформить и оплатить заказ' : 'Оформить заказ' } 
-                    </button>
                 </form>
             </div>
         );
@@ -563,7 +557,8 @@ const mapStateToProps = store => ({
     firstName: store.authReducer.firstName,
     lastName: store.authReducer.lastName,
     email: store.authReducer.email,
-    phone: store.authReducer.phone
+    phone: store.authReducer.phone,
+    isAuthenticated: store.authReducer.isAuthenticated,
 })
 
-export default connect(mapStateToProps, { clearBasket })(Order);
+export default connect(mapStateToProps, null)(Order);

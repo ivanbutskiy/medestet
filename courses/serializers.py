@@ -1,5 +1,14 @@
 from rest_framework import serializers
-from .models import Course, Lesson, Module, Person
+from .models import (
+    Course, 
+    Lesson, 
+    Module, 
+    Person, 
+    CourseOrder,
+    CoursePromocode
+    )
+
+from datetime import timedelta
 
 
 class PersonSerializer(serializers.ModelSerializer):
@@ -10,8 +19,8 @@ class PersonSerializer(serializers.ModelSerializer):
 
 class LessonSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Lesson
         fields = '__all__'
+        model = Lesson
 
 
 class ModuleSerializer(serializers.ModelSerializer):
@@ -33,7 +42,25 @@ class CourseSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+class CourseOrderSerializer(serializers.ModelSerializer):
+
+    ending_date = serializers.DateTimeField()
+    days_left = serializers.IntegerField()
+
+    class Meta:
+        model = CourseOrder
+        fields = '__all__'
+
+
 class CoursePreviewSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = Course
-        fields = ['slug', 'title', 'subtitle', 'short_description', 'starting_date', 'price', 'preview_image']
+        fields = ['id', 'slug', 'title', 'subtitle', 'short_description', 'header_image', 
+            'starting_date', 'price', 'preview_image']
+
+
+class PromocodeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CoursePromocode
+        fields = '__all__'

@@ -6,11 +6,12 @@ import {
 } from './basket-types';
 
 export const addProductToBasket = (
+        id,
         slug, 
         title, 
         headerImage, 
         price, 
-        count, 
+        count,
         priceCertifiedUAH, 
         priceGuestUAH) => dispatch => {
     if (localStorage.getItem('basket-list')) {
@@ -19,6 +20,7 @@ export const addProductToBasket = (
 
             const index = basketList.findIndex(item => item.slug === slug);
             const basketObject = {
+                id: id,
                 slug: slug, 
                 title: title, 
                 headerImage: headerImage,
@@ -34,6 +36,7 @@ export const addProductToBasket = (
 
         } else {
             const basketObject = {
+            id: id,
             slug: slug, 
             title: title, 
             headerImage: headerImage,
@@ -52,6 +55,7 @@ export const addProductToBasket = (
     } else {
         const basketList = []
         const basketObject = {
+            id: id,
             slug: slug, 
             title: title, 
             headerImage: headerImage,

@@ -1,0 +1,62 @@
+.homepage-header {
+  border-radius: 6.4px;
+  height: 50vh;
+  min-height: 350px;
+}
+
+.homepage-header .carousel-item {
+  height: 50vh;
+  border-radius: 6.4px;
+  min-height: 350px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.homepage-header .header-medestet h3 {
+  font-weight: 500;
+  font-family: Roboto;
+  font-size: 46px;
+  color: white;
+  text-shadow: 1px 1px 1rem #464646;
+  z-index: 3;
+}
+
+@media (max-width: 900px) {
+  .homepage-header .header-medestet h3 {
+      font-size: 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .homepage-header .header-medestet h3 {
+      font-size: 36px;
+  }
+}
+
+.homepage-header .header-medestet p {
+  font-weight: 500;
+  font-family: Roboto;
+  font-size: 16px;
+  color: white;
+  text-shadow: 1px 1px 1rem #464646;
+}
+
+.homepage-header .header-medestet img {
+  margin-bottom: 1.5rem;
+  max-width: 200px;
+}
+
+@media (max-width: 900px) {
+  .homepage-header .header-medestet img {
+    max-width: 100px;
+  }
+}
+
+.homepage-header .header-medestet {
+  background: #E8CBC0;
+  background: -webkit-linear-gradient(to right, #E8CBC0, #636FA4);
+  background: linear-gradient(to right, #E8CBC0, #636FA4);
+}

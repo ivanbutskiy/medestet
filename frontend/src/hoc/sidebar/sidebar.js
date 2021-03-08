@@ -7,6 +7,7 @@ import UserPanel from '../user-panel';
 import GuestPanel from '../guest-panel';
 import Userbar from '../userbar';
 import Guestbar from '../guestbar';
+import Footer from '../footer';
 
 import './sidebar.css';
 
@@ -17,9 +18,11 @@ class Sidebar extends Component {
         return (
             <Fragment>
                 <div className='vertical-nav bg-white' id='sidebar'>
-                    <div className='logo-medestet'>
-                        <img src={ logo_medestet } alt='medestet logo' />
-                    </div>
+                    <Link to='/'>
+                        <div className='logo-medestet'>
+                            <img src={ logo_medestet } alt='medestet logo' />
+                        </div>
+                    </Link>
                 
                     { this.props.isAuthenticated ? <UserPanel/> : <GuestPanel/> }
 
@@ -57,6 +60,30 @@ class Sidebar extends Component {
                                 Магазин
                             </Link>
                         </li>
+                        
+                        <li className='nav-item'>
+                            <Link to='/video/' 
+                                className='nav-link text-dark'>
+                                <i className='fas fa-video mr-3 text-primary fa-fw'></i>
+                                Видео
+                            </Link>
+                        </li>
+                        
+                        <li className='nav-item'>
+                            <Link to='/news/' 
+                                className='nav-link text-dark'>
+                                <i className='fas fa-newspaper mr-3 text-primary fa-fw'></i>
+                                Новости
+                            </Link>
+                        </li>
+                        
+                        <li className='nav-item'>
+                            <Link to='/blog/' 
+                                className='nav-link text-dark'>
+                                <i className='fas fa-blog mr-3 text-primary fa-fw'></i>
+                                Блог
+                            </Link>
+                        </li>
                     </ul>
                 </div>
     
@@ -70,8 +97,8 @@ class Sidebar extends Component {
                     </button>
                     <div className='children'>
                         { this.props.sidebarChildren }
+                        <Footer/>
                     </div>
-
                 </div>
             </Fragment>
         );

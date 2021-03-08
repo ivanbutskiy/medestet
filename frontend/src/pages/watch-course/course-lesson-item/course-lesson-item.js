@@ -6,7 +6,7 @@ export default class CourseLessonItem extends Component {
 
     state = {
         title: '',
-        courseSlug: '',
+        slugCourse: '',
         lessonId: '',
         moduleId: '',
         isActive: ''
@@ -18,7 +18,7 @@ export default class CourseLessonItem extends Component {
                 title: this.props.lesson.title,
                 moduleId: this.props.lesson.module,
                 lessonId: this.props.lesson.id,
-                courseSlug: this.props.courseSlug,
+                slugCourse: this.props.slugCourse,
                 isActive: this.props.lesson.is_active
              });
         };
@@ -29,16 +29,16 @@ export default class CourseLessonItem extends Component {
             title: this.props.lesson.title,
             moduleId: this.props.lesson.module,
             lessonId: this.props.lesson.id,
-            courseSlug: this.props.courseSlug,
+            slugCourse: this.props.slugCourse,
             isActive: this.props.lesson.is_active
-         })
+        });
     };
 
     render() {
 
         const { 
             title,
-            courseSlug,
+            slugCourse,
             moduleId,
             lessonId,
             isActive } = this.state;
@@ -47,7 +47,7 @@ export default class CourseLessonItem extends Component {
             <div className='mt-2 course-lesson-link'>
                 {
                     isActive ? <Link 
-                    to={`/account/courses/watch/${courseSlug}/${moduleId}/${lessonId}/`}>
+                    to={`/account/courses/watch/${slugCourse}/${moduleId}/${lessonId}/`}>
                     { title }
                 </Link> : <span>{ title }</span>
                 }

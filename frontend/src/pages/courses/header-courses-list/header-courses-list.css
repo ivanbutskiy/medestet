@@ -8,7 +8,8 @@
 }
 
 .header-courses-list h1 {
+    font-family: Roboto;
     color: rgba(0, 0, 0, 0.8);
-    font-size: 56px;
+    font-size: 46px;
     font-weight: 500;
 }

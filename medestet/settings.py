@@ -1,7 +1,6 @@
 from pathlib import Path
 import os
 from datetime import timedelta
-from viberbot.api.bot_configuration import BotConfiguration
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -31,7 +30,10 @@ INSTALLED_APPS = [
     'courses',
     'workshops',
     'webinars',
-    'shop'
+    'shop',
+    'blog',
+    'news',
+    'videos'
 ]
 
 MIDDLEWARE = [
@@ -104,7 +106,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'frontend/build/static')
+    os.path.join(BASE_DIR, 'frontend/build/static'),
+    os.path.join(BASE_DIR, 'frontend/build/'),
 ]
 STATIC_DIR = os.path.join(BASE_DIR, 'static')
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')

@@ -38,6 +38,11 @@ class BasketList extends Component {
         this.getBasketList();
     };
 
+    clearBasket(e) {
+        e.preventDefault();
+        this.props.clearBasket();
+    };
+
     componentDidUpdate(prevProps) {
         if (this.props.basketList !== prevProps.basketList) {
             this.getBasketList();
@@ -86,6 +91,14 @@ class BasketList extends Component {
                         </div>
                     </div>
                 </div>
+                <div className='container'>
+                    <button 
+                        className='clear-basket btn btn-primary'
+                        onClick={ (e) => this.clearBasket(e) }>
+                        <i className='fa fa-trash mr-2'></i>
+                        Очистить корзину
+                    </button>
+                </div>
             </div>
         );
     };
@@ -94,7 +107,6 @@ class BasketList extends Component {
 const mapStateToProps = store => ({
     basketList: store.basketReducer.basketList,
     count: store.basketReducer.count
-})
-
+});
 
 export default connect(mapStateToProps, { deleteFromBasket, clearBasket })(BasketList);

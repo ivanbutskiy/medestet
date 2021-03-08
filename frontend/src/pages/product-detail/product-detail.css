@@ -63,3 +63,14 @@
 .product-page .form-group label strong {
     font-weight: 500;
 }
+
+.product-page .add-to-basket-button {
+    background-color: #cc0000;
+    border: none;
+    font-weight: 500;
+}
+
+.product-page .add-to-basket-button:hover {
+    background-color: #cc0000;
+    box-shadow: 1px 1px 5px #464646;
+}

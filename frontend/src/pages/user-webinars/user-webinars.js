@@ -30,13 +30,13 @@ class UserWebinars extends Component {
                     this.setState({ empty: true })
                 } else {
                     this.setState({
-                        webinarsList: result.data.results.map(webinar => {
+                        webinarsList: result.data.results.map(result => {
                             return <WebinarItem
-                                slug={webinar.slug}
-                                title={webinar.title}
-                                subtitle={webinar.subtitle}
-                                image={webinar.description_image}
-                                key={ webinar.id }
+                                slug={result.webinar.slug}
+                                title={result.webinar.title}
+                                subtitle={result.webinar.subtitle}
+                                image={result.webinar.description_image}
+                                key={ result.webinar.id }
                             />
                         })
                     });
@@ -80,12 +80,24 @@ class UserWebinars extends Component {
             );
         };
 
+        if (loading) {
+            return (
+                <div className='user-courses-list shadow-lg p-2'>
+                    <HeaderAccountPages title={ 'Мои вебинары' } />
+                    <ReturnAccountPage />
+                    <div className='container mt-4 justify-content-center mt-5'>
+                        <Spinner />
+                    </div>
+                </div>
+            );
+        };
+
         return (
             <div className='user-courses-list shadow-lg p-2'>
                 <HeaderAccountPages title={ 'Мои вебинары' } />
                 <ReturnAccountPage />
-                <div className='container mt-4'>
-                    { loading ? <Spinner /> : webinarsList }
+                <div className='row mt-5 justify-content-center mb-5'>
+                    { webinarsList }
                 </div>
             </div>
         );

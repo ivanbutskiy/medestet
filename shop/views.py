@@ -6,7 +6,7 @@ from rest_framework import status as st
 from rest_framework.generics import RetrieveAPIView, ListAPIView
 from rest_framework.views import APIView
 from .paginators import ProductPaginator
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import AllowAny, IsAuthenticated
 from datetime import datetime
 import hmac
 from .service import send_order_mail, send_order_admin
@@ -33,6 +33,12 @@ from .serializers import (
 
 
 User = get_user_model()
+
+
+class LastProductsView(ListAPIView):
+    permission_classes = [AllowAny]
+    serializer_class = ProductPreviewSerializer
+    queryset = Product.objects.filter(is_published=True)[:5]
 
 
 class CheckServiceURL(APIView):
@@ -91,11 +97,9 @@ class OrderRegisterView(APIView):
             new_order.phone = data['phone']
             new_order.email = data['email']
             new_order.region = data['region']
-            new_order.district = data['district']
             new_order.city = data['city']
             new_order.delivery = Delivery.objects.get(pk=int(data['delivery_id']))
             new_order.delivery_office = data['delivery_office']
-            new_order.merchant_order_date = data['merchant_order_date']
             new_order.is_done = False
             if data['promocode']:
                 try:
@@ -105,8 +109,11 @@ class OrderRegisterView(APIView):
                     None
 
             if request.user.is_authenticated:
-                user = User.objects.get(email=str(request.user))
-                new_order.consumer = user
+                try:
+                    user = User.objects.get(email=str(request.user))
+                    new_order.consumer = user
+                except:
+                    None
             else:
                 try:
                     user = User.objects.get(email=data['email'])
@@ -189,3 +196,13 @@ class ProductsListByCategory(ListAPIView):
         category_id = Category.objects.get(slug=self.kwargs['category_slug'])
         products = Product.objects.filter(category_id=category_id, is_published=True)
         return products
+
+
+class UserShoppingList(ListAPIView):
+    permission_classes = [IsAuthenticated]
+    serializer_class = OrderSerializer
+    
+    def get_queryset(self):
+        user_id = self.request.user.id
+        orders = Order.objects.filter(consumer=user_id)
+        return orders

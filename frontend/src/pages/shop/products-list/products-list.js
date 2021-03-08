@@ -35,6 +35,8 @@ class ProductsList extends Component {
                                 title={ product.title }
                                 priceCertifiedUAH={ product.price_certified_uah }
                                 priceGuestUAH={ product.price_guest_uah }
+                                newPriceCertifiedUAH={ product.new_price_certified_uah }
+                                newPriceGuestUAH={ product.new_price_guest_uah }
                                 headerImage={ product.header_image }
                                 image1={ product.image_1 }
                             />
@@ -66,6 +68,8 @@ class ProductsList extends Component {
                             title={ product.title }
                             priceCertifiedUAH={ product.price_certified_uah }
                             priceGuestUAH={ product.price_guest_uah }
+                            newPriceCertifiedUAH={ product.new_price_certified_uah }
+                            newPriceGuestUAH={ product.new_price_guest_uah }
                             headerImage={ product.header_image }
                             image1={ product.image_1 }
                         />

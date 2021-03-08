@@ -1,0 +1,26 @@
+.header-slider-item h3 {
+    color: rgba(0, 0, 0, 0.8);
+    font-weight: 500;
+    font-family: Roboto;
+    font-size: 46px;
+    z-index: 2;
+}
+
+.header-slider-item p {
+    color: rgba(0, 0, 0, 0.9);
+    font-weight: 500;
+    font-family: Roboto;
+    font-size: 16px;
+}
+
+@media (max-width: 900px) {
+    .header-slider-item h3 {
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 600px) {
+    .header-slider-item h3 {
+        font-size: 36px;
+    }
+}

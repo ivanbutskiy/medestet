@@ -14,16 +14,18 @@ class Register extends Component {
         isAuthenticated: this.props.isAuthenticated,
         error: false,
 
+        courseId: this.props.courseId,
+
         promocode: '',
         successPromocodeVerify: '',
         promoCodeActive: '',
         promoCodePercent: '',
+        forThisCourse: '',
 
         userId: this.props.id,
         price: this.props.price,
         buySum: this.props.buySum,
         discountPercent: 0,
-        courseId: this.props.courseId,
         courseTitle: this.props.courseTitle,
         
         amount: '',
@@ -93,17 +95,28 @@ class Register extends Component {
 
     checkPromoCode(e) {
         e.preventDefault();
-        const { promocode, amount } = this.state;
+        const { promocode, courseId, price } = this.state;
         
-        this.service.checkPromoCode(promocode)
+        this.service.checkCoursePromocode(promocode)
             .then(result => {
                 if (result.data.is_active) {
-                    this.setState({ 
-                        amount: (parseFloat(amount) - ((amount / 100) * result.data.discount)).toFixed(2),
-                        promoCodePercent: result.data.discount,
+                    for (let course of result.data.courses) {
+                        if (course === courseId) {
+                            this.setState({
+                                amount: (parseFloat(price) - (price / 100 * result.data.discount)).toFixed(2),
+                                promoCodePercent: result.data.discount,
+                                successPromocodeVerify: true,
+                                promoCodeActive: true,
+                                forThisCourse: true
+                            });
+                            break;
+                        };
+                    this.setState({
                         successPromocodeVerify: true,
-                        promoCodeActive: true
-                    })
+                        promoCodeActive: true,
+                        forThisCourse: false
+                    });
+                    };
                 } else {
                     this.setState({ 
                         promoCodeActive: false,
@@ -119,7 +132,6 @@ class Register extends Component {
     componentDidUpdate(prevProps) {
         if (this.props !== prevProps) {
             this.setState({ isAuthenticated: this.props.isAuthenticated });
-            this.getTotalSum();
         };
     };
 
@@ -142,9 +154,16 @@ class Register extends Component {
             orderDate,
             courseTitle,
             serviceURL,
-            returnURL } = this.state;
+            returnURL 
+        } = this.state;
 
-        const { successPromocodeVerify, promoCodeActive, promoCodePercent, promocode } = this.state;
+        const { 
+            successPromocodeVerify, 
+            promoCodeActive, 
+            promoCodePercent, 
+            promocode,
+            forThisCourse
+        } = this.state;
         
         const { price, buySum, discountPercent } = this.state;
 
@@ -171,11 +190,18 @@ class Register extends Component {
         };
 
         const promoCodeBlock = () => {
-            if (successPromocodeVerify === true && promoCodeActive === true) {
+            if (successPromocodeVerify === true && promoCodeActive === true && forThisCourse) {
                 return (
                     <div className='promocode col-md-6 card text-center mt-4'>
                         <h4>Промокод успешно активирован!</h4>
                         <p className='mt-3'>По нему доступна скидка { `${promoCodePercent}%` }. Итоговая сумма пересчитана</p>
+                    </div>
+                )
+            } else if (successPromocodeVerify === true && promoCodeActive === true && !forThisCourse) {
+                return (
+                    <div className='promocode col-md-6 card text-center mt-4'>
+                        <h4>Промокод успешно проверен</h4>
+                        <p className='mt-3'>Но для этого курса он не доступен</p>
                     </div>
                 )
             } else if (successPromocodeVerify && !promoCodeActive) {
@@ -197,6 +223,8 @@ class Register extends Component {
                     <div className='promocode col-md-6 card text-center mt-4'>
                         <h4>У вас есть промокод?</h4>
                         <h4>Вы можете его активировать!</h4>
+                        { isAuthenticated && (buySum >= 5000) && (buySum < 18000) ? <small className='promocode-small-text mt-2'>Обратите внимание, что при активации промокода будет учтена только скидка, которую предоставляет промокод. А ваша клиентская скидка 3% учтена не будет.</small> : null }
+                        { isAuthenticated && buySum >= 18000 ? <small className='promocode-small-text mt-2'>Обратите внимание, что при активации промокода будет учтена только скидка, которую предоставляет промокод. А ваша клиентская скидка 5% учтена не будет.</small> : null }
                         <form className='form-group mt-3' onSubmit={ (e) => this.checkPromoCode(e) }>
                             <input 
                                 type='text'
@@ -248,9 +276,9 @@ class Register extends Component {
                 <div className='row align-items-center mt-3'>
                     <div className='col-md-6 mt-2'>
                         <p><strong>Стоимость курса: </strong>{ price } грн.</p>
-                        <p><strong>Процент вашей скидки: </strong>{ discountPercent }%.</p>
+                        { isAuthenticated && !forThisCourse ? <p><strong>Процент вашей скидки: </strong>{ discountPercent }%.</p> : null }
                         <p><strong>Итоговая сумма: </strong>{ amount } грн.</p>
-                        <small>Общая сумма ваших покупок составляет {buySum} грн. Обратите внимание, что при достижении общей суммы покупок в 5000 грн каждому зарегистрированному пользователю становится доступной скидка 3%, а при достижении 18000 грн – 5%.</small>
+                        { isAuthenticated ? <small>Общая сумма ваших покупок составляет {buySum} грн. Обратите внимание, что при достижении общей суммы покупок в 5000 грн каждому зарегистрированному пользователю становится доступной скидка 3%, а при достижении 18000 грн – 5%.</small> : null }
                     </div>
                     { promoCodeBlock() }
                 </div>

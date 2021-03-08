@@ -20,7 +20,7 @@ class Location extends Component {
                         { ReactHtmlParser(location) }
                     </div>
                     <div className='col-md-5 text-center mt-2'>
-                        <img src={ locationImage } alt='About course text' />
+                        <img src={ locationImage } alt='Location Medestet workshop' />
                     </div>
                 </div>
 

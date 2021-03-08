@@ -50,8 +50,15 @@
 .register-course .promocode button {
     background-color: #cc0000;
     border: none;
+    font-weight: 500;
 }
 
 .register-course .promocode button:hover {
     box-shadow: 1px 1px 5px #464646;
+}
+
+.register-course .promocode small {
+    color: white;
+    text-shadow: 1px 1px 1rem #464646;
+    font-family: Roboto;
 }

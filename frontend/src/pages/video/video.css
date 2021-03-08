@@ -1,0 +1,38 @@
+.blog {
+    background-color: #fff;
+    border-radius: 10px;
+    min-height: 100vh;
+}
+
+.blog .content {
+    margin-bottom: 3rem;
+}
+
+.blog .blog-spinner {
+    padding: 5rem;
+}
+
+.blog .error-message h2 {
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.blog .empty-blog h4 {
+    color: rgba(0, 0, 0, 0.8);
+    text-align: center;
+}
+
+.blog .empty-blog p {
+    font-size: 16px;
+    font-family: Roboto;
+    color: rgba(0, 0, 0, 0.9)
+}
+
+.blog .empty-blog i {
+    font-size: 10rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.blog .loading {
+    min-height: 300px;
+}

@@ -1,5 +1,11 @@
 from rest_framework import serializers
-from .models import Webinar, Option, Theme
+from .models import (
+    Webinar, 
+    Option, 
+    Theme, 
+    WebinarPromocode,
+    WebinarOrder
+    )
 
 
 class ThemeSerializer(serializers.ModelSerializer):
@@ -22,3 +28,22 @@ class WebinarSerializer(serializers.ModelSerializer):
     class Meta:
         model = Webinar
         fields = '__all__'
+
+
+class WebinarPromocodeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = WebinarPromocode
+        fields = '__all__'
+
+
+class WebinarOrderSerializer(serializers.ModelSerializer):
+    webinar = WebinarSerializer()
+    class Meta:
+        model = WebinarOrder
+        fields = '__all__'
+
+
+class WebinarPreviewSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Webinar
+        fields = ['id', 'slug', 'title', 'subtitle', 'header_image']

@@ -1,0 +1,18 @@
+.user-courses-list .order-items {
+    margin-bottom: 5rem;
+}
+
+.user-shopping-list .alert {
+    color: white;
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.user-shopping-list-spinner {
+    padding: 5rem;
+}
+
+.user-shopping-list-error {
+    padding: 5rem;
+}

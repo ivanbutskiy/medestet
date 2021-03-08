@@ -4,6 +4,7 @@ import MedestetService from '../../service/medestet-service';
 import Spinner from '../../components/spinner';
 import WebinarItem from './webinar-item';
 import HeaderWebinarsList from './header-webinars-list';
+import ErrorBanner from '../../components/error-banner';
 
 import './webinars.css';
 
@@ -13,7 +14,7 @@ class Webinars extends Component {
 
     state = {
         webinars: [],
-        loaded: false,
+        loading: true,
         error: false,
         count: ''
     };
@@ -21,7 +22,6 @@ class Webinars extends Component {
     getWebinarsList() {
         this.service.getWebinarsList()
         .then(webinars => {
-            if (webinars.status === 200) {
                 if (webinars.data.count === 0) {
                     this.setState({ count: 0 });
                 } else {
@@ -37,12 +37,11 @@ class Webinars extends Component {
                             />
                         })
                     });
-                    this.setState({ loaded: true });
-                };
-            } else {
-                this.setState({ error: true });
-            };
-        });
+                }; 
+                this.setState({ loading: false });
+        }).catch(error => {
+            this.setState({ error: true, loading: false });
+        })
     };
 
     componentDidMount() {
@@ -51,33 +50,33 @@ class Webinars extends Component {
 
     render() {
 
-        const { webinars, loaded, error, count } = this.state;
+        const { webinars, loading, error, count } = this.state;
 
         if (count === 0) {
             return (
-                <div className='courses-list shadow-lg p-2'>
+                <div className='workshops-list shadow-lg p-2'>
                     <HeaderWebinarsList />
-                    <div className='empty-courses-list'>
+                    <div className='empty-workshops-list text-center'>
                         <i className='fas fa-globe text-primary fa-fw'></i>
-                        <h3>На данный момент вебинаров нет</h3>
+                        <h4>На данный момент вебинаров нет</h4>
                         <p>Но скоро мы приготовим для вас кое-что интересное...</p>
                     </div>
                 </div>
             );
         };
 
-        if (error === true) {
+        if (error) {
             return (
                 <div className='courses-list shadow-lg p-2'>
                     <HeaderWebinarsList />
                     <div className='container p-5 text-center error-message'>
-                        <h2>Ой, что-то пошло не так...</h2>
+                        <ErrorBanner />
                     </div>
                 </div>
             );
         };
 
-        if (!loaded) {
+        if (loading) {
             return (
                 <div className='courses-list shadow-lg p-2'>
                     <HeaderWebinarsList />
@@ -89,8 +88,6 @@ class Webinars extends Component {
         };
 
         return (
-
-
             <div className='courses-list shadow-lg p-2'>
                 <HeaderWebinarsList />
                 <div className='container workshops-list-items p-2'>
@@ -99,7 +96,6 @@ class Webinars extends Component {
                     </div>
                 </div>
             </div>
-
         );
     };
 };

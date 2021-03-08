@@ -1,14 +1,18 @@
 .header-watch-course {
     border-radius: 6.4px;
-    /* background-image: url('../../../assets/courses-list-header-background-image.jpg'); */
     background-size: cover;
     background-repeat: no-repeat;
     background-color: rgba(255, 255, 255, 0.7);
     background-blend-mode: color-dodge;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
-.header-watch-course h1 {
+.header-watch-course .col-md-10 h1 {
+    font-family: Roboto;
     color: rgba(0, 0, 0, 0.8);
-    font-size: 56px;
     font-weight: 500;
+    font-size: 46px;
 }

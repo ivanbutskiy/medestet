@@ -12,12 +12,6 @@ from .models import (
 )
 
 
-class OrderSerializer(serializers.ModelSerializer):
-    class Meta:
-        fields = '__all__'
-        model = Order
-
-
 class DeliverySerializer(serializers.ModelSerializer):
     class Meta:
         fields = '__all__'
@@ -57,8 +51,12 @@ class BrandSerializer(serializers.ModelSerializer):
 class ProductSerializer(serializers.ModelSerializer):
     brand = BrandSerializer(read_only=True)
     category = CategorySerializer(read_only=True)
+
     price_certified_uah = serializers.DecimalField(max_digits=7, decimal_places=2)
+    new_price_certified_uah = serializers.DecimalField(max_digits=7, decimal_places=2)
+
     price_guest_uah = serializers.DecimalField(max_digits=7, decimal_places=2)
+    new_price_guest_uah = serializers.DecimalField(max_digits=7, decimal_places=2)
 
     class Meta:
         fields = '__all__'
@@ -67,8 +65,27 @@ class ProductSerializer(serializers.ModelSerializer):
 
 class ProductPreviewSerializer(serializers.ModelSerializer):
     price_certified_uah = serializers.DecimalField(max_digits=7, decimal_places=2)
+    new_price_certified_uah = serializers.DecimalField(max_digits=7, decimal_places=2)
     price_guest_uah = serializers.DecimalField(max_digits=7, decimal_places=2)
+    new_price_guest_uah = serializers.DecimalField(max_digits=7, decimal_places=2)
 
     class Meta:
-        fields = ['slug', 'title', 'price_certified_uah', 'price_guest_uah', 'header_image', 'image_1']
+        fields = ['slug', 'title', 'price_certified_uah', 'new_price_certified_uah', 
+            'price_guest_uah', 'new_price_guest_uah', 'header_image', 'image_1']
         model = Product
+
+
+class OrderItemSerializer(serializers.ModelSerializer):
+    product = ProductPreviewSerializer()
+
+    class Meta:
+        fields = '__all__'
+        model = OrderItem
+
+
+class OrderSerializer(serializers.ModelSerializer):
+    order_item = OrderItemSerializer(source='orderitem_set', many=True)
+
+    class Meta:
+        fields = '__all__'
+        model = Order

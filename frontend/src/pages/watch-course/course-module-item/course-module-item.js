@@ -8,16 +8,17 @@ export default class CourseModuleItem extends Component {
     state = {
         module: this.props.module,
         moduleNum: this.props.moduleNum,
-        courseSlug: this.props.courseSlug,
+        slugCourse: this.props.slugCourse,
         lessonsItems: ''
     };
 
     getLessonItems() {
         this.setState({
             lessonsItems: this.state.module.lesson.map(lesson => {
+                // console.log(lesson)
                 return <CourseLessonItem 
                     lesson={ lesson } 
-                    courseSlug={ this.state.courseSlug }
+                    slugCourse={ this.state.slugCourse }
                     key={ lesson.id } />
             })
         })
@@ -27,7 +28,7 @@ export default class CourseModuleItem extends Component {
         if (this.props !== prevProps) {
             this.setState({ 
                 module: this.props.module,
-                courseSlug: this.props.courseSlug });
+                slugCourse: this.props.slugCourse });
             this.getLessonItems();
         };
     };
@@ -35,7 +36,7 @@ export default class CourseModuleItem extends Component {
     componentDidMount() {
         this.setState({ 
             module: this.props.module,
-            courseSlug: this.props.courseSlug });
+            slugCourse: this.props.slugCourse });
         this.getLessonItems();
     };
 

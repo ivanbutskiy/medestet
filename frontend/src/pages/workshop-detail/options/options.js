@@ -7,12 +7,12 @@ import './options.css';
 class Options extends Component {
 
     state = {
-        options: this.props.options,
+        options: '',
         optionItems: ''
     };
 
     getOptionItems() {
-        const { options } = this.state;
+        const { options } = this.props;
         this.setState({
             optionItems: options.map((option) => {
                 return <OptionItem 
@@ -26,6 +26,7 @@ class Options extends Component {
     };
 
     componentDidMount() {
+        this.setState({ options: this.props.options });
         this.getOptionItems();
     };
 

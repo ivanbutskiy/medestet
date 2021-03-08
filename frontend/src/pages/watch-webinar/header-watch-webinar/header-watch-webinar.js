@@ -15,9 +15,13 @@ class HeaderWatchWebinar extends Component {
 
         return (
             <div 
-                className='jumbotron shadow-sm card header-watch-course'
-                style={{ backgroundImage:`url(${ headerImage })` }}>
-                <h1>{ title }</h1>
+                className='shadow-sm card header-watch-webinar'
+                style={{ backgroundImage:`url(${headerImage})` }}>
+                <div className='row container'>
+                    <div className='col-md-10'>
+                        <h1>{ title }</h1>
+                    </div>
+                </div>
             </div>
         );
     };

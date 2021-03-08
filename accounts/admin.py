@@ -40,7 +40,7 @@ class UserAccountAdmin(admin.ModelAdmin):
             'fields': ('is_active','is_staff', 'is_superuser')
         })
         )
-    readonly_fields = ['register_date']
+    readonly_fields = ['register_date', 'is_certified']
     list_filter = ['is_certified', 'is_active', 'is_staff']
     list_display = ['id', 'email', 'first_name', 'last_name', 'buy_count', 'buy_sum', 'is_certified', 'is_active']
     list_display_links = ['id', 'email']

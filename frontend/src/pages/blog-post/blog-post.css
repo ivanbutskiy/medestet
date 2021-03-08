@@ -1,0 +1,14 @@
+.blog-post {
+    background-color: white;
+    min-height: 600px;
+    border-radius: 6.4px;
+    min-height: 100vh;
+}
+
+.blog-post .blog-post-spinner {
+    padding: 10rem;
+}
+
+.blog-post-error {
+    padding: 5rem;
+}

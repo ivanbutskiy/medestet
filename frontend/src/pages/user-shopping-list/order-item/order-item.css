@@ -1,0 +1,34 @@
+.user-order-card .order-item-link {
+    width: 100%;
+    position: relative;
+    text-align: left;
+    font-family: Roboto;
+    font-size: 18px;
+    color: rgba(0, 0, 0, 0.9);
+    font-weight: 500;
+}
+
+.user-order-card .order-item-link::before {
+    content: '\f107';
+    position: absolute;
+    top: 50%;
+    right: 0.8rem;
+    transform: translateY(-50%);
+    display: block;
+    font-family: 'FontAwesome';
+    font-size: 1.1rem;
+}
+
+.user-order-card .order-item-link[aria-expanded='true']::before {
+    content: '\f106';
+}
+
+.user-order-card .card-body strong {
+    font-weight: 500;
+}
+
+.user-order-card .card-body p {
+    color: rgba(0, 0, 0, 0.9);
+    font-size: 16px;
+    font-family: Roboto;
+}

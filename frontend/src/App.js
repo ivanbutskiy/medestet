@@ -24,6 +24,15 @@ import UserCourses from './pages/user-courses';
 import WatchCourse from './pages/watch-course';
 import UserWebinars from './pages/user-webinars';
 import WatchWebinar from './pages/watch-webinar';
+import UserShoppingList from './pages/user-shopping-list';
+import UserWorkshops from './pages/user-workshops';
+import Blog from './pages/blog';
+import BlogPost from './pages/blog-post';
+import News from './pages/news';
+import NewsPost from './pages/news-post';
+import Video from './pages/video';
+import VideoDetail from './pages/video-detail';
+import HomePage from './pages/homepage';
 
 import store from './store';
 
@@ -34,6 +43,7 @@ const App = () => (
     <Router>
       <Hoc>
         <Switch>
+          <Route path='/' component={ HomePage } exact />
           <Route path='/login/' component={ Login } exact />
           <Route path='/register/' component={ Register } exact />
           <Route path='/basket/' component={ Basket } exact />
@@ -42,12 +52,15 @@ const App = () => (
           <Route path='/account/profile/' component={ ChangeUserData } exact />
           <Route path='/account/password/' component={ ChangePassword } exact />
           <Route path='/account/certify/' component={ Certify } exact />
+          <Route path='/account/shopping/' component={ UserShoppingList } exact />
 
           <Route path='/account/courses/' component={ UserCourses } exact />
-          <Route path='/account/courses/watch/:slagCourse?/:moduleId?/:lessonId?/' component={ WatchCourse } exact />
+          <Route path='/account/courses/watch/:slugCourse?/:moduleId?/:lessonId?/' component={ WatchCourse } exact />
 
           <Route path='/account/webinars/' component={ UserWebinars } exact />
           <Route path='/account/webinars/watch/:slagWebinar/' component={ WatchWebinar } exact />
+
+          <Route path='/account/workshops/' component={ UserWorkshops } exact />
 
           <Route path='/courses/' component={ Courses } exact />
           <Route 
@@ -96,6 +109,27 @@ const App = () => (
             component={ Shop }
             exact 
           />
+
+          <Route path='/blog/' component={ Blog } exact />
+          <Route 
+              path='/blog/:slug/' 
+              render={({match}) => {
+              return <BlogPost slug={ match.params.slug } /> }}
+              exact />
+
+          <Route path='/news/' component={ News } exact />
+          <Route 
+              path='/news/:slug/' 
+              render={({match}) => {
+              return <NewsPost slug={ match.params.slug } /> }}
+              exact />
+
+          <Route path='/video/' component={ Video } exact />
+          <Route 
+              path='/video/:slug/' 
+              render={({match}) => {
+              return <VideoDetail slug={ match.params.slug } /> }}
+              exact />
 
         </Switch>
       </Hoc>

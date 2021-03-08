@@ -7,9 +7,9 @@
     background-blend-mode: color-dodge;
 }
 
-.header-workshops-list .container h1 {
+.header-workshops-list h1 {
     font-family: Roboto;
-    color: #464646;
-    font-size: 56px;
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 46px;
     font-weight: 500;
 }

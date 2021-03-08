@@ -68,13 +68,21 @@ class Product(models.Model):
         help_text='Макс. длина 300 символов')
     
     description = models.TextField(verbose_name='Полное описание товара')
+    volume = models.IntegerField(verbose_name='Объем продукции в миллилитрах', help_text='Введите целое число', blank=True)
 
-    price_certified = models.DecimalField(max_digits=6, decimal_places=2, null=True, 
-        verbose_name='Стоимость в валюте для сертифицированных', 
-        help_text='Показывается только для сертифицированных пользователей')
-    price_guest = models.DecimalField(max_digits=6, decimal_places=2, default=0.00,             
+    price_certified = models.DecimalField(max_digits=7, decimal_places=2, null=True, 
+        verbose_name='Стоимость в валюте для сертифицированных пользователей', 
+        help_text='Показывается только сертифицированным пользователям')
+    new_price_certified = models.DecimalField(max_digits=7, decimal_places=2, null=True, 
+        default=0.00, verbose_name='Новая скидочная стоимость в валюте для сертифицированных пользователей',
+        help_text='Новая скидочная стоимость показывается только сертифицированным пользователям. Если новая стоимость по скидке не предусмотрена, оставьте значение нулевым. Если поле заполнено, будет показана новая скидочная стоимость, и по ней сертифицированный косметолог будет приобретать товар')
+
+    price_guest = models.DecimalField(max_digits=7, decimal_places=2, default=0.00, 
         verbose_name='Стоимость в валюте для несертифицированных (для домашнего ухода)', 
         help_text='Если товар не предназначен для несертифицированных пользователей, оставьте  значение нулевым. Но, если оно заполнено, то в карточке товара будет показана стоимость для несертифицированных и незарегистрированных пользователей, а также будет возможность заказа этого товара')
+    new_price_guest = models.DecimalField(max_digits=7, decimal_places=2, default=0.00, 
+        null=True, verbose_name='Новая скидочная стоимость в валюте для несертифицированных (для домашнего ухода)', help_text='Если для несертифицированных пользователей по этому товару не предусмотрена новая скидочная стоимость, оставьте значение нулевым')
+
     currency = models.ForeignKey(Currency, on_delete=models.SET_NULL, null=True, verbose_name='В какой валюте стоимость', help_text='При выводе для пользователя будет автоматически пересчитано в гривну')
 
     header_image = models.ImageField(upload_to='images/shop/%Y-%m-%d/', verbose_name='Главная картинка')
@@ -96,6 +104,14 @@ class Product(models.Model):
     def price_guest_uah(self):
         return self.price_guest * self.currency.exchange
 
+    @property
+    def new_price_certified_uah(self):
+        return self.new_price_certified * self.currency.exchange
+
+    @property
+    def new_price_guest_uah(self):
+        return self.new_price_guest * self.currency.exchange
+
     def __str__(self):
         return self.title
 
@@ -108,6 +124,7 @@ class Product(models.Model):
 class PromoCode(models.Model):
     code = models.CharField(max_length=20, verbose_name='Промокод', help_text='Набор символов длиной до 20 знаков')
     discount = models.PositiveSmallIntegerField(verbose_name='Процент скидки', help_text='Процент скидки, которую предоставляет промокод. Нужно ввести целое число (без символа процента). Минимальное значение - 0, максимальное - 100')
+    products = models.ManyToManyField(Product, verbose_name='На какие продукты распространяется промокод')
     is_active = models.BooleanField(default=True, verbose_name='Промокод активен и действует')
 
     def __str__(self):
@@ -194,7 +211,6 @@ class Order(models.Model):
     )
     order_reference = models.CharField(max_length=30, null=True, verbose_name='Уникальный номер заказа')
     consumer = models.ForeignKey(User, blank=True, null=True, on_delete=models.SET_NULL, verbose_name='Покупатель', help_text='Если человек зарегистрирован на сайте, будет указано его имя и фамилия')
-    merchant_order_date = models.CharField(max_length=30, null=True, verbose_name='Дата для WFP')
 
     status = models.CharField(max_length=30, verbose_name='Статус заказа', choices=STATUS)
     order_sum = models.DecimalField(max_digits=8, decimal_places=2, verbose_name='Сумма заказа')
@@ -205,7 +221,6 @@ class Order(models.Model):
     phone = models.CharField(max_length=30, verbose_name='Телефон')
     email = models.EmailField(verbose_name='E-mail')
     region = models.CharField(max_length=50, verbose_name='Область')
-    district = models.CharField(max_length=50, verbose_name='Район')
     city = models.CharField(max_length=50, verbose_name='Город')
 
     delivery = models.ForeignKey(Delivery, null=True, on_delete=models.SET_NULL, verbose_name='Способ доставки')

@@ -5,16 +5,28 @@ from rest_framework.views import APIView
 from rest_framework.generics import RetrieveAPIView, ListAPIView
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework import status as st
-from .models import Course, Person, Module, Lesson
-from .serializers import CourseSerializer, CoursePreviewSerializer, LessonSerializer
+from .models import Course, Person, Module, Lesson, CourseOrder, CoursePromocode
 from decimal import Decimal
 from datetime import datetime
 import hmac
 from .service import send_register_mail, send_admin_email
 from .permissions import IsCourseOwner
+from .serializers import (
+    CourseSerializer, 
+    CoursePreviewSerializer, 
+    LessonSerializer,
+    CourseOrderSerializer,
+    PromocodeSerializer
+    )
 
 
 User = get_user_model()
+
+
+class LastCoursesView(ListAPIView):
+    permission_classes = [AllowAny]
+    serializer_class = CoursePreviewSerializer
+    queryset = Course.objects.filter(is_published=True)[:5]
 
 
 class CoursesListView(ListAPIView):
@@ -45,8 +57,14 @@ class CheckServiceURL(APIView):
                 user.buy_sum += Decimal(str(request.data['amount']))
                 user.save()
 
-                course.students.add(user)
-                course.save()
+                course_order = CourseOrder()
+
+                course_order.student = user
+                course_order.course = course
+                course_order.order_sum = request.data['amount']
+                course_order.order_reference = order_reference
+                course_order.status = 'paid'
+                course_order.save()
             
                 status = 'accept'
                 time = str(int(datetime.utcnow().timestamp()))
@@ -57,14 +75,16 @@ class CheckServiceURL(APIView):
                 send_register_mail(user, course)
                 send_admin_email(user, course)
             
-            return Response(
-                {
-                    'orderReference': order_reference,
-                    'status': status,
-                    'time': time,
-                    'signature': merchant_signature
-                }
-            )
+                return Response(
+                    {
+                        'orderReference': order_reference,
+                        'status': status,
+                        'time': time,
+                        'signature': merchant_signature
+                    }
+                )
+            else:
+                return Response({}, st.HTTP_404_NOT_FOUND)
         except:
             return Response({}, st.HTTP_404_NOT_FOUND)
 
@@ -74,7 +94,7 @@ class UserCourses(ListAPIView):
     serializer_class = CoursePreviewSerializer
 
     def get_queryset(self):
-        courses = Course.objects.filter(students__exact=int(self.request.user.id))
+        courses = Course.objects.filter(courseorder__student=self.request.user.id, courseorder__status='paid')
         return courses
 
 
@@ -86,7 +106,27 @@ class UserCourseDetail(RetrieveAPIView):
 
 
 class LessonDetailView(RetrieveAPIView):
-    permission_classes = [IsAuthenticated, IsCourseOwner]
+    permission_classes = [IsAuthenticated]
     serializer_class = LessonSerializer
     lookup_field = 'id'
     queryset = Lesson.objects.all()
+
+
+class CourseOrderView(RetrieveAPIView):
+    permission_classes = [IsAuthenticated, IsCourseOwner]
+    serializer_class = CourseOrderSerializer
+    lookup_field = 'slug'
+    queryset = CourseOrder.objects.all()
+
+    def get_object(self):
+        course_id = Course.objects.get(slug=self.kwargs['slug']).id
+        user_id = self.request.user.id
+        order = CourseOrder.objects.get(student=user_id, course=course_id)
+        return order
+
+
+class CheckPromocode(RetrieveAPIView):
+    permission_classes = [AllowAny]
+    serializer_class = PromocodeSerializer
+    lookup_field = 'code'
+    queryset = CoursePromocode.objects.all()

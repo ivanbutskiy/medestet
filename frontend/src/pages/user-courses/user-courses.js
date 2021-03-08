@@ -61,7 +61,9 @@ class UserCourses extends Component {
                 <div className='user-courses-list shadow-lg p-2'>
                     <HeaderAccountPages title={ 'Мои курсы' } />
                     <ReturnAccountPage />
-                    <ErrorBanner />
+                    <div className='user-courses-list-error'>
+                        <ErrorBanner />
+                    </div>
                 </div>    
             );
         };
@@ -75,10 +77,22 @@ class UserCourses extends Component {
                         <div className='empty-courses-list text-center'>
                             <i className='fas fa-chalkboard-teacher text-primary fa-fw'></i>
                             <h4>Пока что вы не приобрели ни одного курса</h4>
-                            <p>Но вы можете это быстро исправить и <Link to='/courses/'>выбрать для себя курс</Link>.</p>
+                            <p>Но вы можете это быстро исправить и <Link to='/courses/'>выбрать для себя курс</Link></p>
                         </div>
                     </div>
                 </div>    
+            );
+        };
+
+        if (loading) {
+            return (
+                <div className='user-courses-list shadow-lg p-2'>
+                    <HeaderAccountPages title={ 'Мои курсы' } />
+                    <ReturnAccountPage />
+                    <div className='user-courses-list-error'>
+                        <Spinner />
+                    </div>
+                </div>  
             );
         };
 

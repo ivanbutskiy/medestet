@@ -18,8 +18,10 @@ urlpatterns = [
     path('api/workshops/', include('workshops.urls')),
     path('api/webinars/', include('webinars.urls')),
     path('api/shop/', include('shop.urls')),
+    path('api/blog/', include('blog.urls')),
+    path('api/news/', include('news.urls')),
+    path('api/videos/', include('videos.urls')),
     path('api/merchant/', MerchantView.as_view())
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
 
 urlpatterns += [re_path(r'^.*', TemplateView.as_view(template_name='index.html'))]

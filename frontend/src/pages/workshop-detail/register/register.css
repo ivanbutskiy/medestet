@@ -1,0 +1,85 @@
+.register-workshop {
+    border: 1px solid #008000;
+    border-radius: 6.4px;
+    margin-bottom: 2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.register-workshop h2 {
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 40px;
+}
+
+.register-workshop p {
+    font-size: 16px;
+    font-family: Roboto;
+    color: rgba(0, 0, 0, 0.9);
+}
+
+.register-workshop p strong {
+    font-weight: 500;
+}
+
+.register-workshop .register-content a {
+    font-weight: 500;
+}
+
+.register-workshop .promocode {
+    background: #00B4DB;
+    background: -webkit-linear-gradient(to right, #0083B0, #00B4DB);
+    background: linear-gradient(to right, #0083B0, #00B4DB);
+    border-radius: 6.4px;
+    padding: 1rem;
+}
+
+.register-workshop .promocode h4 {
+    color: white;
+    text-shadow: 1px 1px 1rem #464646;
+}
+
+.register-workshop .promocode p {
+    color: white;
+    text-shadow: 1px 1px 1rem #464646;
+    font-family: Roboto;
+    font-size: 18px;
+}
+
+.register-workshop .promocode button {
+    background-color: #cc0000;
+    border: none;
+    font-weight: 500;
+}
+
+.register-workshop .promocode button:hover {
+    box-shadow: 1px 1px 5px #464646;
+}
+
+.register-workshop .promocode small {
+    color: white;
+    text-shadow: 1px 1px 1rem #464646;
+    font-family: Roboto;
+}
+
+.register-workshop .form-check {
+    font-family: Roboto;
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.9);
+}
+
+.register-workshop .success-register i {
+    color: #78c2ad;
+    font-size: 10rem;
+}
+
+.register-workshop .success-register h4 {
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.register-workshop .success-register p {
+    color:rgba(0, 0, 0, 0.8);
+    font-family: Roboto;
+    font-size: 16px;
+}

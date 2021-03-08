@@ -28,55 +28,71 @@ class Basket extends Component {
         promocode: '',
         promoCodePercent: 0,
         successPromocodeVerify: null,
-        promoCodeActive: null
+        promoCodeActive: null,
+        promocodeProductsId: ''
     };
 
     getSumInfo() {
         const { basketList, buySum } = this.props;
+        const { 
+            promoCodeActive, 
+            promocodeProductsId,
+            promoCodePercent
+        } = this.state;
         
         let basketSum = 0;
         if (basketList) {
-            for (let sum of basketList) {
-                basketSum += sum.summaryPrice;
+            for (let product of basketList) {
+                basketSum += product.summaryPrice;
             };
         };
         this.setState({ basketSum: basketSum.toFixed(2) });
 
-        let userDiscountUAH = 0;
-        if (buySum >= 18000) {
-            userDiscountUAH = ((basketSum / 100) * 5).toFixed(2);
-            this.setState({ 
-                userDiscountPercent: '5%',
-                userDiscountUAH: userDiscountUAH
-            });
-        } else if (buySum >= 5000) {
-            userDiscountUAH = ((basketSum / 100) * 3).toFixed(2);
-            this.setState({
-                userDiscountPercent: '3%',
-                userDiscountUAH: userDiscountUAH
-            });
+        if (!promoCodeActive) {
+            let userDiscountUAH = 0;
+            if (buySum >= 18000) {
+                userDiscountUAH = ((basketSum / 100) * 5).toFixed(2);
+                this.setState({ 
+                    userDiscountPercent: '5%',
+                    userDiscountUAH: userDiscountUAH
+                });
+            } else if (buySum >= 5000) {
+                userDiscountUAH = ((basketSum / 100) * 3).toFixed(2);
+                this.setState({
+                    userDiscountPercent: '3%',
+                    userDiscountUAH: userDiscountUAH
+                });
+            } else {
+                this.setState({ 
+                    userDiscountPercent: '0%',
+                    userDiscountUAH: 0 })
+            };
+            this.setState({ totalSum: (basketSum - userDiscountUAH).toFixed(2) })
         } else {
-            this.setState({ 
-                userDiscountPercent: '0%',
-                userDiscountUAH: 0 })
-        };
-        this.setState({ totalSum: (basketSum - userDiscountUAH).toFixed(2) })
+            let totalSum = 0;
+            for (let product of basketList) {
+                if (promocodeProductsId.indexOf(product.id) !== -1) {
+                    totalSum += (product.summaryPrice - ((product.summaryPrice / 100) * promoCodePercent))
+                } else {
+                    totalSum += product.summaryPrice;
+                };
+            };
+            this.setState({ totalSum: totalSum.toFixed(2) })
+        }
     };
 
     checkPromoCode = (promoCode) => {
-
-        const totalSum = this.state.totalSum;
-
         this.service.checkPromoCode(promoCode)
             .then(result => {
                 if (result.data.is_active) {
                     this.setState({ 
-                        totalSum: (totalSum - ((totalSum / 100) * result.data.discount)).toFixed(2),
                         promoCodePercent: result.data.discount,
                         successPromocodeVerify: true,
                         promocode: result.data.code,
-                        promoCodeActive: true
-                    })
+                        promoCodeActive: true,
+                        promocodeProductsId: result.data.products
+                    });
+                    this.getSumInfo();
                 } else {
                     this.setState({ 
                         promoCodeActive: false,
@@ -85,6 +101,7 @@ class Basket extends Component {
                 };
             })
             .catch(err => {
+                console.log(err);
                 this.setState({ successPromocodeVerify: false })
             });
     };
@@ -93,8 +110,8 @@ class Basket extends Component {
         const { basketList } = this.props;
         for (let basketItem of basketList) {
             if (!basketItem.priceGuestUAH) {
-                this.setState({ onlyHomeProducts: false })
-                break
+                this.setState({ onlyHomeProducts: false });
+                break;
             };
         };
     };
@@ -127,7 +144,8 @@ class Basket extends Component {
             userDiscountPercent,
             userDiscountUAH,
             totalSum,
-            promocode
+            promocode,
+            promocodeProductsId
         } = this.state;
   
         if(count === 0) {
@@ -165,6 +183,7 @@ class Basket extends Component {
                     successPromocodeVerify={ successPromocodeVerify }
                     promoCodeActive={ promoCodeActive }
                     checkPromoCode={ this.checkPromoCode } 
+                    promocodeProductsId={ promocodeProductsId }
                 />
 
                 { !onlyHomeProducts || basketSum > 250 ? <Order 

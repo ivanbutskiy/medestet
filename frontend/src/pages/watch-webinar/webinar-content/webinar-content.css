@@ -1,3 +1,7 @@
+.webinar-content {
+    padding-bottom: 4rem;
+}
+
 .webinar-content p {
     color: rgba(0, 0, 0, 0.9);
     font-family: Roboto;

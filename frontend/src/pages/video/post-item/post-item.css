@@ -1,0 +1,45 @@
+.post-item {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.post-item img {
+    height: 200px;
+    object-fit: cover;
+}
+
+.post-item .card-body {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 0;
+    /* padding: 1rem; */
+}
+
+.post-item .card-body h4 {
+    color: rgba(0, 0, 0, 0.9);
+    font-family: Roboto;
+    font-weight: 500;
+    font-size: 22px;
+    margin: 0;
+}
+
+.post-item .card-body .card-text {
+    color: rgba(0, 0, 0, 0.9);
+    font-family: Roboto;
+    font-size: 16px;
+}
+
+.post-item .card-body .workshop-date i {
+    color: #78c2ad;
+}
+
+.post-item .card-body .workshop-date {
+    font-family: Roboto;
+    color: #575757;
+    font-weight: 500;
+    font-size: 16px;
+    margin-bottom: 0;
+    position: absolute;
+    bottom: 15px;
+}

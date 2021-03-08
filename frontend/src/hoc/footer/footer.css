@@ -1,0 +1,23 @@
+footer {
+    border-radius: 6.4px;
+    background: #304352;
+    background: -webkit-linear-gradient(to right, #304352, #535353);
+    background: linear-gradient(to right, #304352, #535353)
+}
+
+footer i {
+    color: white;
+    font-size: 2rem;
+}
+
+footer h6 {
+    color: white
+}
+
+footer p {
+    color: white
+}
+
+footer a {
+    color: white
+}

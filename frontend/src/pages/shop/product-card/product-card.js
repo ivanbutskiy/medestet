@@ -11,13 +11,23 @@ class ProductCard extends Component {
         title: this.props.title,
         priceCertifiedUAH: parseFloat(this.props.priceCertifiedUAH),
         priceGuestUAH: parseFloat(this.props.priceGuestUAH),
+        newPriceCertifiedUAH: parseFloat(this.props.newPriceCertifiedUAH),
+        newPriceGuestUAH: parseFloat(this.props.newPriceGuestUAH),
         headerImage: this.props.headerImage,
         image1: this.props.image1
     }
 
     render() {
 
-        const { slug, title, priceCertifiedUAH, priceGuestUAH, headerImage, image1 } = this.state;
+        const { 
+            slug, 
+            title, 
+            priceCertifiedUAH, 
+            priceGuestUAH,
+            newPriceCertifiedUAH,
+            newPriceGuestUAH,
+            headerImage, 
+            image1 } = this.state;
 
         return (
 
@@ -36,9 +46,15 @@ class ProductCard extends Component {
                     </div>
                     <div className='price'>
                         <div className='price-list text-left'>
-                            { this.props.isCertified ? <div className='price mr-3' title='Стоимость для сертифицированных косметологов'><i className='fas fa-user-check mr-2'></i>{ priceCertifiedUAH } грн.</div> : null }
 
-                            { this.props.priceGuestUAH > 0 ? <div className='price mr-3' title='Стоимость для покупателей без сертификата косметолога'><i className='fas fa-tags mr-2'></i>{ priceGuestUAH } грн.</div> : null }
+                            { this.props.isCertified && newPriceCertifiedUAH > 0 ? <div className='price mr-3' title='Акционная стоимость для сертифицированных косметологов'><i className='fas fa-user-check mr-2' style={{color: '#cc0000'}}></i>{ newPriceCertifiedUAH } грн.</div> : null }
+
+                            { this.props.isCertified && !newPriceCertifiedUAH > 0 ? <div className='price mr-3' title='Стоимость для сертифицированных косметологов'><i className='fas fa-user-check mr-2'></i>{ priceCertifiedUAH } грн.</div> : null }
+
+                            { priceGuestUAH > 0 && newPriceGuestUAH > 0 ? <div className='price mr-3' title='Акционная стоимость для покупателей без сертификата косметолога'><i className='fas fa-tags mr-2' style={{color: '#cc0000'}}></i>{ newPriceGuestUAH } грн.</div> : null }
+
+                            { priceGuestUAH > 0 && !newPriceGuestUAH > 0 ? <div className='price mr-3' title='Стоимость для покупателей без сертификата косметолога'><i className='fas fa-tags mr-2'></i>{ priceGuestUAH } грн.</div> : null }
+                            
                         </div>
                     </div>
                 </div>

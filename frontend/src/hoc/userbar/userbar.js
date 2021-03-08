@@ -24,7 +24,6 @@ class Userbar extends Component {
 
         return (
             <Fragment>
-                {/* <p className='text-gray text-uppercase px-3 small pb-4 mb-0'>Аккаунт</p> */}
 
                 <ul className='nav flex-column bg-white mb-0'>
 

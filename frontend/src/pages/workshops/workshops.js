@@ -4,6 +4,7 @@ import WorkshopItem from './workshop-item';
 import HeaderWorkshopsList from './header-workshops-list';
 import MedestetService from '../../service/medestet-service';
 import Spinner from '../../components/spinner';
+import ErrorBanner from '../../components/error-banner';
 
 import './workshops.css';
 
@@ -55,11 +56,11 @@ class Workshops extends Component {
 
         if (count === 0) {
             return (
-                <div className='courses-list shadow-lg'>
+                <div className='workshops-list shadow-lg p-2'>
                     <HeaderWorkshopsList />
-                    <div className='empty-courses-list'>
+                    <div className='empty-workshops-list text-center'>
                         <i className='fas fa-user-friends text-primary fa-fw'></i>
-                        <h3>На данный момент семинаров нет</h3>
+                        <h4>На данный момент семинаров нет</h4>
                         <p>Но скоро мы приготовим для вас кое-что интересное...</p>
                     </div>
                 </div>
@@ -68,23 +69,29 @@ class Workshops extends Component {
 
         if (error === true) {
             return (
-                <div className='courses-list shadow-lg'>
+                <div className='workshops-list shadow-lg p-2'>
                     <HeaderWorkshopsList />
                     <div className='container p-5 text-center error-message'>
-                        <h2>Ой, что-то пошло не так...</h2>
+                        <ErrorBanner />
                     </div>
                 </div>
             );
         };
 
         if (!loaded) {
-            return <Spinner />
+            return (
+                <div className='workshops-list workshops-list-spinner shadow-lg p-2'>
+                    <HeaderWorkshopsList />
+                    <div className='spinner-content'>
+                        <Spinner />
+                    </div>
+                </div>
+            );
         };
 
         return (
 
-
-            <div className='workshops-list shadow-lg'>
+            <div className='workshops-list shadow-lg p-2'>
                 <HeaderWorkshopsList />
                 <div className='container workshops-list-items p-2'>
                     <div className='row justify-content-center mb-2'>

@@ -1,0 +1,31 @@
+.user-workshop-item {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.user-workshop-item strong {
+    font-family: Roboto;
+    color: rgba(0, 0, 0, 0.9);
+    font-weight: 500;
+    font-size: 16px;
+    margin-bottom: 0;
+}
+
+.user-workshop-item {
+    font-family: Roboto;
+    color: rgba(0, 0, 0, 0.9);
+    font-size: 16px;
+}
+
+.user-workshop-item p {
+    margin-bottom: 0.5rem;
+}
+
+.user-workshop-item a {
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.user-workshop-item a:hover {
+    text-decoration: underline;
+    color: #78c2ad
+}

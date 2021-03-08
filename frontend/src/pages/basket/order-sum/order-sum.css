@@ -50,8 +50,32 @@
     font-size: 18px;
 }
 
+.order-sum .promocode-small-text {
+    color: white;
+    text-shadow: 1px 1px 1rem #464646;
+    font-family: Roboto;
+}
+
+.promocode .discount-products {
+    background: white;
+    border-radius: 6.4px;
+    padding-top: 1rem;
+}
+
+.promocode .discount-products .discount-product-item {
+    color:rgba(0, 0, 0, 0.9);
+    font-family: Roboto;
+    font-size: 14px;
+    text-shadow: none;
+    text-align: left;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+}
+
 .order-sum .promocode button {
     background-color: #cc0000;
+    font-weight: 500;
     border: none;
 }
 

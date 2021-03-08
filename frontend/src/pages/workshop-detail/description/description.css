@@ -5,24 +5,30 @@
 
 .detail-description h2 {
     margin-top: 5rem;
-    color: #464646;
+    color: rgba(0, 0, 0, 0.8);
     font-size: 3rem;
 }
 
 .detail-description .row {
     margin-top: 3rem;
     font-family: Roboto;
-    color: #464646
+    color: rgba(0, 0, 0, 0.9)
 }
 
-.detail-description .row img {
+.detail-description img {
+    width: 100%;
+    border-radius: 6.4px;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* .detail-description .row img {
     max-width: 400px;
     max-height: 400px;
     border-radius: 6.4px;
     box-shadow: 1px 1px 10px rgba(0,0,0,0.3)
-}
+} */
 
-@media (max-width: 1200px) {
+/* @media (max-width: 1200px) {
     .detail-description .row img {
         max-width: 300px;
         max-height: 300px;
@@ -47,4 +53,4 @@
         border-radius: 6.4px;
         box-shadow: 1px 1px 10px rgba(0,0,0,0.3)
     }
-}
+} */

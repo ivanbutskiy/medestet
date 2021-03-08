@@ -1,7 +1,28 @@
 from django import forms
 from django.contrib import admin
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
-from .models import Course, Module, Lesson, Person, Subject
+from .models import (
+    Course, 
+    Module, 
+    Lesson, 
+    Person, 
+    Subject,
+    CoursePromocode,
+    CourseOrder
+)
+
+
+class CoursePromocodeAdminModel(admin.ModelAdmin):
+    list_display = ['code', 'discount', 'is_active']
+    list_editable = ['is_active']
+    list_filter = ['courses']
+
+
+class CourseOrderAdminModel(admin.ModelAdmin):
+    list_display = ['order_reference', 'student', 'course', 'status']
+    list_editable = ['status']
+    list_filter = ['course']
+    sortable_by = ['payment_date']
 
 
 class PersonInline(admin.StackedInline):
@@ -28,10 +49,16 @@ class ModuleInline(admin.StackedInline):
 
 
 class ModuleAdminModel(admin.ModelAdmin):
-    list_display = ['title', 'course', 'is_published', 'is_active']
-    list_editable = ['is_published', 'is_active']
+    list_display = ['title', 'course', 'is_active']
+    list_editable = ['is_active']
     inlines = [LessonInline]
     list_filter = ['course']
+
+
+class LessonAdminModel(admin.ModelAdmin):
+    list_display = ['title', 'is_active']
+    list_editable = ['is_active']
+    list_filter = ['module']
 
 
 class CourseAdminModel(admin.ModelAdmin):
@@ -49,10 +76,7 @@ class CourseAdminModel(admin.ModelAdmin):
             'fields': ('detail_description', 'detail_image', 'results')
         }),
         ('Конфигурация участия', {
-            'fields': ('certificate', 'certificate_image', 'price', 'is_published')
-        }),
-        (None, {
-            'fields': ('students',)
+            'fields': ('certificate', 'certificate_image', 'price', 'access_period', 'is_published')
         })
     )
     inlines = [ModuleInline, PersonInline]
@@ -65,6 +89,8 @@ class CourseAdminModel(admin.ModelAdmin):
 
 admin.site.register(Course, CourseAdminModel)
 admin.site.register(Module, ModuleAdminModel)
-admin.site.register(Lesson)
+admin.site.register(Lesson, LessonAdminModel)
 admin.site.register(Person)
 admin.site.register(Subject)
+admin.site.register(CoursePromocode, CoursePromocodeAdminModel)
+admin.site.register(CourseOrder, CourseOrderAdminModel)

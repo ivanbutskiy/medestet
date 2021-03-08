@@ -7,13 +7,13 @@ import './lessons.css';
 class Lessons extends Component {
 
     state = {
-        lessons: this.props.lessons,
+        lessons: '',
         lessonItems: ''
     };
 
     getLessonItems() {
         this.setState({
-            lessonItems: this.state.lessons.map((lesson) => {
+            lessonItems: this.props.lessons.map((lesson) => {
                 return <LessonItem 
                     key={ lesson.id }
                     title={ lesson.title }
@@ -25,6 +25,7 @@ class Lessons extends Component {
     };
 
     componentDidMount() {
+        this.setState({ lessons: this.props.lessons });
         this.getLessonItems();
     };
 

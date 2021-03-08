@@ -117,7 +117,6 @@ class MedestetService {
             clientPhone,
             clientEmail,
             clientRegion,
-            clientDistrict,
             clientCity,
             selectedDeliveryId,
             deliveryAddress,
@@ -134,7 +133,6 @@ class MedestetService {
                 phone: clientPhone,
                 email: clientEmail,
                 region: clientRegion,
-                district: clientDistrict,
                 city: clientCity,
                 delivery_id: selectedDeliveryId,
                 delivery_office: deliveryAddress,
@@ -195,18 +193,9 @@ class MedestetService {
         return result;
     };
     
-    getLessonDetail(courseSlug, lessonId) {
-        const result = this.getResource(`/api/courses/lesson-detail/${ courseSlug }/${ lessonId }/`);
+    getLessonDetail(lessonId) {
+        const result = this.getResource(`/api/courses/lesson-detail/${ lessonId }/`);
         return result;
-    };
-
-    checkFreeWebinar = async (webinarId) => {
-        const url = `${ this.API_BASE }/api/webinars/order/check-free-service-url/`;
-        const data = {
-            webinarId: webinarId
-        };
-        const response = await axios.post(url, data, this.config());
-        return response;
     };
 
     getUserWebinars() {
@@ -216,6 +205,122 @@ class MedestetService {
 
     getUserWatchWebinar(slug) {
         const result = this.getResource(`/api/webinars/user-webinars/${ slug }/`);
+        return result;
+    };
+
+    getUserShoppingList() {
+        const result = this.getResource('/api/shop/user-shopping-list/');
+        return result;
+    };
+
+    getCourseOrder(courseSlug) {
+        const result = this.getResource(`/api/courses/order/check/${ courseSlug }/`);
+        return result;
+    };
+
+    checkCoursePromocode(promocode) {
+        const result = this.getResource(`/api/courses/check-promocode/${ promocode }/`);
+        return result;
+    };
+
+    checkWorkshopPromocode(promocode) {
+        const result = this.getResource(`/api/workshops/check-promocode/${ promocode }/`);
+        return result;
+    };
+
+    checkWorkshopOrder = async (workshop_id, option_id, promocode) => {
+        const url = `${ this.API_BASE }/api/workshops/check-order/`;
+        const data = {
+            workshop_id: workshop_id,
+            option_id: option_id,
+            promocode: promocode
+        };
+        const response = await axios.post(url, data, this.config());
+        return response;
+    };
+
+    getUserWorkshops() {
+        const result = this.getResource(`/api/workshops/user-workshops/`);
+        return result;
+    };
+
+    checkWebinarPromocode(promocode) {
+        const result = this.getResource(`/api/webinars/check-promocode/${ promocode }/`);
+        return result;
+    };
+
+    webinarOrderRegister = async (
+        orderReference, webinarId, optionId,
+        promocode) => {
+
+        const url = `${ this.API_BASE }/api/webinars/check-order/`;
+        const data = {
+            orderReference: orderReference,
+            optionId: optionId,
+            webinarId: webinarId,
+            promocode: promocode
+        };
+        const response = await axios.post(url, data, this.config());
+        return response;
+    };
+
+    blogPostsList() {
+        const result = this.getResource(`/api/blog/`);
+        return result;
+    };
+
+    getBlogPost(slug) {
+        const result = this.getResource(`/api/blog/${slug}/`);
+        return result;
+    };
+
+    newsList() {
+        const result = this.getResource(`/api/news/`);
+        return result;
+    };
+
+    getNewsPost(slug) {
+        const result = this.getResource(`/api/news/${slug}/`);
+        return result;
+    };
+
+    videoList() {
+        const result = this.getResource(`/api/videos/`);
+        return result;
+    };
+
+    getVideoDetail(slug) {
+        const result = this.getResource(`/api/videos/${slug}/`);
+        return result;
+    };
+
+    lastCourses = () => {
+        const result = this.getResource('/api/courses/last/');
+        return result;
+    };
+
+    lastWebinars = () => {
+        const result = this.getResource('/api/webinars/last/');
+        return result;
+    };
+    
+    lastWorkshops = () => {
+        const result = this.getResource('/api/workshops/last/');
+        return result;
+    };
+    
+    lastVideos = () => {
+        const result = this.getResource('/api/videos/last/');
+        return result;
+    };
+    
+    lastNews = () => {
+        const result = this.getResource('/api/news/last/');
+        return result;
+    };
+    
+    lastProducts = () => {
+        const result = this.getResource('/api/shop/last/');
         return result;
     };
 

@@ -8,6 +8,8 @@ import Description from './description';
 import Lessons from './lessons';
 import Location from './location';
 import Options from './options';
+import ErrorBanner from '../../components/error-banner';
+import Register from './register';
 
 import './workshop-detail.css';
 
@@ -16,6 +18,7 @@ class WorkshopDetail extends Component {
     service = new MedestetService();
 
     state = {
+        id: '',
         slug: this.props.slug,
         title: '',
         subtitle: '',
@@ -41,6 +44,7 @@ class WorkshopDetail extends Component {
         this.service.getWorkshopDetail(slug)
             .then((workshop) => {
                     this.setState({
+                        id: workshop.data.id,
                         title: workshop.data.title,
                         subtitle: workshop.data.subtitle,
                         headerImage: workshop.data.header_image,
@@ -51,13 +55,12 @@ class WorkshopDetail extends Component {
                         locationImage: workshop.data.location_image,
                         lessons: workshop.data.lesson,
                         options: workshop.data.option                        
-
                     });
                     this.setState({ loaded: true })
                 })
             .catch (() => {
-                this.setState({ loaded: true });
                 this.setState({ error: true });
+                this.setState({ loaded: true });
             });
     };
 
@@ -67,44 +70,69 @@ class WorkshopDetail extends Component {
 
     render() {
 
-        if (this.state.loaded === false) {
-            return <Spinner />
+        const { error, loaded } = this.state;
+        const { 
+            id,
+            headerImage,
+            title,
+            subtitle,
+            startingDate,
+            description,
+            descriptionImage,
+            lessons,
+            location,
+            locationImage,
+            options
+        } = this.state;
+
+        if (error) {
+            return (
+                <div className='course-detail course-detail-error shadow-lg'>
+                    <div className='spinner text-center'>
+                        <ErrorBanner />
+                    </div>
+                </div>
+            );
         };
 
-        if (this.state.error) {
-            return <h1>Произошла ошибочка!</h1>
+        if (loaded === false) {
+            return (
+                <div className='course-detail course-detail-spinner shadow-lg'>
+                    <div className='spinner text-center'>
+                        <Spinner />
+                    </div>
+                </div>
+            );
         };
 
         return (
-            <div className='workshop-detail shadow-lg  justify-content-center'>
+            <div className='workshop-detail shadow-lg  justify-content-center p-2'>
 
                 <Header 
-                    headerImage={ this.state.headerImage }
-                    title={ this.state.title }
-                    subtitle={ this.state.subtitle }
-                    startingDate={ this.state.startingDate }
+                    headerImage={ headerImage }
+                    title={ title }
+                    subtitle={ subtitle }
+                    startingDate={ startingDate }
                 />
 
                 <Description 
-                    description={ this.state.description }
-                    descriptionImage={ this.state.descriptionImage }
+                    description={ description }
+                    descriptionImage={ descriptionImage }
                 />
 
-                <Lessons lessons={ this.state.lessons } />
+                <Lessons lessons={ lessons } />
 
                 <Location 
-                    location={ this.state.location }
-                    locationImage={ this.state.locationImage }
+                    location={ location }
+                    locationImage={ locationImage }
                 />
 
-                <Options options={ this.state.options } />
+                <Options options={ options } />
 
+                <Register options={ options } workshopId={ id } />
             </div>
         );
     };
 };
 
 export default WorkshopDetail;
-
-// TODO обработать ошибки: создать компонент ошибки и выдать его, а в CourseDetail изменить поведение промиса
-// TODO добавить форму оплаты и записи

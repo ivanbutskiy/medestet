@@ -8,9 +8,13 @@ class HeaderWatchCourse extends Component {
 
         return (
             <div 
-                className='jumbotron shadow-sm card header-watch-course'
+                className='shadow-sm card header-watch-course'
                 style={{ backgroundImage:`url(${this.props.headerImage})` }}>
-                <h1>{ this.props.title }</h1>
+                <div className='row container'>
+                    <div className='col-md-10'>
+                        <h1>{ this.props.title }</h1>
+                    </div>
+                </div>
             </div>
         );
     };

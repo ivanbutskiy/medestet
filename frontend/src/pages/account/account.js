@@ -10,6 +10,8 @@ import ChangePassword from './components/change-password';
 import Certify from './components/certify';
 import Courses from './components/courses';
 import Webinars from './components/webinars';
+import Shopping from './components/shopping';
+import Workshops from './components/workshops';
 
 class Account extends Component {
 
@@ -29,9 +31,11 @@ class Account extends Component {
                     buySum={ this.props.buySum }
                 />
                 <div className='profile container-fluid'>
-                    <div className='row justify-content-center'>
+                    <div className='row justify-content-start mb-4'>
                         <Courses />
                         <Webinars />
+                        <Workshops />
+                        <Shopping />
                         <PersonalData />
                         <ChangePassword />
                         <Certify />

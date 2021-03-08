@@ -7,7 +7,7 @@ class GuestPanel extends Component {
 
     render() {
         return (
-            <div className='py-4 px-3 mb-4'>
+            <div className='py-4 px-3'>
                 <div className='media d-flex align-items-center'>
                     <div className='media-body'>
                         <ul className='nav flex-column mb-0'>

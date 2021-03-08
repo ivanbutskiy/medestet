@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { clearBasket } from '../../actions/basket';
 import './success-payment-page.css';
 
 class SuccessPaymentPage extends Component {
+
+    constructor(props) {
+        super(props);
+        props.clearBasket();
+    };
 
     render() {
 
@@ -19,4 +26,4 @@ class SuccessPaymentPage extends Component {
     };
 };
 
-export default SuccessPaymentPage;
+export default connect(null, { clearBasket })(SuccessPaymentPage);

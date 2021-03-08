@@ -1,0 +1,14 @@
+.last-news h5 {
+    color: rgba(0, 0, 0, 0.8);
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+.last-news .link {
+    font-family: Roboto;
+    font-weight: 500;
+    font-size: 18px;
+    text-align: center;
+    margin-top: 2rem;
+  }

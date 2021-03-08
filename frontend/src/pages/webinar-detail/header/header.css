@@ -7,27 +7,24 @@
     margin: 0 auto;
 }
 
-.webinar-header .col-md-8 {
-    margin-left: 3rem;
-}
-
-.webinar-header .col-md-8 h1 {
+.webinar-header .col-md-10 h1 {
+    font-family: Roboto;
     color: rgba(0, 0, 0, 0.8);
     font-weight: 500;
-    font-size: 3rem;
+    font-size: 46px;
 }
 
-.webinar-header .col-md-8 {
+.webinar-header .col-md-10 {
     font-family: Roboto;
     color: rgba(0, 0, 0, 0.9);
     font-size: 16px;
 }
 
-.webinar-header .col-md-8 .course-detail-info i {
+.webinar-header .col-md-10 .course-detail-info i {
     color: #78c2ad;
 }
 
-.webinar-header .col-md-8 .course-detail-info p {
+.webinar-header .col-md-10 .course-detail-info p {
     font-family: Roboto;
     color: rgba(0, 0, 0, 0.9);
     font-weight: 500;

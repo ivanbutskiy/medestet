@@ -1,0 +1,31 @@
+.last-news-item .list-group-item {
+    border: none;
+    border-radius: 6.4px;
+    margin: 0.5rem
+}
+
+.last-news-item .list-group-item:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.last-news-item img {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+    border-radius: 5px;
+}
+
+.last-news-item p {
+    color: rgba(0, 0, 0, 0.9);
+    font-family: Roboto;
+    font-size: 16px;
+    margin: 0;
+    /* font-weight: 500; */
+}
+
+.last-news-item hr {
+    max-width: 400px;
+    margin-left: 2rem;
+    margin-top: 0;
+    margin-bottom: 0;
+}
