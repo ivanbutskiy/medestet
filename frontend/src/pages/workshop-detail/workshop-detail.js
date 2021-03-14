@@ -66,6 +66,7 @@ class WorkshopDetail extends Component {
 
     componentDidMount() {
         this.getWorkshop();
+        window.scrollTo(0, 0);
     };
 
     render() {

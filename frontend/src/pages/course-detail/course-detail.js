@@ -81,6 +81,7 @@ class CourseDetail extends Component {
 
     componentDidMount() {
         this.getCourse();
+        window.scrollTo(0, 0);
     };
 
     render() {

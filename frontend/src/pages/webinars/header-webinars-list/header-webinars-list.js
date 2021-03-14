@@ -8,7 +8,7 @@ class HeaderWebinarsList extends Component {
 
         return (
             <div className='jumbotron shadow-sm card header-webinars-list'>
-                <h1>Вебинары компании MedEstet</h1>
+                <h1>Вебинары компании MedEstet-Pro</h1>
             </div>
         );
     };

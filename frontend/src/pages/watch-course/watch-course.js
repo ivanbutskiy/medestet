@@ -114,6 +114,7 @@ class WatchCourse extends Component {
             this.getLessonDetail();
             this.setState({ showLesson: true });
         };
+        window.scrollTo(0, 0);
     };
 
     render() {

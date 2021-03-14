@@ -8,7 +8,7 @@ class HeaderCoursesList extends Component {
 
         return (
             <div className='jumbotron shadow-sm card header-courses-list'>
-                <h1>Онлайн-курсы компании MedEstet</h1>
+                <h1>Онлайн-курсы компании MedEstet-Pro</h1>
             </div>
         );
     };

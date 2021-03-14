@@ -46,6 +46,7 @@ export default class Video extends Component {
 
     componentDidMount() {
         this.getVideoList();
+        window.scrollTo(0, 0);
     };
 
     render() {

@@ -44,6 +44,7 @@ class UserWebinars extends Component {
             }).catch(error => {
                 this.setState({ error: true });
             });
+        window.scrollTo(0, 0);
     };
 
     render() {

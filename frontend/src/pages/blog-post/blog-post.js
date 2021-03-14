@@ -44,6 +44,7 @@ class BlogPost extends Component {
 
     componentDidMount() {
         this.getBlogPost();
+        window.scrollTo(0, 0);
     };
 
     render() {

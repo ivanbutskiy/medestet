@@ -46,6 +46,7 @@ class Webinars extends Component {
 
     componentDidMount() {
         this.getWebinarsList();
+        window.scrollTo(0, 0);
     };
 
     render() {

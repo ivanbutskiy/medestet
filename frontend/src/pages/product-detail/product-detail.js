@@ -146,6 +146,7 @@ class ProductDetail extends Component {
 
     componentDidMount() {
         this.getProductDetail();
+        window.scrollTo(0, 0);
     };
 
     render() {

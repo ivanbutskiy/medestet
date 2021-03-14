@@ -53,6 +53,7 @@ class Courses extends Component {
 
     componentDidMount() {
         this.getCoursesList();
+        window.scrollTo(0, 0);
     };
 
     render() {

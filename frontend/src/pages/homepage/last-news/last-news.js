@@ -44,7 +44,7 @@ export default class LastNews extends Component {
         const { lastNewsItems } = this.state;
 
         return (
-            <div className='col-md-6 last-news'>
+            <div className='col-md-6 last-news mt-4'>
                 <div className='card shadow-sm pb-3 h-100'>
                     <h5>Свежие новости</h5>
                     { lastNewsItems }

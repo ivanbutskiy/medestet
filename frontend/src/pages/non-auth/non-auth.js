@@ -5,6 +5,10 @@ import './non-auth.css';
 
 class NonAuth extends Component {
 
+    componentDidMount() {
+        window.scrollTo(0, 0);
+    };
+
     render() {
 
         if (this.props.isAuthenticated) {

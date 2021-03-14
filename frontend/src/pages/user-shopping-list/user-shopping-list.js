@@ -49,6 +49,7 @@ class UserShoppingList extends Component {
 
     componentDidMount() {
         this.getUserShoppingList();
+        window.scrollTo(0, 0);
     };
 
     render() {

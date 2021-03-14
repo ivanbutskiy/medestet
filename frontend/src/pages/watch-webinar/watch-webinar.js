@@ -25,6 +25,7 @@ class WatchWebinar extends Component {
 
     componentDidMount() {
         this.getUserWatchWebinar();
+        window.scrollTo(0, 0);
     };
 
     getUserWatchWebinar() {

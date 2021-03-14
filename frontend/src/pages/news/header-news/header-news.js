@@ -8,7 +8,7 @@ class HeaderNews extends Component {
 
         return (
             <div className='jumbotron shadow-sm card header-news'>
-                <h1>Новости компании MedEstet</h1>
+                <h1>Новости компании MedEstet-Pro</h1>
             </div>
         );
     };

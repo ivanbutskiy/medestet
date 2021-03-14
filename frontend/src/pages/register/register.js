@@ -76,6 +76,7 @@ class Register extends Component {
 
     componentDidMount() {
         this.fromProductHandler();
+        window.scrollTo(0, 0);
     };
 
     render() {

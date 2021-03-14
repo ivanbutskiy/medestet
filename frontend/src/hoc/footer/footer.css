@@ -5,9 +5,8 @@ footer {
     background: linear-gradient(to right, #304352, #535353)
 }
 
-footer i {
-    color: white;
-    font-size: 2rem;
+footer img {
+    height: 2rem;
 }
 
 footer h6 {

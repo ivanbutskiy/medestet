@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/static/css/main.6e7a73d2.chunk.css",
-    "main.js": "/static/js/main.2d033591.chunk.js",
-    "main.js.map": "/static/js/main.2d033591.chunk.js.map",
+    "main.css": "/static/css/main.ba29d5d3.chunk.css",
+    "main.js": "/static/js/main.a7640d07.chunk.js",
+    "main.js.map": "/static/js/main.a7640d07.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.c60b7f5c.js",
     "runtime-main.js.map": "/static/js/runtime-main.c60b7f5c.js.map",
     "static/css/2.165ff965.chunk.css": "/static/css/2.165ff965.chunk.css",
@@ -10,24 +10,27 @@
     "static/js/2.22bf2c40.chunk.js.map": "/static/js/2.22bf2c40.chunk.js.map",
     "index.html": "/index.html",
     "static/css/2.165ff965.chunk.css.map": "/static/css/2.165ff965.chunk.css.map",
-    "static/css/main.6e7a73d2.chunk.css.map": "/static/css/main.6e7a73d2.chunk.css.map",
+    "static/css/main.ba29d5d3.chunk.css.map": "/static/css/main.ba29d5d3.chunk.css.map",
     "static/js/2.22bf2c40.chunk.js.LICENSE.txt": "/static/js/2.22bf2c40.chunk.js.LICENSE.txt",
     "static/media/header-blog.css": "/static/media/blog-background.457a3d49.jpg",
     "static/media/cosmetolog.08cc5643.jpg": "/static/media/cosmetolog.08cc5643.jpg",
     "static/media/header-courses-list.css": "/static/media/courses-list-header-background-image.c6b9f826.jpg",
+    "static/media/instagram.75007aef.png": "/static/media/instagram.75007aef.png",
     "static/media/logo_medestet.5f567dd9.png": "/static/media/logo_medestet.5f567dd9.png",
     "static/media/header-news.css": "/static/media/news-background.4ac8f913.jpg",
     "static/media/header-product.css": "/static/media/shop-header-background.5b693ee1.jpg",
     "static/media/slick-theme.css": "/static/media/slick.c94f7671.ttf",
+    "static/media/telegram.bdbc0948.webp": "/static/media/telegram.bdbc0948.webp",
     "static/media/header-video.css": "/static/media/video-background.ea0d3a60.webp",
     "static/media/header-webinars-list.css": "/static/media/webinars-background.99f89f41.png",
-    "static/media/header-workshops-list.css": "/static/media/workshop-header-image.e8e0540d.jpg"
+    "static/media/header-workshops-list.css": "/static/media/workshop-header-image.e8e0540d.jpg",
+    "static/media/youtube.6e7d5bbb.png": "/static/media/youtube.6e7d5bbb.png"
   },
   "entrypoints": [
     "static/js/runtime-main.c60b7f5c.js",
     "static/css/2.165ff965.chunk.css",
     "static/js/2.22bf2c40.chunk.js",
-    "static/css/main.6e7a73d2.chunk.css",
-    "static/js/main.2d033591.chunk.js"
+    "static/css/main.ba29d5d3.chunk.css",
+    "static/js/main.a7640d07.chunk.js"
   ]
 }

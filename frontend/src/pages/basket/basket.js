@@ -130,6 +130,7 @@ class Basket extends Component {
     componentDidMount() {
         this.onlyHomeProducts();
         this.getSumInfo();
+        window.scrollTo(0, 0);
     };
 
     render() {

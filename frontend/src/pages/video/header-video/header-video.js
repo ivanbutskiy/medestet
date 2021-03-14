@@ -8,7 +8,7 @@ class HeaderVideo extends Component {
 
         return (
             <div className='jumbotron shadow-sm card header-video'>
-                <h1>Видео компании MedEstet</h1>
+                <h1>Видео компании MedEstet-Pro</h1>
             </div>
         );
     };

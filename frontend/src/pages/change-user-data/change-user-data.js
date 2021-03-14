@@ -93,8 +93,9 @@ class ChangeUserData extends Component {
             firstName: this.props.firstName,
             lastName: this.props.lastName,
             patronym: this.props.patronym,
-            phone: this.props.phone,
+            phone: this.props.phone,    
         });
+        window.scrollTo(0, 0);
     };
 
     render() {

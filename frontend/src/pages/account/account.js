@@ -15,6 +15,10 @@ import Workshops from './components/workshops';
 
 class Account extends Component {
 
+    componentDidMount() {
+        window.scrollTo(0, 0);
+    };
+
     render() {
 
         if (!this.props.isAuthenticated) {

@@ -45,6 +45,7 @@ class VideoDetail extends Component {
 
     componentDidMount() {
         this.getVideo();
+        window.scrollTo(0, 0);
     };
 
     render() {

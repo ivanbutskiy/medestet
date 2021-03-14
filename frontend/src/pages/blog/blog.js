@@ -46,6 +46,7 @@ export default class Blog extends Component {
 
     componentDidMount() {
         this.getPostsList();
+        window.scrollTo(0, 0);
     };
 
     render() {

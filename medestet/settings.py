@@ -9,7 +9,7 @@ SECRET_KEY = 'ks*fnxty@h&hvf&*_ek*a5@)440j9-vp0!^br&t_^)j+qyvh0j'
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['medestetpro.com', '127.0.0.1']
+ALLOWED_HOSTS = ['medestetpro.com', '127.0.0.1', 'localhost']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -69,8 +69,12 @@ WSGI_APPLICATION = 'medestet.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'medestet',
+        'USER': 'julia',
+        'PASSWORD': 'Y679e5hVBj',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
@@ -110,7 +114,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'frontend/build/'),
 ]
 STATIC_DIR = os.path.join(BASE_DIR, 'static')
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

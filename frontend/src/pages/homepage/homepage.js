@@ -9,13 +9,17 @@ import './homepage.css';
 
 class HomePage extends Component {
 
+    componentDidMount() {
+        window.scrollTo(0, 0);
+    };
+
     render() {
 
         return (
             <div className='homepage shadow-lg justify-content-center p-2'>
                 <HeaderSlider />
                 <Videos />
-                <div className='mt-4 mb-4'>
+                <div className='mb-4'>
                     <div className='row'>
                         <LastNews />
                         <LastProducts />

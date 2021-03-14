@@ -44,6 +44,7 @@ class NewsPost extends Component {
 
     componentDidMount() {
         this.getNewsPost();
+        window.scrollTo(0, 0);
     };
 
     render() {

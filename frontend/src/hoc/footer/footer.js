@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import facebook from '../../assets/logos/facebook.png';
+import instagram from '../../assets/logos/instagram.png';
+import youTube from '../../assets/logos/youtube.png';
+import telegram from '../../assets/logos/telegram.webp';
 
 import './footer.css';
 
@@ -13,31 +17,32 @@ class Footer extends Component {
             <footer className='mt-2 shadow-lg'>
                 <div className='container py-5'>
                 <div className='row py-4'>
-                    <div className='col-lg-4 col-md-6 mb-4 mb-lg-0'><img src='img/logo.png' alt='' width='180' className='mb-3' />
+                    <div className='col-lg-4 col-md-6 mb-4 mb-lg-0'>
+                    {/* <img src={ logo } alt='' width='180' className='mb-3' /> */}
                     <p className='font-italic'>Компания MedEstet. Вместе с вами мы делаем мир прекраснее.</p>
                     <ul className='list-inline mt-4'>
                         
                         <li className='list-inline-item'>
                             <a href='https://www.facebook.com/medestetpro' target='_blank' rel='noreferrer' title='Facebook'>
-                                <i className='fab fa-facebook'></i>
+                                <img src={ facebook } alt='Facebook' />
                             </a>
                         </li>
 
                         <li className='list-inline-item'>
                             <a href='https://www.instagram.com/medestet_pro' target='_blank' rel='noreferrer' title='Instagram'>
-                                <i className='fab fa-instagram'></i>
-                            </a>
-                        </li>
-
-                        <li className='list-inline-item'>
-                            <a href='https://www.youtube.com/channel/UCYVT56f9R5c8P6ScUtnNXRA?view_as=subscriber' target='_blank' rel='noreferrer' title='Youtube'>
-                                <i className='fab fa-youtube'></i>
+                                <img src={ instagram } alt='Instagram' />
                             </a>
                         </li>
 
                         <li className='list-inline-item'>
                             <a href='https://t.me/Medestetprobot' target='_blank' rel='noreferrer' title='Telegram'>
-                                <i className='fab fa-telegram-plane'></i>
+                                <img src={ telegram } alt='Telegram' />
+                            </a>
+                        </li>
+
+                        <li className='list-inline-item'>
+                            <a href='https://www.youtube.com/channel/UCYVT56f9R5c8P6ScUtnNXRA?view_as=subscriber' target='_blank' rel='noreferrer' title='Youtube'>
+                                <img src={ youTube } alt='YouTube' />
                             </a>
                         </li>
 

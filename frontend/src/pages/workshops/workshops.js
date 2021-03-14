@@ -48,6 +48,7 @@ class Workshops extends Component {
 
     componentDidMount() {
         this.getWorkshopsList();
+        window.scrollTo(0, 0);
     };
 
     render() {
