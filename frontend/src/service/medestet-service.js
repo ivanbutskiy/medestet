@@ -2,11 +2,9 @@ import axios from 'axios';
 
 class MedestetService {
 
-    API_BASE = 'http://localhost:8000';
-    DOMAIN_NAME = 'www.medestet.ru';
-    SERVICE_URL = 'www.medestet.ru';
-
-    // TODO Исправить DOMAIN_NAME и SERVICE_URL
+    API_BASE = 'http://medestetpro.com';
+    DOMAIN_NAME = 'www.medestetpro.com';
+    SERVICE_URL = 'www.medestetpro.com';
 
     config = () => {
         if (localStorage.getItem('access')) {

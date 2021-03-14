@@ -7,9 +7,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'ks*fnxty@h&hvf&*_ek*a5@)440j9-vp0!^br&t_^)j+qyvh0j'
 
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['medestetpro.com', '127.0.0.1']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -199,8 +199,8 @@ MERCHANT_DOMAIN_NAME = 'www.medestet.ru'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'djangomedestet@gmail.com'
-EMAIL_HOST_PASSWORD = 'abhuwderomgksmzb'
+EMAIL_HOST_USER = 'magomaeva.julia@gmail.com'
+EMAIL_HOST_PASSWORD = 'ffoqugofozmabvia'
 
 
 MERCHANT_LOGIN = 'medestet_ru'
