@@ -18,7 +18,7 @@ import {
     LOGOUT
 } from './auth-types';
 
-const API_BASE = 'http://localhost:8000';
+const API_BASE = 'http://medestetpro.com';
 
 export const checkAuthenticated = () => async dispatch => {
     if (localStorage.getItem('access')) {
@@ -135,5 +135,3 @@ export const signUp = (email, first_name, last_name, phone, password, re_passwor
     };
 
 };
-
-// TODO rewrite the API_BASE

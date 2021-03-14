@@ -7,7 +7,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'ks*fnxty@h&hvf&*_ek*a5@)440j9-vp0!^br&t_^)j+qyvh0j'
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['medestetpro.com', '127.0.0.1']
 
