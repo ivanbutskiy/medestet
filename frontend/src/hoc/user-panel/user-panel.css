@@ -1,20 +1,20 @@
-.user-not-certified {
-    font-family: Roboto;
-    color: #dc143c;
-    font-size: 14px;
-}
-
-.user-certified {
-    font-family: Roboto;
-    color: #00643e;
-    font-size: 14px;
-}
-
 .user-panel img {
     width: 65px;
     height: 65px;
     object-fit: cover;
 }
+
+.user-not-certified {
+    font-family: Roboto;
+    color: #dc143c;
+    font-size: 14px;
+}    
+
+.user-certified {
+    font-family: Roboto;
+    color: #00643e;
+    font-size: 14px;
+}    
 
 .user-first-name {
     color: rgba(0, 0, 0, 0.8)

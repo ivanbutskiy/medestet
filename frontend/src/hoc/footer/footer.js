@@ -19,7 +19,7 @@ class Footer extends Component {
                 <div className='row py-4'>
                     <div className='col-lg-4 col-md-6 mb-4 mb-lg-0'>
                     {/* <img src={ logo } alt='' width='180' className='mb-3' /> */}
-                    <p className='font-italic'>Компания MedEstet. Вместе с вами мы делаем мир прекраснее.</p>
+                    <p className='font-italic'>Компания MedEstet-Pro. Вместе с вами мы делаем мир прекраснее.</p>
                     <ul className='list-inline mt-4'>
                         
                         <li className='list-inline-item'>
@@ -82,7 +82,7 @@ class Footer extends Component {
 
                 <div className='py-4'>
                     <div className='container text-center'>
-                        <p className='text-muted mb-0 py-2'>© { year } Medestet Pro</p>
+                        <p className='text-muted mb-0 py-2'>© { year } MedEstet-Pro</p>
                     </div>
                 </div>
             </footer>

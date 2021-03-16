@@ -34,7 +34,7 @@ class Account extends Component {
                     buyCount={ this.props.buyCount }
                     buySum={ this.props.buySum }
                 />
-                <div className='profile container-fluid'>
+                <div className='profile '>
                     <div className='row justify-content-start mb-4'>
                         <Courses />
                         <Webinars />

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { logout } from '../../actions/auth';
+import { hideMenu } from '../../actions/utils';
 
 import './userbar.css';
 
@@ -18,6 +19,11 @@ class Userbar extends Component {
         };
     };
 
+    logoutAndHide = () => {
+        this.props.logout();
+        hideMenu();
+    };
+
     render() {
 
         const { countProductsInBasket } = this.state;
@@ -30,7 +36,9 @@ class Userbar extends Component {
                     <li className='nav-item align-items-center'>
                         <Link 
                             to='/account/' 
-                            className='nav-link text-dark'>
+                            className='nav-link text-dark'
+                            onClick={ ()=> hideMenu() }
+                            >
                             <i className='fas fa-user-circle mr-3 text-primary fa-fw'></i>
                             Аккаунт
                         </Link>
@@ -39,7 +47,9 @@ class Userbar extends Component {
                     <li className='nav-item align-items-center'>
                         <Link 
                             to='/basket/' 
-                            className='nav-link text-dark'>
+                            className='nav-link text-dark'
+                            onClick={ ()=> hideMenu() }
+                            >
                             <i className='fas fa-shopping-basket mr-3 text-primary fa-fw'></i>
                             Корзина{ countProductsInBasket ? <span className='badge badge-secondary ml-1 basket-count-badge'>{ countProductsInBasket }</span> : null }
                         </Link>
@@ -49,7 +59,8 @@ class Userbar extends Component {
                         <Link 
                             to='/' 
                             className='nav-link text-dark'
-                            onClick={ () => this.props.logout() }>
+                            onClick={ () => this.logoutAndHide() }
+                            >
                             <i className='fas fa-sign-out-alt mr-3 text-primary fa-fw'></i>
                             Выйти
                         </Link>

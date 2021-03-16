@@ -17,7 +17,7 @@ class Shop extends Component {
         return (
             <div className='shop-page shadow-lg p-2'>
                 <HeaderShop />
-                <div className='pl-2 pr-2 row shop-page-content justify-content-center mb-4'>
+                <div className='row shop-page-content justify-content-center mb-4'>
                     <div className='col-lg-3 mt-3'>
                         <CategoriesList />
                     </div>

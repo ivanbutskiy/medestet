@@ -10,6 +10,7 @@
     overflow-y: auto;
     overflow-x: hidden;
     padding-bottom: 2rem;
+    z-index: 15;
 }
 
 .logo-medestet {
@@ -44,10 +45,6 @@
   padding: 5px;
 }
 
-.page-content button {
-  z-index: 3;
-}
-
 .page-content .children {
   margin-top: 4rem;
 }
@@ -67,14 +64,20 @@
   }
   #sidebar.active {
     margin-left: 0;
+    width: 100%;
   }
+
   #content {
     width: 100%;
     margin: 0;
+    transition: all 0.4s;
   }
   #content.active {
+    visibility: hidden;
+    display: none;
     margin-left: 17rem;
     width: calc(100% - 17rem);
+    transition: all 0.4s;
   }
 }
   
@@ -95,11 +98,10 @@ border-bottom: 1px dashed #fff;
 letter-spacing: 0.1em;
 }
 
-
 #sidebarCollapse {
     color: #5a5a5a;
     position: fixed;
-    margin-top: 1rem;
+    z-index: 20;
 }
 
 #sidebarCollapse:active

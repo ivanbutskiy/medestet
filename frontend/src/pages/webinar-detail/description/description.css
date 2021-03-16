@@ -1,21 +1,25 @@
-.detail-description {
+.webinar-detail-description {
     margin-left: 3rem;
     margin-right: 3rem;
 }
 
-.detail-description h2 {
+.webinar-detail-description .row {
+    margin: 0;
+}
+
+.webinar-detail-description h2 {
     margin-top: 5rem;
     color: rgba(0, 0, 0, 0.8);
     font-size: 2.5rem;
 }
 
-.detail-description .row {
+.webinar-detail-description .row {
     margin-top: 3rem;
     font-family: Roboto;
     color: rgba(0, 0, 0, 0.9)
 }
 
-.detail-description .row img {
+.webinar-detail-description .row img {
     max-width: 400px;
     max-height: 400px;
     border-radius: 6.4px;
@@ -23,7 +27,7 @@
 }
 
 @media (max-width: 1200px) {
-    .detail-description .row img {
+    .webinar-detail-description .row img {
         max-width: 300px;
         max-height: 300px;
         border-radius: 6.4px;
@@ -32,7 +36,7 @@
 }
 
 @media (max-width: 994px) {
-    .detail-description .row img {
+    .webinar-detail-description .row img {
         max-width: 250px;
         max-height: 250px;
         border-radius: 6.4px;
@@ -40,11 +44,22 @@
     }
 }
 
-@media (max-width: 770px) {
-    .detail-description .row img {
-        max-width: 350px;
+@media (max-width: 768px) {
+    .webinar-detail-description .row img {
+        max-width: 100%;
         max-height: 350px;
         border-radius: 6.4px;
         box-shadow: 1px 1px 10px rgba(0,0,0,0.3)
+    }
+}
+
+@media (max-width: 400px) {
+    .webinar-detail-description h2 {
+        font-size: 2rem;
+        margin-left: 1rem;
+    }
+    .webinar-detail-description {
+        margin-left: 0;
+        margin-right: 0;
     }
 }

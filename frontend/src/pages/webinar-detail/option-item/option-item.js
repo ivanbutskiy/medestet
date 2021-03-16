@@ -23,7 +23,7 @@ class OptionItem extends Component {
                     { price && price > 0 ? <p><i className='fas fa-tags mr-2'></i>Стоимость: { price } грн.</p> : <p><i className='fas fa-tags mr-2'></i>Бесплатно</p> }
 
                     <div className='custom-separator my-4 mx-auto bg-primary description'></div>
-                        { description }
+                        { description ? description : null }
                 </div>
             </div>
 

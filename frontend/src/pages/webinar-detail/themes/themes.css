@@ -59,3 +59,10 @@ li.timeline-item::before {
     z-index: 400;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
+
+@media (max-width: 400px) {
+    .webinar-themes h2 {
+        font-size: 2rem;
+        margin-left: 1rem;
+    }
+}

@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { hideMenu } from '../../actions/utils';
 
 import './guestbar.css';
 
@@ -27,7 +28,9 @@ class Guestbar extends Component {
                     <li className='nav-item align-items-center'>
                         <Link 
                             to='/basket/' 
-                            className='nav-link text-dark'>
+                            className='nav-link text-dark'
+                            onClick={ ()=> hideMenu() }
+                            >
                             <i className='fas fa-shopping-basket mr-3 text-primary fa-fw'></i>
                             Корзина{ countProductsInBasket ? <span className='badge badge-secondary ml-1 basket-count-badge'>{ countProductsInBasket }</span> : null }
                         </Link>

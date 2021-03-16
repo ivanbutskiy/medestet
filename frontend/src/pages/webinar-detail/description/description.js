@@ -11,7 +11,7 @@ class Description extends Component {
 
         return (
 
-            <div className='detail-description mt-5'>
+            <div className='webinar-detail-description mt-5'>
                 
                 <h2>Подробнее о вебинаре</h2>
 

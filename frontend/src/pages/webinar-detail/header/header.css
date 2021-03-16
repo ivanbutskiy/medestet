@@ -32,3 +32,8 @@
     margin-bottom: 0;
 }
 
+@media (max-width: 400px) {
+    .webinar-header .col-md-10 h1 {
+        font-size: 2.5rem;
+    }
+}

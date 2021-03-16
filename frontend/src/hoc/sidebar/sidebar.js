@@ -9,6 +9,8 @@ import Userbar from '../userbar';
 import Guestbar from '../guestbar';
 import Footer from '../footer';
 
+import { hideMenu } from '../../actions/utils';
+
 import './sidebar.css';
 
 class Sidebar extends Component {
@@ -33,21 +35,21 @@ class Sidebar extends Component {
                     <ul className='nav flex-column bg-white mb-0'>
                         <li className='nav-item'>
                             <Link to='/courses/'
-                                className='nav-link text-dark'>
+                                className='nav-link text-dark' onClick={ ()=> hideMenu() }>
                                 <i className='fas fa-chalkboard-teacher mr-3 text-primary fa-fw'></i>
                                 Курсы
                             </Link>
                         </li>
                         <li className='nav-item'>
                             <Link to='/workshops/'
-                                className='nav-link text-dark'>
+                                className='nav-link text-dark' onClick={ ()=> hideMenu() }>
                                 <i className='fas fa-user-friends mr-3 text-primary fa-fw'></i>
                                 Семинары
                             </Link>
                         </li>
                         <li className='nav-item'>
                             <Link to='/webinars/'
-                                className='nav-link text-dark'>
+                                className='nav-link text-dark' onClick={ ()=> hideMenu() }>
                                 <i className='fas fa-globe mr-3 text-primary fa-fw'></i>
                                 Вебинары
                             </Link>
@@ -55,7 +57,7 @@ class Sidebar extends Component {
                         
                         <li className='nav-item'>
                             <Link to='/shop/' 
-                                className='nav-link text-dark'>
+                                className='nav-link text-dark' onClick={ ()=> hideMenu() }>
                                 <i className='fas fa-store mr-3 text-primary fa-fw'></i>
                                 Магазин
                             </Link>
@@ -63,7 +65,7 @@ class Sidebar extends Component {
                         
                         <li className='nav-item'>
                             <Link to='/video/' 
-                                className='nav-link text-dark'>
+                                className='nav-link text-dark' onClick={ ()=> hideMenu() }>
                                 <i className='fas fa-video mr-3 text-primary fa-fw'></i>
                                 Видео
                             </Link>
@@ -71,7 +73,7 @@ class Sidebar extends Component {
                         
                         <li className='nav-item'>
                             <Link to='/news/' 
-                                className='nav-link text-dark'>
+                                className='nav-link text-dark' onClick={ ()=> hideMenu() }>
                                 <i className='fas fa-newspaper mr-3 text-primary fa-fw'></i>
                                 Новости
                             </Link>
@@ -79,7 +81,7 @@ class Sidebar extends Component {
                         
                         <li className='nav-item'>
                             <Link to='/blog/' 
-                                className='nav-link text-dark'>
+                                className='nav-link text-dark' onClick={ ()=> hideMenu() }>
                                 <i className='fas fa-blog mr-3 text-primary fa-fw'></i>
                                 Блог
                             </Link>
@@ -87,14 +89,14 @@ class Sidebar extends Component {
                     </ul>
                 </div>
     
+                <button 
+                    id='sidebarCollapse' 
+                    type='button' 
+                    className='btn btn-light bg-white rounded-pill shadow-sm px-4 mt-3 ml-3'>
+                    <i className='fa fa-bars mr-2'></i>
+                    <small className='text-uppercase font-weight-bold'>Меню</small>
+                </button>
                 <div className='page-content' id='content'>
-                    <button 
-                        id='sidebarCollapse' 
-                        type='button' 
-                        className='btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4 mt-3 ml-3'>
-                        <i className='fa fa-bars mr-2'></i>
-                        <small className='text-uppercase font-weight-bold'>Меню</small>
-                    </button>
                     <div className='children'>
                         { this.props.sidebarChildren }
                         <Footer/>
