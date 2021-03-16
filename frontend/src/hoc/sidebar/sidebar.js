@@ -20,7 +20,7 @@ class Sidebar extends Component {
         return (
             <Fragment>
                 <div className='vertical-nav bg-white' id='sidebar'>
-                    <Link to='/'>
+                    <Link to='/' onClick={ ()=> hideMenu() }>
                         <div className='logo-medestet'>
                             <img src={ logo_medestet } alt='medestet logo' />
                         </div>

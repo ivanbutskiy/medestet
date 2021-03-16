@@ -19,11 +19,9 @@ class HomePage extends Component {
             <div className='homepage shadow-lg justify-content-center p-2'>
                 <HeaderSlider />
                 <Videos />
-                <div className='mb-4'>
-                    <div className='row'>
-                        <LastNews />
-                        <LastProducts />
-                    </div>
+                <div className='row mb-4'>
+                    <LastNews />
+                    <LastProducts />
                 </div>
             </div>
         );
