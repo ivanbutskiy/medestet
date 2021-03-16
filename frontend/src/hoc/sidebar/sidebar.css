@@ -45,9 +45,9 @@
   padding: 5px;
 }
 
-.page-content .children {
+/* .page-content .children {
   margin-top: 4rem;
-}
+} */
 
 #sidebar.active {
   margin-left: -17rem;
