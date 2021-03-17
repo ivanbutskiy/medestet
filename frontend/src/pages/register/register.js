@@ -19,7 +19,7 @@ class Register extends Component {
         passwordNotMatching: null,
         passwordLength: null,
         emailIncorrect: null,
-        error: null,
+        errorMessages: '',
         success: null,
 
         fromProduct: false
@@ -30,7 +30,7 @@ class Register extends Component {
             [e.target.name]: e.target.value,
             passwordLength: false,
             passwordNotMatching: false,
-            error: false
+            errorMessages: ''
         });
     };
 
@@ -39,21 +39,16 @@ class Register extends Component {
         
         const { email, firstName, lastName, phone, password, rePassword } = this.state;
 
-        if (password.length <= 6) {
-            this.setState({ passwordLength: true });
-        } else if (password !== rePassword) {
-            this.setState({ passwordNotMatching: true});
-        } else {
-            this.props.signUp(email, firstName, lastName, phone, password, rePassword)
-                .then(result => {
-                    if (!result.data) {
-                        this.setState({ error: true });
-                    } else {
-                        this.setState({ success: true });
-                        this.props.login(email, password);
-                    };
-                });
-        };
+        this.props.signUp(email, firstName, lastName, phone, password, rePassword)
+            .then(result => {
+                this.props.login(email, password);
+                this.setState({ success: true });
+            }).catch(error => {
+                const message = error.response.data;
+                for (let mes in message) {
+                    this.setState({ errorMessages: message[mes] });
+                };
+            }); 
     };
 
     fromProductHandler() {
@@ -99,14 +94,25 @@ class Register extends Component {
                 lastName,
                 phone,
                 password, 
-                rePassword, 
-                passwordNotMatching,
-                passwordLength,
-                error,
+                rePassword,
+                errorMessages,
                 fromProduct } = this.state;
 
+        const showErrorMessages = () => {
+            let keyCounter = 0;
+            return (errorMessages.map(message => {
+                return (
+                    <div 
+                        className='alert alert-danger' 
+                        key={++keyCounter} 
+                        role='alert'>{ message }
+                    </div>
+                );
+            }));
+        };
+
         return (
-            <div className='jumbotron container shadow-lg register'>
+            <div className='jumbotron shadow-lg register mb-0'>
                 <h1>Регистрация</h1>
                 { !fromProduct ? <p className='mt-4'>Зарегистрируйтесь на сайте, чтобы иметь возможность проходить курсы, подтвердить статус косметолога сертификатом и покупать товары в нашем интернет-магазине.</p> : null }
 
@@ -116,20 +122,7 @@ class Register extends Component {
 
                 <hr className='my-4' />
 
-                { error ? <div className='alert alert-danger' role='alert'>
-                Ошибка в регистрации. Возможно, пользователь с таким e-mail уже существует.
-                Проверьте правильность введенных данных и повторите попытку.
-                </div> : null }
-
-                { passwordNotMatching ? <div className='alert alert-danger' role='alert'>
-                Введенные пароли не совпадают.
-                </div> : null }
-
-                { passwordLength ? <div className='alert alert-danger' role='alert'>
-                Длина пароля должна быть больше 6 символов.
-                </div> : null }
-
-
+                { errorMessages ? showErrorMessages() : null }
 
                 <form onSubmit={ (e) => this.onSubmitHandler(e) }>
                     <div className='row'>

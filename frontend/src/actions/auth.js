@@ -74,33 +74,6 @@ export const loadUser = () => async dispatch => {
     };
 };
 
-export const login = (email, password) => async dispatch => {
-    const config = {
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    };
-
-    const body = JSON.stringify({ email, password });
-
-    try {
-        const result = await axios.post(`${API_BASE}/auth/jwt/create/`, body, config);
-
-        dispatch({
-            type: LOGIN_SUCCESS,
-            payload: result.data
-        });
-
-        dispatch(loadUser());
-
-        return result;
-    } catch (error) {
-        dispatch({
-            type: LOGIN_FAIL
-        });
-    };
-};
-
 export const logout = () => dispatch => {
     dispatch({
         type: LOGOUT
@@ -117,21 +90,44 @@ export const signUp = (email, first_name, last_name, phone, password, re_passwor
 
     const body = JSON.stringify({email, first_name, last_name, phone, password, re_password});
 
-    try {
-        const result = await axios.post(`${API_BASE}/auth/users/`, body, config);
+    const result = await axios.post(`${API_BASE}/auth/users/`, body, config);
 
+    if (result.status === 200 || 201) {
         dispatch({
             type: SIGNUP_SUCCESS,
             payload: result.data
         });
-
-        return result;
-
-    } catch (error) {
+    } else {
         dispatch({
             type: SIGNUP_FAIL
         });
-        return error;
+    };
+        return result;
+};
+
+export const login = (email, password) => async dispatch => {
+    const config = {
+        headers: {
+            'Content-Type': 'application/json'
+        }
     };
 
+    const body = JSON.stringify({ email, password });
+
+    const result = await axios.post(`${API_BASE}/auth/jwt/create/`, body, config);
+    if (result.status === 200 || 201) {
+        dispatch({
+            type: LOGIN_SUCCESS,
+            payload: result.data
+        });
+
+        dispatch(loadUser());
+
+        return result;
+    } else {
+        dispatch({
+            type: LOGIN_FAIL
+        });
+        return result;
+    };
 };

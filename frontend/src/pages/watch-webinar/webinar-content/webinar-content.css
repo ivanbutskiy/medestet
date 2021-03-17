@@ -22,3 +22,9 @@
 .webinar-content h5 {
     color:rgba(0, 0, 0, 0.8)
 }
+
+.webinar-content .webinar-content-description {
+    color: rgba(0, 0, 0, 0.9);
+    font-family: Roboto;
+    font-size: 16px;
+}

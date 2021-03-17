@@ -12,12 +12,13 @@ class Login extends Component {
         email: '',
         password: '',
 
-        error: null
+        errorMessage: null
     };
 
     onChangeHandler(e) {
         this.setState({
-            [e.target.name]: e.target.value
+            [e.target.name]: e.target.value,
+            errorMessage: ''
         });
     };
 
@@ -25,11 +26,10 @@ class Login extends Component {
         e.preventDefault();
         const { email, password } = this.state;
         this.props.login(email, password)
-            .then((result) => {
-                if (!result) {
-                    this.setState({
-                        error: true
-                    })
+            .catch(error => {
+                const message = error.response.data;
+                for (let mes in message) {
+                    this.setState({ errorMessage: message[mes] });
                 };
             });
     };
@@ -48,25 +48,27 @@ class Login extends Component {
             );
         };
 
-        const { email, password, error } = this.state;
+        const { email, password, errorMessage } = this.state;
 
-        if (error) {
+        if (errorMessage) {
             setTimeout(() => {
                 this.setState({
-                    error: false
+                    errorMessage: false
                 })
             }, 5000);
-        }
+        };
 
         return (
-            <div className='jumbotron container shadow-lg login'>
+            <div className='jumbotron shadow-lg login mb-0'>
                 <h1>Вход в аккаунт</h1>
                 <p className='mt-4'>Войдите в систему, чтобы пользоваться расширенными привилегиями авторизованного пользователя.</p>
                 <hr className='my-4' />
 
-                { error ? <div className='alert alert-danger' role='alert'>
-                Проверьте правильность введенных данных.
-                </div> : null }
+                { errorMessage ? 
+                    <div 
+                        className='alert alert-danger' 
+                        role='alert'>{ errorMessage }
+                    </div> : null }
 
                 <form onSubmit={ (e) => this.onSubmitHandler(e) }>
                     <div className='form-group'>

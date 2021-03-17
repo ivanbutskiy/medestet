@@ -15,7 +15,7 @@ class WebinarContent extends Component {
         return (
             <div className='mt-5 webinar-content mb-5'>
                 <div className='row align-items-center'>
-                    <div className='col-md-7'>
+                    <div className='col-md-7 webinar-content-description'>
                         { ReactHtmlParser(webinarContent.description) }
                     </div>
                     <div className='col-md-5'>

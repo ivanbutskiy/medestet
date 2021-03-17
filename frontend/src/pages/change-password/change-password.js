@@ -97,7 +97,7 @@ class ChangePassword extends Component {
                 Ваш пароль успешно изменен!
                 </div> : null }
                 { error ? <div className='alert alert-danger' role='alert'>
-                Произошла ошибка. Попробуйте повторить снова или выбрать другой пароль.
+                Произошла ошибка. Попробуйте повторить снова или выбрать пароль посложнее.
                 </div> : null }
                 { notValid ? <div className='alert alert-danger' role='alert'>
                 Введенные пароли не совпадают.
