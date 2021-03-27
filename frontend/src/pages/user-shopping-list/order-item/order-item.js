@@ -18,15 +18,16 @@ class OrderItem extends Component {
         const { products } = this.props;
         this.setState({
             productItems: products.map(product => {
+                console.log(product)
                 return (
                     <ProductItem
                         key={ product.product.slug }
                         slug={ product.product.slug }
                         title={ product.product.title }
                         headerImage={ product.product.header_image }
-                        count={ product.product.count }
-                        summaryPrice={ parseFloat(product.product.count * product.product.price).toFixed(2) }
-                        price={ product.product.price }
+                        count={ product.count }
+                        summaryPrice={ parseFloat(product.count * product.price).toFixed(2) }
+                        price={ product.price }
                     />
                 );
             })
