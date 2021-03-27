@@ -258,7 +258,7 @@ class ProductDetail extends Component {
                                 <button type='button' className='btn btn-danger mt-3 btn-block'>Узнать цену</button>
                             </Link> : null }
 
-                            { this.props.isCertified && !newPriceCertifiedUAH > 0 ? 
+                            { this.props.isCertified && !newPriceCertifiedUAH > 0 && (priceCertifiedUAH !== priceGuestUAH) ? 
                                 <div className='row text-center'>
                                     <div className='col-6'>
                                         <p title='Стоимость для сертифицированных косметологов'><i className='fas fa-user-check mr-2'></i>{ priceCertifiedUAH } грн.</p>
