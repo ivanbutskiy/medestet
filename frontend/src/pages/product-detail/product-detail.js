@@ -189,9 +189,7 @@ class ProductDetail extends Component {
                 <div className='product-page shadow-lg p-2'>
                     <HeaderProduct />
                     <div className='row justify-content-center product-page-spinner'>
-                        <div className='col'>
-                            <Spinner />
-                        </div>
+                        <Spinner />
                     </div>
                 </div>
             );

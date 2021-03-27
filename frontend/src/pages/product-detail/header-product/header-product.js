@@ -8,7 +8,7 @@ class HeaderProduct extends Component {
 
         return (
             <div className='jumbotron shadow-sm shop-product-header card'>
-                <h1>Интернет-магазин компании MedEstet</h1>
+                <h1>Интернет-магазин компании MedEstet-Pro</h1>
             </div>
         );
     };

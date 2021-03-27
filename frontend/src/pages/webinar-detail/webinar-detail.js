@@ -69,7 +69,7 @@ class WebinarDetail extends Component {
         if (this.state.loaded === false) {
             return (
                 <div className='webinar-detail shadow-lg justify-content-center p-2'>
-                    <div className='webinar-detail-spinner'>
+                    <div className='webinar-detail-spinner text-center'>
                         <Spinner />
                     </div>
                 </div>

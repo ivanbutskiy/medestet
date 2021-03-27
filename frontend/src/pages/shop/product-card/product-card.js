@@ -29,6 +29,8 @@ class ProductCard extends Component {
             headerImage, 
             image1 } = this.state;
 
+        console.log(priceCertifiedUAH === priceGuestUAH);
+
         return (
 
             <div className='col-md-6 col-sm-6 col-lg-4 mt-3'>
@@ -49,7 +51,7 @@ class ProductCard extends Component {
 
                             { this.props.isCertified && newPriceCertifiedUAH > 0 ? <div className='price mr-3' title='Акционная стоимость для сертифицированных косметологов'><i className='fas fa-user-check mr-2' style={{color: '#cc0000'}}></i>{ newPriceCertifiedUAH } грн.</div> : null }
 
-                            { this.props.isCertified && !newPriceCertifiedUAH > 0 ? <div className='price mr-3' title='Стоимость для сертифицированных косметологов'><i className='fas fa-user-check mr-2'></i>{ priceCertifiedUAH } грн.</div> : null }
+                            { this.props.isCertified && !newPriceCertifiedUAH > 0 && (priceCertifiedUAH !== priceGuestUAH) ? <div className='price mr-3' title='Стоимость для сертифицированных косметологов'><i className='fas fa-user-check mr-2'></i>{ priceCertifiedUAH } грн.</div> : null }
 
                             { priceGuestUAH > 0 && newPriceGuestUAH > 0 ? <div className='price mr-3' title='Акционная стоимость для покупателей без сертификата косметолога'><i className='fas fa-tags mr-2' style={{color: '#cc0000'}}></i>{ newPriceGuestUAH } грн.</div> : null }
 

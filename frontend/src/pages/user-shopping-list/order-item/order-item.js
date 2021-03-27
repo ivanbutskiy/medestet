@@ -14,8 +14,8 @@ class OrderItem extends Component {
         productItems: ''
     };
 
-    componentDidMount() {
-        const { products } = this.state;
+    getProductItems() {
+        const { products } = this.props;
         this.setState({
             productItems: products.map(product => {
                 return (
@@ -24,13 +24,17 @@ class OrderItem extends Component {
                         slug={ product.product.slug }
                         title={ product.product.title }
                         headerImage={ product.product.header_image }
-                        count={ product.count }
-                        summaryPrice={ parseFloat(product.count * product.price).toFixed(2) }
-                        price={ product.price }
+                        count={ product.product.count }
+                        summaryPrice={ parseFloat(product.product.count * product.product.price).toFixed(2) }
+                        price={ product.product.price }
                     />
                 );
             })
         });
+    };
+
+    componentDidMount() {
+        this.getProductItems();
     };
 
     render() {
@@ -40,7 +44,7 @@ class OrderItem extends Component {
             orderSum,
             id,
             orderDate,
-            productItems
+            productItems,
         } = this.state;
 
         return (

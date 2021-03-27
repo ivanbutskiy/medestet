@@ -32,12 +32,12 @@ class UserShoppingList extends Component {
                         orderItems: result.data.results.map(order => {
                             return (
                                 <OrderItem 
-                                id={ order.id }
-                                key={ order.id }
-                                orderReference={ order.order_reference }
-                                orderSum={ order.order_sum }
-                                orderDate={ order.adding_date }
-                                products={ order.order_item } />
+                                    id={ order.id }
+                                    key={ order.id }
+                                    orderReference={ order.order_reference }
+                                    orderSum={ order.order_sum }
+                                    orderDate={ order.adding_date }
+                                    products={ order.order_item } />
                             );
                         })
                     });

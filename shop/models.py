@@ -186,7 +186,7 @@ class Payment(models.Model):
 
 class OrderItem(models.Model):
     order = models.ForeignKey('Order', on_delete=models.CASCADE, verbose_name='К какому заказу относится')
-    product = models.ForeignKey(Product, verbose_name='Товар', on_delete=models.SET_NULL, null=True)
+    product = models.ForeignKey(Product, verbose_name='Товар', on_delete=models.CASCADE, null=True)
     price = models.DecimalField(max_digits=6, decimal_places=2, null=True, 
         verbose_name='По какой стоимости в гривне был куплен товар', 
         help_text='Стоимость высчитывается исходя из того, заказывал сертифицированный пользователь или нет')

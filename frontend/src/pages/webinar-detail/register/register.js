@@ -237,7 +237,7 @@ class Register extends Component {
                 <div className='register-webinar shadow-lg rounded container mt-5 p-5'>
                     <h2 className='register-webinar-header text-center'>Запись на курс</h2>
                     <div className='register-content text-center container'>
-                        <p className='mt-5'>Запись на курс доступна только зарегистрированным пользователям. Для начала <Link to='/register/'>пройдите регистрацию</Link> и записывайтесь на курс.</p>
+                        <p className='mt-5'>Запись на вебинар доступна только зарегистрированным пользователям. Для начала <Link to='/register/'>пройдите регистрацию</Link> и записывайтесь на вебинар.</p>
                     </div>
                 </div>
             );

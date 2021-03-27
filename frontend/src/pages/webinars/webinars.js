@@ -81,7 +81,7 @@ class Webinars extends Component {
             return (
                 <div className='courses-list shadow-lg p-2'>
                     <HeaderWebinarsList />
-                    <div className='container p-2 loading mt-5'>
+                    <div className='container p-2 loading mt-5 text-center'>
                         <Spinner />
                     </div>
                 </div>
