@@ -1,0 +1,11 @@
+.workshop-item .card-detail-info i {
+    color: #78c2ad;
+}
+
+.workshop-item .card-detail-info p {
+    font-family: Roboto;
+    color: rgba(0, 0, 0, 0.9);
+    font-weight: 500;
+    font-size: 16px;
+    margin-bottom: 0;
+}

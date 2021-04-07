@@ -37,6 +37,8 @@ class UserWebinars extends Component {
                                 subtitle={result.webinar.subtitle}
                                 image={result.webinar.description_image}
                                 key={ result.webinar.id }
+                                endingDate={ result.ending_date }
+                                daysLeft={ result.days_left }
                             />
                         })
                     });

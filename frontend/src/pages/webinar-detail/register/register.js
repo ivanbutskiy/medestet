@@ -360,48 +360,52 @@ class Register extends Component {
                 <h2 className='register-webinar-header text-center'>Запись на вебинар</h2>
                 <div className='row align-items-center mt-3'>
                     <div className='col-md-6 mt-2'>
-                        <p><strong>Выберите вариант участия:</strong></p>
-                        { getOptions() }
-                        <br></br>
-                        <p><strong>Стоимость выбранного варианта: </strong>{ selectedOptionPrice } грн.</p>
-                        <p><strong>Процент вашей скидки: </strong>{ discountPercent }%.</p>
-                        <p><strong>Итоговая сумма: </strong>{ amount } грн.</p>
+                        <form 
+                            id='webinar-shop-order' 
+                            className='form-group form-shop-order' 
+                            method='post' 
+                            action='https://secure.wayforpay.com/pay' 
+                            acceptCharset='utf-8'
+                            onSubmit={ (e) => this.orderRegister(e) }
+                            >
+
+                            <p><strong>Выберите вариант участия:</strong></p>
+                                { getOptions() }
+
+                            <input readOnly className='form-control' hidden name='merchantAccount' value={ merchantLogin } />
+                            <input readOnly className='form-control' hidden name='merchantDomainName' value={ merchantDomainName } />
+                            <input readOnly className='form-control' hidden name='merchantTransactionSecureType' value={ merchantTransactionSecureType } />
+                            <input readOnly className='form-control' hidden name='orderReference' value={ orderReference } />
+                            <input readOnly className='form-control' hidden name='orderDate' value={ orderDate } />
+                            <input readOnly className='form-control' hidden name='amount' value={ amount.toString() } />
+                            <input readOnly className='form-control' hidden name='currency' value='UAH' />
+                            <input readOnly className='form-control' hidden name='productName[]' value={ this.props.webinarTitle } />
+                            <input readOnly className='form-control' hidden name='productPrice[]' value={ amount.toString() } />
+                            <input readOnly className='form-control' hidden name='productCount[]' value='1' />
+
+                            <input readOnly className='form-control' hidden name='returnUrl' value={ returnURL } />
+                            <input readOnly className='form-control' hidden name='serviceUrl' value={ serviceURL } />
+                            <input readOnly className='form-control' hidden name='merchantSignature' value={ getMerchantSignature() } />
+
+                            <br></br>
+                            <p><strong>Стоимость выбранного варианта: </strong>{ selectedOptionPrice } грн.</p>
+                            <p><strong>Процент вашей скидки: </strong>{ discountPercent }%.</p>
+                            <p><strong>Итоговая сумма: </strong>{ amount } грн.</p>
+                        </form>
                     </div>
 
                     { promoCodeBlock() }
 
-                </div>
-                <form 
-                    id='webinar-shop-order' 
-                    className='form-group form-shop-order' 
-                    method='post' 
-                    action='https://secure.wayforpay.com/pay' 
-                    acceptCharset='utf-8'
-                    onSubmit={ (e) => this.orderRegister(e) }
-                    >
-
-                    <input readOnly className='form-control' hidden name='merchantAccount' value={ merchantLogin } />
-                    <input readOnly className='form-control' hidden name='merchantDomainName' value={ merchantDomainName } />
-                    <input readOnly className='form-control' hidden name='merchantTransactionSecureType' value={ merchantTransactionSecureType } />
-                    <input readOnly className='form-control' hidden name='orderReference' value={ orderReference } />
-                    <input readOnly className='form-control' hidden name='orderDate' value={ orderDate } />
-                    <input readOnly className='form-control' hidden name='amount' value={ amount.toString() } />
-                    <input readOnly className='form-control' hidden name='currency' value='UAH' />
-                    <input readOnly className='form-control' hidden name='productName[]' value={ this.props.webinarTitle } />
-                    <input readOnly className='form-control' hidden name='productPrice[]' value={ amount.toString() } />
-                    <input readOnly className='form-control' hidden name='productCount[]' value='1' />
-
-                    <input readOnly className='form-control' hidden name='returnUrl' value={ returnURL } />
-                    <input readOnly className='form-control' hidden name='serviceUrl' value={ serviceURL } />
-                    <input readOnly className='form-control' hidden name='merchantSignature' value={ getMerchantSignature() } />
-
                     <button 
-                        type='submit' 
+                        type='submit'
+                        form='webinar-shop-order'
                         className='btn btn-block btn-primary mt-5 mb-3 submit-shop-order'
                         disabled={ makeDisable ? true : false } >
                         Записаться на вебинар
                     </button>
-                </form>
+
+                </div>
+                
                 <small>Общая сумма ваших покупок составляет { buySum } грн. Обратите внимание, что при достижении общей суммы покупок в 5000 грн каждому зарегистрированному пользователю становится доступной скидка 3%, а при достижении 18000 грн – 5%. При выборе платного варианта вас переведет на платежный шлюз <strong>WayForPay</strong>, где вы сможете оплатить участие.</small>
             </div>
         );
