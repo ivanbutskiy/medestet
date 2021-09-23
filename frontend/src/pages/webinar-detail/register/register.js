@@ -163,11 +163,6 @@ class Register extends Component {
         this.service.webinarOrderRegister(orderReference, webinarId, selectedOptionId, promocode)
             .then(result => {
                 this.setState({ successRedirect: true })
-                // if (selectedOptionPrice > 0) {
-                //     f.submit();
-                // } else {
-                //     this.setState({ successRedirect: true })
-                // }
             }).catch(error => {
                 this.setState({ error: true })
             });
@@ -408,7 +403,6 @@ class Register extends Component {
                 </div>
                 
                 <small>Общая сумма ваших покупок составляет { buySum } грн. Обратите внимание, что при достижении общей суммы покупок в 5000 грн каждому зарегистрированному пользователю становится доступной скидка 3%, а при достижении 18000 грн – 5%.</small>
-                // <small>Общая сумма ваших покупок составляет { buySum } грн. Обратите внимание, что при достижении общей суммы покупок в 5000 грн каждому зарегистрированному пользователю становится доступной скидка 3%, а при достижении 18000 грн – 5%. При выборе платного варианта вас переведет на платежный шлюз <strong>WayForPay</strong>, где вы сможете оплатить участие.</small>
             </div>
         );
     };
