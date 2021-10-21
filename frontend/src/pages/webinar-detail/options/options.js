@@ -21,6 +21,7 @@ class Options extends Component {
                         title={ option.title }
                         description={ option.description }
                         price={ option.price }
+                        old_price={ option.old_price }
                         isPaid={ option.is_paid }
                     />
                 })

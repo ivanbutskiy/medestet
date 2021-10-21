@@ -71,10 +71,7 @@ class CheckOrder(APIView):
                     order.promocode = promocode
                     order.order_sum = option.price - Decimal(((float(option.price) / 100) * promocode.discount)).quantize(Decimal('1.00'))
                 else:
-                    if user.discount_percent > 0:
-                        order.order_sum = option.price - Decimal(((float(option.price) / 100) * user.discount_percent)).quantize(Decimal('1.00'))
-                    else:
-                        order.order_sum = option.price
+                    order.order_sum = option.price
             else:
                 order.order_sum = option.price
             order.save()

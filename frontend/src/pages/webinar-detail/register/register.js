@@ -181,11 +181,6 @@ class Register extends Component {
                     amount: selectedOptionPrice - parseFloat(selectedOptionPrice / 100 * promoCodePercent).toFixed(2)
                 });
                 return null;
-            } else if (discountPercent) {
-                this.setState({ 
-                    amount: selectedOptionPrice - parseFloat(selectedOptionPrice / 100 * discountPercent).toFixed(2)
-                });
-                return null;
             } else {
                 this.setState({ amount: selectedOptionPrice })
             };
@@ -385,7 +380,6 @@ class Register extends Component {
 
                             <br></br>
                             <p><strong>Стоимость выбранного варианта: </strong>{ selectedOptionPrice } грн.</p>
-                            <p><strong>Процент вашей скидки: </strong>{ discountPercent }%.</p>
                             <p><strong>Итоговая сумма: </strong>{ amount } грн.</p>
                         </form>
                     </div>

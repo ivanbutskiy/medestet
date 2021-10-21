@@ -100,9 +100,6 @@ class WebinarDetail extends Component {
                     description={ this.state.description }
                     descriptionImage={ this.state.descriptionImage }
                 />
-
-                <Themes themes={ this.state.themes } />
-
                 <Options options={ this.state.options } />
 
                 <Register 

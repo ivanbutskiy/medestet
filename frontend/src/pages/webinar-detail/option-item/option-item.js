@@ -7,7 +7,8 @@ class OptionItem extends Component {
     state = {
         title: this.props.title,
         description: this.props.description,
-        price: this.props.price
+        price: this.props.price,
+        old_price: this.props.old_price
     }
 
     render() {
@@ -20,7 +21,10 @@ class OptionItem extends Component {
                 <div className='bg-white p-5 rounded-lg shadow option-item-detail'>
                     <h4 className='h5 mb-4'>{ title }</h4>
 
-                    { price && price > 0 ? <p><i className='fas fa-tags mr-2'></i>Стоимость: { price } грн.</p> : <p><i className='fas fa-tags mr-2'></i>Бесплатно</p> }
+                    { old_price && old_price > 0 ? <p><i className='fas fa-tags mr-2 old-price'></i>Обычная стоимость: { price } грн.</p> : null }
+                    { old_price && old_price > 0 ? <p><i className='fas fa-tags mr-2 new-price'></i>Со скидкой: { price } грн.</p> : null }
+                    { !old_price && old_price === 0 ? <p><i className='fas fa-tags mr-2 old-price'></i>Стоимость: { price } грн.</p> : null }
+                    { !price || price === 0 ? <p><i className='fas fa-tags mr-2 old-price'></i>Бесплатно</p> : null }
 
                     <div className='custom-separator my-4 mx-auto bg-primary description'></div>
                         { description ? description : null }

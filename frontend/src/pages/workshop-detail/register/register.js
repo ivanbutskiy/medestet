@@ -50,12 +50,8 @@ class Register extends Component {
             if (promoCodeActive) {
                 this.setState({ amount: (selectedOptionPrice - (selectedOptionPrice / 100 * promoCodePercent)).toFixed(2) });
             } else {
-                if (discountPercent) {
-                    this.setState({ amount: (selectedOptionPrice - (selectedOptionPrice / 100 * discountPercent)).toFixed(2) });
-                } else {
                     this.setState({ amount: selectedOptionPrice });
                 };
-            };
         } else {
             this.setState({ selectedOptionPrice: 0 });
         };
@@ -258,7 +254,6 @@ class Register extends Component {
                         { getOptions() }
                         <br></br>
                         <p><strong>Стоимость выбранного варианта: </strong>{ selectedOptionPrice } грн.</p>
-                        { !promoCodeActive ? <p><strong>Процент вашей скидки: </strong>{ discountPercent }%.</p> : null }
                         <p><strong>Итоговая сумма: </strong>{ amount } грн.</p>
                     </div>
 

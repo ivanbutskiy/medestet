@@ -10,8 +10,12 @@
     font-weight: 500;
 }
 
-.option-item .option-item-detail i {
+.option-item .option-item-detail .old-price {
     color: #78c2ad;
+}
+
+.option-item .option-item-detail .new-price {
+    color: #cc0000;
 }
 
 .option-item .option-item-detail .description p {
