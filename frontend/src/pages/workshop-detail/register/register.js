@@ -226,7 +226,6 @@ class Register extends Component {
                     <div className='promocode col-md-6 card text-center mt-4'>
                         <h4>У вас есть промокод?</h4>
                         <h4>Вы можете его активировать!</h4>
-                        { isAuthenticated && discountPercent ? <small className='promocode-small-text mt-2'>Обратите внимание, что при активации промокода будет учтена только скидка, которую предоставляет промокод. А ваша клиентская скидка {discountPercent}% учтена не будет.</small> : null }
                         <form className='form-group mt-3' onSubmit={ (e) => this.checkPromoCode(e) }>
                             <input 
                                 type='text'
@@ -270,7 +269,6 @@ class Register extends Component {
                         Отправить заявку
                     </button>
                 </form>
-                <small>Общая сумма ваших покупок составляет { buySum } грн. Обратите внимание, что при достижении общей суммы покупок в 5000 грн каждому зарегистрированному пользователю становится доступной скидка 3%, а при достижении 18000 грн – 5%. После отправки заявки на участие мы свяжемся с вами и обсудим дальнейшие условия.</small>
             </div>
         );
     };
