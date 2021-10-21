@@ -13,7 +13,7 @@ class OptionItem extends Component {
 
     render() {
 
-        const { title, description, price } = this.state;
+        const { title, description, price, old_price } = this.state;
 
         return (
 

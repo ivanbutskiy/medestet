@@ -348,7 +348,7 @@ class Register extends Component {
 
         return (
             <div className='register-webinar shadow-lg rounded container mt-5'>
-                <h2 className='register-webinar-header text-center'>Запись на вебинар</h2>
+                <h2 className='register-webinar-header text-center'>Запись на участие</h2>
                 <div className='row align-items-center mt-3'>
                     <div className='col-md-6 mt-2'>
                         <form 
@@ -391,7 +391,7 @@ class Register extends Component {
                         form='webinar-shop-order'
                         className='btn btn-block btn-primary mt-5 mb-3 submit-shop-order'
                         disabled={ makeDisable ? true : false } >
-                        Записаться на вебинар
+                        Записаться
                     </button>
 
                 </div>
