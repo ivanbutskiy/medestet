@@ -84,8 +84,8 @@ class Footer extends Component {
                     <div className='row'>
                       <div className='col-md-6'>
                         <p className='text-muted mb-1'>Адрес: Киев ул. Крещатик, 6</p>
-                        <p className='text-muted mb-1'>ФОП Качанова Олена Вiталiïвна</p>
-                        <p className='text-muted mb-1'>ІПН 2436601081</p>
+                        <p className='text-muted mb-1'>ФЛП Качанова Е. В.</p>
+                        <p className='text-muted mb-1'>ИНН 2436601081</p>
                         <p className='text-muted mb-1'>Контактный телефон: +380506040238</p>
                       </div>
                     </div>
