@@ -21,7 +21,7 @@ class Footer extends Component {
                     {/* <img src={ logo } alt='' width='180' className='mb-3' /> */}
                     <p className='font-italic'>Компания MedEstet-Pro. Вместе с вами мы делаем мир прекраснее.</p>
                     <ul className='list-inline mt-4'>
-                        
+
                         <li className='list-inline-item'>
                             <a href='https://www.facebook.com/medestetpro' target='_blank' rel='noreferrer' title='Facebook'>
                                 <img src={ facebook } alt='Facebook' />
@@ -47,6 +47,9 @@ class Footer extends Component {
                         </li>
 
                     </ul>
+
+                        <Link to='/payments-delivery/'>Оплата и доставка</Link>
+
                     </div>
                     <div className='col-lg-2 col-md-6 mb-4 mb-lg-0'>
                     <h6 className='text-uppercase font-weight-bold mb-4'>Обучение</h6>
@@ -78,10 +81,19 @@ class Footer extends Component {
                     </div>
                     </div>
                     </div>
+                    <div className='row'>
+                      <div className='col-md-6'>
+                        <p className='text-muted mb-1'>Адрес: Киев ул. Крещатик, 6</p>
+                        <p className='text-muted mb-1'>ФОП Качанова Олена Вiталiïвна</p>
+                        <p className='text-muted mb-1'>ІПН 2436601081</p>
+                        <p className='text-muted mb-1'>Контактный телефон: +380506040238</p>
+                      </div>
+                    </div>
                 </div>
 
                 <div className='py-4'>
                     <div className='container text-center'>
+                        <Link to='/privacy-policy/'>Условия использования и политика конфиденциальности</Link>
                         <p className='text-muted mb-0 py-2'>© { year } MedEstet-Pro</p>
                     </div>
                 </div>

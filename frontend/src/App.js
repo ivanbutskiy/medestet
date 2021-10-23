@@ -33,6 +33,8 @@ import NewsPost from './pages/news-post';
 import Video from './pages/video';
 import VideoDetail from './pages/video-detail';
 import HomePage from './pages/homepage';
+import PaymentsDelivery from './pages/payments-delivery';
+import PrivacyPolicy from './pages/privacy-policy';
 
 import store from './store';
 
@@ -63,28 +65,28 @@ const App = () => (
           <Route path='/account/workshops/' component={ UserWorkshops } exact />
 
           <Route path='/courses/' component={ Courses } exact />
-          <Route 
-              path='/courses/:slug/' 
+          <Route
+              path='/courses/:slug/'
               render={({match}) => {
               return <CourseDetail slug={ match.params.slug } /> }}
               exact />
 
           <Route path='/workshops/' component={ Workshops } exact />
-          <Route 
-              path='/workshops/:slug/' 
+          <Route
+              path='/workshops/:slug/'
               render={({match}) => {
               return <WorkshopDetail slug={ match.params.slug } /> }}
               exact />
 
           <Route path='/webinars/' component={ Webinars } exact />
-          <Route 
-              path='/webinars/:slug/' 
+          <Route
+              path='/webinars/:slug/'
               render={({match}) => {
               return <WebinarDetail slug={ match.params.slug } /> }}
               exact />
 
-          <Route 
-              path='/products/detail/:slug/' 
+          <Route
+              path='/products/detail/:slug/'
               render={({match}) => {
               return <ProductDetail slug={ match.params.slug } /> }}
               exact />
@@ -92,44 +94,47 @@ const App = () => (
           <Route path='/success-payment/' component={ SuccessPaymentPage } exact />
 
           <Route path='/shop/' component={ Shop } exact />
-          <Route 
-            path='/shop/:page/' 
+          <Route
+            path='/shop/:page/'
             component={ Shop }
-            exact 
+            exact
           />
 
-          <Route 
+          <Route
             path='/shop/category/:slug/'
             component={ Shop }
-            exact 
+            exact
           />
 
-          <Route 
+          <Route
             path='/shop/category/:slug/:page/'
             component={ Shop }
-            exact 
+            exact
           />
 
           <Route path='/blog/' component={ Blog } exact />
-          <Route 
-              path='/blog/:slug/' 
+          <Route
+              path='/blog/:slug/'
               render={({match}) => {
               return <BlogPost slug={ match.params.slug } /> }}
               exact />
 
           <Route path='/news/' component={ News } exact />
-          <Route 
-              path='/news/:slug/' 
+          <Route
+              path='/news/:slug/'
               render={({match}) => {
               return <NewsPost slug={ match.params.slug } /> }}
               exact />
 
           <Route path='/video/' component={ Video } exact />
-          <Route 
-              path='/video/:slug/' 
+          <Route
+              path='/video/:slug/'
               render={({match}) => {
               return <VideoDetail slug={ match.params.slug } /> }}
               exact />
+
+            <Route path='/payments-delivery/' component={ PaymentsDelivery } exact />
+            <Route path='/privacy-policy/' component={ PrivacyPolicy } exact />
 
         </Switch>
       </Hoc>

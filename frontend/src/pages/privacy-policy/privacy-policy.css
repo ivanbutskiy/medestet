@@ -1,0 +1,42 @@
+.privacy-policy {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 3rem 1rem;
+}
+
+.privacy-policy h3 {
+  margin-top: 2rem;
+}
+
+.privacy-policy h4 {
+  margin-top: 2rem;
+  font-weight: bold
+}
+
+.privacy-policy ol {
+  margin-top: 1rem;
+  color: #5A5A5A;
+  list-style: none;
+  counter-reset: li;
+}
+
+.privacy-policy li:before {
+  counter-increment: li;
+  content: counters(li, ".") ". ";
+}
+
+.privacy-policy p {
+  color: #5A5A5A;
+  margin-top: 1rem;
+}
+
+.privacy-item-title {
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-top: 3rem;
+}
+
+.nested-privacy-item {
+  font-weight: normal;
+  font-size: 1rem;
+}
