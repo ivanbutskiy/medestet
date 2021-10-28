@@ -84,7 +84,7 @@ class Register extends Component {
     checkPromoCode(e) {
         e.preventDefault();
         const { promocode, selectedOptionPrice, webinarId } = this.state;
-        
+
         this.service.checkWebinarPromocode(promocode)
             .then(result => {
                 if (result.data.is_active) {
@@ -107,7 +107,7 @@ class Register extends Component {
                         });
                     };
                 } else {
-                    this.setState({ 
+                    this.setState({
                         promoCodeActive: false,
                         successPromocodeVerify: true,
                         promocode: ''
@@ -156,28 +156,33 @@ class Register extends Component {
         e.preventDefault();
         this.setState({ makeDisable: true });
 
-        const { selectedOptionPrice, orderReference, 
+        const { selectedOptionPrice, orderReference,
             selectedOptionId, webinarId, promocode } = this.state;
         const f = document.getElementById('webinar-shop-order');
 
         this.service.webinarOrderRegister(orderReference, webinarId, selectedOptionId, promocode)
             .then(result => {
                 this.setState({ successRedirect: true })
+                if (selectedOptionPrice > 0) {
+                  f.submit();
+                } else {
+                  this.setState({successRedirect: true})
+                };
             }).catch(error => {
                 this.setState({ error: true })
             });
     };
 
     getAmountPrice(selectedOptionPrice) {
-        const { 
+        const {
             discountPercent,
             promoCodePercent,
-            promoCodeActive 
+            promoCodeActive
         } = this.state;
 
         if (selectedOptionPrice) {
             if (promoCodeActive) {
-                this.setState({ 
+                this.setState({
                     amount: selectedOptionPrice - parseFloat(selectedOptionPrice / 100 * promoCodePercent).toFixed(2)
                 });
                 return null;
@@ -191,11 +196,11 @@ class Register extends Component {
 
     render() {
 
-        const { 
-            buySum, 
-            isAuthenticated, 
+        const {
+            buySum,
+            isAuthenticated,
             options } = this.props;
-        
+
         const {
             discountPercent,
             selectedOptionPrice,
@@ -206,7 +211,7 @@ class Register extends Component {
             successPromocodeVerify,
             promoCodeActive,
             promoCodePercent,
-            forThisWebinar 
+            forThisWebinar
         } = this.state;
 
         const {
@@ -250,16 +255,16 @@ class Register extends Component {
             return options.map(option => {
                 return (
                     <div className='form-check' key={ option.id }>
-                        <input 
-                            className='form-check-input' 
-                            type='radio' 
-                            name='exampleRadios' 
-                            id={ option.title } 
+                        <input
+                            className='form-check-input'
+                            type='radio'
+                            name='exampleRadios'
+                            id={ option.title }
                             value={ `${option.id};${option.price}` }
                             onChange={ (e) => this.handleSelectOption(e) }
                             required />
-                        <label 
-                            className='form-check-label' 
+                        <label
+                            className='form-check-label'
                             htmlFor={ option.title } />
                             { option.title }
                     </div>
@@ -287,14 +292,14 @@ class Register extends Component {
                     <div className='promocode col-md-6 card text-center mt-4'>
                         <h4>Промокод успешно проверен</h4>
                         <p className='mt-3'>Но, к сожалению, его срок активности истек</p>
-                    </div> 
+                    </div>
                 );
             } else if (successPromocodeVerify === false) {
                 return (
                     <div className='promocode col-md-6 card text-center mt-4'>
                         <h4>Ошибка проверки</h4>
                         <p className='mt-3'>К сожалению, такого промокода не существует</p>
-                    </div> 
+                    </div>
                 )
             } else {
                 return (
@@ -302,16 +307,16 @@ class Register extends Component {
                         <h4>У вас есть промокод?</h4>
                         <h4>Вы можете его активировать!</h4>
                         <form className='form-group mt-3' onSubmit={ (e) => this.checkPromoCode(e) }>
-                            <input 
+                            <input
                                 type='text'
                                 className='form-control'
                                 value={ promocode }
                                 required
                                 onChange={ (e) => this.promocodeHandler(e) }>
                             </input>
-                            <button 
+                            <button
                                 type='submit'
-                                disabled={ selectedOptionPrice > 0 ? false : true } 
+                                disabled={ selectedOptionPrice > 0 ? false : true }
                                 className='btn btn-block btn-primary mt-3'>Активировать</button>
                         </form>
                     </div>
@@ -320,7 +325,7 @@ class Register extends Component {
         };
 
         const getMerchantSignature = () => {
-            const { 
+            const {
                 amount,
                 merchantLogin,
                 merchantDomainName,
@@ -341,7 +346,7 @@ class Register extends Component {
             const crypto = require('crypto');
             const merchantSignature = crypto.createHmac('md5', merchantSecretKey)
                 .update(hashString).digest('hex');
-            
+
             return merchantSignature;
         };
 
@@ -350,11 +355,11 @@ class Register extends Component {
                 <h2 className='register-webinar-header text-center'>Запись на участие</h2>
                 <div className='row align-items-center mt-3'>
                     <div className='col-md-6 mt-2'>
-                        <form 
-                            id='webinar-shop-order' 
-                            className='form-group form-shop-order' 
-                            method='post' 
-                            action='https://secure.wayforpay.com/pay' 
+                        <form
+                            id='webinar-shop-order'
+                            className='form-group form-shop-order'
+                            method='post'
+                            action='https://secure.wayforpay.com/pay'
                             acceptCharset='utf-8'
                             onSubmit={ (e) => this.orderRegister(e) }
                             >
@@ -385,7 +390,7 @@ class Register extends Component {
 
                     { promoCodeBlock() }
 
-                    <button 
+                    <button
                         type='submit'
                         form='webinar-shop-order'
                         className='btn btn-block btn-primary mt-5 mb-3 submit-shop-order'
