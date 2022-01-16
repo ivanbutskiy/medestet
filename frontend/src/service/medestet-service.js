@@ -322,6 +322,15 @@ class MedestetService {
         return result;
     };
 
-};
+    resetPassword = async (email) => {
+        const data = {email: email}
+        return await axios.post(`${this.API_BASE}/auth/users/reset_password/`, data);
+    };
+
+    resetPasswordConfirm = async (data) => {
+        return await axios.post(`${this.API_BASE}/auth/users/reset_password_confirm/`, data);
+    };
+
+}
 
 export default MedestetService;

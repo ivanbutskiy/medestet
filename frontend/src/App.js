@@ -4,7 +4,9 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Hoc from './hoc/hoc';
 import Login from './pages/login';
-import Register from './pages/register'
+import Register from './pages/register';
+import ResetPassword from './pages/reset-password';
+import ResetPasswordConfirm from './pages/reset-password-confirm';
 import Courses from './pages/courses';
 import CourseDetail from './pages/course-detail';
 import Workshops from './pages/workshops';
@@ -48,6 +50,8 @@ const App = () => (
           <Route path='/' component={ HomePage } exact />
           <Route path='/login/' component={ Login } exact />
           <Route path='/register/' component={ Register } exact />
+          <Route path='/reset-password/' component={ ResetPassword } exact />
+          <Route path='/password/reset/confirm/:uid/:token/' component={ ResetPasswordConfirm } exact />
           <Route path='/basket/' component={ Basket } exact />
           <Route path='/non-auth/' component={ NonAuth } exact />
           <Route path='/account/' component={ Account } exact />

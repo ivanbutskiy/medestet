@@ -162,11 +162,7 @@ class Register extends Component {
 
         this.service.webinarOrderRegister(orderReference, webinarId, selectedOptionId, promocode)
             .then(result => {
-                if (selectedOptionPrice > 0) {
-                  f.submit();
-                } else {
-                  this.setState({successRedirect: true})
-                };
+              this.setState({successRedirect: true})
             }).catch(error => {
                 this.setState({ error: true })
             });

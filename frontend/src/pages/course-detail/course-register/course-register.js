@@ -7,7 +7,7 @@ class CourseRegister extends Component {
     render() {
 
         return (
-
+            <p></p>
         );
     };
 };
