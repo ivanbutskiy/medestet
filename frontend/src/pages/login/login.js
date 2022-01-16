@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 
 import { login } from '../../actions/auth';
 
@@ -96,6 +96,9 @@ class Login extends Component {
                     </div>
 
                     <button type='submit' className='btn btn-primary mt-2'>Войти</button>
+			<p style={{ marginBottom: 0, marginTop: '2rem' }}>Забыли пароль?</p>
+                    	<Link to='/reset-password'>Восстановите его в несколько кликов</Link>
+
                 </form>
                 
             </div>
