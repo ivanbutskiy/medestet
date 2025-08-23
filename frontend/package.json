@@ -3,10 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "axios": "^0.21.0",
+    "axios": "^1.11.0",
+    "buffer": "^6.0.3",
     "cra-template": "1.1.1",
+    "crypto-browserify": "^3.12.1",
     "google-maps-react": "^2.0.6",
-    "node-sass": "^4.14.1",
+    "node-sass": "^6.0.1",
+    "process": "^0.11.10",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-html-parser": "^2.0.2",
@@ -18,14 +21,15 @@
     "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0",
     "slick-carousel": "^1.8.1",
+    "stream-browserify": "^3.0.0",
     "styled-components": "^5.2.1",
     "swiper": "^6.4.15",
     "thunk": "0.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -45,5 +49,15 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "overrides": {
+    "ajv": "6.12.6",
+    "ajv-keywords": "3.5.2",
+    "terser-webpack-plugin": "4.2.3",
+    "@pmmmwh/react-refresh-webpack-plugin": "0.5.11"
+  },
+  "devDependencies": {
+    "@craco/craco": "^6.4.5",
+    "react-refresh": "^0.10.0"
   }
 }
