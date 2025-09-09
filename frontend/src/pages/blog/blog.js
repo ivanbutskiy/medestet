@@ -60,8 +60,8 @@ export default class Blog extends Component {
                     <div className='container blog-spinner blog-list'>
                         <div className='empty-blog text-center'>
                             <i className='fas fa-blog text-primary fa-fw'></i>
-                            <h4>На данный момент публикаций в блоге нет</h4>
-                            <p>Но скоро мы приготовим для вас кое-что интересное...</p>
+                            <h4>На даний час публікації у блозі відсутні</h4>
+                            <p>Але згодом ми підготуємо для вас дещо цікаве...</p>
                         </div>
                     </div>
                 </div>

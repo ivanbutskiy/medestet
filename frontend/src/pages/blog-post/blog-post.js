@@ -82,7 +82,7 @@ class BlogPost extends Component {
                 <div className='alert alert-primary return-account-page' role='alert'>
                     <Link to='/blog/'>
                         <i className='fal fa-arrow-circle-left mr-2'></i>
-                        Вернуться ко всем публикациям
+                        Повернутись до всіх публікацій
                     </Link>
                 </div>
                 <BlogContent text={ text } />

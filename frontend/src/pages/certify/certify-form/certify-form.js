@@ -79,14 +79,14 @@ class CertifyForm extends Component {
             <div className='certify-form py-5'>
 
                 { success ? <div className='alert alert-success ml-5 mr-5' role='alert'>
-                Ваш сертификат успешно загружен! После того, как наши модераторы его проверят, мы отправим сообщение на вашу почту { this.props.email }.
+                Ваш сертифікат успішно завантажений! Після того як наші модератори його перевірять, ми відправимо повідомлення на ваш email { this.props.email }.
                 </div> : null }
                 { error ? <div className='alert alert-danger ml-5 mr-5' role='alert'>
-                Произошла ошибка загрузки сертификата. Пожалуйста, повторите попытку. Если возникли трудности, свяжитесь с нами.
+                Сталася помилка завантаження сертифікату. Будь ласка, спробуйте знову. Якщо виникли складнощі, зв'яжіться з нами.
                 </div> : null }
 
                 <header className='text-white text-center'>
-                    <p className='lead'>Загрузите свой сертификат косметолога, чтобы иметь возможность заказывать любые товары в нашем интернет-магазине и пользоваться всеми преимуществами, которые недоступны обычным пользователям.</p>
+                    <p className='lead'>Завантажте свій сертифікат косметолога, щоб мати змогу замовляти будь-які товари в нашому інтернет-магазині і користуватись всіма перевагами, котрі недоступні звичайним користувачам.</p>
                     { loading ? <div className='spinner-border text-primary m-5' role='status'>
                             <span className='visually-hidden'></span>
                         </div> : <img src={ certificate ? certificate : 'https://res.cloudinary.com/mhmd/image/upload/v1564991372/image_pxlho1.svg' } alt='' width='250' className='mb-4 mt-4' />}
@@ -110,11 +110,11 @@ class CertifyForm extends Component {
                             />
                             <label 
                                 className='custom-file-label mr-5 ml-5' 
-                                for='customFile'>Нажмите, чтобы выбрать картинку сертификата
+                                for='customFile'>Натисніть, щоб обрати зображення сертифікату
                             </label>
                         </div>
 
-                            <button className='btn mt-3 mb-3 mt-5 mr-5 ml-5' type='submit'>Загрузить сертификат</button>
+                            <button className='btn mt-3 mb-3 mt-5 mr-5 ml-5' type='submit'>Завантажити сертифікат</button>
                         </form>
 
                     </div>

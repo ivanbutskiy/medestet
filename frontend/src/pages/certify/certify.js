@@ -72,7 +72,7 @@ class ChangeUserData extends Component {
 
         return (
             <div className='change-user-data shadow-lg p-2'>
-                <HeaderAccountPages title={ 'Сертификация аккаунта' } />
+                <HeaderAccountPages title={ 'Сертифікація акаунту' } />
                 <ReturnAccountPage />
                 
                 <div className='shadow-lg mt-3 certify'>

@@ -8,7 +8,7 @@ class HeaderBlog extends Component {
 
         return (
             <div className='jumbotron shadow-sm card header-blog'>
-                <h1>Блог компании MedEstet-Pro</h1>
+                <h1>Блог компанії MedEstet-Pro</h1>
             </div>
         );
     };
