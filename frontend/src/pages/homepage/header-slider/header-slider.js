@@ -100,8 +100,8 @@ export default class HeaderSlider extends Component {
                         <div className='carousel-item active header-medestet'>
                             <div className='carousel-caption'>
                                 <img src={ logoMedestet } alt='MedEstet Logo' />
-                                <h3 className='display-4'>Компания MedEstet-Pro</h3>
-                                <p className='lead'>Вместе с вами мы делаем мир прекраснее</p>
+                                <h3 className='display-4'>Компанія MedEstet-Pro</h3>
+                                <p className='lead'>Разом з вами ми робимо світ прекраснішим</p>
                             </div>
                         </div>
 

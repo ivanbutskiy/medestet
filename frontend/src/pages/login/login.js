@@ -60,8 +60,8 @@ class Login extends Component {
 
         return (
             <div className='jumbotron shadow-lg login mb-0'>
-                <h1>Вход в аккаунт</h1>
-                <p className='mt-4'>Войдите в систему, чтобы пользоваться расширенными привилегиями авторизованного пользователя.</p>
+                <h1>Вхід в обліковий запис</h1>
+                <p className='mt-4'>Увійдіть в систему, щоб користуватися розширеними привілеями авторизованого користувача.</p>
                 <hr className='my-4' />
 
                 { errorMessage ? 
@@ -95,9 +95,9 @@ class Login extends Component {
                             required />
                     </div>
 
-                    <button type='submit' className='btn btn-primary mt-2'>Войти</button>
-			<p style={{ marginBottom: 0, marginTop: '2rem' }}>Забыли пароль?</p>
-                    	<Link to='/reset-password'>Восстановите его в несколько кликов</Link>
+                    <button type='submit' className='btn btn-primary mt-2'>Увійти</button>
+			<p style={{ marginBottom: 0, marginTop: '2rem' }}>Забули пароль?</p>
+                    	<Link to='/reset-password'>Відновіть його в декілька кліків</Link>
 
                 </form>
                 

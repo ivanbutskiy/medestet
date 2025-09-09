@@ -60,8 +60,8 @@ export default class News extends Component {
                     <div className='container blog-spinner blog-list'>
                         <div className='empty-blog text-center'>
                             <i className='fas fa-newspaper text-primary fa-fw'></i>
-                            <h4>На данный момент публикаций в новостях нет</h4>
-                            <p>Но скоро мы приготовим для вас кое-что интересное...</p>
+                            <h4>На даний момент публікацій в новинах немає</h4>
+                            <p>Але скоро ми підготуємо для вас дещо цікаве...</p>
                         </div>
                     </div>
                 </div>

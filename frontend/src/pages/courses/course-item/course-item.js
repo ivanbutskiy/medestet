@@ -40,10 +40,10 @@ class CourseItem extends Component {
                             <div className='card-text'>{ ReactHtmlParser(shortDescription) }</div>
                             <div className='row card-detail-info mt-4'>
                                 <div className='col-md-6'>
-                                    <p><i className='fas fa-calendar-week mr-2'></i> Дата начала: { startingDate }</p>
+                                    <p><i className='fas fa-calendar-week mr-2'></i> Дата початку: { startingDate }</p>
                                 </div>
                                 <div className='col-md-6'>
-                                    <p><i className='fas fa-tags mr-2'></i> Стоимость: { price } грн.</p>
+                                    <p><i className='fas fa-tags mr-2'></i> Вартість: { price } грн.</p>
                                 </div>
                             </div>
                         </div>

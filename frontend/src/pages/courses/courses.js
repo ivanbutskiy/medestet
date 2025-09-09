@@ -66,8 +66,8 @@ class Courses extends Component {
                     <HeaderCoursesList />
                     <div className='empty-courses-list text-center'>
                         <i className='fas fa-chalkboard-teacher text-primary fa-fw'></i>
-                        <h4>На данный момент доступных для прохождения курсов нет</h4>
-                        <p>Но скоро мы приготовим для вас кое-что интересное...</p>
+                        <h4>На даний момент доступних для проходження курсів немає</h4>
+                        <p>Але скоро ми підготуємо для вас дещо цікаве...</p>
                     </div>
                 </div>
             );

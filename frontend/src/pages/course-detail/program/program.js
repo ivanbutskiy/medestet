@@ -24,7 +24,7 @@ class Program extends Component {
 
             <div className='program container'>
 
-                <h2>Программа</h2>
+                <h2>Програма</h2>
 
                 <div className='row mt-5 mb-5'>
 

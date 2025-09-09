@@ -59,12 +59,12 @@ export default class LastProducts extends Component {
         return (
             <div className='last-products col-md-6 mt-4'>
                 <div className='card shadow-sm pb-3 h-100'>
-                    <h5>Новинки в интернет-магазине</h5>
+                    <h5>Новинки в інтернет-магазині</h5>
     
                         <Slider {...settings}>
                             { lastProductsItems }
                         </Slider>
-                    <Link to='/shop/'>Перейти в интернет-магазин</Link>
+                    <Link to='/shop/'>Перейти в інтернет-магазин</Link>
                 </div>
             </div>
         );

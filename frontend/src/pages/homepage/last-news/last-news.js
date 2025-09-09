@@ -46,10 +46,10 @@ export default class LastNews extends Component {
         return (
             <div className='col-md-6 last-news mt-4'>
                 <div className='card shadow-sm pb-3 h-100'>
-                    <h5>Свежие новости</h5>
+                    <h5>Свіжі новини</h5>
                     { lastNewsItems }
                     <div className='text-center'>
-                        <Link to='/news/' className='link text-center'>Перейти ко всем новостям</Link>
+                        <Link to='/news/' className='link text-center'>Перейти до всіх новин</Link>
                     </div>
                 </div>
             </div>

@@ -13,7 +13,7 @@ class DetailDescription extends Component {
 
             <div className='detail-description mt-5'>
                 
-                <h3>Подробнее о курсе</h3>
+                <h3>Детальніше про курс</h3>
 
                 <div className='row align-items-center justify-content-center'>
                     <div className='col-md-7 mt-2'>

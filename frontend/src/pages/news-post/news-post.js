@@ -82,7 +82,7 @@ class NewsPost extends Component {
                 <div className='alert alert-primary return-account-page' role='alert'>
                     <Link to='/news/'>
                         <i className='fal fa-arrow-circle-left mr-2'></i>
-                        Вернуться ко всем новостям
+                        Повернутися до всіх новин
                     </Link>
                 </div>
                 <NewsContent text={ text } />

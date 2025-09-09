@@ -19,10 +19,10 @@ class Header extends Component {
                     <p className='mt-4'>{ this.props.subtitle }</p>
                     <div className='row course-detail-info mt-4'>
                         <div className='col-md-6'>
-                            <p><i className='fas fa-calendar-week mr-2'></i>Дата начала: { this.props.startingDate }</p>
+                            <p><i className='fas fa-calendar-week mr-2'></i>Дата початку: { this.props.startingDate }</p>
                         </div>
                         <div className='col-md-6'>
-                            <p><i className='fas fa-tags mr-2'></i>Стоимость: { this.props.price } грн.</p>
+                            <p><i className='fas fa-tags mr-2'></i>Вартість: { this.props.price } грн.</p>
                         </div>
                     </div>
                 </div>

@@ -18,7 +18,7 @@ class Results extends Component {
         if (!certificate) {
             return (
                 <div className='results'>
-                    <h2 className='text-center'>После обучения</h2>
+                    <h2 className='text-center'>Після навчання</h2>
                     <div className='row align-items-center justify-content-center'>
                         <div className='results-content col'>
                             { ReactHtmlParser(results) }
@@ -29,7 +29,7 @@ class Results extends Component {
         } else {
             return (
                 <div className='results pb-5'>
-                    <h2 className='text-center'>После обучения</h2>
+                    <h2 className='text-center'>Після навчання</h2>
                     <div className='row results-certify align-items-center justify-content-center'>
                         <div className='results-content col-md-7 mt-2'>
                             { ReactHtmlParser(results) }

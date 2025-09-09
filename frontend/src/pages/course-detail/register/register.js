@@ -170,9 +170,9 @@ class Register extends Component {
         if (!isAuthenticated) {
             return (
                 <div className='register-course shadow-lg rounded container mt-5 p-5'>
-                    <h2 className='register-course-header text-center'>Запись на курс</h2>
+                    <h2 className='register-course-header text-center'>Запис на курс</h2>
                     <div className='register-content text-center container'>
-                        <p className='mt-5'>Запись на курс доступна только зарегистрированным пользователям. Для начала <Link to='/register/'>пройдите регистрацию</Link> и записывайтесь на курс.</p>
+                        <p className='mt-5'>Запис на курс доступний лише зареєстрованим користувачам. Для початку <Link to='/register/'>пройдіть реєстрацію</Link> і записуйтеся на курс.</p>
                     </div>
                 </div>
             );
@@ -181,9 +181,9 @@ class Register extends Component {
         if (error) {
             return (
                 <div className='register-course shadow-lg rounded container mt-5 p-5'>
-                    <h2 className='register-course-header text-center'>Запись на курс</h2>
+                    <h2 className='register-course-header text-center'>Запис на курс</h2>
                     <div className='register-content text-center container'>
-                        <p className='mt-5'>Ошибка загрузки данных платежной системы. Чтобы зарегистрироваться на курс, пожалуйста, обновите страницу. Если форма записи все равно не загружается, свяжитесь с нами в разделе «Контакты».</p>
+                        <p className='mt-5'>Помилка завантаження даних платіжної системи. Будь ласка, оновіть сторінку, щоб зареєструватися на курс. Якщо форма запису повторно не завантажується, зв'яжіться з нами у розділі «Контакти».</p>
                     </div>
                 </div>
             );
@@ -193,38 +193,38 @@ class Register extends Component {
             if (successPromocodeVerify === true && promoCodeActive === true && forThisCourse) {
                 return (
                     <div className='promocode col-md-6 card text-center mt-4'>
-                        <h4>Промокод успешно активирован!</h4>
-                        <p className='mt-3'>По нему доступна скидка { `${promoCodePercent}%` }. Итоговая сумма пересчитана</p>
+                        <h4>Промокод успішно активовано!</h4>
+                        <p className='mt-3'>По ньому дійсна знижка { `${promoCodePercent}%` }. Підсумкова сума перерахована</p>
                     </div>
                 )
             } else if (successPromocodeVerify === true && promoCodeActive === true && !forThisCourse) {
                 return (
                     <div className='promocode col-md-6 card text-center mt-4'>
-                        <h4>Промокод успешно проверен</h4>
-                        <p className='mt-3'>Но для этого курса он не доступен</p>
+                        <h4>Промокод успішно перевірено</h4>
+                        <p className='mt-3'>Але для даного курсу він недоступний</p>
                     </div>
                 )
             } else if (successPromocodeVerify && !promoCodeActive) {
                 return (
                     <div className='promocode col-md-6 card text-center mt-4'>
-                        <h4>Промокод успешно проверен</h4>
-                        <p className='mt-3'>Но, к сожалению, его срок активности истек</p>
+                        <h4>Промокод успішно перевірено</h4>
+                        <p className='mt-3'>Але, на жаль, його термін дії закінчився</p>
                     </div> 
                 );
             } else if (successPromocodeVerify === false) {
                 return (
                     <div className='promocode col-md-6 card text-center mt-4'>
-                        <h4>Ошибка проверки</h4>
-                        <p className='mt-3'>К сожалению, такого промокода не существует</p>
+                        <h4>Помилка перевірки</h4>
+                        <p className='mt-3'>На жаль, такого промокоду не існує</p>
                     </div> 
                 )
             } else {
                 return (
                     <div className='promocode col-md-6 card text-center mt-4'>
-                        <h4>У вас есть промокод?</h4>
-                        <h4>Вы можете его активировать!</h4>
-                        { isAuthenticated && (buySum >= 5000) && (buySum < 18000) ? <small className='promocode-small-text mt-2'>Обратите внимание, что при активации промокода будет учтена только скидка, которую предоставляет промокод. А ваша клиентская скидка 3% учтена не будет.</small> : null }
-                        { isAuthenticated && buySum >= 18000 ? <small className='promocode-small-text mt-2'>Обратите внимание, что при активации промокода будет учтена только скидка, которую предоставляет промокод. А ваша клиентская скидка 5% учтена не будет.</small> : null }
+                        <h4>У вас є промокод?</h4>
+                        <h4>Ви можете його активувати!</h4>
+                        { isAuthenticated && (buySum >= 5000) && (buySum < 18000) ? <small className='promocode-small-text mt-2'>Зверніть увагу, що при активації промокоду буде врахована тільки знижка, яку надає промокод. А ваша клієнтська знижка 3% врахована не буде.</small> : null }
+                        { isAuthenticated && buySum >= 18000 ? <small className='promocode-small-text mt-2'>Зверніть увагу, що при активації промокоду буде врахована тільки знижка, яку надає промокод. А ваша клієнтська знижка 5% врахована не буде.</small> : null }
                         <form className='form-group mt-3' onSubmit={ (e) => this.checkPromoCode(e) }>
                             <input 
                                 type='text'
@@ -235,7 +235,7 @@ class Register extends Component {
                             </input>
                             <button 
                                 type='submit' 
-                                className='btn btn-block btn-primary mt-3'>Активировать</button>
+                                className='btn btn-block btn-primary mt-3'>Активувати</button>
                         </form>
                     </div>
                 );
@@ -272,13 +272,13 @@ class Register extends Component {
 
         return (
             <div className='register-course shadow-lg rounded container mt-5'>
-                <h2 className='register-course-header text-center'>Запись на курс</h2>
+                <h2 className='register-course-header text-center'>Запис на курс</h2>
                 <div className='row align-items-center mt-3'>
                     <div className='col-md-6 mt-2'>
-                        <p><strong>Стоимость курса: </strong>{ price } грн.</p>
-                        { isAuthenticated && !forThisCourse ? <p><strong>Процент вашей скидки: </strong>{ discountPercent }%.</p> : null }
-                        <p><strong>Итоговая сумма: </strong>{ amount } грн.</p>
-                        { isAuthenticated ? <small>Общая сумма ваших покупок составляет {buySum} грн. Обратите внимание, что при достижении общей суммы покупок в 5000 грн каждому зарегистрированному пользователю становится доступной скидка 3%, а при достижении 18000 грн – 5%.</small> : null }
+                        <p><strong>Вартість курсу: </strong>{ price } грн.</p>
+                        { isAuthenticated && !forThisCourse ? <p><strong>Відсоток вашої знижки: </strong>{ discountPercent }%.</p> : null }
+                        <p><strong>Підсумкова сума: </strong>{ amount } грн.</p>
+                        { isAuthenticated ? <small>Загальна сума ваших покупок становить {buySum} грн. Зверніть увагу, що при досягненні загальної суми покупок в 5000 грн кожному зареєстрованому користувачеві стає доступною знижка 3%, а при досягненні 18000 грн – 5%.</small> : null }
                     </div>
                     { promoCodeBlock() }
                 </div>
@@ -306,7 +306,7 @@ class Register extends Component {
                     <input readOnly className='form-control' hidden name='merchantSignature' value={ getMerchantSignature() } />
 
                     <button type='submit' className='btn btn-block btn-primary mt-5 mb-3 submit-shop-order' >
-                        Перейти к оплате курса
+                        Перейти до оплати курсу
                     </button>
                 </form>
             </div>

@@ -86,14 +86,14 @@ class Videos extends Component {
 
         return (
             <div className='videos card mt-4 pt-3 pb-4 shadow-sm'>
-                <h5>Последние видео</h5>
+                <h5>Останні відео</h5>
 
                 { loading ? <Spinner /> : 
                 <Slider {...settings}>
                     { videoItems }
                 </Slider>
                 }
-                <Link to='/video/'>Перейти ко всем видео</Link>
+                <Link to='/video/'>Перейти до всіх відео</Link>
             </div>
         );
     };

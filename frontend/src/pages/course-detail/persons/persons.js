@@ -33,7 +33,7 @@ class Persons extends Component {
 
         return (
             <div className='persons rounded bg-gradient-2 text-white shadow p-5 text-center'>
-                <h2 className='persons-header'>Этот курс предназначен</h2>
+                <h2 className='persons-header'>Цей курс призначений</h2>
                 <div className='row align-items-center justify-content-center mt-5'>
                     { personItems }
                 </div>
