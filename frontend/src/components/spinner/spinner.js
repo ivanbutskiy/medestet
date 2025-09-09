@@ -11,7 +11,7 @@ class Spinner extends Component {
                     <div className='spinner-border text-info' role='status'>
                         <span className='sr-only'>Loading...</span>
                     </div>
-                    <h2 className='mt-4'>Загрузка...</h2>
+                    <h2 className='mt-4'>Завантаження...</h2>
                 </div>
             </div>
         );

@@ -13,7 +13,7 @@ class UserPanel extends Component {
                 <div className='media d-flex col'><img src={ this.props.photo ? this.props.photo : cosmetolog } alt='Medestet' className='rounded-circle shadow-sm' />
                 <div className='media-body col'>
                     <h4 className='m-0 user-first-name'>{ this.props.firstName }</h4>
-                    { this.props.isCertified ? <p className='user-certified mt-2'>Сертифицированный косметолог</p> : <p className='user-not-certified mt-2'>Без сертификата</p> }
+                    { this.props.isCertified ? <p className='user-certified mt-2'>Сертифікований косметолог</p> : <p className='user-not-certified mt-2'>Без сертифікату</p> }
                 </div>
                 </div>
             </div>

@@ -30,28 +30,28 @@ class Sidebar extends Component {
 
                     { this.props.isAuthenticated ? <Userbar /> : <Guestbar /> }
 
-                    <p className='text-gray text-uppercase px-3 small py-4 mb-0'>Сервисы MedEstet</p>
+                    <p className='text-gray text-uppercase px-3 small py-4 mb-0'>Сервіси MedEstet</p>
 
                     <ul className='nav flex-column bg-white mb-0'>
                         <li className='nav-item'>
                             <Link to='/courses/'
                                 className='nav-link text-dark' onClick={ ()=> hideMenu() }>
                                 <i className='fas fa-chalkboard-teacher mr-3 text-primary fa-fw'></i>
-                                Курсы
+                                Курси
                             </Link>
                         </li>
                         <li className='nav-item'>
                             <Link to='/workshops/'
                                 className='nav-link text-dark' onClick={ ()=> hideMenu() }>
                                 <i className='fas fa-user-friends mr-3 text-primary fa-fw'></i>
-                                Семинары
+                                Семінари
                             </Link>
                         </li>
                         <li className='nav-item'>
                             <Link to='/webinars/'
                                 className='nav-link text-dark' onClick={ ()=> hideMenu() }>
                                 <i className='fas fa-globe mr-3 text-primary fa-fw'></i>
-                                Вебинары
+                                Вебінари
                             </Link>
                         </li>
                         
@@ -67,7 +67,7 @@ class Sidebar extends Component {
                             <Link to='/video/' 
                                 className='nav-link text-dark' onClick={ ()=> hideMenu() }>
                                 <i className='fas fa-video mr-3 text-primary fa-fw'></i>
-                                Видео
+                                Відео
                             </Link>
                         </li>
                         
@@ -75,7 +75,7 @@ class Sidebar extends Component {
                             <Link to='/news/' 
                                 className='nav-link text-dark' onClick={ ()=> hideMenu() }>
                                 <i className='fas fa-newspaper mr-3 text-primary fa-fw'></i>
-                                Новости
+                                Новини
                             </Link>
                         </li>
                         

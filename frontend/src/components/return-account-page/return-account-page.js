@@ -10,7 +10,7 @@ class ReturnAccountPage extends Component {
             <div className='alert alert-primary return-account-page' role='alert'>
                 <Link to='/account/'>
                     <i className='fal fa-arrow-circle-left mr-2'></i>
-                    Вернуться в мой аккаунт
+                    Повернутися в мій акаунт
                 </Link>
             </div>
         );

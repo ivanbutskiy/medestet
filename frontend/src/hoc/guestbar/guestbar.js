@@ -32,7 +32,7 @@ class Guestbar extends Component {
                             onClick={ ()=> hideMenu() }
                             >
                             <i className='fas fa-shopping-basket mr-3 text-primary fa-fw'></i>
-                            Корзина{ countProductsInBasket ? <span className='badge badge-secondary ml-1 basket-count-badge'>{ countProductsInBasket }</span> : null }
+                            Кошик{ countProductsInBasket ? <span className='badge badge-secondary ml-1 basket-count-badge'>{ countProductsInBasket }</span> : null }
                         </Link>
                     </li>
 

@@ -40,7 +40,7 @@ class Userbar extends Component {
                             onClick={ ()=> hideMenu() }
                             >
                             <i className='fas fa-user-circle mr-3 text-primary fa-fw'></i>
-                            Аккаунт
+                            Акаунт
                         </Link>
                     </li>
 
@@ -51,7 +51,7 @@ class Userbar extends Component {
                             onClick={ ()=> hideMenu() }
                             >
                             <i className='fas fa-shopping-basket mr-3 text-primary fa-fw'></i>
-                            Корзина{ countProductsInBasket ? <span className='badge badge-secondary ml-1 basket-count-badge'>{ countProductsInBasket }</span> : null }
+                            Кошик{ countProductsInBasket ? <span className='badge badge-secondary ml-1 basket-count-badge'>{ countProductsInBasket }</span> : null }
                         </Link>
                     </li>
                     
@@ -62,7 +62,7 @@ class Userbar extends Component {
                             onClick={ () => this.logoutAndHide() }
                             >
                             <i className='fas fa-sign-out-alt mr-3 text-primary fa-fw'></i>
-                            Выйти
+                            Вийти
                         </Link>
                     </li>
 

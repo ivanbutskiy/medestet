@@ -16,13 +16,13 @@ class GuestPanel extends Component {
                             <li className='nav-item'>
                                 <Link to='/login/' className='nav-link text-dark' onClick={ ()=> hideMenu() }>
                                 <i className='fas fa-sign-in-alt mr-3 text-primary fa-fw'></i>
-                                Вход
+                                Вхід
                                 </Link>
                             </li>
                             <li className='nav-item'>
                                 <Link to='/register/' className='nav-link text-dark ' onClick={ ()=> hideMenu() }>
                                 <i className='fas fa-user-plus mr-3 text-primary fa-fw'></i>
-                                Регистрация
+                                Реєстрація
                                 </Link>
                             </li>
                         </ul>
