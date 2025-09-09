@@ -70,16 +70,16 @@ class BasketList extends Component {
                                                 <div className='p-2 px-3'>Продукт</div>
                                             </th>
                                             <th scope='col' className='border-0'>
-                                                <div className='py-2'>Стоимость</div>
+                                                <div className='py-2'>Вартість</div>
                                             </th>
                                             <th scope='col' className='border-0'>
-                                                <div className='py-2'>Количество</div>
+                                                <div className='py-2'>Кількість</div>
                                             </th>
                                             <th scope='col' className='border-0'>
-                                                <div className='py-2'>Сумма</div>
+                                                <div className='py-2'>Сума</div>
                                             </th>
                                             <th scope='col' className='border-0'>
-                                                <div className='py-2'>Удалить</div>
+                                                <div className='py-2'>Видалити</div>
                                             </th>
                                         </tr>
                                     </thead>
@@ -96,7 +96,7 @@ class BasketList extends Component {
                         className='clear-basket btn btn-primary'
                         onClick={ (e) => this.clearBasket(e) }>
                         <i className='fa fa-trash mr-2'></i>
-                        Очистить корзину
+                        Очистити кошик
                     </button>
                 </div>
             </div>

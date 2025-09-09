@@ -11,7 +11,7 @@ class Courses extends Component {
             <div className='personal-data col-sm-6 col-md-4 text-center'>
                 <div className='card shadow-sm p-3'>
                     <i className='fas fa-chalkboard-teacher'></i>
-                    <Link to='/account/courses/'>Мои курсы</Link>
+                    <Link to='/account/courses/'>Мої курси</Link>
                 </div>
             </div>
         );

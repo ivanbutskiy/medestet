@@ -28,9 +28,9 @@ class HeaderAccount extends Component {
                         </div>
                         <div className='col-sm-9'>
                             <h1>{ this.props.firstName } { this.props.lastName }</h1>
-                            <p className='mt-4 mb-2'>Сумма покупок: { this.props.buySum } грн</p>
-                            <p className='mt-2 mb-2'>Количество покупок: { this.props.buyCount }</p>
-                            <p className='mt-2 mb-2'>Скидка: { getDiscountPercent() } %</p>
+                            <p className='mt-4 mb-2'>Сума покупок: { this.props.buySum } грн</p>
+                            <p className='mt-2 mb-2'>Кількість покупок: { this.props.buyCount }</p>
+                            <p className='mt-2 mb-2'>Знижка: { getDiscountPercent() } %</p>
                         </div>
                     </div>
                 </div>

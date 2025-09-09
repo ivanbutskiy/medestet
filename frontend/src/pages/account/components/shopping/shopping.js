@@ -11,7 +11,7 @@ class Shopping extends Component {
             <div className='personal-data col-sm-6 col-md-4 text-center'>
                 <div className='card shadow-sm p-3'>
                     <i className='fas fa-store'></i>
-                    <Link to='/account/shopping/'>Мои покупки</Link>
+                    <Link to='/account/shopping/'>Мої покупки</Link>
                 </div>
             </div>
         );

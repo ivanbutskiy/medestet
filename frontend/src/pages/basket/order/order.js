@@ -382,8 +382,8 @@ class Order extends Component {
             return (
                 <div className='container card mb-4'>
                     <div className='order text-center'>
-                        <h2>Упс... Не получилось оформить заказ</h2>
-                        <p>Это ошибка сервера. Пожалуйста, попробуйте оформить заказ чуть позже или свяжитесь с нами.</p>
+                        <h2>Упс... Не вдалось оформити замовлення</h2>
+                        <p>Це помилка серверу. Будь ласка, спробуйте оформити замовлення дещо пізніше або зв'яжіться з нами.</p>
                     </div>    
                 </div>
             );
@@ -400,7 +400,7 @@ class Order extends Component {
         return (
             <div className='container card mb-4'>
                 <div className='order'>
-                    <h2>Оформление заказа</h2>
+                    <h2>Оформлення замовлення</h2>
                 </div>
 
                 <form 
@@ -411,10 +411,10 @@ class Order extends Component {
                     acceptCharset='utf-8'
                     onSubmit={ (e) => this.orderRegister(e) }>
                     
-                    <h4 className='mb-4'>Выберите способ оплаты</h4>
+                    <h4 className='mb-4'>Оберіть спосіб оплати</h4>
                     { paymentMethods }
 
-                    <h4 className='mt-5 mb-4'>Выберите способ доставки</h4>
+                    <h4 className='mt-5 mb-4'>Оберіть спосіб доставки</h4>
                     { deliveryMethods }
                     
                     <input readOnly className='form-control' hidden name='merchantAccount' value={ merchantAccount } />
@@ -431,7 +431,7 @@ class Order extends Component {
                     <input readOnly className='form-control' hidden name='returnUrl' value={ `${this.service.DOMAIN_NAME}/success-payment/` } />
                     <input readOnly className='form-control' hidden name='serviceUrl' value={ serviceUrl } />
 
-                    <h4 className='mt-5 mb-4'>Куда и кому будем отправлять</h4>
+                    <h4 className='mt-5 mb-4'>Що і кому будемо відправляти</h4>
 
                     <div className='row'>
 
@@ -440,7 +440,7 @@ class Order extends Component {
                             <label 
                                 className='shop-user-label'
                                 htmlFor='user-name'>
-                                Ваше имя:
+                                Ваше ім'я:
                             </label>
                             <input 
                                 id='user-name'
@@ -454,7 +454,7 @@ class Order extends Component {
                             <label 
                                 className='shop-user-label'
                                 htmlFor='user-lastname'>
-                                Ваша фамилия:
+                                Ваше прізвище:
                             </label>
                             <input 
                                 id='user-lastname'
@@ -468,7 +468,7 @@ class Order extends Component {
                             <label 
                                 className='shop-user-label'
                                 htmlFor='user-phone'>
-                                Номер телефона:
+                                Номер телефону:
                             </label>
                             <input 
                                 id='user-phone'
@@ -513,7 +513,7 @@ class Order extends Component {
                             <label 
                                 className='shop-user-label'
                                 htmlFor='user-city'>
-                                Город:
+                                Місто:
                             </label>
                             <input 
                                 id='user-city'
@@ -527,7 +527,7 @@ class Order extends Component {
                             <label 
                                 className='shop-user-label'
                                 htmlFor='delivery-address'>
-                                Номер отделения или адрес службы доставки:
+                                Номер відділення або адреса служби доставки:
                             </label>
                             <input 
                                 id='delivery-address'
@@ -542,7 +542,7 @@ class Order extends Component {
                                 type='submit'
                                 disabled={ disabledButton ? true : false }
                                 className='btn btn-block btn-primary mt-5 mb-3 submit-shop-order' >
-                                { paymentType === 'WFP' ? 'Оформить и оплатить заказ' : 'Оформить заказ' } 
+                                { paymentType === 'WFP' ? 'Оформити і сплатити замовлення' : 'Оформити замовлення' }
                             </button>
                         </div>
                     </div>

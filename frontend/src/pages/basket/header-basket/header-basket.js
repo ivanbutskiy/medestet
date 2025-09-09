@@ -9,7 +9,7 @@ class HeaderBasket extends Component {
         return (
             <div className='jumbotron card shadow-sm header-basket'>
                 <div className='container'>
-                    <h1><i className='far fa-shopping-basket mr-3 text-primary fa-fw'></i>Корзина товаров</h1>
+                    <h1><i className='far fa-shopping-basket mr-3 text-primary fa-fw'></i>Кошик</h1>
                 </div>
             </div>
         );

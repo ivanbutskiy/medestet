@@ -316,7 +316,7 @@ class ProductDetail extends Component {
                                         placeholder={ count }
                                         onChange={ (e) => this.changeCount(e) }
                                         />
-                                    <button type='submit' className='btn mt-3 btn-primary btn-block add-to-basket-button'><i className='fa fa-trash mr-2'></i>Добавить в корзину</button>
+                                    <button type='submit' className='btn mt-3 btn-primary btn-block add-to-basket-button'><i className='fa fa-trash mr-2'></i>Додати в кошик</button>
                                 </div>
                             </form> : null }
                         </div>

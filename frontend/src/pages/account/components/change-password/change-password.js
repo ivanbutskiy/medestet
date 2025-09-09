@@ -11,7 +11,7 @@ class ChangePassword extends Component {
             <div className='personal-data col-sm-6 col-md-4 text-center'>
                 <div className='card shadow-sm p-3'>
                     <i className='fas fa-key'></i>
-                    <Link to='/account/password/'>Изменить пароль</Link>
+                    <Link to='/account/password/'>Змінити пароль</Link>
                 </div>
             </div>
         );

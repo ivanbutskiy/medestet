@@ -158,8 +158,8 @@ class Basket extends Component {
                             <div className='row text-center'>
                                 <div className='empty-basket col-lg-12 p-5 mb-5'>
                                     <i className='far fa-shopping-basket'></i>
-                                    <h3>Ваша корзина пока что пуста</h3>
-                                    <p>Но вы ее можете пополнить, {<Link to='/shop/'>начав покупки</Link>} </p>
+                                    <h3>Ваша корзина поки що пуста</h3>
+                                    <p>Але ви можете її поповнити, {<Link to='/shop/'>розпочав покупки</Link>} </p>
                                 </div>
                             </div>
                         </div>
