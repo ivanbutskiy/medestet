@@ -32,11 +32,11 @@ const ResetPassword = () => {
 
     return (
         <div className='jumbotron shadow-lg register mb-0'>
-            <h1>Сброс пароля</h1>
-            <p className='mt-4'>Введите свой email и после нажатия на кнопку вам на почту придет инструкция с восстановлением пароля.</p>
+            <h1>Відновлення пароля</h1>
+            <p className='mt-4'>Введіть свою електронну адресу, і після натискання на кнопку вам на пошту надійде інструкція з відновленням пароля.</p>
 
             { successMessage && <div className='alert alert-success' role='alert'>
-                На вашу почту {email} была отправлена инструкция с восстановлением пароля
+                На вашу пошту {email} була надіслана інструкція з відновленням пароля
             </div>
             }
 
@@ -58,7 +58,7 @@ const ResetPassword = () => {
                                 value={ email }
                                 required />
                         </div>
-                        <button type='submit' className='btn btn-primary'>Сбросить пароль</button>
+                        <button type='submit' className='btn btn-primary'>Відновити пароль</button>
                     </div>
                 </div>
             </form>

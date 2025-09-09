@@ -63,12 +63,12 @@ class UserShoppingList extends Component {
         if (empty) {
             return (
                 <div className='user-courses-list user-shopping-list shadow-lg p-2'>
-                    <HeaderAccountPages title={ 'Мои покупки' } />
+                    <HeaderAccountPages title={ 'Мої покупки' } />
                     <ReturnAccountPage />
                     <div className='empty-courses-list text-center'>
                         <i className='fas fa-store text-primary fa-fw'></i>
-                        <h4>На данный момент список ваших покупок пока что пуст</h4>
-                        <p>Посетите наш магазин и выберите для себя что-то интересное, {<Link to='/shop/'>начав покупки</Link>}</p>
+                        <h4>На даний момент список ваших покупок поки що порожній</h4>
+                        <p>Відвідайте наш магазин і виберіть для себе щось цікаве, {<Link to='/shop/'>розпочавши покупки</Link>}</p>
                     </div>
                 </div>
             );
@@ -77,7 +77,7 @@ class UserShoppingList extends Component {
         if (loading) {
             return (
                 <div className='user-courses-list user-shopping-list shadow-lg p-2'>
-                    <HeaderAccountPages title={ 'Мои покупки' } />
+                    <HeaderAccountPages title={ 'Мої покупки' } />
                     <ReturnAccountPage />
                     <div className='container mt-4'>
                         <div className='user-shopping-list-spinner'>
@@ -91,7 +91,7 @@ class UserShoppingList extends Component {
         if (error) {
             return (
                 <div className='user-courses-list user-shopping-list shadow-lg p-2'>
-                    <HeaderAccountPages title={ 'Мои покупки' } />
+                    <HeaderAccountPages title={ 'Мої покупки' } />
                     <ReturnAccountPage />
                     <div className='container user-shopping-list-error'>
                         <ErrorBanner />
@@ -102,7 +102,7 @@ class UserShoppingList extends Component {
 
         return (
             <div className='user-courses-list user-shopping-list shadow-lg p-2'>
-                <HeaderAccountPages title={ 'Мои покупки' } />
+                <HeaderAccountPages title={ 'Мої покупки' } />
                 <ReturnAccountPage />
 
                 <div className='row mt-4'>

@@ -59,8 +59,8 @@ class Webinars extends Component {
                     <HeaderWebinarsList />
                     <div className='empty-workshops-list text-center'>
                         <i className='fas fa-globe text-primary fa-fw'></i>
-                        <h4>На данный момент вебинаров нет</h4>
-                        <p>Но скоро мы приготовим для вас кое-что интересное...</p>
+                        <h4>На даний момент вебінарів немає</h4>
+                        <p>Але скоро ми підготуємо для вас дещо цікаве...</p>
                     </div>
                 </div>
             );

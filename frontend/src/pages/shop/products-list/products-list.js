@@ -123,7 +123,7 @@ class ProductsList extends Component {
             return (
                 <div className='card shadow-sm pt-3 pb-3 product-list'>
                     <div className='container empty-product-list text-center'>
-                        <h2>В этой категории пока что нет товаров</h2>
+                        <h2>У цій категорії поки що немає товарів</h2>
                     </div>
                 </div>
             );

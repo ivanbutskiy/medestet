@@ -43,7 +43,7 @@ class Options extends Component {
 
             <div className='container options'>
 
-                <h2>Варианты участия</h2>
+                <h2>Варіанти участі</h2>
 
                 <div className='row text-center align-items-center justify-content-center option-items pb-5 mt-5'>
                     { optionItems }

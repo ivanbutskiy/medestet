@@ -20,12 +20,12 @@ class WorkshopItem extends Component {
         return (
             <div className='card user-workshop-item'>
                 <div className='card-header'>
-                    <strong>Дата и время начала:</strong> { date }
+                    <strong>Дата та час початку:</strong> { date }
                 </div>
                 <div className='card-body'>
                     <h4><Link to={`/workshops/${slug}/`}>{ workshopTitle }</Link></h4> 
-                    <p className='mt-3'><strong>Дата оформления заявки на участие: </strong>{ orderDate }.</p>
-                    <p><strong>Статус: </strong>{ status === 'paid' ? 'оплачено.' : 'ожидается оплата.' }</p>
+                    <p className='mt-3'><strong>Дата оформлення заявки на участь: </strong>{ orderDate }.</p>
+                    <p><strong>Статус: </strong>{ status === 'paid' ? 'оплачено.' : 'очікується оплата.' }</p>
                 </div>
             </div>
         );

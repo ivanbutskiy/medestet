@@ -35,7 +35,7 @@ class Lessons extends Component {
 
         return (
             <div className='workshop-lessons container'>
-                <h2>Программа</h2>
+                <h2>Програма</h2>
 
                 <div className='row'>
                     <div className='col-lg-7 mx-auto mb-5'>

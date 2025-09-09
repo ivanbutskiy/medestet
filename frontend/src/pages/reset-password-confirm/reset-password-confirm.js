@@ -59,11 +59,11 @@ const ResetPasswordConfirm = ({ match }) => {
 
     return (
         <div className='jumbotron shadow-lg register mb-0'>
-            <h1>Придумайте новый пароль</h1>
-            <p className='mt-4'>После того как вы создатите новый пароль, вы сможете успешно авторизоваться на сайте.</p>
+            <h1>Придумайте новий пароль</h1>
+            <p className='mt-4'>Після того як ви створите новий пароль, ви зможете успішно авторизуватися на сайті.</p>
 
             { successMessage && <div className='alert alert-success' role='alert'>
-                Пароль успешно изменен! Вы можете войти под новым паролем!
+                Пароль успішно змінено! Ви можете увійти під новим паролем!
             </div>}
 
             { errorMessages && <div className='alert alert-danger' role='alert'>{errorMessages}</div>}
@@ -73,7 +73,7 @@ const ResetPasswordConfirm = ({ match }) => {
                 <div className='row'>
                     <div className='col-md-6'>
                         <div className='form-group'>
-                            <label htmlFor='exampleInputPassword1'>Новый пароль</label>
+                            <label htmlFor='exampleInputPassword1'>Новий пароль</label>
                             <input
                                 type='password'
                                 name='new_password'
@@ -88,7 +88,7 @@ const ResetPasswordConfirm = ({ match }) => {
                     </div>
                     <div className='col-md-6'>
                         <div className='form-group'>
-                            <label htmlFor='exampleInputPassword2'>Повторите пароль</label>
+                            <label htmlFor='exampleInputPassword2'>Повторіть пароль</label>
                             <input
                                 type='password'
                                 name='re_new_password'
@@ -101,7 +101,7 @@ const ResetPasswordConfirm = ({ match }) => {
                             {re_new_passwordError && <span className='small-error-message'>{re_new_passwordError}</span>}
                         </div>
                     </div>
-                    <button type='submit' className='btn btn-primary ml-3'>Изменить пароль</button>
+                    <button type='submit' className='btn btn-primary ml-3'>Змінити пароль</button>
                 </div>
             </form>
 

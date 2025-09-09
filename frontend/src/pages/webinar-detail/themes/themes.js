@@ -37,7 +37,7 @@ class Themes extends Component {
 
         return (
             <div className='webinar-themes container'>
-                <h2>Темы вебинара</h2>
+                <h2>Теми вебінара</h2>
 
                 <div className='row'>
                     <div className='col-lg-7 mx-auto mb-5'>

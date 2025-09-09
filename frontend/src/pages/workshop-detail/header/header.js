@@ -18,7 +18,7 @@ class Header extends Component {
                     <h1>{ this.props.title }</h1>
                     <p className='mt-4'>{ this.props.subtitle }</p>
                     <div className='course-detail-info'>
-                        <p><i className='fas fa-calendar-week mr-2 mt-4 course-detail-info'></i>Дата начала: { this.props.startingDate }</p>
+                        <p><i className='fas fa-calendar-week mr-2 mt-4 course-detail-info'></i>Дата початку: { this.props.startingDate }</p>
                     </div>
                 </div>
             </div>

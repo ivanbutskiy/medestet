@@ -60,7 +60,7 @@ class UserWebinars extends Component {
         if (error) {
             return (
                 <div className='user-courses-list shadow-lg p-2'>
-                    <HeaderAccountPages title={ 'Мои вебинары' } />
+                    <HeaderAccountPages title={ 'Мої вебінари' } />
                     <ReturnAccountPage />
                     <ErrorBanner />
                 </div>   
@@ -70,13 +70,13 @@ class UserWebinars extends Component {
         if (empty) {
             return (
                 <div className='user-courses-list shadow-lg p-2'>
-                    <HeaderAccountPages title={ 'Мои вебинары' } />
+                    <HeaderAccountPages title={ 'Мої вебінари' } />
                     <ReturnAccountPage />
                     <div className='container mt-4'>
                         <div className='empty-courses-list text-center'>
                             <i className='fas fa-globe text-primary fa-fw'></i>
-                            <h4>Пока что вы не приобрели ни одного вебинара</h4>
-                            <p>Но вы можете это быстро исправить и <Link to='/webinars/'>выбрать для себя вебинар</Link>.</p>
+                            <h4>Поки що ви не придбали жодного вебінару</h4>
+                            <p>Але ви можете це швидко виправити і <Link to='/webinars/'>вибрати для себе вебінар</Link>.</p>
                         </div>
                     </div>
                 </div>
@@ -86,7 +86,7 @@ class UserWebinars extends Component {
         if (loading) {
             return (
                 <div className='user-courses-list shadow-lg p-2'>
-                    <HeaderAccountPages title={ 'Мои вебинары' } />
+                    <HeaderAccountPages title={ 'Мої вебінари' } />
                     <ReturnAccountPage />
                     <div className='container mt-4 justify-content-center mt-5'>
                         <Spinner />
@@ -97,7 +97,7 @@ class UserWebinars extends Component {
 
         return (
             <div className='user-courses-list shadow-lg p-2'>
-                <HeaderAccountPages title={ 'Мои вебинары' } />
+                <HeaderAccountPages title={ 'Мої вебінари' } />
                 <ReturnAccountPage />
                 <div className='row mt-5 justify-content-center mb-5'>
                     { webinarsList }

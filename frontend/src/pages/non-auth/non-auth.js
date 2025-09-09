@@ -20,8 +20,8 @@ class NonAuth extends Component {
                 <div className='container mb-4 align-items-center text-center success-payment-page'>
                     <div className='content'>
                         <i className='fad fa-users'></i>
-                        <h2 className='mt-3'>Эта страница доступна только авторизированным пользователям</h2>
-                        <p className='mt-2'>Пройдите <Link to='/login/'>авторизацию</Link> или <Link to='/register/'>зарегистрируйтесь</Link>, если у вас еще нет аккаунта.</p>
+                        <h2 className='mt-3'>Ця сторінка доступна тільки авторизованим користувачам</h2>
+                        <p className='mt-2'>Пройдіть <Link to='/login/'>авторизацію</Link> або <Link to='/register/'>зареєструйтесь</Link>, якщо у вас ще немає облікового запису.</p>
                     </div>
                 </div>
             </div>

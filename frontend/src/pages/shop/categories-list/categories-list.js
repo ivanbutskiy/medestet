@@ -53,7 +53,7 @@ class CategoriesList extends Component {
         if (categoriesEmpty) {
             return (
                 <ul className='list-group categories-items-list'>
-                    <p className='category-items-error-text'>Пока что нет ни одной категории</p>
+                    <p className='category-items-error-text'>Поки що немає жодної категорії</p>
                 </ul>
             )
         }
@@ -61,7 +61,7 @@ class CategoriesList extends Component {
         if (error) {
             return (
                 <ul className='list-group categories-items-list'>
-                    <p className='category-items-error-text'>Произошла ошибка загрузки категорий...</p>
+                    <p className='category-items-error-text'>Сталася помилка завантаження категорій...</p>
                 </ul>
             );
         };

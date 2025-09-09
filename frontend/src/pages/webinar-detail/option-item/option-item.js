@@ -22,9 +22,9 @@ class OptionItem extends Component {
                     <h4 className='h5 mb-4'>{ title }</h4>
 
                     { old_price && old_price > 0 ? <p><i className='fas fa-tags mr-2 old-price'></i>Без скидки: { old_price } грн.</p> : null }
-                    { old_price && old_price > 0 ? <p><i className='fas fa-tags mr-2 new-price'></i>Со скидкой: { price } грн.</p> : null }
-                    { !old_price && <p><i className='fas fa-tags mr-2 old-price'></i>Стоимость: { price } грн.</p> }
-                    { !price || price === 0 ? <p><i className='fas fa-tags mr-2 old-price'></i>Бесплатно</p> : null }
+                    { old_price && old_price > 0 ? <p><i className='fas fa-tags mr-2 new-price'></i>Зі скидкою: { price } грн.</p> : null }
+                    { !old_price && <p><i className='fas fa-tags mr-2 old-price'></i>Вартість: { price } грн.</p> }
+                    { !price || price === 0 ? <p><i className='fas fa-tags mr-2 old-price'></i>Безкоштовно</p> : null }
 
                     <div className='custom-separator my-4 mx-auto bg-primary description'></div>
                         { description ? description : null }

@@ -114,10 +114,10 @@ class Register extends Component {
         return (
             <div className='jumbotron shadow-lg register mb-0'>
                 <h1>Регистрация</h1>
-                { !fromProduct ? <p className='mt-4'>Зарегистрируйтесь на сайте, чтобы иметь возможность проходить курсы, подтвердить статус косметолога сертификатом и покупать товары в нашем интернет-магазине.</p> : null }
+                { !fromProduct ? <p className='mt-4'>Зареєструйтеся на сайті, щоб мати можливість проходити курси, підтвердити статус косметолога сертифікатом і купувати товари в нашому інтернет-магазині.</p> : null }
 
                 { fromProduct ? <div className='alert alert-danger' role='alert'>
-                Чтобы иметь возможность просматривать цены и заказывать товары для косметологов, а также пользоваться всеми возможностями сайта, вам необходимо пройти регистрацию и подтвердить сертификат косметолога.
+                Щоб мати можливість переглядати ціни та замовляти товари для косметологів, а також користуватися всіма можливостями сайту, вам необхідно пройти реєстрацію та підтвердити сертифікат косметолога.
                 </div> : null }
 
                 <hr className='my-4' />
@@ -141,7 +141,7 @@ class Register extends Component {
                                     required />
                             </div>
                             <div className='form-group'>
-                                <label htmlFor='firstName'>Имя</label>
+                                <label htmlFor='firstName'>Ім'я</label>
                                 <input 
                                     type='text'
                                     name='firstName'
@@ -152,7 +152,7 @@ class Register extends Component {
                                     required />
                             </div>
                             <div className='form-group'>
-                                <label htmlFor='lastName'>Фамилия</label>
+                                <label htmlFor='lastName'>Прізвище</label>
                                 <input 
                                     type='text'
                                     name='lastName'
@@ -188,7 +188,7 @@ class Register extends Component {
                                     required />
                             </div>
                             <div className='form-group'>
-                                <label htmlFor='rePassword'>Повторите пароль</label>
+                                <label htmlFor='rePassword'>Повторіть пароль</label>
                                 <input 
                                     type='password'
                                     name='rePassword'
@@ -199,10 +199,10 @@ class Register extends Component {
                                     required />
                             </div>
                         </div>
-                        <button type='submit' className='btn btn-primary ml-3'>Регистрация</button>
+                        <button type='submit' className='btn btn-primary ml-3'>Реєстрація</button>
                     </div>
-                    <p style={{ marginBottom: 0, marginTop: '2rem' }}>Забыли пароль?</p>
-                    <Link to='/reset-password'>Восстановите его в несколько кликов</Link>
+                    <p style={{ marginBottom: 0, marginTop: '2rem' }}>Забули пароль?</p>
+                    <Link to='/reset-password'>Відновіть його в декілька кліків</Link>
                 </form>
             </div>
         );

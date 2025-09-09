@@ -71,15 +71,15 @@ export default class CourseItem extends Component {
                             <div className='card-text'>{ ReactHtmlParser(shortDescription) }</div>
                             { daysLeft > 0 ? <div className='row card-detail-info mt-4'>
                                 <div className='col-md-6'>
-                                    <p><i className='fas fa-calendar-week mr-2'></i>Доступ к записям до: { endingDate }</p>
+                                    <p><i className='fas fa-calendar-week mr-2'></i>Доступ до записів до: { endingDate }</p>
                                 </div>
                                 <div className='col-md-6'>
-                                    <p><i className='fas fa-clock mr-2'></i>Осталось дней: { daysLeft }</p>
+                                    <p><i className='fas fa-clock mr-2'></i>Залишилося днів: { daysLeft }</p>
                                 </div>
                             </div> : 
                             <div className='row card-detail-info mt-4'>
                                 <div className='col-md-6'>
-                                    <p className='text-muted'><i className='fas fa-clock mr-2'></i>Доступ к записям курса истек</p>
+                                    <p className='text-muted'><i className='fas fa-clock mr-2'></i>Доступ до записів курсу закінчився</p>
                                 </div>
                             </div>
                              }

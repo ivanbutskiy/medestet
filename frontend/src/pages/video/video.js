@@ -60,8 +60,8 @@ export default class Video extends Component {
                     <div className='container blog-spinner blog-list'>
                         <div className='empty-blog text-center'>
                             <i className='fas fa-video text-primary fa-fw'></i>
-                            <h4>На данный момент размещенных на сайте видео нет</h4>
-                            <p>Но скоро мы приготовим для вас кое-что интересное...</p>
+                            <h4>На даний момент розміщених на сайті відео немає</h4>
+                            <p>Але скоро ми підготуємо для вас дещо цікаве...</p>
                         </div>
                     </div>
                 </div>

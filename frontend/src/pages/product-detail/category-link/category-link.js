@@ -16,7 +16,7 @@ class CategoryLink extends Component {
 
         return (
             <div className='alert alert-primary mt-5 category-link' role='alert'>
-                <Link to={`/shop/category/${ slug }/`}><i className='fal fa-arrow-circle-left mr-2'></i>{`Вернуться в категорию «${ title }»`}</Link>
+                <Link to={`/shop/category/${ slug }/`}><i className='fal fa-arrow-circle-left mr-2'></i>{`Повернутися в категорію «${ title }»`}</Link>
             </div>
         );
     };

@@ -48,7 +48,7 @@ class VideoDetailHeader extends Component {
                     { subtitle ? <p className='mt-4'>{ subtitle }</p> : null }
                     <div className='row course-detail-info mt-4'>
                         <div className='col-md-6'>
-                            <p><i className='fas fa-calendar-week mr-2'></i>Дата публикации: { addingDate }</p>
+                            <p><i className='fas fa-calendar-week mr-2'></i>Дата публікації: { addingDate }</p>
                         </div>
                     </div>
                 </div>

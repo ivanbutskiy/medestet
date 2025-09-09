@@ -60,7 +60,7 @@ class UserCourses extends Component {
         if (error) {
             return (
                 <div className='user-courses-list shadow-lg p-2'>
-                    <HeaderAccountPages title={ 'Мои курсы' } />
+                    <HeaderAccountPages title={ 'Мої курси' } />
                     <ReturnAccountPage />
                     <div className='user-courses-list-error'>
                         <ErrorBanner />
@@ -72,13 +72,13 @@ class UserCourses extends Component {
         if (empty) {
             return (
                 <div className='user-courses-list shadow-lg p-2'>
-                    <HeaderAccountPages title={ 'Мои курсы' } />
+                    <HeaderAccountPages title={ 'Мої курси' } />
                     <ReturnAccountPage />
                     <div className='container mt-4'>
                         <div className='empty-courses-list text-center'>
                             <i className='fas fa-chalkboard-teacher text-primary fa-fw'></i>
-                            <h4>Пока что вы не приобрели ни одного курса</h4>
-                            <p>Но вы можете это быстро исправить и <Link to='/courses/'>выбрать для себя курс</Link></p>
+                            <h4>Поки що ви не придбали жодного курсу</h4>
+                            <p>Але ви можете це швидко виправити і <Link to='/courses/'>вибрати для себе курс</Link></p>
                         </div>
                     </div>
                 </div>    
@@ -88,7 +88,7 @@ class UserCourses extends Component {
         if (loading) {
             return (
                 <div className='user-courses-list shadow-lg p-2'>
-                    <HeaderAccountPages title={ 'Мои курсы' } />
+                    <HeaderAccountPages title={ 'Мої курси' } />
                     <ReturnAccountPage />
                     <div className='user-courses-list-error'>
                         <Spinner />
@@ -99,7 +99,7 @@ class UserCourses extends Component {
 
         return (
             <div className='user-courses-list shadow-lg p-2'>
-                <HeaderAccountPages title={ 'Мои курсы' } />
+                <HeaderAccountPages title={ 'Мої курси' } />
                 <ReturnAccountPage />
                 <div className='container mt-4'>
                     { loading ? <Spinner /> : coursesList }

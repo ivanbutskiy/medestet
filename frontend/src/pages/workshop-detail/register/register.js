@@ -145,8 +145,8 @@ class Register extends Component {
                 <div className='register-workshop shadow-lg rounded container mt-5'>
                     <div className='success-register text-center'>
                         <i className='fas fa-user-friends'></i>
-                        <h4 className='mt-3'>Вы успешно подали заявку на участие в семинаре!</h4>
-                        <p>Он был добавлен в ваш аккаунт, а на вашу почту { email } было отправлено письмо.</p>
+                        <h4 className='mt-3'>Ви успішно подали заявку на участь у семінарі!</h4>
+                        <p>Він був доданий до вашого облікового запису, а на вашу пошту { email } було надіслано лист.</p>
                     </div>
                 </div>
             );
@@ -163,9 +163,9 @@ class Register extends Component {
         if (!isAuthenticated) {
             return (
                 <div className='register-workshop shadow-lg rounded container mt-5 p-5'>
-                <h2 className='register-workshop-header text-center'>Запись на участие</h2>
+                <h2 className='register-workshop-header text-center'>Запис на участь</h2>
                 <div className='register-content text-center container'>
-                    <p className='mt-5'>Запись на участие в семинаре доступна только зарегистрированным пользователям. Для начала <Link to='/register/'>пройдите регистрацию</Link> и записывайтесь.</p>
+                    <p className='mt-5'>Запис на участь у семінарі доступний тільки зареєстрованим користувачам. Для початку <Link to='/register/'>пройдіть реєстрацію</Link> і записуйтеся.</p>
                 </div>
             </div>
             );
@@ -196,36 +196,36 @@ class Register extends Component {
             if (successPromocodeVerify === true && promoCodeActive === true && forThisWorkshop) {
                 return (
                     <div className='promocode col-md-6 card text-center mt-4'>
-                        <h4>Промокод успешно активирован!</h4>
-                        <p className='mt-3'>По нему доступна скидка { `${promoCodePercent}%` }. Итоговая сумма пересчитана</p>
+                        <h4>Промокод успішно активовано!</h4>
+                        <p className='mt-3'>За ним доступна знижка { `${promoCodePercent}%` }. Підсумкова сума перерахована</p>
                     </div>
                 )
             } else if (successPromocodeVerify === true && promoCodeActive === true && !forThisWorkshop) {
                 return (
                     <div className='promocode col-md-6 card text-center mt-4'>
-                        <h4>Промокод успешно проверен</h4>
-                        <p className='mt-3'>Но для этого семинара он не доступен</p>
+                        <h4>Промокод успішно перевірено</h4>
+                        <p className='mt-3'>Але для цього семінару він недоступний</p>
                     </div>
                 )
             } else if (successPromocodeVerify && !promoCodeActive) {
                 return (
                     <div className='promocode col-md-6 card text-center mt-4'>
-                        <h4>Промокод успешно проверен</h4>
-                        <p className='mt-3'>Но, к сожалению, его срок активности истек</p>
+                        <h4>Промокод успішно перевірено</h4>
+                        <p className='mt-3'>Але, на жаль, його термін дії закінчився</p>
                     </div> 
                 );
             } else if (successPromocodeVerify === false) {
                 return (
                     <div className='promocode col-md-6 card text-center mt-4'>
-                        <h4>Ошибка проверки</h4>
-                        <p className='mt-3'>К сожалению, такого промокода не существует</p>
+                        <h4>Помилка перевірки</h4>
+                        <p className='mt-3'>На жаль, такого промокоду не існує</p>
                     </div> 
                 )
             } else {
                 return (
                     <div className='promocode col-md-6 card text-center mt-4'>
-                        <h4>У вас есть промокод?</h4>
-                        <h4>Вы можете его активировать!</h4>
+                        <h4>У вас є промокод?</h4>
+                        <h4>Ви можете його активувати!</h4>
                         <form className='form-group mt-3' onSubmit={ (e) => this.checkPromoCode(e) }>
                             <input 
                                 type='text'
@@ -237,7 +237,7 @@ class Register extends Component {
                             <button 
                                 type='submit'
                                 disabled={ !selectedOptionPrice ? true : false } 
-                                className='btn btn-block btn-primary mt-3'>Активировать</button>
+                                className='btn btn-block btn-primary mt-3'>Активувати</button>
                         </form>
                     </div>
                 );
@@ -246,14 +246,14 @@ class Register extends Component {
         
         return (
             <div className='register-workshop shadow-lg rounded container mt-5'>
-                <h2 className='register-workshop-header text-center'>Запись на семинар</h2>
+                <h2 className='register-workshop-header text-center'>Запис на семінар</h2>
                 <div className='row align-items-center mt-3'>
                     <div className='col-md-6 mt-2'>
-                        <p><strong>Выберите вариант участия:</strong></p>
+                        <p><strong>Виберіть варіант участі:</strong></p>
                         { getOptions() }
                         <br></br>
-                        <p><strong>Стоимость выбранного варианта: </strong>{ selectedOptionPrice } грн.</p>
-                        <p><strong>Итоговая сумма: </strong>{ amount } грн.</p>
+                        <p><strong>Вартість обраного варіанту: </strong>{ selectedOptionPrice } грн.</p>
+                        <p><strong>Підсумкова сума: </strong>{ amount } грн.</p>
                     </div>
 
                     { promoCodeBlock() }
@@ -266,7 +266,7 @@ class Register extends Component {
                     >
 
                     <button type='submit' className='btn btn-block btn-primary mt-5 mb-3 submit-shop-order' >
-                        Отправить заявку
+                        Надіслати заявку
                     </button>
                 </form>
             </div>

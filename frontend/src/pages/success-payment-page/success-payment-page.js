@@ -21,8 +21,8 @@ class SuccessPaymentPage extends Component {
                 <div className='container mb-4 align-items-center text-center success-payment-page'>
                     <div className='content'>
                         <i className='fad fa-clipboard-check'></i>
-                        <h2 className='mt-3'>Ваш заказ успешно оформлен!</h2>
-                        <p className='mt-2'>В скором времени с вами свяжется наш менеджер</p>
+                        <h2 className='mt-3'>Ваше замовлення успішно оформлено!</h2>
+                        <p className='mt-2'>Незабаром з вами зв'яжеться наш менеджер</p>
                     </div>
                 </div>
             </div>

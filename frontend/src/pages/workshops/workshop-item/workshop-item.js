@@ -25,7 +25,7 @@ class WorkshopItem extends Component {
                         <h4 className='card-title'>{ title }</h4>
                     </Link>
                     <p className='card-text mb-5'>{ subtitle }</p>
-                    <p className='workshop-date'><i className='fas fa-calendar-week mr-2'></i> Дата начала: { startingDate }</p>
+                    <p className='workshop-date'><i className='fas fa-calendar-week mr-2'></i> Дата початку: { startingDate }</p>
                 </div>
             </div>
         );

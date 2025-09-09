@@ -35,7 +35,7 @@ class ModalWindow extends Component {
                     </div>
                     <div className='toast-body text-center'>
                     <i className='far fa-shopping-basket'></i>
-                    <p>Товар успешно добавлен в корзину!</p>
+                    <p>Товар успішно додано до кошика!</p>
                     </div>
                 </div>
             </div>

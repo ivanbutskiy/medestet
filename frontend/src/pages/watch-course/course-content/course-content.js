@@ -32,8 +32,8 @@ class CourseContent extends Component {
 
         return (
             <div className='card shadow-sm course-content'>
-                <h5 className='text-center mt-4'>Выберите доступный урок из модуля и начинайте прохождение курса</h5>
-                <p className='text-center text-muted'>Модули и уроки, которые еще не доступны для прохождения, неактивны к нажатию</p>
+                <h5 className='text-center mt-4'>Виберіть доступний урок з модуля і починайте проходження курсу</h5>
+                <p className='text-center text-muted'>Модулі та уроки, які ще не доступні для проходження, неактивні при натисканні</p>
                 <hr className='mt-3 mb-5'></hr>
                 <div className='row align-items-center'>
                     <div className='col-md-7'>

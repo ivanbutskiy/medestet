@@ -223,9 +223,9 @@ class ProductDetail extends Component {
                     title={ category.title }
                     slug={ category.slug }
                 />
-                { this.props.isAuthenticated && !this.props.isCertified && !priceGuestUAH ? <div className='alert alert-danger product-need-certificate' role='alert'>Просмотр стоимости товара и возможность его заказа доступны только для сертифицированных косметологов. Если у вас есть сертификат, вы можете его прикрепить в личном кабинете, и после проверки вам будет доступна возможность просмотра стоимости и заказа всех товаров.</div> : null }
+                { this.props.isAuthenticated && !this.props.isCertified && !priceGuestUAH ? <div className='alert alert-danger product-need-certificate' role='alert'>Перегляд вартості товару та можливість його замовлення доступні тільки для сертифікованих косметологів. Якщо у вас є сертифікат, ви можете його прикріпити в особистому кабінеті, і після перевірки вам буде доступна можливість перегляду вартості та замовлення всіх товарів.</div> : null }
 
-                { !this.props.isAuthenticated && !priceGuestUAH ? <div className='alert alert-danger product-need-certificate' role='alert'>Просмотр стоимости товара и возможность его заказа доступны только для сертифицированных косметологов. Если у вас есть сертификат, вы можете зарегистрироваться на сайте, прикрепить его в личном кабинете, и после проверки вам будет доступна возможность просмотра стоимости и заказа всех товаров.</div> : null }
+                { !this.props.isAuthenticated && !priceGuestUAH ? <div className='alert alert-danger product-need-certificate' role='alert'>Перегляд вартості товару та можливість його замовлення доступні тільки для сертифікованих косметологів. Якщо у вас є сертифікат, ви можете зареєструватися на сайті, прикріпити його в особистому кабінеті, і після перевірки вам буде доступна можливість перегляду вартості та замовлення всіх товарів.</div> : null }
                 <div className='container'>
 
                     <div className='row justify-content-center product-detail-content align-items-center'>
@@ -244,24 +244,24 @@ class ProductDetail extends Component {
                             { brand.brand_image ? <img className='brand-logo' src={ brand.brand_image } alt={ brand.brand_image } /> : null }
                             <h2 className='mt-3'>{ title }</h2>
                             <hr></hr>
-                            <p><strong>Производитель: </strong>{ brand.title }</p>
-                            <p><strong>Страна: </strong>{ brand.country }</p>
-                            <p><strong>Категория: </strong>{ category.title }</p>
-                            { volume ? <p><strong>Объем: </strong>{ volume } мл.</p> : null }
-                            <p><strong>Краткое описание: </strong>{ shortDescription }</p>
+                            <p><strong>Виробник: </strong>{ brand.title }</p>
+                            <p><strong>Країна: </strong>{ brand.country }</p>
+                            <p><strong>Категорія: </strong>{ category.title }</p>
+                            { volume ? <p><strong>Об'єм: </strong>{ volume } мл.</p> : null }
+                            <p><strong>Короткий опис: </strong>{ shortDescription }</p>
 
                             { !priceGuestUAH && !this.props.isCertified && !this.props.isAuthenticated ? 
                             <Link to={{
                                 pathname: /register/,
                                 state: { fromProduct: true }
                             }}>
-                                <button type='button' className='btn btn-danger mt-3 btn-block'>Узнать цену</button>
+                                <button type='button' className='btn btn-danger mt-3 btn-block'>Дізнатися ціну</button>
                             </Link> : null }
 
                             { this.props.isCertified && !newPriceCertifiedUAH > 0 && (priceCertifiedUAH !== priceGuestUAH) ? 
                                 <div className='row text-center'>
                                     <div className='col-6'>
-                                        <p title='Стоимость для сертифицированных косметологов'><i className='fas fa-user-check mr-2'></i>{ priceCertifiedUAH } грн.</p>
+                                        <p title='Вартість для сертифікованих косметологів'><i className='fas fa-user-check mr-2'></i>{ priceCertifiedUAH } грн.</p>
                                     </div>
                                     <div className='col-6'></div>
                                 </div>
@@ -270,10 +270,10 @@ class ProductDetail extends Component {
                             { this.props.isCertified && newPriceCertifiedUAH > 0 ? 
                             <div className='row text-center'>
                                 <div className='col-6'>
-                                    <p title='Стоимость без акции для сертифицированных косметологов' style={{ textDecoration: 'line-through' }}><i className='fas fa-user-check mr-2'></i>{ priceCertifiedUAH } грн.</p>
+                                    <p title='Вартість без акції для сертифікованих косметологів' style={{ textDecoration: 'line-through' }}><i className='fas fa-user-check mr-2'></i>{ priceCertifiedUAH } грн.</p>
                                 </div>
                                 <div className='col-6'>
-                                    <p title='Акционная стоимость для сертифицированных косметологов'><i className='fas fa-user-check mr-2' style={{color: '#cc0000'}}></i>{ newPriceCertifiedUAH } грн.</p>
+                                    <p title='Акційна вартість для сертифікованих косметологів'><i className='fas fa-user-check mr-2' style={{color: '#cc0000'}}></i>{ newPriceCertifiedUAH } грн.</p>
                                 </div>
                             </div>
                              : null }
@@ -281,7 +281,7 @@ class ProductDetail extends Component {
                             { priceGuestUAH > 0 && !newPriceGuestUAH > 0 ? 
                                 <div className='row text-center'>
                                     <div className='col-6'>
-                                        <p title='Стоимость для покупателей без сертификата косметолога'>
+                                        <p title='Вартість для покупців без сертифіката косметолога'>
                                         <i className='fas fa-tags mr-2'></i>{ priceGuestUAH } грн.</p>
                                     </div>
                                     <div className='col-6'></div>
@@ -291,21 +291,21 @@ class ProductDetail extends Component {
                             { newPriceGuestUAH > 0 ? 
                             <div className='row text-center'>
                                 <div className='col-6'>
-                                    <p title='Стоимость без акции для покупателей без сертификата косметолога' style={{ textDecoration: 'line-through' }}><i className='fas fa-tags mr-2'></i>{ priceGuestUAH } грн.</p>
+                                    <p title='Вартість без акції для покупців без сертифіката косметолога' style={{ textDecoration: 'line-through' }}><i className='fas fa-tags mr-2'></i>{ priceGuestUAH } грн.</p>
                                 </div>
                                 <div className='col-6'>
-                                    <p title='Акционная стоимость для покупателей без сертификата косметолога'><i className='fas fa-tags mr-2' style={{color: '#cc0000'}}></i>{ newPriceGuestUAH } грн.</p>
+                                    <p title='Акційна вартість для покупців без сертифіката косметолога'><i className='fas fa-tags mr-2' style={{color: '#cc0000'}}></i>{ newPriceGuestUAH } грн.</p>
                                 </div>
                             </div>
                              : null }
 
-                            { this.props.isCertified && (newPriceGuestUAH || newPriceCertifiedUAH) ? <p><strong>Ваша стоимость: </strong>{ getTotalCost() } грн.</p> : null }
+                            { this.props.isCertified && (newPriceGuestUAH || newPriceCertifiedUAH) ? <p><strong>Ваша вартість: </strong>{ getTotalCost() } грн.</p> : null }
 
-                            { !this.props.isCertified && newPriceGuestUAH > 0 ? <p><strong>Ваша стоимость: </strong>{ getTotalCost() } грн.</p> : null }
+                            { !this.props.isCertified && newPriceGuestUAH > 0 ? <p><strong>Ваша вартість: </strong>{ getTotalCost() } грн.</p> : null }
 
                             { this.props.isCertified || priceGuestUAH > 0 || newPriceGuestUAH ? <form onSubmit={ (e) => this.addProductToBasket(e) }>
                                 <div className='form-group'>
-                                    <label htmlFor='product-count'><strong>Количество: </strong></label>
+                                    <label htmlFor='product-count'><strong>Кількість: </strong></label>
                                     <input 
                                         className='form-control' 
                                         id='product-count' 
@@ -322,7 +322,7 @@ class ProductDetail extends Component {
                         </div>
                     </div>
                     <div className='product-detail-description'>
-                        <p><strong>Детальное описание:</strong></p>
+                        <p><strong>Детальний опис:</strong></p>
                         { ReactHtmlParser(description) }
                     </div>
                 </div>

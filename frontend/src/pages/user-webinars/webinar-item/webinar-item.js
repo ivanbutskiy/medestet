@@ -29,15 +29,15 @@ class WebinarItem extends Component {
 
                     { daysLeft > 0 ? <div className='card-detail-info mt-4'>
                         <div>
-                            <p><i className='fas fa-calendar-week mr-2'></i>Доступ к записям до: { endingDate }</p>
+                            <p><i className='fas fa-calendar-week mr-2'></i>Доступ до записів до: { endingDate }</p>
                         </div>
                         <div>
-                            <p><i className='fas fa-clock mr-2 mt-2'></i>Осталось дней: { daysLeft }</p>
+                            <p><i className='fas fa-clock mr-2 mt-2'></i>Залишилося днів: { daysLeft }</p>
                         </div>
                         </div> : 
                         <div className='card-detail-info mt-4'>
                             <div>
-                                <p className='text-muted'><i className='fas fa-clock mr-2'></i>Доступ к записям вебинара истек</p>
+                                <p className='text-muted'><i className='fas fa-clock mr-2'></i>Доступ до записів вебінару закінчився</p>
                             </div>
                         </div>
                     }

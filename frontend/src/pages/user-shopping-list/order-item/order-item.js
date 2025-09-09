@@ -57,8 +57,8 @@ class OrderItem extends Component {
                 </div>
                 <div id={`collapseOne${id}`} aria-labelledby='headingOne' data-parent='#accordionExample' className='collapse'>
                     <div className='card-body p-5'>
-                        <p><strong>Дата и время: </strong>{ orderDate }</p>
-                        <p><strong>Итоговая сумма: </strong>{ orderSum } грн.</p>
+                        <p><strong>Дата та час: </strong>{ orderDate }</p>
+                        <p><strong>Підсумкова сума: </strong>{ orderSum } грн.</p>
 
                         <div className='basket-list'>
                             <div className='row'>
@@ -71,13 +71,13 @@ class OrderItem extends Component {
                                                         <div className='p-2 px-3'>Продукт</div>
                                                     </th>
                                                     <th scope='col' className='border-0'>
-                                                        <div className='py-2'>Стоимость</div>
+                                                        <div className='py-2'>Вартість</div>
                                                     </th>
                                                     <th scope='col' className='border-0'>
-                                                        <div className='py-2'>Количество</div>
+                                                        <div className='py-2'>Кількість</div>
                                                     </th>
                                                     <th scope='col' className='border-0'>
-                                                        <div className='py-2'>Сумма</div>
+                                                        <div className='py-2'>Сума</div>
                                                     </th>
                                                 </tr>
                                             </thead>

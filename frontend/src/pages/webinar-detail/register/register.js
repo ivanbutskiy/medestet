@@ -226,9 +226,9 @@ class Register extends Component {
         if (!isAuthenticated) {
             return (
                 <div className='register-webinar shadow-lg rounded container mt-5 p-5'>
-                    <h2 className='register-webinar-header text-center'>Запись на курс</h2>
+                    <h2 className='register-webinar-header text-center'>Запис на курс</h2>
                     <div className='register-content text-center container'>
-                        <p className='mt-5'>Запись на вебинар доступна только зарегистрированным пользователям. Для начала <Link to='/register/'>пройдите регистрацию</Link> и записывайтесь на вебинар.</p>
+                        <p className='mt-5'>Реєстрація на вебінар доступна тільки зареєстрованим користувачам. Для початку <Link to='/register/'>пройдіть реєстрацію</Link> і записуйтеся на вебінар.</p>
                     </div>
                 </div>
             );
@@ -271,36 +271,36 @@ class Register extends Component {
             if (successPromocodeVerify === true && promoCodeActive === true && forThisWebinar) {
                 return (
                     <div className='promocode col-md-6 card text-center mt-4'>
-                        <h4>Промокод успешно активирован!</h4>
-                        <p className='mt-3'>По нему доступна скидка { `${promoCodePercent}%` }. Итоговая сумма пересчитана</p>
+                        <h4>Промокод успішно активовано!</h4>
+                        <p className='mt-3'>За ним доступна знижка { `${promoCodePercent}%` }. Підсумкова сума перерахована</p>
                     </div>
                 )
             } else if (successPromocodeVerify === true && promoCodeActive === true && !forThisWebinar) {
                 return (
                     <div className='promocode col-md-6 card text-center mt-4'>
-                        <h4>Промокод успешно проверен</h4>
-                        <p className='mt-3'>Но для этого вебинара он не доступен</p>
+                        <h4>Промокод успішно перевірено</h4>
+                        <p className='mt-3'>Але для цього вебінару він недоступний</p>
                     </div>
                 )
             } else if (successPromocodeVerify && !promoCodeActive) {
                 return (
                     <div className='promocode col-md-6 card text-center mt-4'>
-                        <h4>Промокод успешно проверен</h4>
-                        <p className='mt-3'>Но, к сожалению, его срок активности истек</p>
+                        <h4>Промокод успішно перевірено</h4>
+                        <p className='mt-3'>Але, на жаль, його термін дії закінчився</p>
                     </div>
                 );
             } else if (successPromocodeVerify === false) {
                 return (
                     <div className='promocode col-md-6 card text-center mt-4'>
-                        <h4>Ошибка проверки</h4>
-                        <p className='mt-3'>К сожалению, такого промокода не существует</p>
+                        <h4>Помилка перевірки</h4>
+                        <p className='mt-3'>На жаль, такого промокоду не існує</p>
                     </div>
                 )
             } else {
                 return (
                     <div className='promocode col-md-6 card text-center mt-4'>
-                        <h4>У вас есть промокод?</h4>
-                        <h4>Вы можете его активировать!</h4>
+                        <h4>У вас є промокод?</h4>
+                        <h4>Ви можете його активувати!</h4>
                         <form className='form-group mt-3' onSubmit={ (e) => this.checkPromoCode(e) }>
                             <input
                                 type='text'
@@ -312,7 +312,7 @@ class Register extends Component {
                             <button
                                 type='submit'
                                 disabled={ selectedOptionPrice > 0 ? false : true }
-                                className='btn btn-block btn-primary mt-3'>Активировать</button>
+                                className='btn btn-block btn-primary mt-3'>Активувати</button>
                         </form>
                     </div>
                 );
@@ -347,7 +347,7 @@ class Register extends Component {
 
         return (
             <div className='register-webinar shadow-lg rounded container mt-5'>
-                <h2 className='register-webinar-header text-center'>Запись на участие</h2>
+                <h2 className='register-webinar-header text-center'>Запис на участь</h2>
                 <div className='row align-items-center mt-3'>
                     <div className='col-md-6 mt-2'>
                         <form
@@ -359,7 +359,7 @@ class Register extends Component {
                             onSubmit={ (e) => this.orderRegister(e) }
                             >
 
-                            <p><strong>Выберите вариант участия:</strong></p>
+                            <p><strong>Виберіть варіант участі:</strong></p>
                                 { getOptions() }
 
                             <input readOnly className='form-control' hidden name='merchantAccount' value={ merchantLogin } />
@@ -378,8 +378,8 @@ class Register extends Component {
                             <input readOnly className='form-control' hidden name='merchantSignature' value={ getMerchantSignature() } />
 
                             <br></br>
-                            <p><strong>Стоимость выбранного варианта: </strong>{ selectedOptionPrice } грн.</p>
-                            <p><strong>Итоговая сумма: </strong>{ amount } грн.</p>
+                            <p><strong>Вартість обраного варіанту: </strong>{ selectedOptionPrice } грн.</p>
+                            <p><strong>Підсумкова сума: </strong>{ amount } грн.</p>
                         </form>
                     </div>
 
@@ -390,7 +390,7 @@ class Register extends Component {
                         form='webinar-shop-order'
                         className='btn btn-block btn-primary mt-5 mb-3 submit-shop-order'
                         disabled={ makeDisable ? true : false } >
-                        Записаться
+                        Записатися
                     </button>
 
                 </div>

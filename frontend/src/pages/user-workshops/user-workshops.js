@@ -61,7 +61,7 @@ class UserWorkshops extends Component {
         if (error) {
             return (
                 <div className='user-courses-list shadow-lg p-2'>
-                    <HeaderAccountPages title={ 'Мои семинары' } />
+                    <HeaderAccountPages title={ 'Мої семінари' } />
                     <ReturnAccountPage />
                     <div className='user-courses-list-error'>
                         <ErrorBanner />
@@ -73,13 +73,13 @@ class UserWorkshops extends Component {
         if (empty) {
             return (
                 <div className='user-courses-list shadow-lg p-2'>
-                    <HeaderAccountPages title={ 'Мои семинары' } />
+                    <HeaderAccountPages title={ 'Мої семінари' } />
                     <ReturnAccountPage />
                     <div className='container mt-4'>
                         <div className='empty-courses-list text-center'>
                             <i className='fas fa-chalkboard-teacher text-primary fa-fw'></i>
-                            <h4>Пока что вы не записались ни на один семинар</h4>
-                            <p>Но вы можете это быстро исправить и <Link to='/workshops/'>выбрать для себя семинар</Link></p>
+                            <h4>Поки що ви не записалися на жоден семінар</h4>
+                            <p>Але ви можете це швидко виправити і <Link to='/workshops/'>вибрати для себе семінар</Link></p>
                         </div>
                     </div>
                 </div>    
@@ -89,7 +89,7 @@ class UserWorkshops extends Component {
         if (loading) {
             return (
                 <div className='user-courses-list shadow-lg p-2'>
-                    <HeaderAccountPages title={ 'Мои семинары' } />
+                    <HeaderAccountPages title={ 'Мої семінари' } />
                     <ReturnAccountPage />
                     <div className='user-courses-list-error'>
                         <Spinner />
@@ -100,7 +100,7 @@ class UserWorkshops extends Component {
 
         return (
             <div className='user-courses-list shadow-lg p-2'>
-                <HeaderAccountPages title={ 'Мои семинары' } />
+                <HeaderAccountPages title={ 'Мої семінари' } />
                 <ReturnAccountPage />
                 <div className='container mt-4'>
                     { workshopsList }

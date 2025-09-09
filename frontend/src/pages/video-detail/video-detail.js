@@ -83,7 +83,7 @@ class VideoDetail extends Component {
                 <div className='alert alert-primary return-account-page' role='alert'>
                     <Link to='/video/'>
                         <i className='fal fa-arrow-circle-left mr-2'></i>
-                        Вернуться ко всем видео
+                        Повернутися до всіх відео
                     </Link>
                 </div>
                 <VideoContent text={ text } video={ video } title={ title } />

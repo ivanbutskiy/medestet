@@ -56,19 +56,19 @@ class LessonContent extends Component {
                     
                     { video ? 
                         <div className='mt-4'>
-                            <h5>Ссылка на трансляцию:</h5>
+                            <h5>Посилання на трансляцію:</h5>
                             <a target='_blank' rel='noreferrer' href={ video }>{video}</a>
                         </div> : null }
 
                     { videoRecord ? 
                     <div className='mt-4'>
-                        <h5>Запись урока:</h5>
+                        <h5>Запис уроку:</h5>
                         <a target='_blank' rel='noreferrer' href={ videoRecord }>{ videoRecord }</a>
                     </div> : null }
 
                     { materials ? 
                     <div className='mt-4'>
-                        <h5>Дополнительные материалы:</h5>
+                        <h5>Додаткові матеріали:</h5>
                         <a target='_blank' rel='noreferrer' href={ materials }>{ materials }</a>
                     </div> : null }
                     

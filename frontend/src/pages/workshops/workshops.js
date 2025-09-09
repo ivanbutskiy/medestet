@@ -61,8 +61,8 @@ class Workshops extends Component {
                     <HeaderWorkshopsList />
                     <div className='empty-workshops-list text-center'>
                         <i className='fas fa-user-friends text-primary fa-fw'></i>
-                        <h4>На данный момент семинаров нет</h4>
-                        <p>Но скоро мы приготовим для вас кое-что интересное...</p>
+                        <h4>На даний момент семінарів немає</h4>
+                        <p>Але скоро ми підготуємо для вас дещо цікаве...</p>
                     </div>
                 </div>
             );

@@ -13,7 +13,7 @@ class Location extends Component {
 
             <div className='workshop-location mt-5'>
                 
-                <h2><i className='far fa-map-marker-check mr-2'></i>Место проведения</h2>
+                <h2><i className='far fa-map-marker-check mr-2'></i>Місце проведення</h2>
 
                 <div className='row align-items-center justify-content-center'>
                     <div className='col-md-7 mt-2 text-center'>

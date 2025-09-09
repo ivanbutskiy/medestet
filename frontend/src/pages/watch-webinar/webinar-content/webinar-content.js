@@ -19,20 +19,20 @@ class WebinarContent extends Component {
                         { ReactHtmlParser(webinarContent.description) }
                     </div>
                     <div className='col-md-5'>
-                        <img src={ webinarContent.description_image } alt='Вебинар Medestet' />
+                        <img src={ webinarContent.description_image } alt='Вебінар Medestet' />
                     </div>
                 </div>
                 <hr></hr>
 
                 { webinarContent.video ? 
                     <div className='mt-4'>
-                        <h5>Ссылка на трансляцию:</h5>
+                        <h5>Посилання на трансляцію:</h5>
                         <a target='_blank' rel='noreferrer' href={ webinarContent.video }>{ webinarContent.video }</a>
                     </div> : null }
 
                 { webinarContent.video_record ? 
                     <div className='mt-4'>
-                        <h5>Ссылка на запись вебинара:</h5>
+                        <h5>Посилання на запис вебінару:</h5>
                         <a target='_blank' rel='noreferrer' href={ webinarContent.video_record }>{ webinarContent.video_record }</a>
                     </div> : null }
 
