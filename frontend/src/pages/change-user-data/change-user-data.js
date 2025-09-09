@@ -116,13 +116,13 @@ class ChangeUserData extends Component {
 
         return (
             <div className='change-user-data shadow-lg p-2'>
-                <HeaderAccountPages title={ 'Изменить личные данные' } />
+                <HeaderAccountPages title={ 'Змінити особисті дані' } />
                 <ReturnAccountPage />
                 { success ? <div className='alert alert-success' role='alert'>
-                Ваши данные успешно изменены!
+                Ваші дані успішно змінено!
                 </div> : null }
                 { error ? <div className='alert alert-danger' role='alert'>
-                Произошла ошибка. Проверьте правильность введенных данных.
+                Сталася помилка. Перевірте правильність введених даних.
                 </div> : null }
                 <div className='container mt-3'>
 
@@ -131,7 +131,7 @@ class ChangeUserData extends Component {
                             <form className='form-group row' onSubmit={ (e) => this.onSubmitHandler(e) }>
                                 <div className='col-md-6'>
 
-                                    <label htmlFor='lastName'>Фамилия:</label>
+                                    <label htmlFor='lastName'>Прізвище:</label>
                                     <input 
                                         type='text'
                                         name='lastName'
@@ -140,7 +140,7 @@ class ChangeUserData extends Component {
                                         onChange={ (e) => this.onChangeHandler(e) }
                                         value={ lastName } />
 
-                                    <label htmlFor='firstName'>Имя:</label>
+                                    <label htmlFor='firstName'>Ім'я:</label>
                                     <input 
                                         type='text'
                                         name='firstName'
@@ -149,7 +149,7 @@ class ChangeUserData extends Component {
                                         onChange={ (e) => this.onChangeHandler(e) }
                                         value={ firstName } />
 
-                                    <label htmlFor='patronym'>Отчество:</label>
+                                    <label htmlFor='patronym'>По-батькові:</label>
                                     <input 
                                         type='text'
                                         name='patronym'
@@ -183,7 +183,7 @@ class ChangeUserData extends Component {
                                     <button
                                         className='btn btn-block btn-primary'
                                         type='submit'>
-                                        Отправить
+                                        Відправити
                                     </button>
                                 </div>
                             </form>

@@ -78,12 +78,12 @@ class ChangePhoto extends Component {
                         alt='Medestet User' 
                         className='rounded-circle shadow-sm mt-5 mb-5' /> }
                     { success ? <div className='alert alert-success mt-4' role='alert'>
-                    Ваше фото успешно изменено!
+                    Ваше фото успішно змінено!
                     </div> : null }
                     { error ? <div className='alert alert-danger mt-4' role='alert'>
-                    Произошла ошибка. Пожалуйста, повторите попытку снова или выберите другой файл.
+                    Сталася помилка. Будь ласка, спробуйте знову або оберіть інший файл.
                     </div> : null }
-                    {/* <label htmlFor='formFile' className='form-label'>Сменить фотографию профиля:</label> */}
+                    {/* <label htmlFor='formFile' className='form-label'>Змінити фотографію профілю:</label> */}
                     <input 
                         className='form-control' 
                         type='file' 
@@ -92,7 +92,7 @@ class ChangePhoto extends Component {
                         onChange={ (e) => this.handleImageChange(e) }
                         required
                     />
-                    <button className='btn mt-3 mb-3' type='submit'>Загрузить</button>
+                    <button className='btn mt-3 mb-3' type='submit'>Завантажити</button>
                 </form>
             </div>
         );

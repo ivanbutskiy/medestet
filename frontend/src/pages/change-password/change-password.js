@@ -91,23 +91,23 @@ class ChangePassword extends Component {
 
         return (
             <div className='change-user-data shadow-lg p-2'>
-                <HeaderAccountPages title={ 'Изменить пароль' } />
+                <HeaderAccountPages title={ 'Змінити пароль' } />
                 <ReturnAccountPage />
                 { success ? <div className='alert alert-success' role='alert'>
-                Ваш пароль успешно изменен!
+                Ваш пароль успішно змінено!
                 </div> : null }
                 { error ? <div className='alert alert-danger' role='alert'>
-                Произошла ошибка. Попробуйте повторить снова или выбрать пароль посложнее.
+                Сталася помилка. Спробуйте повторити знову або обрати більш складний пароль.
                 </div> : null }
                 { notValid ? <div className='alert alert-danger' role='alert'>
-                Введенные пароли не совпадают.
+                Введені паролі не співпадають.
                 </div> : null }
                 <div className='container mt-3'>
 
                     <div className='row justify-content-center'>
                         <div className='col-md-6'>
                             <form className='form-group' onSubmit={ (e) => this.onSubmitHandler(e) }>
-                                    <label htmlFor='currentPassword'>Введите текущий пароль:</label>
+                                    <label htmlFor='currentPassword'>Введіть поточний пароль:</label>
                                     <input 
                                         type='password'
                                         name='currentPassword'
@@ -118,7 +118,7 @@ class ChangePassword extends Component {
                                         required
                                     />
 
-                                    <label htmlFor='newPassword'>Введите новый пароль:</label>
+                                    <label htmlFor='newPassword'>Введіть новий пароль:</label>
                                     <input 
                                         type='password'
                                         name='newPassword'
@@ -129,7 +129,7 @@ class ChangePassword extends Component {
                                         required
                                     />
 
-                                    <label htmlFor='reNewPassword'>Повторите новый пароль:</label>
+                                    <label htmlFor='reNewPassword'>Повторіть новий пароль:</label>
                                     <input 
                                         type='password'
                                         name='reNewPassword'
@@ -143,7 +143,7 @@ class ChangePassword extends Component {
                                     <button
                                         className='btn btn-block btn-primary'
                                         type='submit'>
-                                        Изменить пароль
+                                        Змінити пароль
                                     </button>
                             </form>
                         </div>
