@@ -20,7 +20,9 @@ class Sidebar extends Component {
         return (
             <Fragment>
                 <div className='vertical-nav bg-white' id='sidebar'>
-                    <Link to='/' onClick={ ()=> hideMenu() }>
+                    <Link to='/'
+                          // onClick={ ()=> hideMenu() }
+                    >
                         <div className='logo-medestet'>
                             <img src={ logo_medestet } alt='medestet logo' />
                         </div>
@@ -35,21 +37,27 @@ class Sidebar extends Component {
                     <ul className='nav flex-column bg-white mb-0'>
                         <li className='nav-item'>
                             <Link to='/courses/'
-                                className='nav-link text-dark' onClick={ ()=> hideMenu() }>
+                                className='nav-link text-dark'
+                                  // onClick={ ()=> hideMenu() }
+                            >
                                 <i className='fas fa-chalkboard-teacher mr-3 text-primary fa-fw'></i>
                                 Курси
                             </Link>
                         </li>
                         <li className='nav-item'>
                             <Link to='/workshops/'
-                                className='nav-link text-dark' onClick={ ()=> hideMenu() }>
+                                className='nav-link text-dark'
+                                  // onClick={ ()=> hideMenu() }
+                            >
                                 <i className='fas fa-user-friends mr-3 text-primary fa-fw'></i>
                                 Семінари
                             </Link>
                         </li>
                         <li className='nav-item'>
                             <Link to='/webinars/'
-                                className='nav-link text-dark' onClick={ ()=> hideMenu() }>
+                                className='nav-link text-dark'
+                                  // onClick={ ()=> hideMenu() }
+                            >
                                 <i className='fas fa-globe mr-3 text-primary fa-fw'></i>
                                 Вебінари
                             </Link>
@@ -57,7 +65,9 @@ class Sidebar extends Component {
                         
                         <li className='nav-item'>
                             <Link to='/shop/' 
-                                className='nav-link text-dark' onClick={ ()=> hideMenu() }>
+                                className='nav-link text-dark'
+                                  // onClick={ ()=> hideMenu() }
+                            >
                                 <i className='fas fa-store mr-3 text-primary fa-fw'></i>
                                 Магазин
                             </Link>
@@ -65,7 +75,9 @@ class Sidebar extends Component {
                         
                         <li className='nav-item'>
                             <Link to='/video/' 
-                                className='nav-link text-dark' onClick={ ()=> hideMenu() }>
+                                className='nav-link text-dark'
+                                  // onClick={ ()=> hideMenu() }
+                            >
                                 <i className='fas fa-video mr-3 text-primary fa-fw'></i>
                                 Відео
                             </Link>
@@ -73,7 +85,9 @@ class Sidebar extends Component {
                         
                         <li className='nav-item'>
                             <Link to='/news/' 
-                                className='nav-link text-dark' onClick={ ()=> hideMenu() }>
+                                className='nav-link text-dark'
+                                  // onClick={ ()=> hideMenu() }
+                            >
                                 <i className='fas fa-newspaper mr-3 text-primary fa-fw'></i>
                                 Новини
                             </Link>
@@ -81,7 +95,9 @@ class Sidebar extends Component {
                         
                         <li className='nav-item'>
                             <Link to='/blog/' 
-                                className='nav-link text-dark' onClick={ ()=> hideMenu() }>
+                                className='nav-link text-dark'
+                                  // onClick={ ()=> hideMenu() }
+                            >
                                 <i className='fas fa-blog mr-3 text-primary fa-fw'></i>
                                 Блог
                             </Link>

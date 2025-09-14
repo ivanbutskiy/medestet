@@ -29,7 +29,7 @@ class Guestbar extends Component {
                         <Link 
                             to='/basket/' 
                             className='nav-link text-dark'
-                            onClick={ ()=> hideMenu() }
+                            // onClick={ ()=> hideMenu() }
                             >
                             <i className='fas fa-shopping-basket mr-3 text-primary fa-fw'></i>
                             Кошик{ countProductsInBasket ? <span className='badge badge-secondary ml-1 basket-count-badge'>{ countProductsInBasket }</span> : null }
