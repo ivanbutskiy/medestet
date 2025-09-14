@@ -33,8 +33,19 @@ services:
       - media_data:/app/media:ro
     networks: [main]
 
+  certbot:
+    image: certbot/certbot
+    volumes:
+      - letsencrypt:/etc/letsencrypt
+      - certbot-webroot:/var/www/certbot
+    entrypoint: /bin/sh
+    command: -c "sleep infinity"
+    networks: [ main ]
+
 volumes:
   media_data:
   postgres_data:
+  letsencrypt:
+  certbot-webroot:
 networks:
   main:
