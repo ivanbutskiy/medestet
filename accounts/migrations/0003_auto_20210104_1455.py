@@ -13,6 +13,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='useraccount',
             name='certificate',
-            field=models.ImageField(blank=True, upload_to='certificates/%Y/%m/%d/', verbose_name='Сертификат'),
+            field=models.ImageField(blank=True, upload_to='certificates/%Y/%m/%d/', verbose_name='Сертифікат'),
         ),
     ]

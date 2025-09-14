@@ -13,12 +13,12 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='useraccount',
             name='buy_count',
-            field=models.PositiveIntegerField(default=0, verbose_name='Количество покупок'),
+            field=models.PositiveIntegerField(default=0, verbose_name='Кількість покупок'),
         ),
         migrations.AddField(
             model_name='useraccount',
             name='buy_sum',
-            field=models.DecimalField(decimal_places=2, default=0.0, max_digits=8, verbose_name='Сумма покупок'),
+            field=models.DecimalField(decimal_places=2, default=0.0, max_digits=8, verbose_name='Сума покупок'),
         ),
         migrations.AlterField(
             model_name='useraccount',
@@ -28,32 +28,32 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='useraccount',
             name='first_name',
-            field=models.CharField(max_length=20, verbose_name='Имя'),
+            field=models.CharField(max_length=20, verbose_name="Ім'я"),
         ),
         migrations.AlterField(
             model_name='useraccount',
             name='is_active',
-            field=models.BooleanField(default=True, verbose_name='Аккаунт активен'),
+            field=models.BooleanField(default=True, verbose_name='Акаунт активний'),
         ),
         migrations.AlterField(
             model_name='useraccount',
             name='is_certified',
-            field=models.BooleanField(default=False, verbose_name='Сертифицирован'),
+            field=models.BooleanField(default=False, verbose_name='Сертифікований'),
         ),
         migrations.AlterField(
             model_name='useraccount',
             name='is_staff',
-            field=models.BooleanField(default=False, verbose_name='Сотрудник'),
+            field=models.BooleanField(default=False, verbose_name='Співробітник'),
         ),
         migrations.AlterField(
             model_name='useraccount',
             name='last_name',
-            field=models.CharField(blank=True, max_length=20, verbose_name='Фамилия'),
+            field=models.CharField(blank=True, max_length=20, verbose_name='Прізвище'),
         ),
         migrations.AlterField(
             model_name='useraccount',
             name='patronym',
-            field=models.CharField(blank=True, max_length=20, verbose_name='Отчество'),
+            field=models.CharField(blank=True, max_length=20, verbose_name='По-батькові'),
         ),
         migrations.AlterField(
             model_name='useraccount',
@@ -68,6 +68,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='useraccount',
             name='register_date',
-            field=models.DateTimeField(auto_now_add=True, verbose_name='Дата регистрации'),
+            field=models.DateTimeField(auto_now_add=True, verbose_name='Дата реєстрації'),
         ),
     ]

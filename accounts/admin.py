@@ -11,7 +11,7 @@ class UserAccountAdmin(admin.ModelAdmin):
             user.is_certified = True
             user.save()
             alert_user(user, True)
-    confirm_certify.short_description = 'Подтвердить сертификат'
+    confirm_certify.short_description = 'Підтвердити сертифікат'
 
 
     def reject_certify(modeladmin, request, queryset):
@@ -20,23 +20,23 @@ class UserAccountAdmin(admin.ModelAdmin):
             user.certificate.delete()
             user.save()
             alert_user(user, False)
-    reject_certify.short_description = 'Отклонить сертификат'
+    reject_certify.short_description = 'Відхилити сертифікат'
 
 
     fieldsets = (
-        ('Личные данные', {
+        ('Особисті дані', {
             'fields': ('email','last_name', 'first_name', 'patronym')
         }),
-        ('Фото и контакты', {
+        ('Фото і контакти', {
             'fields': ('photo','phone')
         }),
-        ('Потребительская статистика', {
+        ('Споживча статистика', {
             'fields': ('buy_count','buy_sum')
         }),
-        ('Сертификация', {
+        ('Сертифікація', {
             'fields': ('certificate','is_certified')
         }),
-        ('Права доступа', {
+        ('Права доступу', {
             'fields': ('is_active','is_staff', 'is_superuser')
         })
         )

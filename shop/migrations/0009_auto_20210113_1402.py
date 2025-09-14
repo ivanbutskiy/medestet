@@ -18,16 +18,16 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='orderitem',
             name='price',
-            field=models.DecimalField(decimal_places=2, help_text='Стоимость высчитывается исходя из того, заказывал сертифицированный пользователь или нет', max_digits=6, null=True, verbose_name='По какой стоимости в гривне был куплен товар'),
+            field=models.DecimalField(decimal_places=2, help_text='Вартість розраховується виходячи з того, чи замовляв сертифікований користувач чи ні', max_digits=6, null=True, verbose_name='За якою вартістю в гривні був куплений товар'),
         ),
         migrations.AlterField(
             model_name='product',
             name='price_certified',
-            field=models.DecimalField(decimal_places=2, help_text='Показывается только для сертифицированных пользователей', max_digits=6, null=True, verbose_name='Стоимость в валюте для сертифицированных'),
+            field=models.DecimalField(decimal_places=2, help_text='Показується тільки для сертифікованих користувачів', max_digits=6, null=True, verbose_name='Вартість у валюті для сертифікованих'),
         ),
         migrations.AlterField(
             model_name='product',
             name='price_guest',
-            field=models.DecimalField(decimal_places=2, default=0.0, help_text='Если товар не предназначен для несертифицированных пользователей, оставьте  значение нулевым. Но, если оно заполнено, то в карточке товара будет показана стоимость для несертифицированных и незарегистрированных пользователей, а также будет возможность заказа этого товара', max_digits=6, verbose_name='Стоимость в валюте для несертифицированных (для домашнего ухода)'),
+            field=models.DecimalField(decimal_places=2, default=0.0, help_text='Якщо товар не призначений для несертифікованих користувачів, залиште  значення нульовим. Але, якщо воно заповнене, то в картці товару буде показана вартість для несертифікованих і незареєстрованих користувачів, а також буде можливість замовлення цього товару', max_digits=6, verbose_name='Вартість у валюті для несертифікованих (для догляду вдома)'),
         ),
     ]

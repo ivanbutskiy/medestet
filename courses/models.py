@@ -9,81 +9,81 @@ User = get_user_model()
 
 
 class Subject(models.Model):
-    title = models.CharField(max_length=200, verbose_name='Название категории')
-    short_description = models.CharField(max_length=200, verbose_name='Краткое описание')
-    students = models.ManyToManyField(User, blank=True, verbose_name='Студенты')
+    title = models.CharField(max_length=200, verbose_name='Назва категорії')
+    short_description = models.CharField(max_length=200, verbose_name='Короткий опис')
+    students = models.ManyToManyField(User, blank=True, verbose_name='Студенти')
 
     def __str__(self):
         return self.title
 
     class Meta:
-        verbose_name = 'субъект'
-        verbose_name_plural = 'субъекты'
+        verbose_name = "суб'єкт"
+        verbose_name_plural = "суб'єкти"
 
 
 class Course(models.Model):
     subject = models.ForeignKey(Subject, on_delete=models.CASCADE, 
-        verbose_name='Субъект', help_text='К какому субъекту относится данный поток курса')
+        verbose_name="Суб'єкт", help_text='До якого суб\'єкта відноситься даний потік курсу')
     slug = models.SlugField(unique=True, db_index=True, 
-        verbose_name='Слаг', help_text='Поле автозаполняемо. Должно быть уникально')
-    title = models.CharField(max_length=200, verbose_name='Название курса', 
-        help_text='Название курса. Служит заголовком на лендинге. Желательно, чтобы было в едином стиле с предыдущими потоками. Макс. длина 200 символов')
-    subtitle = models.CharField(max_length=250, verbose_name='Подзаголовок',
-        help_text='Макс. длина 250 символов')
-    short_description = models.TextField(max_length=300, verbose_name='Краткое описание', 
-        help_text='Краткое описание курса. Макс. длина 300 символов')
-    header_image = models.ImageField(upload_to='courses/%Y-%m-%d/', verbose_name='Главное изображение',     
-        help_text='Главное изображение, которое выводится в шапке лендинга')
+        verbose_name='Слаг', help_text='Поле заповнюється автоматично. Повинно бути унікальним')
+    title = models.CharField(max_length=200, verbose_name='Назва курсу',
+        help_text='Назва курсу. Служить заголовком на лендінгу. Бажано, щоб була в єдиному стилі з попередніми потоками. Макс. довжина 200 символів')
+    subtitle = models.CharField(max_length=250, verbose_name='Підзаголовок',
+        help_text='Макс. довжина 250 символів')
+    short_description = models.TextField(max_length=300, verbose_name='Короткий опис',
+        help_text='Короткий опис курсу. Макс. довжина 300 символів')
+    header_image = models.ImageField(upload_to='courses/%Y-%m-%d/', verbose_name='Головне зображення',
+        help_text='Головне зображення, яке виводиться в шапці лендингу')
     preview_image = models.ImageField(upload_to='courses/%Y-%m-%d/', verbose_name='Анонс картинка',
-        help_text='Картинка, которая выводится в кратком описании курса в списке всех курсов')
-    starting_date = models.DateField(verbose_name='дата начала', help_text='Дата начала курса')
-    adding_date = models.DateTimeField(auto_now_add=True, verbose_name='Дата добавления')
+        help_text='Зображення, яке відображається в короткому описі курсу в списку всіх курсів')
+    starting_date = models.DateField(verbose_name='дата початку', help_text='Дата початку курсу')
+    adding_date = models.DateTimeField(auto_now_add=True, verbose_name='Дата додавання')
 
-    detail_description = models.TextField(verbose_name='Детальное описание курса')
-    detail_image = models.ImageField(upload_to='courses/%Y-%m-%d/', verbose_name='Картинка к детальному описанию курса')
+    detail_description = models.TextField(verbose_name='Детальний опис курсу')
+    detail_image = models.ImageField(upload_to='courses/%Y-%m-%d/', verbose_name='Картинка до детального опису курсу')
 
-    results = models.TextField(verbose_name='результат курса', help_text='Опишите, какие результаты получат участники курса после его окончания')
+    results = models.TextField(verbose_name='результат курсу', help_text='Опишіть, які результати отримають учасники курсу після його закінчення')
 
-    certificate = models.BooleanField(default=False, verbose_name='Выдается сертификат', 
-        help_text='Поставьте галочку, если по окончанию курса участникам выдается сертификат')
+    certificate = models.BooleanField(default=False, verbose_name='Видається сертифікат',
+        help_text='Поставте галочку, якщо після закінчення курсу учасникам видається сертифікат')
     certificate_image = models.ImageField(upload_to='courses/%Y-%m-%d/', null=True, blank=True, 
-        verbose_name='Картинка сертификата', help_text='Если выше вы указали, что сертификат выдается, обязательно необходимо к данному курсу прикрепить его пример')
+        verbose_name='Зображення сертифіката', help_text='Якщо вище ви вказали, що сертифікат видається, обов\'язково необхідно до даного курсу прикріпити його зразок')
 
-    price = models.DecimalField(max_digits=5, decimal_places=0, verbose_name='Стоимость',
-        help_text='Введите целое число без дробной части')
-    access_period = models.PositiveIntegerField(null=True, verbose_name='На сколько дней открыт доступ к модулям и урокам курса после покупки', help_text='Введите целое число, которое будет означать количество дней')
-    is_published = models.BooleanField(default=True, verbose_name='Опубликован', 
-        help_text='Курс опубликован на сайте, доступен к покупке и регистрации. Во время начала курса не забудьте снять галочку')
+    price = models.DecimalField(max_digits=5, decimal_places=0, verbose_name='Вартість',
+        help_text='Введіть ціле число без дробової частини')
+    access_period = models.PositiveIntegerField(null=True, verbose_name='На скільки днів відкритий доступ до модулів і уроків курсу після покупки', help_text='Введіть ціле число, яке буде означати кількість днів')
+    is_published = models.BooleanField(default=True, verbose_name='Опубліковано',
+        help_text='Курс опублікований на сайті, доступний для придбання та реєстрації. Під час початку курсу не забудьте зняти галочку')
 
     def __str__(self):
         return self.title
 
     class Meta:
         verbose_name = 'курс'
-        verbose_name_plural = 'курсы'
+        verbose_name_plural = 'курси'
         ordering = ['-pk']
 
     
 class Person(models.Model):
     course = models.ForeignKey(Course, on_delete=models.CASCADE, verbose_name='Курс')
-    image_person = models.ImageField(upload_to='courses/%Y-%m-%d/', verbose_name='Картинка к типу персонажа')
+    image_person = models.ImageField(upload_to='courses/%Y-%m-%d/', verbose_name='Картинка до типу персонажа')
     person = models.CharField(max_length=50, verbose_name='Тип персонажа')
-    person_detail = models.CharField(max_length=100, verbose_name='Краткое описание персонажа')
+    person_detail = models.CharField(max_length=100, verbose_name='Короткий опис персонажа')
     
     def __str__(self):
         return self.person
 
     class Meta:
         verbose_name = 'персонаж ЦА'
-        verbose_name_plural = 'персонажи ЦА'
+        verbose_name_plural = 'персонажі ЦА'
 
 
 class Module(models.Model):
-    title = models.CharField(max_length=150, verbose_name='Название модуля', help_text='Макс. длина 150 символов')
-    description = models.TextField(verbose_name='Описание модуля', blank=True)
+    title = models.CharField(max_length=150, verbose_name='Назва модуля', help_text='Макс. довжина 150 символів')
+    description = models.TextField(verbose_name='Опис модуля', blank=True)
     course = models.ForeignKey(Course, on_delete=models.CASCADE, verbose_name='Курс', 
-        help_text='К какому курсу относится модуль')
-    is_active = models.BooleanField(default=False, verbose_name='Доступен к прохождению')
+        help_text='До якого курсу відноситься модуль')
+    is_active = models.BooleanField(default=False, verbose_name='Доступний для проходження')
 
 
     def __str__(self):
@@ -91,19 +91,19 @@ class Module(models.Model):
 
     class Meta:
         verbose_name = 'модуль'
-        verbose_name_plural = 'модули'
+        verbose_name_plural = 'модулі'
         ordering = ['pk']
 
 
 class Lesson(models.Model):
-    title = models.CharField(max_length=150, verbose_name='Название урока', help_text='Макс. длина 150 символов')
+    title = models.CharField(max_length=150, verbose_name='Назва уроку', help_text='Макс. довжина 150 символів')
     module = models.ForeignKey(Module, on_delete=models.CASCADE, 
-        verbose_name='модуль', help_text='К какому модулю относится урок')
-    description = models.TextField(blank=True, verbose_name='Описание урока')
-    video = models.URLField(verbose_name='Ссылка на видео трансляцию', blank=True, help_text='В формате "http://..."')
-    video_record = models.URLField(verbose_name='Ссылка на запись урока', blank=True, null=True, help_text='В формате "http://..."')
-    materials = models.URLField(verbose_name='Ссылка на материалы', blank=True)
-    is_active = models.BooleanField(default=False, verbose_name='Доступен к прохождению')
+        verbose_name='модуль', help_text='До якого модуля відноситься урок')
+    description = models.TextField(blank=True, verbose_name='Опис уроку')
+    video = models.URLField(verbose_name='Посилання на відео трансляцію', blank=True, help_text='В форматі "http://..."')
+    video_record = models.URLField(verbose_name='Посилання на запис уроку', blank=True, null=True, help_text='В форматі "http://..."')
+    materials = models.URLField(verbose_name='Посилання на матеріали', blank=True)
+    is_active = models.BooleanField(default=False, verbose_name='Доступний для проходження')
 
     def __str__(self):
         return self.title
@@ -115,34 +115,34 @@ class Lesson(models.Model):
 
 
 class CoursePromocode(models.Model):
-    code = models.CharField(max_length=20, verbose_name='Промокод', help_text='Набор символов длиной до 20 знаков')
-    discount = models.PositiveSmallIntegerField(verbose_name='Процент скидки', help_text='Процент скидки, которую предоставляет промокод. Нужно ввести целое число (без символа процента). Минимальное значение - 0, максимальное - 100')
-    courses = models.ManyToManyField(Course, verbose_name='На какие курсы распространяется промокод')
-    is_active = models.BooleanField(default=True, verbose_name='Промокод активен и действует')
+    code = models.CharField(max_length=20, verbose_name='Промокод', help_text='Набір символів довжиною до 20 знаків')
+    discount = models.PositiveSmallIntegerField(verbose_name='Відсоток знижки', help_text='Відсоток знижки, яку надає промокод. Потрібно ввести ціле число (без символу відсотка). Мінімальне значення - 0, максимальне - 100')
+    courses = models.ManyToManyField(Course, verbose_name='На які курси поширюється промокод')
+    is_active = models.BooleanField(default=True, verbose_name='Промокод активний і діє')
 
     def __str__(self):
         return self.code
 
     class Meta:
         verbose_name = 'промокод'
-        verbose_name_plural = 'промокоды'
+        verbose_name_plural = 'промокоди'
         ordering = ['-pk']
 
 
 class CourseOrder(models.Model):
 
     STATUS = (
-        ('cancelled', 'Отменен'),
-        ('wait_paid', 'Ожидается оплата'),
-        ('paid', 'Оплачен')
+        ('cancelled', 'Скасовано'),
+        ('wait_paid', 'Очікується оплата'),
+        ('paid', 'Сплачено')
     )
 
-    order_reference = models.CharField(max_length=30, verbose_name='Уникальный номер заказа')
-    student = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, verbose_name='Участник')
-    course = models.ForeignKey(Course, on_delete=models.SET_NULL, null=True, verbose_name='Какой курс был приобретен')
-    status = models.CharField(max_length=30, verbose_name='Статус заказа', choices=STATUS)
-    order_sum = models.DecimalField(max_digits=8, decimal_places=2, verbose_name='Сумма покупки')
-    payment_date = models.DateTimeField(auto_now_add=True, verbose_name='Дата покупки курса')
+    order_reference = models.CharField(max_length=30, verbose_name='Унікальний номер замовлення')
+    student = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, verbose_name='Учасник')
+    course = models.ForeignKey(Course, on_delete=models.SET_NULL, null=True, verbose_name='Який курс був придбаний')
+    status = models.CharField(max_length=30, verbose_name='Статус замовлення', choices=STATUS)
+    order_sum = models.DecimalField(max_digits=8, decimal_places=2, verbose_name='Сума покупки')
+    payment_date = models.DateTimeField(auto_now_add=True, verbose_name='Дата придбання курсу')
     
 
     @property
@@ -166,5 +166,5 @@ class CourseOrder(models.Model):
     
     class Meta:
         verbose_name = 'заявка на курс'
-        verbose_name_plural = 'заявки на курсы'
+        verbose_name_plural = 'заявки на курси'
         ordering = ['-payment_date']

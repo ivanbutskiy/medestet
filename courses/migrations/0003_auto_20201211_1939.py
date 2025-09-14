@@ -14,7 +14,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='lesson',
             name='module',
-            field=models.ForeignKey(help_text='К какому модулю относится урок.', on_delete=django.db.models.deletion.CASCADE, to='courses.module', verbose_name='модуль'),
+            field=models.ForeignKey(help_text='До якого модуля відноситься урок.', on_delete=django.db.models.deletion.CASCADE, to='courses.module', verbose_name='модуль'),
         ),
         migrations.AlterField(
             model_name='person',

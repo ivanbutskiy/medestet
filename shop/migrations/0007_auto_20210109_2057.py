@@ -17,21 +17,21 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='payment',
             name='MERCHANT_LOGIN',
-            field=models.CharField(blank=True, help_text='Только для WayForPay. Это значение вы можете получить в ЛК WayForPay в настройках магазина во вкладке "Реквизиты мерчанта"', max_length=100, verbose_name='MERCHANT LOGIN'),
+            field=models.CharField(blank=True, help_text='Тільки для WayForPay. Це значення ви можете отримати в ЛК WayForPay в налаштуваннях магазину у вкладці «Реквізити мерчанта».', max_length=100, verbose_name='MERCHANT LOGIN'),
         ),
         migrations.AlterField(
             model_name='payment',
             name='MERCHANT_SECRET_KEY',
-            field=models.CharField(blank=True, help_text='Только для WayForPay. Это значение вы можете получить в ЛК WayForPay в настройках магазина во вкладке "Реквизиты мерчанта"', max_length=200, verbose_name='MERCHANT SECRET KEY'),
+            field=models.CharField(blank=True, help_text='Тільки для WayForPay. Це значення ви можете отримати в ЛК WayForPay в налаштуваннях магазину у вкладці «Реквізити мерчанта».', max_length=200, verbose_name='MERCHANT SECRET KEY'),
         ),
         migrations.AlterField(
             model_name='payment',
             name='logo',
-            field=models.ImageField(upload_to='images/shop/%Y-%m-%d/', verbose_name='Логотип способа оплаты'),
+            field=models.ImageField(upload_to='images/shop/%Y-%m-%d/', verbose_name='Логотип способу оплати'),
         ),
         migrations.AlterField(
             model_name='payment',
             name='short_description',
-            field=models.CharField(help_text='Краткое описание системы оплаты. На странице сайта будет показано пользователю, если данный способ оплаты опубликован. Например: "WayForPay - автоматическая оплата с полной оплатой товара с помощью карты Visa/MasterCard". Максимальная длина 300 символов', max_length=300, verbose_name='Краткое описание'),
+            field=models.CharField(help_text='Короткий опис системи оплати. На сторінці сайту буде показано користувачеві, якщо даний спосіб оплати опублікований. Наприклад: «WayForPay - автоматична оплата з повною оплатою товару за допомогою картки Visa/MasterCard». Максимальна довжина 300 символів.', max_length=300, verbose_name='Короткий опис'),
         ),
     ]

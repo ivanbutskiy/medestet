@@ -13,16 +13,16 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='order',
             name='order_reference',
-            field=models.CharField(max_length=30, null=True, verbose_name='Уникальный номер заказа'),
+            field=models.CharField(max_length=30, null=True, verbose_name='Унікальний номер замовлення'),
         ),
         migrations.AlterField(
             model_name='orderitem',
             name='count',
-            field=models.PositiveSmallIntegerField(verbose_name='Количество'),
+            field=models.PositiveSmallIntegerField(verbose_name='Кількість'),
         ),
         migrations.AlterField(
             model_name='payment',
             name='is_published',
-            field=models.BooleanField(default=True, help_text='Если стоит галочка, то данный способ оплаты будет опубликован на сайте в момент оформления заказа', verbose_name='Опубликовано'),
+            field=models.BooleanField(default=True, help_text='Якщо стоїть галочка, то даний спосіб оплати буде опублікований на сайті в момент оформлення замовлення', verbose_name='Опубліковано'),
         ),
     ]

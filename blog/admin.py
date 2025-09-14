@@ -5,7 +5,7 @@ from .models import Post
 
 
 class PostAdminForm(forms.ModelForm):
-    text = forms.CharField(label='Текст публикации', widget=CKEditorUploadingWidget())
+    text = forms.CharField(label='Текст публікації', widget=CKEditorUploadingWidget())
     class Meta:
         model = Post
         fields = '__all__'
@@ -20,19 +20,19 @@ class PostAdminModel(admin.ModelAdmin):
     list_display_links = ['id', 'title']
     search_fields = ['title', 'subtitle', 'text']
     fieldsets = (
-        ('Название', {
+        ('Назва', {
             'fields': ('slug', 'title', 'subtitle')
         }),
-        ('Изображение', {
+        ('Зображення', {
             'fields': ('image',)
         }),
         ('Контент', {
             'fields': ('text',)
         }),
-        ('Даты публикации', {
+        ('Дати публикації', {
             'fields': ('adding_date', 'update_date')
         }),
-        ('Опубликовано', {
+        ('Опубліковано', {
             'fields': ('is_published',)
         }),
     )

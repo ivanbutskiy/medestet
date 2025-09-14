@@ -12,6 +12,6 @@ class Migration(migrations.Migration):
     operations = [
         migrations.AlterModelOptions(
             name='courseorder',
-            options={'ordering': ['-payment_date'], 'verbose_name': 'заявка на курс', 'verbose_name_plural': 'заявки на курсы'},
+            options={'ordering': ['-payment_date'], 'verbose_name': 'заявка на курс', 'verbose_name_plural': 'заявки на курси'},
         ),
     ]

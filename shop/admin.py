@@ -30,13 +30,13 @@ class OrderAdminModel(admin.ModelAdmin):
                 order.consumer.buy_count += 1
                 order.consumer.buy_sum += Decimal(str(order.order_sum))
                 order.consumer.save()
-    check_any_payment.short_description = 'Подтвердить оплату'
+    check_any_payment.short_description = 'Підтвердити оплату'
 
     fieldsets = (
-        ('id и статус заказа', {
+        ('id та статус замовлення', {
             'fields': ('id', 'order_reference', 'order_sum', 'status', 'is_done', 'adding_date')
         }),
-        ('Информация о покупателе', {
+        ('Інформація про покупця', {
             'fields': (
                 'consumer',
                 'promocode',
@@ -67,7 +67,7 @@ class OrderAdminModel(admin.ModelAdmin):
 
 
 class PaymentAdminForm(forms.ModelForm):
-    short_description = forms.CharField(label='Описание платежного метода', widget=CKEditorUploadingWidget())
+    short_description = forms.CharField(label='Опис способу оплати', widget=CKEditorUploadingWidget())
     class Meta:
         model = Payment
         fields = '__all__'
@@ -80,13 +80,13 @@ class PaymentAdminModel(admin.ModelAdmin):
     list_editable = ['is_published']
     list_filter = ['is_published']
     fieldsets = (
-        ('Описание', {
+        ('Опис', {
             'fields': ('title', 'payment_type', 'logo', 'short_description')
         }),
-        ('Секретные реквизиты', {
+        ('Секретні реквізити', {
             'fields': ('MERCHANT_LOGIN', 'MERCHANT_SECRET_KEY')
         }),
-        ('Опубликовано', {
+        ('Опубліковано', {
             'fields': ('is_published',)
         }),
     )
@@ -137,7 +137,7 @@ class CategoryAdminModel(admin.ModelAdmin):
 
 
 class ProductAdminForm(forms.ModelForm):
-    description = forms.CharField(label='Полное описание товара', widget=CKEditorUploadingWidget())
+    description = forms.CharField(label='Повний опис товару', widget=CKEditorUploadingWidget())
     class Meta:
         model = Product
         fields = '__all__'
@@ -146,22 +146,22 @@ class ProductAdminForm(forms.ModelForm):
 class ProductAdminModel(admin.ModelAdmin):
     form = ProductAdminForm
     fieldsets = (
-        ('Превью товара', {
+        ('Попередній перегляд товару', {
             'fields': ('slug','title', 'short_description', 'brand', 'category')
         }),
-        ('Описание товара', {
+        ('Опис товару', {
             'fields': ('description', 'volume')
         }),
-        ('Стоимостные характеристики товара', {
+        ('Вартісні характеристики товару', {
             'fields': ('currency', 'price_certified', 'price_guest')
         }),
-        ('Спецпредложения', {
+        ('Спеціальні пропозиції', {
             'fields': ('new_price_certified', 'new_price_guest')
         }),
-        ('Картинки товара', {
+        ('Зображення товару', {
             'fields': ('header_image', 'image_1', 'image_2', 'image_3', 'image_4', 'image_5', 'image_6')
         }),
-        ('Настройки публикации', {
+        ('Налаштування публікації', {
             'fields': ('is_published',)
         }),
     )

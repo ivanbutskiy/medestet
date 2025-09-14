@@ -12,15 +12,15 @@ class Migration(migrations.Migration):
     operations = [
         migrations.AlterModelOptions(
             name='course',
-            options={'ordering': ['-pk'], 'verbose_name': 'курс', 'verbose_name_plural': 'курсы'},
+            options={'ordering': ['-pk'], 'verbose_name': 'курс', 'verbose_name_plural': 'курси'},
         ),
         migrations.AlterModelOptions(
             name='courseorder',
-            options={'ordering': ['-payment_date'], 'verbose_name': 'заказ курса', 'verbose_name_plural': 'заказы курсов'},
+            options={'ordering': ['-payment_date'], 'verbose_name': 'замовлення курсу', 'verbose_name_plural': 'замовлення курсів'},
         ),
         migrations.AlterModelOptions(
             name='coursepromocode',
-            options={'ordering': ['-pk'], 'verbose_name': 'промокод', 'verbose_name_plural': 'промокоды'},
+            options={'ordering': ['-pk'], 'verbose_name': 'промокод', 'verbose_name_plural': 'промокоди'},
         ),
         migrations.AlterModelOptions(
             name='lesson',
@@ -28,15 +28,15 @@ class Migration(migrations.Migration):
         ),
         migrations.AlterModelOptions(
             name='module',
-            options={'ordering': ['pk'], 'verbose_name': 'модуль', 'verbose_name_plural': 'модули'},
+            options={'ordering': ['pk'], 'verbose_name': 'модуль', 'verbose_name_plural': 'модулі'},
         ),
         migrations.AlterModelOptions(
             name='person',
-            options={'verbose_name': 'персонаж ЦА', 'verbose_name_plural': 'персонажи ЦА'},
+            options={'verbose_name': 'персонаж ЦА', 'verbose_name_plural': 'персонажі ЦА'},
         ),
         migrations.AlterModelOptions(
             name='subject',
-            options={'verbose_name': 'субъект', 'verbose_name_plural': 'субъекты'},
+            options={'verbose_name': 'суб\'єкт', 'verbose_name_plural': 'суб\'єкти'},
         ),
         migrations.RemoveField(
             model_name='lesson',

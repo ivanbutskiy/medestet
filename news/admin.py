@@ -5,7 +5,7 @@ from .models import News
 
 
 class NewsAdminForm(forms.ModelForm):
-    text = forms.CharField(label='Текст новости', widget=CKEditorUploadingWidget())
+    text = forms.CharField(label='Текст новини', widget=CKEditorUploadingWidget())
     class Meta:
         model = News
         fields = '__all__'
@@ -20,19 +20,19 @@ class NewsAdminModel(admin.ModelAdmin):
     list_display_links = ['id', 'title']
     search_fields = ['title', 'subtitle', 'text']
     fieldsets = (
-        ('Название', {
+        ('Назва', {
             'fields': ('slug', 'title', 'subtitle')
         }),
-        ('Изображение', {
+        ('Зображення', {
             'fields': ('image',)
         }),
         ('Контент', {
             'fields': ('text',)
         }),
-        ('Даты публикации', {
+        ('Дати публікації', {
             'fields': ('adding_date', 'update_date')
         }),
-        ('Опубликовано', {
+        ('Опубліковано', {
             'fields': ('is_published',)
         }),
     )

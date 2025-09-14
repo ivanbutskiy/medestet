@@ -13,6 +13,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='course',
             name='starting_date',
-            field=models.DateField(help_text='Дата начала курса', verbose_name='дата начала'),
+            field=models.DateField(help_text='Дата початку курсу', verbose_name='дата початку'),
         ),
     ]

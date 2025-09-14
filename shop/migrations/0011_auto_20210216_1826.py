@@ -13,6 +13,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='promocode',
             name='products',
-            field=models.ManyToManyField(to='shop.Product', verbose_name='На какие продукты распространяется промокод'),
+            field=models.ManyToManyField(to='shop.Product', verbose_name='На які продукти поширюється промокод'),
         ),
     ]

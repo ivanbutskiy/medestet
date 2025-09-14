@@ -20,8 +20,8 @@ def send_order_mail(order_id):
             'order_reference': order_reference
         }
 
-        send_mail(subject='Ваш заказ успешно оформлен!',
-            message='Благодарим за оформление заказа',
+        send_mail(subject='Ваше замовлення успішно оформлено!',
+            message='Дякуємо за оформлення замовлення',
             from_email=settings.EMAIL_HOST_USER,
             recipient_list=[user_email],
             fail_silently=True,
@@ -34,8 +34,8 @@ def send_order_admin(order_id):
     try:
         order = Order.objects.get(id=order_id)
         order_reference = order.order_reference
-        subject = 'Получен новый заказ'
-        message = f'Загляните в административную панель, там зарегистрирован новый заказ с уникальным идентификатором {order.order_reference}.'
+        subject = 'Отримано нове замовлення'
+        message = f'Загляньте в адміністративну панель, там зареєстровано нове замовлення з унікальним ідентифікатором {order.order_reference}.'
         send_mail(subject=subject,
             message=message, 
             from_email=settings.EMAIL_HOST_USER,

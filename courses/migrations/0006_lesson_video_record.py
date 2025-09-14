@@ -13,6 +13,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='lesson',
             name='video_record',
-            field=models.URLField(blank=True, help_text='В формате "http://..."', null=True, verbose_name='ссылка на запись урока'),
+            field=models.URLField(blank=True, help_text='В форматі "http://..."', null=True, verbose_name='посилання на запис уроку'),
         ),
     ]

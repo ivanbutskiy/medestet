@@ -6,7 +6,12 @@ from .models import Course
 def send_register_mail(user, course):
     try:
         subject='Вы успешно зарегистрировались на курс!'
-        message = f'''Здравствуйте, {user.first_name}. Благодарим вас за регистрацию на курс {course.title}.\n\nМы сделаем все, чтобы вы получили удовольствие во время его прохождения и качественные результаты, которые будете успешно воплощать на практике.\n\nС любовью и уважением, команда Medestet.'''
+        message = (
+            f'Вітаємо, {user.first_name}. '
+            f'Дякуємо вам за реєстрацію на курс {course.title}.\n\n'
+            f'Ми зробимо все, щоб ви отримали задоволення під час його проходження і якісні результати, '
+            f'які будете успішно втілювати на практиці.\n\nЗ любов\'ю та повагою, команда Medestet.'
+        )
 
         send_mail(
             subject=subject, 
@@ -15,13 +20,13 @@ def send_register_mail(user, course):
             recipient_list=[user.email],
             fail_silently=True)
     except:
-        return None
+        pass
 
 
 def send_admin_email(user, course):
     try:
-        subject = f'Регистрация на курс {course.title}'
-        message = f'Пользователь {user.first_name} {user.last_name} ({user.email}) зарегистрировался и оплатил участие в курсе {course.title}.'
+        subject = f'Реєстрація на курс {course.title}'
+        message = f'Користувач {user.first_name} {user.last_name} ({user.email}) зареєструвався та оплатив участь на курсі {course.title}.'
         send_mail(
             subject=subject,
             message=message,
@@ -30,4 +35,4 @@ def send_admin_email(user, course):
             fail_silently=True
         )
     except:
-        return None
+        pass

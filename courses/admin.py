@@ -31,8 +31,8 @@ class PersonInline(admin.StackedInline):
 
 
 class CourseAdminForm(forms.ModelForm):
-    results = forms.CharField(label='Результаты курса', widget=CKEditorUploadingWidget())
-    detail_description = forms.CharField(label='Детальное описание курса', widget=CKEditorUploadingWidget())
+    results = forms.CharField(label='Результати курсу', widget=CKEditorUploadingWidget())
+    detail_description = forms.CharField(label='Детальний опис курсу', widget=CKEditorUploadingWidget())
     class Meta:
         model = Course
         fields = '__all__'
@@ -69,13 +69,13 @@ class CourseAdminModel(admin.ModelAdmin):
         (None, {
             'fields': ('slug', 'subject')
         }),
-        ('Превью курса', {
+        ('Попередній перегляд курсу', {
             'fields': ('title', 'subtitle', 'short_description', 'header_image', 'preview_image', 'starting_date')
         }),
-        ('Детали курса', {
+        ('Деталі курсу', {
             'fields': ('detail_description', 'detail_image', 'results')
         }),
-        ('Конфигурация участия', {
+        ('Конфігурація участі', {
             'fields': ('certificate', 'certificate_image', 'price', 'access_period', 'is_published')
         })
     )

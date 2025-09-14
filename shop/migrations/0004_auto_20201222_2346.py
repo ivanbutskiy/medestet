@@ -12,19 +12,19 @@ class Migration(migrations.Migration):
     operations = [
         migrations.AlterModelOptions(
             name='brand',
-            options={'ordering': ['-pk'], 'verbose_name': 'Бренд', 'verbose_name_plural': 'Бренды'},
+            options={'ordering': ['-pk'], 'verbose_name': 'Бренд', 'verbose_name_plural': 'Бренди'},
         ),
         migrations.AlterModelOptions(
             name='category',
-            options={'ordering': ['-pk'], 'verbose_name': 'Категория', 'verbose_name_plural': 'Категории'},
+            options={'ordering': ['-pk'], 'verbose_name': 'Категорія', 'verbose_name_plural': 'Категорії'},
         ),
         migrations.AlterModelOptions(
             name='currency',
-            options={'ordering': ['-pk'], 'verbose_name': 'Валюта', 'verbose_name_plural': 'Валюты'},
+            options={'ordering': ['-pk'], 'verbose_name': 'Валюта', 'verbose_name_plural': 'Валюти'},
         ),
         migrations.AlterModelOptions(
             name='product',
-            options={'ordering': ['-pk'], 'verbose_name': 'Товар', 'verbose_name_plural': 'Товары'},
+            options={'ordering': ['-pk'], 'verbose_name': 'Товар', 'verbose_name_plural': 'Товари'},
         ),
         migrations.RemoveField(
             model_name='category',

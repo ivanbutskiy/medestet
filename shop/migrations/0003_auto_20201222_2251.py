@@ -13,11 +13,11 @@ class Migration(migrations.Migration):
     operations = [
         migrations.AlterModelOptions(
             name='brand',
-            options={'verbose_name': 'Бренд', 'verbose_name_plural': 'Бренды'},
+            options={'verbose_name': 'Бренд', 'verbose_name_plural': 'Бренди'},
         ),
         migrations.AlterModelOptions(
             name='currency',
-            options={'verbose_name': 'Валюта', 'verbose_name_plural': 'Валюты'},
+            options={'verbose_name': 'Валюта', 'verbose_name_plural': 'Валюти'},
         ),
         migrations.RemoveField(
             model_name='category',
@@ -42,92 +42,92 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='category',
             name='preview_category_icon',
-            field=models.ImageField(help_text='Можно использовать круглые иконки, главное, чтобы для всех категорий соблюдалась одна стилистика', null=True, upload_to='images/%Y-%m-%d/', verbose_name='Маленькая картинка категории'),
+            field=models.ImageField(help_text='Можна використовувати круглі іконки, головне, щоб для всіх категорій дотримувалася одна стилістикаМаленька картинка категорії', null=True, upload_to='images/%Y-%m-%d/', verbose_name='Маленька картинка категорії'),
         ),
         migrations.AddField(
             model_name='product',
             name='price_certified',
-            field=models.DecimalField(decimal_places=0, help_text='Показывается только для сертифицированных пользователей', max_digits=6, null=True, verbose_name='Стоимость в валюте для сертифицированных'),
+            field=models.DecimalField(decimal_places=0, help_text='Показується тільки для сертифікованих користувачів', max_digits=6, null=True, verbose_name='Вартість у валюті для сертифікованих'),
         ),
         migrations.AddField(
             model_name='product',
             name='price_guest',
-            field=models.DecimalField(blank=True, decimal_places=0, help_text='Поле не обязательно для заполнения. Но, если оно заполнено, то в карточке товара будет показана стоимость для несертифицированных и незарегистрированных пользователей, а также будет возможность заказа этого товара', max_digits=6, null=True, verbose_name='Стоимость в валюте для несертифицированных (для домашнего ухода)'),
+            field=models.DecimalField(blank=True, decimal_places=0, help_text='Поле не обов\'язково для заповнення. Але, якщо воно заповнене, то в картці товару буде показана вартість для несертифікованих і незареєстрованих користувачів, а також буде можливість замовлення цього товару.', max_digits=6, null=True, verbose_name='Вартість у валюті для несертифікованих (для догляду вдома)'),
         ),
         migrations.AlterField(
             model_name='brand',
             name='brand_image',
-            field=models.ImageField(blank=True, upload_to='images/%Y-%m-%d/', verbose_name='Логотип бренда'),
+            field=models.ImageField(blank=True, upload_to='images/%Y-%m-%d/', verbose_name='Логотип бренду'),
         ),
         migrations.AlterField(
             model_name='brand',
             name='country',
-            field=models.CharField(max_length=50, verbose_name='Страна'),
+            field=models.CharField(max_length=50, verbose_name='Країна'),
         ),
         migrations.AlterField(
             model_name='brand',
             name='title',
-            field=models.CharField(max_length=50, verbose_name='Название бренда'),
+            field=models.CharField(max_length=50, verbose_name='Назва бренду'),
         ),
         migrations.AlterField(
             model_name='category',
             name='is_published',
-            field=models.BooleanField(blank=True, default=True, help_text='Если категория опубликована, то она выводится в списке всех категорий на сайте. А соответственно, и ее товары', verbose_name='Опубликовано'),
+            field=models.BooleanField(blank=True, default=True, help_text='Якщо категорія опублікована, то вона виводиться в списку всіх категорій на сайті. А відповідно, і її товари', verbose_name='Опубліковано'),
         ),
         migrations.AlterField(
             model_name='category',
             name='slug',
-            field=models.SlugField(help_text='Поле автозаполняемо и должно быть уникально', unique=True, verbose_name='Слаг'),
+            field=models.SlugField(help_text='Поле заповнюється автоматично і має бути унікальним', unique=True, verbose_name='Слаг'),
         ),
         migrations.AlterField(
             model_name='category',
             name='subtitle',
-            field=models.CharField(help_text='Выводится на лендинге в шапке. Макс. длина 200 символов', max_length=200, verbose_name='Подзаголовок категории'),
+            field=models.CharField(help_text='Виводиться на лендінгу в шапці. Макс. довжина 200 символів', max_length=200, verbose_name='Підзаголовок категорії'),
         ),
         migrations.AlterField(
             model_name='category',
             name='title',
-            field=models.CharField(max_length=50, verbose_name='Название категории'),
+            field=models.CharField(max_length=50, verbose_name='Назва категорії'),
         ),
         migrations.AlterField(
             model_name='currency',
             name='exchange',
-            field=models.DecimalField(blank=True, decimal_places=2, help_text='Введите дробное число с двумя цифрами после точки (не запятой)', max_digits=5, null=True, verbose_name='Курс по отношению к гривне'),
+            field=models.DecimalField(blank=True, decimal_places=2, help_text='Введіть дробове число з двома цифрами після крапки (не коми)', max_digits=5, null=True, verbose_name='Курс по відношенню до гривні'),
         ),
         migrations.AlterField(
             model_name='currency',
             name='title',
-            field=models.CharField(help_text='Например, "Евро" или "Доллар США"', max_length=50, verbose_name='Название валюты'),
+            field=models.CharField(help_text='Наприклад, «Євро» або «Долар США»', max_length=50, verbose_name='Назва валюти'),
         ),
         migrations.AlterField(
             model_name='currency',
             name='update_date',
-            field=models.DateTimeField(auto_now=True, help_text='Поле автоматически заполняется в момент последнего сохранения', verbose_name='Когда обновлялся курс'),
+            field=models.DateTimeField(auto_now=True, help_text='Поле автоматично заповнюється в момент останнього збереження', verbose_name='Коли оновлювався курс'),
         ),
         migrations.AlterField(
             model_name='product',
             name='brand',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='shop.brand', verbose_name='Фирма-производитель'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='shop.brand', verbose_name='Фірма-виробник'),
         ),
         migrations.AlterField(
             model_name='product',
             name='category',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='shop.category', verbose_name='Категория'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='shop.category', verbose_name='Категорія'),
         ),
         migrations.AlterField(
             model_name='product',
             name='currency',
-            field=models.ForeignKey(help_text='При выводе для пользователя будет автоматически пересчитано в гривну', null=True, on_delete=django.db.models.deletion.SET_NULL, to='shop.currency', verbose_name='В какой валюте стоимость'),
+            field=models.ForeignKey(help_text='При виведенні для користувача буде автоматично перераховано в гривню', null=True, on_delete=django.db.models.deletion.SET_NULL, to='shop.currency', verbose_name='В якій валюті вартість'),
         ),
         migrations.AlterField(
             model_name='product',
             name='description',
-            field=models.TextField(verbose_name='Полное описание товара'),
+            field=models.TextField(verbose_name='Повний опис товару'),
         ),
         migrations.AlterField(
             model_name='product',
             name='header_image',
-            field=models.ImageField(upload_to='images/shop/%Y-%m-%d/', verbose_name='Главная картинка'),
+            field=models.ImageField(upload_to='images/shop/%Y-%m-%d/', verbose_name='Головна картинка'),
         ),
         migrations.AlterField(
             model_name='product',
@@ -162,21 +162,21 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='product',
             name='is_published',
-            field=models.BooleanField(blank=True, default=True, help_text='Товар опубликован и показывается на сайте', verbose_name='Опубликовано'),
+            field=models.BooleanField(blank=True, default=True, help_text='Товар опублікований і відображається на сайті', verbose_name='Опубліковано'),
         ),
         migrations.AlterField(
             model_name='product',
             name='short_description',
-            field=models.CharField(help_text='Макс. длина 300 символов', max_length=300, verbose_name='Краткое описание товара'),
+            field=models.CharField(help_text='Макс. довжина 300 символів', max_length=300, verbose_name='Короткий опис товару'),
         ),
         migrations.AlterField(
             model_name='product',
             name='slug',
-            field=models.SlugField(help_text='Поле автозаполняемо и должно быть уникально', unique=True, verbose_name='Слаг'),
+            field=models.SlugField(help_text='Поле заповнюється автоматично і має бути унікальним', unique=True, verbose_name='Слаг'),
         ),
         migrations.AlterField(
             model_name='product',
             name='title',
-            field=models.CharField(help_text='Максимальная длина 100 символов', max_length=100, verbose_name='Название товара'),
+            field=models.CharField(help_text='Максимальна довжина 100 символів', max_length=100, verbose_name='Назва товару'),
         ),
     ]

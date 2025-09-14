@@ -13,6 +13,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='product',
             name='old_price',
-            field=models.PositiveIntegerField(blank=True, help_text='Больше, чем нынешняя', verbose_name='старая цена'),
+            field=models.PositiveIntegerField(blank=True, help_text='Більше, ніж нинішня', verbose_name='стара ціна'),
         ),
     ]

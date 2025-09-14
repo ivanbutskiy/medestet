@@ -21,32 +21,32 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='product',
             name='new_price_certified',
-            field=models.DecimalField(decimal_places=2, default=0.0, help_text='Новая скидочная стоимость показывается только сертифицированным пользователям. Если новая стоимость по скидке не предусмотрена, оставьте значение нулевым. Если поле заполнено, будет показана новая скидочная стоимость, и по ней сертифицированный косметолог будет приобретать товар', max_digits=7, null=True, verbose_name='Новая скидочная стоимость в валюте для сертифицированных пользователей'),
+            field=models.DecimalField(decimal_places=2, default=0.0, help_text='Нова знижена вартість показується тільки сертифікованим користувачам. Якщо нова вартість зі знижкою не передбачена, залиште значення нульовим. Якщо поле заповнене, буде показана нова знижена вартість, і за нею сертифікований косметолог буде купувати товар', max_digits=7, null=True, verbose_name='Нова знижена вартість у валюті для сертифікованих користувачів'),
         ),
         migrations.AddField(
             model_name='product',
             name='new_price_guest',
-            field=models.DecimalField(blank=True, decimal_places=2, default=0.0, help_text='Если для несертифицированных пользователей по этому товару не предусмотрена новая скидочная стоимость, оставьте значение нулевым', max_digits=7, null=True, verbose_name='Новая скидочная стоимость в валюте для несертифицированных (для домашнего ухода)'),
+            field=models.DecimalField(blank=True, decimal_places=2, default=0.0, help_text='Якщо для несертифікованих користувачів по цьому товару не передбачена нова знижка, залиште значення нульовим', max_digits=7, null=True, verbose_name='Нова знижена вартість у валюті для несертифікованих (для домашнього догляду)'),
         ),
         migrations.AddField(
             model_name='product',
             name='volume',
-            field=models.PositiveIntegerField(blank=True, default=1, help_text='Введите целое число', verbose_name='Объем продукции в миллилитрах'),
+            field=models.PositiveIntegerField(blank=True, default=1, help_text='Введіть ціле число', verbose_name='Обсяг продукції в мілілітрах'),
             preserve_default=False,
         ),
         migrations.AddField(
             model_name='promocode',
             name='products',
-            field=models.ManyToManyField(null=True, to='shop.Product', verbose_name='На какие продукты распространяется промокод'),
+            field=models.ManyToManyField(null=True, to='shop.Product', verbose_name='На які продукти поширюється промокод'),
         ),
         migrations.AlterField(
             model_name='product',
             name='price_certified',
-            field=models.DecimalField(decimal_places=2, help_text='Показывается только сертифицированным пользователям', max_digits=7, null=True, verbose_name='Стоимость в валюте для сертифицированных пользователей'),
+            field=models.DecimalField(decimal_places=2, help_text='Показується тільки сертифікованим користувачам', max_digits=7, null=True, verbose_name='Вартість у валюті для сертифікованих користувачів'),
         ),
         migrations.AlterField(
             model_name='product',
             name='price_guest',
-            field=models.DecimalField(decimal_places=2, default=0.0, help_text='Если товар не предназначен для несертифицированных пользователей, оставьте  значение нулевым. Но, если оно заполнено, то в карточке товара будет показана стоимость для несертифицированных и незарегистрированных пользователей, а также будет возможность заказа этого товара', max_digits=7, verbose_name='Стоимость в валюте для несертифицированных (для домашнего ухода)'),
+            field=models.DecimalField(decimal_places=2, default=0.0, help_text='Якщо товар не призначений для несертифікованих користувачів, залиште  значення нульовим. Але, якщо воно заповнене, то в картці товару буде показана вартість для несертифікованих і незареєстрованих користувачів, а також буде можливість замовлення цього товару', max_digits=7, verbose_name='Вартість у валюті для несертифікованих (для догляду вдома)'),
         ),
     ]
