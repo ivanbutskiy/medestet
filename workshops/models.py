@@ -7,96 +7,96 @@ User = get_user_model()
 
 class Workshop(models.Model):
     slug = models.SlugField(db_index=True, unique=True, 
-        verbose_name='слаг', help_text='Поле автозаполняемо. Должно быть уникально')
-    title = models.CharField(max_length=200, verbose_name='Название семинара', 
-        help_text='Название семинара. Служит заголовком на лендинге. Если семинары по этой теме уже проводились, желательно, чтобы было в едином стиле с предыдущими. Макс. длина 200 символов')
-    subtitle = models.CharField(max_length=250, verbose_name='Подзаголовок',
-        help_text='Макс. длина 250 символов')
-    header_image = models.ImageField(upload_to='workshops/%Y-%m-%d/', verbose_name='Главное изображение',     
-        help_text='Главное изображение, которое выводится в шапке лендинга')
-    starting_date = models.DateField(verbose_name='Дата начала', help_text='Дата начала семинара')
+        verbose_name='слаг', help_text='Поле заповнюється автоматично. Повинно бути унікальним')
+    title = models.CharField(max_length=200, verbose_name='Назва семінару',
+        help_text='Назва семінару. Служить заголовком на лендінгу. Якщо семінари на цю тему вже проводилися, бажано, щоб вона була в єдиному стилі з попередніми. Макс. довжина 200 символів')
+    subtitle = models.CharField(max_length=250, verbose_name='Підзаголовок',
+        help_text='Макс. довжина 250 символів')
+    header_image = models.ImageField(upload_to='workshops/%Y-%m-%d/', verbose_name='Головне зображення',
+        help_text='Головне зображення, яке виводиться в шапці лендингу')
+    starting_date = models.DateField(verbose_name='Дата початку', help_text='Дата початку семінару')
     
-    description = models.TextField(verbose_name='Описание семинара')
-    description_image = models.ImageField(upload_to='workshops/%Y-%m-%d/', verbose_name='Картинка к описанию')
+    description = models.TextField(verbose_name='Опис семінару')
+    description_image = models.ImageField(upload_to='workshops/%Y-%m-%d/', verbose_name='Картинка до опису')
 
-    location = models.TextField(verbose_name='Место проведения', help_text='Адрес места проведения Макс. длина 200 символов', null=True)
-    location_image = models.ImageField(upload_to='workshops/%Y-%m-%d/', null=True, verbose_name='Изображение локации', help_text='Скрин с гугл карты места проведения семинара или фото заведения')
+    location = models.TextField(verbose_name='Місце проведення', help_text='Адреса місця проведення Макс. довжина 200 символів', null=True)
+    location_image = models.ImageField(upload_to='workshops/%Y-%m-%d/', null=True, verbose_name='Зображення локації', help_text='Скрін з гугл-мапи місця проведення семінару або фото закладу')
 
-    adding_date = models.DateTimeField(auto_now_add=True, verbose_name='Дата добавления')
-    is_published = models.BooleanField(default=True, verbose_name='Опубликован на сайте')
-    is_started = models.BooleanField(default=False, verbose_name='Семинар начат', help_text='Если начат, желательно снять галочку с "Опубликован на сайте", чтобы во время его проведения семинар не показывался на сайте, а люди не могли записаться')
+    adding_date = models.DateTimeField(auto_now_add=True, verbose_name='Дата додавання')
+    is_published = models.BooleanField(default=True, verbose_name='Опубліковано на сайті')
+    is_started = models.BooleanField(default=False, verbose_name='Семінар розпочато', help_text='Якщо розпочато, бажано зняти галочку з «Опубліковано на сайті», щоб під час його проведення семінар не показувався на сайті, а люди не могли записатися')
 
     def __str__(self):
         return self.title
 
     class Meta:
-        verbose_name = 'семинар'
-        verbose_name_plural = 'семинары'
+        verbose_name = 'семінар'
+        verbose_name_plural = 'семінари'
         ordering = ['starting_date']
 
 
 class Lesson(models.Model):
     workshop = models.ForeignKey(Workshop, on_delete=models.CASCADE, 
-        verbose_name='Семинар', help_text='К какому семинару относится занятие')
-    title = models.CharField(max_length=150, verbose_name='Название занятия', help_text='Макс. длина 150 символов')
-    short_description = models.CharField(max_length=200, verbose_name='Краткое описание занятия', help_text='Макс. длина 200 символов')
-    starting_date = models.DateTimeField(verbose_name='Время и дата начала занятия')
-    is_active = models.BooleanField(default=False, verbose_name='Занятие началось')
+        verbose_name='Семінар', help_text='До якого семінару відноситься заняття')
+    title = models.CharField(max_length=150, verbose_name='Назва заняття', help_text='Макс. довжина 150 символів')
+    short_description = models.CharField(max_length=200, verbose_name='Короткий опис заняття', help_text='Макс. довжина 200 символів')
+    starting_date = models.DateTimeField(verbose_name='Час і дата початку занять')
+    is_active = models.BooleanField(default=False, verbose_name='Заняття розпочалося')
 
     def __str__(self):
         return self.title
 
     class Meta:
-        verbose_name = 'занятие'
-        verbose_name_plural = 'занятия'
+        verbose_name = 'заняття'
+        verbose_name_plural = 'заняття'
         ordering = ['starting_date']
 
 
 class Option(models.Model):
     workshop = models.ForeignKey(Workshop, on_delete=models.CASCADE, 
-        verbose_name='Семинар', help_text='К какому семинару относится.')
-    title = models.CharField(max_length=150, verbose_name='Название', help_text='Название варианта участия. Макс. длина 150 символов')
-    description = models.CharField(max_length=300, verbose_name='Описание варианта участия', help_text='Макс. длина 300 символов')
-    price = models.DecimalField(max_digits=5, decimal_places=0, verbose_name='Стоимость варианта участия',
-        help_text='Введите целое число без дробной части')
+        verbose_name='Семінар', help_text='До якого семінару відноситься.')
+    title = models.CharField(max_length=150, verbose_name='Назва', help_text='Назва варіанту участі. Макс. довжина 150 символів')
+    description = models.CharField(max_length=300, verbose_name='Опис варіанту участі', help_text='Макс. довжина 300 символів')
+    price = models.DecimalField(max_digits=5, decimal_places=0, verbose_name='Вартість варіанту участі',
+        help_text='Введіть ціле число без дробової частини')
 
     def __str__(self):
         return self.title
 
     class Meta:
-        verbose_name = 'вариант участия'
-        verbose_name_plural = 'варианты участия'
+        verbose_name = 'варіант участі'
+        verbose_name_plural = 'варіанти участі'
 
 
 class WorkshopOrder(models.Model):
     STATUS = (
-        ('cancelled', 'Отменен'),
-        ('wait_paid', 'Ожидается оплата'),
-        ('paid', 'Оплачен')
+        ('cancelled', 'Скасовано'),
+        ('wait_paid', 'Очікується оплата'),
+        ('paid', 'Оплачено')
     )
 
-    student = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, verbose_name='Участник')
-    workshop = models.ForeignKey(Workshop, on_delete=models.SET_NULL, null=True, verbose_name='Какой курс был приобретен')
-    option = models.ForeignKey(Option, on_delete=models.SET_NULL, null=True, verbose_name='Выбранный вариант участия')
-    status = models.CharField(max_length=30, verbose_name='Статус заказа', choices=STATUS)
-    order_sum = models.DecimalField(max_digits=8, decimal_places=2, verbose_name='Сумма покупки')
-    payment_date = models.DateTimeField(auto_now_add=True, verbose_name='Дата оформления заявки')
+    student = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, verbose_name='Учасник')
+    workshop = models.ForeignKey(Workshop, on_delete=models.SET_NULL, null=True, verbose_name='Який курс був придбаний')
+    option = models.ForeignKey(Option, on_delete=models.SET_NULL, null=True, verbose_name='Обраний варіант участі')
+    status = models.CharField(max_length=30, verbose_name='Статус замовлення', choices=STATUS)
+    order_sum = models.DecimalField(max_digits=8, decimal_places=2, verbose_name='Сума покупки')
+    payment_date = models.DateTimeField(auto_now_add=True, verbose_name='Дата оформлення заявки')
     promocode = models.ForeignKey('WorkshopPromocode', verbose_name='Промокод', on_delete=models.SET_NULL, null=True, blank=True)
 
     def __str__(self):
         return f'{self.id}'
     
     class Meta:
-        verbose_name = 'заявка на участие'
-        verbose_name_plural = 'заявки на участие'
+        verbose_name = 'заявка на участь'
+        verbose_name_plural = 'заявки на участь'
         ordering = ['-id']
 
 
 class WorkshopPromocode(models.Model):
-    code = models.CharField(max_length=20, verbose_name='Промокод', help_text='Набор символов длиной до 20 знаков')
-    discount = models.PositiveSmallIntegerField(verbose_name='Процент скидки', help_text='Процент скидки, которую предоставляет промокод. Нужно ввести целое число (без символа процента). Минимальное значение - 0, максимальное - 100')
-    workshops = models.ManyToManyField(Workshop, verbose_name='На какие семинары распространяется промокод')
-    is_active = models.BooleanField(default=True, verbose_name='Промокод активен и действует')
+    code = models.CharField(max_length=20, verbose_name='Промокод', help_text='Набір символів довжиною до 20 знаків')
+    discount = models.PositiveSmallIntegerField(verbose_name='Відсоток знижки', help_text='Відсоток знижки, яку надає промокод. Потрібно ввести ціле число (без символу відсотка). Мінімальне значення - 0, максимальне - 100')
+    workshops = models.ManyToManyField(Workshop, verbose_name='На які семінари поширюється промокод')
+    is_active = models.BooleanField(default=True, verbose_name='Промокод активний і діє')
 
     def __str__(self):
         return self.code
@@ -104,5 +104,5 @@ class WorkshopPromocode(models.Model):
 
     class Meta:
         verbose_name = 'промокод'
-        verbose_name_plural = 'промокоды'
+        verbose_name_plural = 'промокоди'
         ordering = ['-pk']

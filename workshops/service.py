@@ -5,8 +5,8 @@ from .models import Workshop
 
 def send_register_mail(user, workshop):
     try:
-        subject='Вы успешно зарегистрировались на семинар!'
-        message = f'''Здравствуйте, {user.first_name}. Благодарим вас за регистрацию на семинар {workshop.title}.\n\nМы сделаем все, чтобы вы получили удовольствие во время его прохождения и качественные результаты, которые будете успешно воплощать на практике.\n\nЖдите дальнейших сообщений.\n\nС любовью и уважением, команда Medestet.'''
+        subject='Ви успішно зареєструвалися на семінар!'
+        message = f'''Доброго дня, {user.first_name}. Дякуємо вам за реєстрацію на семінар {workshop.title}.\n\nМи зробимо все, щоб ви отримали задоволення під час його проходження та якісні результати, які будете успішно втілювати на практиці.\n\nЧекайте на подальші повідомлення.\n\nЗ любов'ю та повагою, команда Medestet.'''
 
         send_mail(
             subject=subject, 
@@ -20,8 +20,8 @@ def send_register_mail(user, workshop):
 
 def send_admin_email(user, workshop):
     try:
-        subject = f'Регистрация на семинар {workshop.title}'
-        message = f'Пользователь {user.first_name} {user.last_name} ({user.email}) зарегистрировался на участие в семинаре {workshop.title}. Пожалуйста, свяжитесь с ним.'
+        subject = f'Реєстрація на семінар {workshop.title}'
+        message = f'Користувач {user.first_name} {user.last_name} ({user.email}) зареєструвався на участь у семінарі {workshop.title}. Будь ласка, зв\'яжіться з ним.'
         send_mail(
             subject=subject,
             message=message,

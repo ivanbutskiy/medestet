@@ -48,7 +48,7 @@ class OptionAdminModel(admin.ModelAdmin):
 
 
 class WebinarAdminForm(forms.ModelForm):
-    description = forms.CharField(label='Описание вебинара', widget=CKEditorUploadingWidget())
+    description = forms.CharField(label='Опис вебінару', widget=CKEditorUploadingWidget())
     class Meta:
         model = Webinar
         fields = '__all__'
@@ -61,13 +61,13 @@ class WebinarAdminModel(admin.ModelAdmin):
         (None, {
             'fields': ('slug',)
         }),
-        ('Превью вебинара', {
+        ('Попередній перегляд вебінару', {
             'fields': ('title', 'subtitle', 'header_image', 'starting_date')
         }),
-        ('Описание вебинара', {
+        ('Опис вебінару', {
             'fields': ('description', 'description_image', 'video', 'video_record')
         }),
-        ('Конфигурация', {
+        ('Конфігурація', {
             'fields': ('is_published', 'is_started')
         })
     )
@@ -95,7 +95,7 @@ class WebinarOrderAdminModel(admin.ModelAdmin):
             order.student.buy_count += 1
             order.student.buy_sum += order.order_sum
             order.student.save()
-    check_payment.short_description = 'Подтвердить оплату'
+    check_payment.short_description = 'Підтвердити оплату'
 
     fields = ['order_reference', 'student', 'webinar', 'option', 'status',
         'order_sum', 'payment_date', 'promocode']

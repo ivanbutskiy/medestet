@@ -5,7 +5,7 @@ from .models import Video
 
 
 class VideoAdminForm(forms.ModelForm):
-    text = forms.CharField(label='Текст к видеозаписи', widget=CKEditorUploadingWidget())
+    text = forms.CharField(label='Текст до відеозапису', widget=CKEditorUploadingWidget())
     class Meta:
         model = Video
         fields = '__all__'
@@ -20,19 +20,19 @@ class VideoAdminModel(admin.ModelAdmin):
     list_display_links = ['id', 'title']
     search_fields = ['title', 'subtitle', 'text']
     fieldsets = (
-        ('Название', {
+        ('Назва', {
             'fields': ('slug', 'title', 'subtitle')
         }),
-        ('Изображение', {
+        ('Зображення', {
             'fields': ('image',)
         }),
         ('Контент', {
             'fields': ('video', 'text')
         }),
-        ('Даты публикации', {
+        ('Дати публикації', {
             'fields': ('adding_date', 'update_date')
         }),
-        ('Опубликовано', {
+        ('Опубліковано', {
             'fields': ('is_published',)
         }),
     )

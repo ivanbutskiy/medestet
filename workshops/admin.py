@@ -19,13 +19,13 @@ class WorkshopOrderAdminModel(admin.ModelAdmin):
             order.student.buy_count += 1
             order.student.buy_sum += order.order_sum
             order.student.save()
-    check_payment.short_description = 'Подтвердить оплату'
+    check_payment.short_description = 'Підтвердити оплату'
 
     def cancell(modeladmin, request, queryset):
         for order in queryset:
             order.status = 'cancelled'
             order.save()
-    cancell.short_description = 'Отменить участие'
+    cancell.short_description = 'Скасувати участь'
 
     fields = ['student', 'workshop', 'option', 'status',
         'order_sum', 'payment_date', 'promocode']
@@ -83,8 +83,8 @@ class OptionAdminModel(admin.ModelAdmin):
 
 
 class WorkshopAdminForm(forms.ModelForm):
-    description = forms.CharField(label='Описание семинара', widget=CKEditorUploadingWidget())
-    location = forms.CharField(label='Место проведения', widget=CKEditorUploadingWidget())
+    description = forms.CharField(label='Опис семінару', widget=CKEditorUploadingWidget())
+    location = forms.CharField(label='Місце проведення', widget=CKEditorUploadingWidget())
     class Meta:
         model = Workshop
         fields = '__all__'
@@ -97,16 +97,16 @@ class WorkshopAdminModel(admin.ModelAdmin):
         (None, {
             'fields': ('slug',)
         }),
-        ('Превью семинара', {
+        ('Попередній перегляд семінару', {
             'fields': ('title', 'subtitle', 'header_image', 'starting_date', 'adding_date')
         }),
-        ('Описание семинара', {
+        ('Опис семінару', {
             'fields': ('description', 'description_image')
         }),
-        ('Локация', {
+        ('Локація', {
             'fields': ('location', 'location_image')
         }),
-        ('Конфигурация', {
+        ('Конфігурація', {
             'fields': ('is_published', 'is_started')
         })
     )

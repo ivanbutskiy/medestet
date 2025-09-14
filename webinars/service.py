@@ -5,8 +5,8 @@ from .models import Webinar
 
 def send_register_mail(user, webinar):
     try:
-        subject='Вы успешно зарегистрировались на вебинар!'
-        message = f'''Здравствуйте, {user.first_name}. Благодарим вас за регистрацию на вебинар {webinar.title}.\n\nМы сделаем все, чтобы вы получили удовольствие во время его прохождения и качественные результаты, которые будете успешно воплощать на практике.\n\nС любовью и уважением, команда Medestet.'''
+        subject='Ви успішно зареєструвалися на вебінар!'
+        message = f'''Доброго дня, {user.first_name}. Дякуємо вам за реєстрацію на вебінар {webinar.title}.\n\nМи зробимо все, щоб ви отримали задоволення під час його проходження та якісні результати, які будете успішно втілювати на практиці.\n\nЗ любов'ю та повагою, команда Medestet.'''
 
         send_mail(
             subject=subject, 
@@ -20,8 +20,8 @@ def send_register_mail(user, webinar):
 
 def send_admin_email(user, webinar):
     try:
-        subject = f'Регистрация на вебинар {webinar.title}'
-        message = f'Пользователь {user.first_name} {user.last_name} ({user.email}) зарегистрировался на участие в вебинаре {webinar.title}. Пожалуйста, свяжитесь с ним.'
+        subject = f'Реєстрація на вебінар {webinar.title}'
+        message = f'Користувач {user.first_name} {user.last_name} ({user.email}) зареєструвався на участь у вебінарі {webinar.title}. Будь ласка, зв\'яжіться з ним.'
         send_mail(
             subject=subject,
             message=message,
