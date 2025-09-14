@@ -31,6 +31,9 @@ services:
     volumes:
       - ./docker/default.conf:/etc/nginx/nginx.conf:ro
       - media_data:/app/media:ro
+      - certbot-webroot:/var/www/certbot
+      - letsencrypt:/etc/letsencrypt
+
     networks: [main]
 
   certbot:
