@@ -27,7 +27,9 @@ services:
   medestet-nginx:
     image: nginx:alpine
     depends_on: [medestet-api]
-    ports: ["80:80"]
+    ports:
+      - "80:80"
+      - "443:443"
     volumes:
       - ./docker/default.conf:/etc/nginx/nginx.conf:ro
       - media_data:/app/media:ro
