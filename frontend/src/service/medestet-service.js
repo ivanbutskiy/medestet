@@ -2,7 +2,7 @@ import axios from 'axios';
 
 class MedestetService {
 
-    API_BASE = 'https://medestetpro.com';
+    API_BASE = process.env.REACT_APP_API_BASE || '';
     DOMAIN_NAME = 'www.medestetpro.com';
     SERVICE_URL = 'www.medestetpro.com';
 
