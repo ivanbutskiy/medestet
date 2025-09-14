@@ -1,0 +1,40 @@
+services:
+  medestet-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        REACT_APP_API_BASE: ${REACT_APP_API_BASE}
+    env_file: [.env]
+    restart: unless-stopped
+    depends_on: [medestet-db]
+    ports: ["8000:8000"]
+    volumes:
+      - media_data:/app/media
+    networks: [main]
+
+  medestet-db:
+    image: postgres:15-alpine
+    container_name: medestet-db
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks: [main]
+
+  medestet-nginx:
+    image: nginx:alpine
+    depends_on: [medestet-api]
+    ports: ["80:80"]
+    volumes:
+      - ./docker/default.conf:/etc/nginx/nginx.conf:ro
+      - media_data:/app/media:ro
+    networks: [main]
+
+volumes:
+  media_data:
+  postgres_data:
+networks:
+  main:
