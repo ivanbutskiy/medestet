@@ -83,10 +83,10 @@ class Footer extends Component {
                     </div>
                     <div className='row'>
                       <div className='col-md-6'>
-                        <p className='text-muted mb-1'>Адреса: м. Київ вул. Хрещатик, 6</p>
-                        <p className='text-muted mb-1'>ФОП Качанова Е. В.</p>
-                        <p className='text-muted mb-1'>ІПН 2436601081</p>
-                        <p className='text-muted mb-1'>Контактний телефон: +380506040238</p>
+                        <p className='text-muted mb-1'>Адреса: Україна, 03035, м. Київ, вул.Громадська, 16 (ФОП)</p>
+                        <p className='text-muted mb-1'>ФІЗИЧНА ОСОБА - ПІДПРИЄМЕЦЬ КОВИНЬОВА ІРИНА ВІКТОРІВНА</p>
+                        {/*<p className='text-muted mb-1'>ІПН 2436601081</p>*/}
+                        <p className='text-muted mb-1'>Контактний телефон: +380 (50) 604 02 38</p>
                       </div>
                     </div>
                 </div>
